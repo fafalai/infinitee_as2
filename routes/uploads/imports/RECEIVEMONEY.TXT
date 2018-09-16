@@ -1,0 +1,178 @@
+Deposit Account	ID #	Date	Co./Last Name	First Name	Memo	Inclusive	Allocation Account #	Ex-Tax Amount	Inc-Tax Amount	Job #	Tax Code	Non GST/LCT Amount	Tax Amount	Import Duty Amount	Currency Code	Exchange Rate	Payment Method	Drawer/Account Name	BSB	Account Number	Cheque Number	Card Number	Name on Card	Expiry Date	Authorisation Code	Notes	Allocation Memo	Category	Card ID	Record ID
+11111	CR005882	06/07/2016			Transfer From CHQ ACC to CASH RESERVE	X		$49,707.93	$49,707.93																					
+	CR005882	06/07/2016			Transfer From CHQ ACC to CASH RESERVE	X	11110	$49,707.93	$49,707.93		N-T	$0.00	$0.00	$0.00																
+
+21701	CR005883	06/07/2016			To Credit Card	X		$1,500.00	$1,500.00																					
+	CR005883	06/07/2016			To Credit Card	X	11110	$1,500.00	$1,500.00		N-T	$0.00	$0.00	$0.00																
+
+21701	PCASH	06/07/2016			DIRECTORS LOAN	X		$410.00	$410.00																					
+	PCASH	06/07/2016			DIRECTORS LOAN	X	21701	$410.00	$410.00		N-T	$0.00	$0.00	$0.00																
+
+21701	CR005893	07/07/2016			Transfer to John O/S	X		$30,000.00	$30,000.00																					
+	CR005893	07/07/2016			Transfer to John O/S	X	11112	$30,000.00	$30,000.00		N-T	$0.00	$0.00	$0.00																
+
+11110	DD	08/07/2016			The Undercover Coffee Roasters	X		$3,349.20	$3,349.20								EFT													
+	DD	08/07/2016			The Undercover Coffee Roasters	X	46001	$3,349.20	$3,349.20		N-T	$0.00	$0.00	$0.00			EFT										legal associated costs			
+
+21701	CR005912	12/07/2016			To Credit Card	X		$3,000.00	$3,000.00																					
+	CR005912	12/07/2016			To Credit Card	X	11110	$3,000.00	$3,000.00		N-T	$0.00	$0.00	$0.00																
+
+21701	CR005932	15/07/2016			To Credit Card	X		$2,800.00	$2,800.00								EFT													
+	CR005932	15/07/2016			To Credit Card	X	11110	$2,800.00	$2,800.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+21701	CR005956	21/07/2016			To Credit Card	X		$13,000.00	$13,000.00																					
+	CR005956	21/07/2016			To Credit Card	X	11110	$13,000.00	$13,000.00		N-T	$0.00	$0.00	$0.00																
+
+11111	CR005977	25/07/2016			Transfer From CHQ ACC to CASH RESERVE	X		$100,000.00	$100,000.00								EFT													
+	CR005977	25/07/2016			Transfer From CHQ ACC to CASH RESERVE	X	11110	$100,000.00	$100,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	DD	29/07/2016			Interest earned	X		$2.97	$2.97																					
+	DD	29/07/2016			Interest earned	X	81000	$2.97	$2.97		FRE	$0.00	$0.00	$0.00																
+
+11111	DD	29/07/2016			Interest earned	X		$608.53	$608.53																					
+	DD	29/07/2016			Interest earned	X	81000	$608.53	$608.53		FRE	$0.00	$0.00	$0.00																
+
+21701	CR006035	05/08/2016			To Credit Card X-Changing	X		$42,000.00	$42,000.00								EFT													
+	CR006035	05/08/2016			To Credit Card X-Changing	X	11110	$42,000.00	$42,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11111	CR006036	05/08/2016			Transfer From CHQ ACC to CASH RESERVE	X		$99,391.47	$99,391.47								EFT													
+	CR006036	05/08/2016			Transfer From CHQ ACC to CASH RESERVE	X	11110	$99,391.47	$99,391.47		N-T	$0.00	$0.00	$0.00			EFT													
+
+21701	CR006133	25/08/2016			To Credit Card ATO & Other payments	X		$25,000.00	$25,000.00								EFT													
+	CR006133	25/08/2016			To Credit Card ATO & Other payments	X	11110	$25,000.00	$25,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	DD	31/08/2016			Interest earned	X		$0.97	$0.97																					
+	DD	31/08/2016			Interest earned	X	81000	$0.97	$0.97		FRE	$0.00	$0.00	$0.00																
+
+11111	DD	31/08/2016			Interest earned	X		$786.00	$786.00																					
+	DD	31/08/2016			Interest earned	X	81000	$786.00	$786.00		FRE	$0.00	$0.00	$0.00																
+
+11130	PCASH	02/09/2016			Petty Cash Top Up	X		$194.00	$194.00																					
+	PCASH	02/09/2016			Petty Cash Top Up	X	21701	$194.00	$194.00		N-T	$0.00	$0.00	$0.00																
+
+11110	CR006216	15/09/2016			From Cash Reserve	X		$50,786.00	$50,786.00								EFT													
+	CR006216	15/09/2016			From Cash Reserve	X	11111	$50,786.00	$50,786.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	CR006263	27/09/2016			Directors Loan	X		$50,000.00	$50,000.00								EFT													
+	CR006263	27/09/2016			Directors Loan	X	21701	$50,000.00	$50,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	DD	30/09/2016			Interest earned	X		$1.53	$1.53																					
+	DD	30/09/2016			Interest earned	X	81000	$1.53	$1.53		FRE	$0.00	$0.00	$0.00																
+
+11111	DD	30/09/2016			Interest earned	X		$561.18	$561.18																					
+	DD	30/09/2016			Interest earned	X	81000	$561.18	$561.18		FRE	$0.00	$0.00	$0.00																
+
+21701	CR006324	04/10/2016			Trasfer Back To John	X		$950,000.00	$950,000.00																					
+	CR006324	04/10/2016			Trasfer Back To John	X	11111	$950,000.00	$950,000.00		N-T	$0.00	$0.00	$0.00																
+
+21701	CR006322	10/10/2016			To Credit Card	X		$1,000.00	$1,000.00																					
+	CR006322	10/10/2016			To Credit Card	X	11110	$1,000.00	$1,000.00		N-T	$0.00	$0.00	$0.00																
+
+11111	CR006323	10/10/2016			Transfer From CHQ ACC to CASH RESERVE	X		$99,438.82	$99,438.82																					
+	CR006323	10/10/2016			Transfer From CHQ ACC to CASH RESERVE	X	11110	$99,438.82	$99,438.82		N-T	$0.00	$0.00	$0.00																
+
+11111	CR006367	17/10/2016			Transfer From CHQ ACC to CASH RESERVE	X		$100,000.00	$100,000.00																					
+	CR006367	17/10/2016			Transfer From CHQ ACC to CASH RESERVE	X	11110	$100,000.00	$100,000.00		N-T	$0.00	$0.00	$0.00																
+
+11110	CR006378	18/10/2016			Cash Reserve to Chq account	X		$40,000.00	$40,000.00								EFT													
+	CR006378	18/10/2016			Cash Reserve to Chq account	X	11111	$40,000.00	$40,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	CR006395	19/10/2016			Cash Reserve to Chq Account	X		$60,000.00	$60,000.00								EFT													
+	CR006395	19/10/2016			Cash Reserve to Chq Account	X	11111	$60,000.00	$60,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+21701	CR006401	24/10/2016			To Credit Card	X		$3,000.00	$3,000.00																					
+	CR006401	24/10/2016			To Credit Card	X	11110	$3,000.00	$3,000.00		N-T	$0.00	$0.00	$0.00																
+
+11110	DD	31/10/2016			Interest earned	X		$1.70	$1.70																					
+	DD	31/10/2016			Interest earned	X	81000	$1.70	$1.70		FRE	$0.00	$0.00	$0.00																
+
+11111	IE031116	31/10/2016				X		$116.26	$116.26																					
+	IE031116	31/10/2016				X	81000	$116.26	$116.26		FRE	$0.00	$0.00	$0.00																
+
+11111	CR006451	03/11/2016			Transfer From CHQ ACC to CASH RESERVE	X		$99,883.74	$99,883.74								EFT													
+	CR006451	03/11/2016			Transfer From CHQ ACC to CASH RESERVE	X	11110	$99,883.74	$99,883.74		N-T	$0.00	$0.00	$0.00			EFT													
+
+11130	PCASH	07/11/2016			TOP up	X		$200.00	$200.00																					
+	PCASH	07/11/2016			TOP up	X	21701	$200.00	$200.00		N-T	$0.00	$0.00	$0.00																
+
+11110	CR006498	10/11/2016			Transfer from Cash Reserve	X		$100,000.00	$100,000.00								EFT													
+	CR006498	10/11/2016			Transfer from Cash Reserve	X	11111	$100,000.00	$100,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	DD	30/11/2016			Interest Earned	X		$2.80	$2.80																					
+	DD	30/11/2016			Interest Earned	X	81000	$2.80	$2.80		FRE	$0.00	$0.00	$0.00																
+
+11111	DD	30/11/2016			Interest Earned	X		$70.96	$70.96																					
+	DD	30/11/2016			Interest Earned	X	81000	$70.96	$70.96		FRE	$0.00	$0.00	$0.00																
+
+11111	CR006784	08/12/2016			From Elias Haddad Pty Ltd	X		$100,000.00	$100,000.00								EFT													
+	CR006784	08/12/2016			From Elias Haddad Pty Ltd	X	21703	$100,000.00	$100,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11111	CR006785	13/12/2016			Directors Loan	X		$50,000.00	$50,000.00								EFT													
+	CR006785	13/12/2016			Directors Loan	X	21701	$50,000.00	$50,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11111	CR006786	13/12/2016			From Elias Haddad Pty Ltd	X		$50,000.00	$50,000.00								EFT													
+	CR006786	13/12/2016			From Elias Haddad Pty Ltd	X	21703	$50,000.00	$50,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	CR006726	22/12/2016			Transfer from CAsh Reserve To Pay Shares	X		$900,000.00	$900,000.00								EFT													
+	CR006726	22/12/2016			Transfer from CAsh Reserve To Pay Shares	X	11111	$900,000.00	$900,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	CR006727	22/12/2016			Cheque Account to Loan Account 416440	X		$421,000.00	$421,000.00								EFT													
+	CR006727	22/12/2016			Cheque Account to Loan Account 416440	X	22310	$421,000.00	$421,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	CR006728	22/12/2016			Loan for Shares Payment Commercial Props	X		$950,000.00	$950,000.00								EFT													
+	CR006728	22/12/2016			Loan for Shares Payment Commercial Props	X	22320	$950,000.00	$950,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11111	DD	30/12/2016			Interest earned	X		$193.70	$193.70																					
+	DD	30/12/2016			Interest earned	X	81000	$193.70	$193.70		FRE	$0.00	$0.00	$0.00																
+
+11110	IE311216	30/12/2016			Interest Earned	X		$1.76	$1.76																					
+	IE311216	30/12/2016			Interest Earned	X	81000	$1.76	$1.76		FRE	$0.00	$0.00	$0.00																
+
+11110	CR006729	05/01/2017			Equipment Finance	X		$1,104,000.00	$1,104,000.00								EFT													
+	CR006729	05/01/2017			Equipment Finance	X	22400	$1,104,000.00	$1,104,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+21701	CR006779	18/01/2017			To Credit Card	X		$5,000.00	$5,000.00								EFT													
+	CR006779	18/01/2017			To Credit Card	X	11110	$5,000.00	$5,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	CR006730	19/01/2017			Property Finance Part 2	X		$771,000.00	$771,000.00								EFT													
+	CR006730	19/01/2017			Property Finance Part 2	X	22330	$771,000.00	$771,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	CR006818	27/01/2017			Loan account 416440 to Cheque Account	X		$50,000.00	$50,000.00								EFT													
+	CR006818	27/01/2017			Loan account 416440 to Cheque Account	X	22310	$50,000.00	$50,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+21701	CR006822	30/01/2017			Trasfer Back To John	X		$1,000.00	$1,000.00								EFT													
+	CR006822	30/01/2017			Trasfer Back To John	X	11110	$1,000.00	$1,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+21701	CR006833	31/01/2017			To Credit Card	X		$2,500.00	$2,500.00																					
+	CR006833	31/01/2017			To Credit Card	X	11110	$2,500.00	$2,500.00		N-T	$0.00	$0.00	$0.00																
+
+11110	DD	31/01/2017			Interest earned	X		$0.27	$0.27																					
+	DD	31/01/2017			Interest earned	X	81000	$0.27	$0.27		FRE	$0.00	$0.00	$0.00																
+
+11130	PCASH	01/02/2017			Top Up 	X		$200.00	$200.00																					
+	PCASH	01/02/2017			Top Up 	X	21701	$200.00	$200.00		N-T	$0.00	$0.00	$0.00																
+
+11112	EFT	03/02/2017			See John	X		$855.00	$855.00																					
+	EFT	03/02/2017			See John	X	46000	$777.27	$855.00		GST	$0.00	$77.73	$0.00																
+
+11130	PCASH	07/02/2017			PETTY CASH TOP UP	X		$100.00	$100.00																					
+	PCASH	07/02/2017			PETTY CASH TOP UP	X	21701	$100.00	$100.00		N-T	$0.00	$0.00	$0.00																
+
+21701	CR006885	10/02/2017			To Credit Card	X		$3,500.00	$3,500.00																					
+	CR006885	10/02/2017			To Credit Card	X	11110	$3,500.00	$3,500.00		N-T	$0.00	$0.00	$0.00																
+
+11113	CR006904	16/02/2017			Chq to Loan 416440	X		$50,000.00	$50,000.00								EFT													
+	CR006904	16/02/2017			Chq to Loan 416440	X	11110	$50,000.00	$50,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+21701	CR006958	24/02/2017			To Credit Card	X		$10,500.00	$10,500.00																					
+	CR006958	24/02/2017			To Credit Card	X	11110	$10,500.00	$10,500.00		N-T	$0.00	$0.00	$0.00																
+
+11113	CR006966	27/02/2017			Transfer from Chq to Loan 416440	X		$50,000.00	$50,000.00								EFT													
+	CR006966	27/02/2017			Transfer from Chq to Loan 416440	X	11110	$50,000.00	$50,000.00		N-T	$0.00	$0.00	$0.00			EFT													
+
+11110	DD	28/02/2017			Interest Earned	X		$0.70	$0.70																					
+	DD	28/02/2017			Interest Earned	X	81000	$0.70	$0.70		FRE	$0.00	$0.00	$0.00																
+
+11110	EFT	02/03/2017			From Loan account 416440	X		$50,000.00	$50,000.00																					
+	EFT	02/03/2017			From Loan account 416440	X	22310	$50,000.00	$50,000.00		N-T	$0.00	$0.00	$0.00																
+

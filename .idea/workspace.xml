@@ -1,0 +1,1433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9cce7ba9-f1af-4eca-9892-95c9aa6529b5" name="Default" comment="" />
+    <ignored path="as1.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="as1" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.48091602">
+      <split-first>
+        <splitter split-orientation="vertical" split-proportion="0.60171306">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file leaf-file-name="as1.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/as1.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="301">
+                      <caret line="8840" column="29" lean-forward="true" selection-start-line="8840" selection-start-column="29" selection-end-line="8840" selection-end-column="29" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="orders.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/modules/orders.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="630">
+                      <caret line="43" column="19" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="19" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="tpcc.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/modules/tpcc.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="332">
+                      <caret line="772" column="18" lean-forward="true" selection-start-line="772" selection-start-column="18" selection-end-line="772" selection-end-column="18" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="products.js" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/modules/products.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="316">
+                      <caret line="1344" column="9" lean-forward="true" selection-start-line="1344" selection-start-column="9" selection-end-line="1344" selection-end-column="9" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file leaf-file-name="config.ini" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/config.ini">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="1530">
+                      <caret line="102" column="19" selection-start-line="102" selection-start-column="19" selection-end-line="102" selection-end-column="19" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="as1.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/as1.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="57">
+                      <caret line="248" column="25" lean-forward="true" selection-start-line="247" selection-start-column="32" selection-end-line="248" selection-end-column="25" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/routes/index.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="35">
+                      <caret line="2924" column="36" lean-forward="true" selection-start-line="2924" selection-start-column="36" selection-end-line="2924" selection-end-column="36" />
+                      <folding>
+                        <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+                        <element signature="e#136711#136736#0" expanded="true" />
+                        <element signature="e#136850#136871#0" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
+      </split-first>
+      <split-second>
+        <splitter split-orientation="vertical" split-proportion="0.55580866">
+          <split-first>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file leaf-file-name="tab-dash.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/routes/tab-dash.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="253">
+                      <caret line="183" column="22" lean-forward="true" selection-start-line="183" selection-start-column="22" selection-end-line="183" selection-end-column="22" />
+                      <folding>
+                        <element signature="e#18#24#1" expanded="true" />
+                        <element signature="n#style#0;n#img#0;n#td#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#table#0;n#td#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#td#1;n#tr#3;n#table#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#!!top" expanded="true" />
+                        <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+                        <element signature="e#55#61#1" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="tab-orders.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/routes/tab-orders.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="1860">
+                      <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="dlg-select-product-templates.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/routes/dlg-select-product-templates.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="2055">
+                      <caret line="137" column="39" selection-start-line="137" selection-start-column="39" selection-end-line="137" selection-end-column="39" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="dlg-tpcc-jobsheet.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/routes/dlg-tpcc-jobsheet.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="248">
+                      <caret line="659" column="25" selection-start-line="659" selection-start-column="24" selection-end-line="659" selection-end-column="25" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="tab-jobsheets.js" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/routes/tab-jobsheets.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="173">
+                      <caret line="165" column="7" lean-forward="true" selection-start-line="165" selection-start-column="7" selection-end-line="165" selection-end-column="7" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-first>
+          <split-second>
+            <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+              <file leaf-file-name="globals.js" pinned="false" current-in-tab="true">
+                <entry file="file://$PROJECT_DIR$/routes/globals.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="227">
+                      <caret line="2411" lean-forward="true" selection-start-line="2411" selection-end-line="2411" />
+                      <folding>
+                        <element signature="n#src#0;n#img#0;n#!!top" expanded="true" />
+                        <element signature="n#src#0;n#img#0;n#!!top" expanded="true" />
+                        <marker date="1522288424000" expanded="true" signature="14593:14616" ph="..." />
+                        <marker date="1522288424000" expanded="true" signature="14812:14835" ph="..." />
+                        <marker date="1522288424000" expanded="true" signature="14956:14979" ph="..." />
+                        <marker date="1522288424000" expanded="true" signature="29473:29496" ph="..." />
+                        <marker date="1522288424000" expanded="true" signature="34346:34369" ph="..." />
+                        <marker date="1522288424000" expanded="true" signature="59491:59497" ph="©" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/routes/css/styles.css">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="615">
+                      <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="listeners.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/routes/listeners.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="300">
+                      <caret line="20" selection-start-line="20" selection-end-line="20" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="primushandlers.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/routes/primushandlers.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="34410">
+                      <caret line="2295" selection-start-line="2295" selection-end-line="2295" />
+                      <folding>
+                        <element signature="n#!!doc" expanded="true" />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/routes/index.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="21270">
+                      <caret line="1418" column="17" selection-start-line="1418" selection-start-column="17" selection-end-line="1418" selection-end-column="17" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="dlg-product-change-category.js" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/routes/dlg-product-change-category.js">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="450">
+                      <caret line="30" selection-start-line="21" selection-end-line="30" />
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+              <file leaf-file-name="clients.html" pinned="false" current-in-tab="false">
+                <entry file="file://$PROJECT_DIR$/routes/clients.html">
+                  <provider selected="true" editor-type-id="text-editor">
+                    <state relative-caret-position="825">
+                      <caret line="55" selection-start-line="55" selection-end-line="55" />
+                      <folding>
+                        <marker date="1519957996000" expanded="true" signature="4768:4791" ph="..." />
+                      </folding>
+                    </state>
+                  </provider>
+                </entry>
+              </file>
+            </leaf>
+          </split-second>
+        </splitter>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>listbuildtem</find>
+      <find>saveconfig</find>
+      <find>loadcon</find>
+      <find>﻿autosyncbuildtemplates</find>
+      <find>autosyncbuildtemplates</find>
+      <find>cache_buildt</find>
+      <find>callback</find>
+      <find>world.cn.</find>
+      <find>doImportInsertOrUpdateClient</find>
+      <find>listclients</find>
+      <find>loaddata</find>
+      <find>eventer</find>
+      <find>pace.s</find>
+      <find>cursor</find>
+      <find>childre</find>
+      <find>buildtemplategetchildren</find>
+      <find>TPCCAddStatus</find>
+      <find>tpcc reques</find>
+      <find>addstats</find>
+      <find>dodefa</find>
+      <find>listjo</find>
+      <find>tpcc requ</find>
+      <find>tpcc</find>
+      <find>doShowInfo</find>
+      <find>tpccaddj</find>
+      <find>TPCCAddJobSheetDetail</find>
+      <find>doAddJobSheetDetail</find>
+      <find>TPCCOrderBuilds</find>
+      <find>#across</find>
+      <find>jsd1</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>dlgalertnewfirsttime</replace>
+      <replace>order</replace>
+      <replace>type</replace>
+      <replace>client.</replace>
+      <replace>order.id</replace>
+      <replace>orderspopup</replace>
+      <replace>tbProducts</replace>
+      <replace>ByValue</replace>
+      <replace>p1</replace>
+      <replace>divPurchaseOrdersG</replace>
+      <replace>data.supplier.</replace>
+      <replace>'setValue'</replace>
+      <replace>invoiceto_</replace>
+      <replace>shipto_</replace>
+      <replace>editingIndex</replace>
+      <replace>setValue</replace>
+      <replace>args.data.client</replace>
+      <replace>cache_config.</replace>
+      <replace>co.</replace>
+      <replace>result.rows[0].</replace>
+      <replace>world.</replace>
+      <replace>supplier.</replace>
+      <replace>NewSupplier</replace>
+      <replace>supplier.id</replace>
+      <replace>supplier</replace>
+      <replace>,</replace>
+      <replace>editorIndex</replace>
+      <replace>doEditorSaved</replace>
+      <replace>pc</replace>
+      <replace>doShowResults</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/routes/tab-maintenance.js" />
+        <option value="$PROJECT_DIR$/routes/dlg-jobsheet.js" />
+        <option value="$PROJECT_DIR$/routes/js/easyui/themes/icon.css" />
+        <option value="$PROJECT_DIR$/routes/dlg-user-new.js" />
+        <option value="$PROJECT_DIR$/routes/tab-employees.js" />
+        <option value="$PROJECT_DIR$/routes/cmdcentre.js" />
+        <option value="$PROJECT_DIR$/routes/tab-users.js" />
+        <option value="$PROJECT_DIR$/routes/tab-portfolio.js" />
+        <option value="$PROJECT_DIR$/routes/dlg-pv-depositadd.js" />
+        <option value="$PROJECT_DIR$/routes/rtap.js" />
+        <option value="$PROJECT_DIR$/modules/mdm.js" />
+        <option value="$PROJECT_DIR$/routes/droporderattachment.js" />
+        <option value="$PROJECT_DIR$/routes/dropjobsheet.js" />
+        <option value="$PROJECT_DIR$/modules/auth.js" />
+        <option value="$PROJECT_DIR$/routes/dz-tpcc-jobsheets.js" />
+        <option value="$PROJECT_DIR$/routes/dlg-order-notes.js" />
+        <option value="$PROJECT_DIR$/routes/dlg-client-new.js" />
+        <option value="$PROJECT_DIR$/routes/clients.html" />
+        <option value="$PROJECT_DIR$/routes/tab-clients.js" />
+        <option value="$PROJECT_DIR$/routes/tab-products.js" />
+        <option value="$PROJECT_DIR$/routes/tab-product-templates.js" />
+        <option value="$PROJECT_DIR$/routes/dlg-product-from-buildtemplate.js" />
+        <option value="$PROJECT_DIR$/modules/printing.js" />
+        <option value="$PROJECT_DIR$/modules/orders.js" />
+        <option value="$PROJECT_DIR$/modules/reports.js" />
+        <option value="$PROJECT_DIR$/config.ini" />
+        <option value="$PROJECT_DIR$/routes/dlg-rep-orders-locations.js" />
+        <option value="$PROJECT_DIR$/routes/voices.js" />
+        <option value="$PROJECT_DIR$/routes/tab-porders.js" />
+        <option value="$PROJECT_DIR$/routes/dlg-order-new.js" />
+        <option value="$PROJECT_DIR$/routes/dz-order-attachments.js" />
+        <option value="$PROJECT_DIR$/routes/dz-client-attachments.js" />
+        <option value="$PROJECT_DIR$/routes/dz-supplier-attachments.js" />
+        <option value="$PROJECT_DIR$/routes/dz-print-templates.js" />
+        <option value="$PROJECT_DIR$/routes/tab-orders.js" />
+        <option value="$PROJECT_DIR$/modules/config.js" />
+        <option value="$PROJECT_DIR$/routes/dlg-select-product-templates.js" />
+        <option value="$PROJECT_DIR$/modules/products.js" />
+        <option value="$PROJECT_DIR$/try7.js" />
+        <option value="$PROJECT_DIR$/routes/primushandlers.js" />
+        <option value="$PROJECT_DIR$/routes/listeners.js" />
+        <option value="$PROJECT_DIR$/routes/tab-build-templates.js" />
+        <option value="$PROJECT_DIR$/routes/globals.js" />
+        <option value="$PROJECT_DIR$/sql.sql" />
+        <option value="$PROJECT_DIR$/routes/dlg-tpcc-jobsheet.js" />
+        <option value="$PROJECT_DIR$/routes/tab-dash.js" />
+        <option value="$PROJECT_DIR$/routes/index.html" />
+        <option value="$PROJECT_DIR$/modules/tpcc.js" />
+        <option value="$PROJECT_DIR$/modules/scripts.js" />
+        <option value="$PROJECT_DIR$/as1.js" />
+        <option value="$PROJECT_DIR$/routes/tab-jobsheets.js" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsFlowSettings">
+    <service-enabled>false</service-enabled>
+    <exe-path />
+    <annotation-enable>false</annotation-enable>
+    <other-services-enabled>false</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="2560" />
+    <option name="height" value="1440" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>JSON</id>
+          </State>
+          <State>
+            <id>JavaScript</id>
+          </State>
+          <State>
+            <id>Spelling</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>GeneralJavaScript</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="as1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="as1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="as1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="as1" type="462c0819:PsiDirectoryNode" />
+              <item name="modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="as1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="as1" type="462c0819:PsiDirectoryNode" />
+              <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="SearchEverywhereHistoryKey" value="' +&#9;ACTION&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="js.eslint.eslintPackage" value="/usr/local/lib/node_modules/eslint" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../britex" />
+    <property name="node.js.detected.package.prettier" value="true" />
+    <property name="node.js.path.for.package.prettier" value="project" />
+    <property name="node.js.selected.package.prettier" value="" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Other File Types" />
+    <property name="settings.editor.splitter.proportion" value="0.24048282" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/try" />
+      <recent name="D:\WebStormProjects\as1\routes" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routes" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="D:\WebStormProjects\as1\routes" />
+      <recent name="$PROJECT_DIR$/modules" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Node.js.as1.js">
+    <configuration name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/as1/routes/index.html" />
+    <configuration name="as1.js" type="NodeJSConfigurationType" factoryName="Node.js" path-to-js-file="as1.js" working-dir="$PROJECT_DIR$" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run-script" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <pass-parent-envs>true</pass-parent-envs>
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>/usr/local/bin/node</node-interpreter>
+      <node-options />
+      <working-directory>$PROJECT_DIR$</working-directory>
+      <pass-parent-env>true</pass-parent-env>
+      <ui>bdd</ui>
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+    </configuration>
+    <list>
+      <item itemvalue="Node.js.as1.js" />
+      <item itemvalue="JavaScript Debug.index.html" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.index.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9cce7ba9-f1af-4eca-9892-95c9aa6529b5" name="Default" comment="" />
+      <created>1421369707873</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1421369707873</updated>
+      <workItem from="1458220368993" duration="284000" />
+      <workItem from="1458252131367" duration="14000" />
+      <workItem from="1458254894758" duration="442000" />
+      <workItem from="1458263820251" duration="25000" />
+      <workItem from="1458265907672" duration="73000" />
+      <workItem from="1458265994891" duration="17448000" />
+      <workItem from="1458315548123" duration="18000" />
+      <workItem from="1458315579872" duration="29988000" />
+      <workItem from="1458478965330" duration="11968000" />
+      <workItem from="1458513307713" duration="3335000" />
+      <workItem from="1458518987031" duration="18401000" />
+      <workItem from="1458610498125" duration="31783000" />
+      <workItem from="1458686328317" duration="24050000" />
+      <workItem from="1458732897824" duration="10423000" />
+      <workItem from="1458777836809" duration="8688000" />
+      <workItem from="1458787281236" duration="12248000" />
+      <workItem from="1458859956992" duration="24585000" />
+      <workItem from="1458908345693" duration="25292000" />
+      <workItem from="1459058358836" duration="17155000" />
+      <workItem from="1459127264614" duration="18000" />
+      <workItem from="1459229183524" duration="2310000" />
+      <workItem from="1459232549437" duration="19000" />
+      <workItem from="1459254629793" duration="10249000" />
+      <workItem from="1459290320859" duration="21227000" />
+      <workItem from="1459342407664" duration="383000" />
+      <workItem from="1459377427027" duration="22806000" />
+      <workItem from="1459428601942" duration="125000" />
+      <workItem from="1459428749742" duration="2782000" />
+      <workItem from="1459468768649" duration="23919000" />
+      <workItem from="1459607325628" duration="56000" />
+      <workItem from="1459608129489" duration="4059000" />
+      <workItem from="1459694968129" duration="1023000" />
+      <workItem from="1459728542502" duration="16417000" />
+      <workItem from="1459778318245" duration="7489000" />
+      <workItem from="1459817336165" duration="17986000" />
+      <workItem from="1459864068369" duration="506000" />
+      <workItem from="1459865368193" duration="4430000" />
+      <workItem from="1459905439303" duration="17904000" />
+      <workItem from="1459986214274" duration="18551000" />
+      <workItem from="1460081540792" duration="7512000" />
+      <workItem from="1460333477867" duration="17222000" />
+      <workItem from="1460421461880" duration="162000" />
+      <workItem from="1460438794576" duration="1124000" />
+      <workItem from="1460592533023" duration="1585000" />
+      <workItem from="1460686776296" duration="9975000" />
+      <workItem from="1460937614266" duration="1230000" />
+      <workItem from="1461288295263" duration="10657000" />
+      <workItem from="1461632895937" duration="141000" />
+      <workItem from="1461713888054" duration="13684000" />
+      <workItem from="1461801123531" duration="13252000" />
+      <workItem from="1461893309595" duration="6983000" />
+      <workItem from="1462147530421" duration="36000" />
+      <workItem from="1462147584649" duration="8030000" />
+      <workItem from="1462319955769" duration="5746000" />
+      <workItem from="1462408441197" duration="11322000" />
+      <workItem from="1462751560211" duration="13601000" />
+      <workItem from="1462849816407" duration="435000" />
+      <workItem from="1462924119014" duration="1305000" />
+      <workItem from="1463010290528" duration="863000" />
+      <workItem from="1463012510622" duration="10342000" />
+      <workItem from="1463104432832" duration="273000" />
+      <workItem from="1463355718048" duration="16944000" />
+      <workItem from="1463454846897" duration="1739000" />
+      <workItem from="1463536927773" duration="12164000" />
+      <workItem from="1463615886333" duration="75000" />
+      <workItem from="1463615983125" duration="18690000" />
+      <workItem from="1463965834946" duration="14595000" />
+      <workItem from="1464050758155" duration="393000" />
+      <workItem from="1464139910719" duration="5113000" />
+      <workItem from="1464153114211" duration="2826000" />
+      <workItem from="1464222155178" duration="10349000" />
+      <workItem from="1464309009125" duration="10826000" />
+      <workItem from="1464740745253" duration="8048000" />
+      <workItem from="1464837919914" duration="180000" />
+      <workItem from="1464838131329" duration="4767000" />
+      <workItem from="1464913596410" duration="2151000" />
+      <workItem from="1465949063344" duration="262000" />
+      <workItem from="1465949352625" duration="9236000" />
+      <workItem from="1466401706971" duration="11281000" />
+      <workItem from="1466552354106" duration="3452000" />
+      <workItem from="1466729820723" duration="3258000" />
+      <workItem from="1467072588529" duration="1079000" />
+      <workItem from="1467080727597" duration="1218000" />
+      <workItem from="1467676923261" duration="1851000" />
+      <workItem from="1468193894075" duration="7432000" />
+      <workItem from="1468290382318" duration="9342000" />
+      <workItem from="1468303621565" duration="140000" />
+      <workItem from="1468304152749" duration="146000" />
+      <workItem from="1468304399592" duration="41000" />
+      <workItem from="1468304456865" duration="31000" />
+      <workItem from="1468304506466" duration="146000" />
+      <workItem from="1468304666380" duration="3624000" />
+      <workItem from="1468368036283" duration="19612000" />
+      <workItem from="1468454841393" duration="21126000" />
+      <workItem from="1468503702760" duration="7947000" />
+      <workItem from="1468545593666" duration="23000" />
+      <workItem from="1468545629938" duration="15664000" />
+      <workItem from="1468596276636" duration="659000" />
+      <workItem from="1468799492514" duration="3007000" />
+      <workItem from="1468806361901" duration="2595000" />
+      <workItem from="1468811870860" duration="8333000" />
+      <workItem from="1468829016204" duration="217000" />
+      <workItem from="1468853779225" duration="604000" />
+      <workItem from="1468887193709" duration="14915000" />
+      <workItem from="1469024837351" duration="2522000" />
+      <workItem from="1469058914685" duration="18926000" />
+      <workItem from="1469112508274" duration="3000" />
+      <workItem from="1469146234293" duration="12374000" />
+      <workItem from="1469405891717" duration="920000" />
+      <workItem from="1469498998015" duration="890000" />
+      <workItem from="1469506021711" duration="9911000" />
+      <workItem from="1469579682988" duration="15651000" />
+      <workItem from="1469664472361" duration="16353000" />
+      <workItem from="1470011139091" duration="13883000" />
+      <workItem from="1470029079364" duration="6512000" />
+      <workItem from="1470061971488" duration="6342000" />
+      <workItem from="1470227983262" duration="808000" />
+      <workItem from="1470229693932" duration="7552000" />
+      <workItem from="1470360717454" duration="89000" />
+      <workItem from="1470579760574" duration="117000" />
+      <workItem from="1470579908062" duration="792000" />
+      <workItem from="1470636670210" duration="1157000" />
+      <workItem from="1470698339822" duration="4016000" />
+      <workItem from="1470873416277" duration="1700000" />
+      <workItem from="1470885427356" duration="1602000" />
+      <workItem from="1470896602292" duration="9000" />
+      <workItem from="1470896632172" duration="12000" />
+      <workItem from="1471217720495" duration="6106000" />
+      <workItem from="1471236548898" duration="7118000" />
+      <workItem from="1471322885333" duration="7364000" />
+      <workItem from="1471388735796" duration="1832000" />
+      <workItem from="1471435916319" duration="6732000" />
+      <workItem from="1471477403337" duration="31000" />
+      <workItem from="1471477609765" duration="90000" />
+      <workItem from="1471477764681" duration="8024000" />
+      <workItem from="1471496129684" duration="4129000" />
+      <workItem from="1471823100579" duration="17232000" />
+      <workItem from="1471916648001" duration="395000" />
+      <workItem from="1471923898137" duration="7608000" />
+      <workItem from="1471996421737" duration="15294000" />
+      <workItem from="1472083019784" duration="11673000" />
+      <workItem from="1472109259083" duration="265000" />
+      <workItem from="1472135674221" duration="611000" />
+      <workItem from="1472170604659" duration="1352000" />
+      <workItem from="1472428803775" duration="12223000" />
+      <workItem from="1472513133017" duration="203000" />
+      <workItem from="1472601678680" duration="900000" />
+      <workItem from="1472628334098" duration="927000" />
+      <workItem from="1472698146721" duration="7892000" />
+      <workItem from="1472737463267" duration="50000" />
+      <workItem from="1472784462363" duration="3847000" />
+      <workItem from="1472797928805" duration="221000" />
+      <workItem from="1473032929127" duration="11892000" />
+      <workItem from="1473123465992" duration="2235000" />
+      <workItem from="1473130934330" duration="784000" />
+      <workItem from="1473143017580" duration="11000" />
+      <workItem from="1473175336054" duration="741000" />
+      <workItem from="1474338201182" duration="9782000" />
+      <workItem from="1474416716985" duration="11160000" />
+      <workItem from="1474465461957" duration="2556000" />
+      <workItem from="1474469058822" duration="437000" />
+      <workItem from="1474473055566" duration="111000" />
+      <workItem from="1474500465780" duration="5026000" />
+      <workItem from="1474993234008" duration="1732000" />
+      <workItem from="1475553484643" duration="304000" />
+      <workItem from="1475556387256" duration="970000" />
+      <workItem from="1475728759871" duration="339000" />
+      <workItem from="1475749782337" duration="4820000" />
+      <workItem from="1475804074485" duration="2985000" />
+      <workItem from="1476059726080" duration="2534000" />
+      <workItem from="1476144406532" duration="14756000" />
+      <workItem from="1476410981143" duration="315000" />
+      <workItem from="1476621423343" duration="9247000" />
+      <workItem from="1476657349123" duration="13536000" />
+      <workItem from="1476716921018" duration="585000" />
+      <workItem from="1476744153897" duration="24000" />
+      <workItem from="1476751701266" duration="448000" />
+      <workItem from="1476764072316" duration="469000" />
+      <workItem from="1476830458737" duration="7242000" />
+      <workItem from="1477266875700" duration="29000" />
+      <workItem from="1477280192246" duration="307000" />
+      <workItem from="1477355524521" duration="13000" />
+      <workItem from="1477355573300" duration="1240000" />
+      <workItem from="1477536425622" duration="749000" />
+      <workItem from="1477619609674" duration="2119000" />
+      <workItem from="1477986613741" duration="11328000" />
+      <workItem from="1478073666849" duration="15436000" />
+      <workItem from="1478472122496" duration="239000" />
+      <workItem from="1487555754295" duration="2037000" />
+      <workItem from="1488322611598" duration="3906000" />
+      <workItem from="1488632164084" duration="20827000" />
+      <workItem from="1488723276421" duration="10160000" />
+      <workItem from="1488885137040" duration="10000" />
+      <workItem from="1488885356874" duration="4000" />
+      <workItem from="1488885386367" duration="3000" />
+      <workItem from="1488885628792" duration="5957000" />
+      <workItem from="1488935178575" duration="23000" />
+      <workItem from="1488935231716" duration="7000" />
+      <workItem from="1489478715848" duration="15174000" />
+      <workItem from="1489503267610" duration="698000" />
+      <workItem from="1489533996345" duration="2339000" />
+      <workItem from="1489617626494" duration="8036000" />
+      <workItem from="1489668451177" duration="25800000" />
+      <workItem from="1489809183729" duration="18000" />
+      <workItem from="1489809236724" duration="5948000" />
+      <workItem from="1489895893123" duration="597000" />
+      <workItem from="1489909208192" duration="16544000" />
+      <workItem from="1489988769039" duration="18441000" />
+      <workItem from="1490050104843" duration="84000" />
+      <workItem from="1490050267724" duration="24000" />
+      <workItem from="1490050304743" duration="11184000" />
+      <workItem from="1490147808937" duration="6721000" />
+      <workItem from="1490316278722" duration="185000" />
+      <workItem from="1490534295870" duration="22000" />
+      <workItem from="1490620895677" duration="1526000" />
+      <workItem from="1490622439701" duration="598000" />
+      <workItem from="1490662231967" duration="1350000" />
+      <workItem from="1491189231171" duration="7825000" />
+      <workItem from="1491232623910" duration="4884000" />
+      <workItem from="1491277340427" duration="7921000" />
+      <workItem from="1491317936298" duration="21000" />
+      <workItem from="1491348512585" duration="10238000" />
+      <workItem from="1491401453918" duration="5862000" />
+      <workItem from="1491439600483" duration="7016000" />
+      <workItem from="1495068462245" duration="612000" />
+      <workItem from="1495069417826" duration="77000" />
+      <workItem from="1495069511420" duration="7000" />
+      <workItem from="1495069619650" duration="8471000" />
+      <workItem from="1495155832836" duration="628000" />
+      <workItem from="1495164871881" duration="9059000" />
+      <workItem from="1503963637934" duration="4778000" />
+      <workItem from="1504247984749" duration="4088000" />
+      <workItem from="1504568090399" duration="3377000" />
+      <workItem from="1504618762310" duration="49000" />
+      <workItem from="1504679508361" duration="1166000" />
+      <workItem from="1504704613589" duration="540000" />
+      <workItem from="1504755814761" duration="465000" />
+      <workItem from="1504796804216" duration="352000" />
+      <workItem from="1504800588571" duration="253000" />
+      <workItem from="1504826656515" duration="954000" />
+      <workItem from="1505050096563" duration="538000" />
+      <workItem from="1505084075175" duration="71000" />
+      <workItem from="1505267999191" duration="8319000" />
+      <workItem from="1505323543648" duration="1619000" />
+      <workItem from="1505347766392" duration="322000" />
+      <workItem from="1505400362884" duration="1493000" />
+      <workItem from="1505441607061" duration="7748000" />
+      <workItem from="1505452244629" duration="753000" />
+      <workItem from="1505655312614" duration="14000" />
+      <workItem from="1505672362645" duration="276000" />
+      <workItem from="1505672667188" duration="10077000" />
+      <workItem from="1505777506579" duration="1686000" />
+      <workItem from="1505827425034" duration="550000" />
+      <workItem from="1505914173877" duration="8751000" />
+      <workItem from="1505999934202" duration="365000" />
+      <workItem from="1506037983870" duration="1735000" />
+      <workItem from="1506277046533" duration="415000" />
+      <workItem from="1506303327683" duration="523000" />
+      <workItem from="1506351140861" duration="290000" />
+      <workItem from="1506382350751" duration="949000" />
+      <workItem from="1506395449817" duration="247000" />
+      <workItem from="1506436324201" duration="2382000" />
+      <workItem from="1506466914541" duration="1307000" />
+      <workItem from="1506484466947" duration="705000" />
+      <workItem from="1506487152432" duration="4429000" />
+      <workItem from="1506493412098" duration="298000" />
+      <workItem from="1506517894031" duration="1227000" />
+      <workItem from="1506565571145" duration="733000" />
+      <workItem from="1506857359482" duration="3477000" />
+      <workItem from="1506897450411" duration="475000" />
+      <workItem from="1506951679545" duration="269000" />
+      <workItem from="1506985325068" duration="1173000" />
+      <workItem from="1507007584503" duration="200000" />
+      <workItem from="1507039725579" duration="1199000" />
+      <workItem from="1507071393118" duration="6397000" />
+      <workItem from="1507127954824" duration="460000" />
+      <workItem from="1507182298444" duration="209000" />
+      <workItem from="1507210192723" duration="128000" />
+      <workItem from="1507245433395" duration="14335000" />
+      <workItem from="1507727691373" duration="66000" />
+      <workItem from="1508194267942" duration="175000" />
+      <workItem from="1508373793723" duration="68000" />
+      <workItem from="1508373887794" duration="865000" />
+      <workItem from="1508763362980" duration="303000" />
+      <workItem from="1508852830000" duration="140000" />
+      <workItem from="1509496987928" duration="1517000" />
+      <workItem from="1509537727181" duration="841000" />
+      <workItem from="1509602065626" duration="1451000" />
+      <workItem from="1509624514187" duration="90000" />
+      <workItem from="1509690985849" duration="175000" />
+      <workItem from="1509715552584" duration="9965000" />
+      <workItem from="1510195810581" duration="8675000" />
+      <workItem from="1510271296310" duration="5539000" />
+      <workItem from="1510405615200" duration="729000" />
+      <workItem from="1510550462190" duration="17254000" />
+      <workItem from="1510629293429" duration="8564000" />
+      <workItem from="1510659730725" duration="31000" />
+      <workItem from="1510827286447" duration="14151000" />
+      <workItem from="1510871538027" duration="5745000" />
+      <workItem from="1511094976029" duration="576000" />
+      <workItem from="1511140406773" duration="10853000" />
+      <workItem from="1511166194984" duration="9995000" />
+      <workItem from="1511268573740" duration="197000" />
+      <workItem from="1511480035095" duration="277000" />
+      <workItem from="1511494423230" duration="18000" />
+      <workItem from="1511733193499" duration="1879000" />
+      <workItem from="1511821839493" duration="36000" />
+      <workItem from="1511909702609" duration="8012000" />
+      <workItem from="1511928111468" duration="4334000" />
+      <workItem from="1511954809832" duration="3397000" />
+      <workItem from="1511994333174" duration="4390000" />
+      <workItem from="1512040156537" duration="131000" />
+      <workItem from="1512301897595" duration="5299000" />
+      <workItem from="1512434880396" duration="38000" />
+      <workItem from="1512595195074" duration="2760000" />
+      <workItem from="1512605575610" duration="2823000" />
+      <workItem from="1512618698402" duration="217000" />
+      <workItem from="1512691897229" duration="3198000" />
+      <workItem from="1512712808282" duration="8212000" />
+      <workItem from="1512965005712" duration="124000" />
+      <workItem from="1513049708822" duration="4484000" />
+      <workItem from="1513126517756" duration="1546000" />
+      <workItem from="1513169006456" duration="12404000" />
+      <workItem from="1513309165328" duration="510000" />
+      <workItem from="1513549831993" duration="12216000" />
+      <workItem from="1513658057395" duration="1881000" />
+      <workItem from="1513686031386" duration="17360000" />
+      <workItem from="1513809135547" duration="7883000" />
+      <workItem from="1513859199711" duration="147000" />
+      <workItem from="1513859388804" duration="116000" />
+      <workItem from="1513859522834" duration="20443000" />
+      <workItem from="1515627822826" duration="177000" />
+      <workItem from="1515628270201" duration="88000" />
+      <workItem from="1515628375386" duration="1880000" />
+      <workItem from="1515724038826" duration="903000" />
+      <workItem from="1515996759039" duration="252000" />
+      <workItem from="1516142899199" duration="2385000" />
+      <workItem from="1516168617486" duration="122000" />
+      <workItem from="1516255474009" duration="1006000" />
+      <workItem from="1516576517541" duration="5998000" />
+      <workItem from="1516750133688" duration="15051000" />
+      <workItem from="1516834217262" duration="8473000" />
+      <workItem from="1517142283587" duration="261000" />
+      <workItem from="1517180680052" duration="7044000" />
+      <workItem from="1517193648553" duration="2585000" />
+      <workItem from="1517197877086" duration="1838000" />
+      <workItem from="1517271320214" duration="14661000" />
+      <workItem from="1517288916567" duration="4025000" />
+      <workItem from="1517359907826" duration="14303000" />
+      <workItem from="1517441229920" duration="15844000" />
+      <workItem from="1517526529302" duration="41000" />
+      <workItem from="1517526598730" duration="15039000" />
+      <workItem from="1517804874082" duration="302000" />
+      <workItem from="1517871809072" duration="12487000" />
+      <workItem from="1517896815295" duration="286000" />
+      <workItem from="1517959149225" duration="9671000" />
+      <workItem from="1518005434357" duration="3666000" />
+      <workItem from="1518044106944" duration="7296000" />
+      <workItem from="1518070971905" duration="253000" />
+      <workItem from="1518132411765" duration="7470000" />
+      <workItem from="1518413742075" duration="3407000" />
+      <workItem from="1518477068103" duration="12168000" />
+      <workItem from="1518995073465" duration="5794000" />
+      <workItem from="1519081906932" duration="10642000" />
+      <workItem from="1519255021720" duration="9880000" />
+      <workItem from="1519304780466" duration="768000" />
+      <workItem from="1519336357713" duration="1077000" />
+      <workItem from="1519349170167" duration="7295000" />
+      <workItem from="1519362409751" duration="408000" />
+      <workItem from="1519600802278" duration="2299000" />
+      <workItem from="1519772795716" duration="1880000" />
+      <workItem from="1519792082199" duration="8097000" />
+      <workItem from="1519820727315" duration="3792000" />
+      <workItem from="1519860469540" duration="16773000" />
+      <workItem from="1519946471173" duration="15115000" />
+      <workItem from="1520088955816" duration="5448000" />
+      <workItem from="1520214622229" duration="1790000" />
+      <workItem from="1520222133495" duration="1452000" />
+      <workItem from="1520291999445" duration="2846000" />
+      <workItem from="1520341155289" duration="65000" />
+      <workItem from="1520341241302" duration="643000" />
+      <workItem from="1520393193862" duration="456000" />
+      <workItem from="1520466775512" duration="1428000" />
+      <workItem from="1520470126339" duration="10172000" />
+      <workItem from="1520512521511" duration="703000" />
+      <workItem from="1520549750135" duration="300000" />
+      <workItem from="1520551902045" duration="844000" />
+      <workItem from="1520563019182" duration="3742000" />
+      <workItem from="1520771722438" duration="5244000" />
+      <workItem from="1520895913159" duration="4065000" />
+      <workItem from="1520940873338" duration="2003000" />
+      <workItem from="1521077830333" duration="7584000" />
+      <workItem from="1521382168376" duration="474000" />
+      <workItem from="1521557494060" duration="2184000" />
+      <workItem from="1521633099344" duration="550000" />
+      <workItem from="1521722541463" duration="7441000" />
+      <workItem from="1521990270037" duration="3241000" />
+      <workItem from="1522729582927" duration="192000" />
+      <workItem from="1522800368405" duration="275000" />
+      <workItem from="1522800770075" duration="5433000" />
+      <workItem from="1522824005661" duration="207000" />
+      <workItem from="1522890105655" duration="4789000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="2052304000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="0" width="2560" height="1440" extended-state="0" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49526346" visible="true" weight="0.15859374" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.7021973" weight="0.103265196" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" x="842" y="1732" width="475" height="375" id="Event Log" order="7" sideWeight="0.35390624" side_tool="true" visible="true" weight="0.26008645" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.21763255" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.17531557" />
+      <window_info anchor="bottom" id="Terminal" order="12" sideWeight="0.8130595" weight="0.1703638" />
+      <window_info id="Favorites" order="2" sideWeight="0.50473654" side_tool="true" weight="0.12762973" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6460937" weight="0.26008645" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Changes" order="9" />
+      <window_info anchor="bottom" id="Application Servers" order="11" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49224183" weight="0.24125342" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/modules/import.js</url>
+          <line>1532</line>
+          <option name="timeStamp" value="1872" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/modules/import.js</url>
+          <line>1542</line>
+          <option name="timeStamp" value="1873" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/modules/orders.js</url>
+          <line>2481</line>
+          <option name="timeStamp" value="2206" />
+        </line-breakpoint>
+      </breakpoints>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="2220" />
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>result.rows[&quot;6&quot;].imagename</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>uo.uuid</expression-string>
+        <language-id>JavaScript</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/routes/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14055">
+          <caret line="937" column="44" selection-start-line="937" selection-start-column="44" selection-end-line="937" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-product-change-category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" selection-start-line="21" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/clients.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <marker date="1519957996000" expanded="true" signature="4768:4791" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/inventory.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1904">
+          <caret line="120" column="40" selection-start-line="120" selection-start-column="40" selection-end-line="120" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/printing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18512">
+          <caret line="1158" column="25" selection-start-line="1158" selection-start-column="25" selection-end-line="1158" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-email-order.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="134" column="57" selection-start-line="134" selection-start-column="57" selection-end-line="134" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/reports.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="67" column="37" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="102" column="19" selection-start-line="102" selection-start-column="19" selection-end-line="102" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-help.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-rep-orders-locations.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/voices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="848">
+          <caret line="53" column="56" selection-start-line="53" selection-start-column="56" selection-end-line="53" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/tab-porders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="661">
+          <caret line="263" column="6" selection-start-line="263" selection-start-column="6" selection-end-line="264" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/invoices.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1535">
+          <caret line="1066" selection-start-line="1066" selection-end-line="1066" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dz-client-attachments.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dz-supplier-attachments.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dz-print-templates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dz-tpcc-jobsheets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="35" selection-start-line="34" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-order-attachments.js" />
+    <entry file="file://$PROJECT_DIR$/routes/droporderattachment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dz-order-attachments.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="35" column="29" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-client-attachments.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1105">
+          <caret line="206" column="20" selection-start-line="206" selection-start-column="20" selection-end-line="206" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-product-from-buildtemplate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="25" column="61" selection-start-line="24" selection-start-column="7" selection-end-line="25" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/tab-product-templates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="175" column="3" selection-start-line="175" selection-start-column="3" selection-end-line="175" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-order-new.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2304">
+          <caret line="144" column="32" selection-start-line="144" selection-start-column="32" selection-end-line="144" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-order-search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1198">
+          <caret line="1627" column="57" selection-start-line="1627" selection-start-column="57" selection-end-line="1627" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/orders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="43" column="19" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-client-new.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="330" selection-start-line="330" selection-end-line="330" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/import.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="546">
+          <caret line="253" column="12" selection-start-line="253" selection-start-column="12" selection-end-line="253" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/clients.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="913" selection-start-line="913" selection-end-line="913" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/try7.js" />
+    <entry file="file://$PROJECT_DIR$/try6.js" />
+    <entry file="file://$PROJECT_DIR$/routes/tab-build-templates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="502">
+          <caret line="249" column="29" selection-start-line="249" selection-start-column="29" selection-end-line="249" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/tab-orders.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1860">
+          <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-select-product-templates.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2055">
+          <caret line="137" column="39" selection-start-line="137" selection-start-column="39" selection-end-line="137" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/listeners.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/primushandlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34410">
+          <caret line="2295" selection-start-line="2295" selection-end-line="2295" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-product-change-category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" selection-start-line="21" selection-end-line="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/clients.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <marker date="1519957996000" expanded="true" signature="4768:4791" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sql.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="120" column="52" lean-forward="true" selection-start-line="120" selection-start-column="52" selection-end-line="120" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/tab-users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="174" column="22" lean-forward="true" selection-start-line="174" selection-start-column="22" selection-end-line="174" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/globals.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="2411" lean-forward="true" selection-start-line="2411" selection-end-line="2411" />
+          <folding>
+            <element signature="n#src#0;n#img#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#0;n#!!top" expanded="true" />
+            <marker date="1522288424000" expanded="true" signature="14593:14616" ph="..." />
+            <marker date="1522288424000" expanded="true" signature="14812:14835" ph="..." />
+            <marker date="1522288424000" expanded="true" signature="14956:14979" ph="..." />
+            <marker date="1522288424000" expanded="true" signature="29473:29496" ph="..." />
+            <marker date="1522288424000" expanded="true" signature="34346:34369" ph="..." />
+            <marker date="1522288424000" expanded="true" signature="59491:59497" ph="©" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="2924" column="36" lean-forward="true" selection-start-line="2924" selection-start-column="36" selection-end-line="2924" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+            <element signature="e#136711#136736#0" expanded="true" />
+            <element signature="e#136850#136871#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/tab-dash.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="183" column="22" lean-forward="true" selection-start-line="183" selection-start-column="22" selection-end-line="183" selection-end-column="22" />
+          <folding>
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#3;n#table#0;n#td#0;n#tr#0;n#table#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#!!top" expanded="true" />
+            <element signature="e#55#61#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/dlg-tpcc-jobsheet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="659" column="25" selection-start-line="659" selection-start-column="24" selection-end-line="659" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/scripts.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="1762" column="44" lean-forward="true" selection-start-line="1762" selection-start-column="44" selection-end-line="1762" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/tpcc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="772" column="18" lean-forward="true" selection-start-line="772" selection-start-column="18" selection-end-line="772" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/as1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="8840" column="29" lean-forward="true" selection-start-line="8840" selection-start-column="29" selection-end-line="8840" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/tab-jobsheets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="165" column="7" lean-forward="true" selection-start-line="165" selection-start-column="7" selection-end-line="165" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/modules/products.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="1344" column="9" lean-forward="true" selection-start-line="1344" selection-start-column="9" selection-end-line="1344" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

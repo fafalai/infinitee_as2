@@ -1,0 +1,974 @@
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Description" content="Remedy" />
+  <meta name="Keywords" content="accounting, cloud accounting, business process automation, order management, sales orders, flow, remedy" />
+  <meta http-equiv="Reply-to" content="mailto:webmaster@adtalk.com.au" />
+  <meta name="Copyright" content="Copyright (C) 2016 Adtalk Pty Ltd, All Rights Reserved." />
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+
+  <title>Remedy - Intelligent Business Process Automation</title>
+
+  <link type="text/css" rel="stylesheet" href="css/styles.css" />
+  <link type="text/css" rel="stylesheet" href="css/blue/style.css" />
+  <link type="text/css" rel="stylesheet" href="css/tip-yellowsimple.css" />
+  <link type="text/css" rel="stylesheet" href="css/treant.css" />
+  <link type="text/css" rel="stylesheet" href="css/buttons.css" />
+  <link type="text/css" rel="stylesheet" href="css/animate.min.css" />
+  <link type="text/css" rel="stylesheet" href="js/easyui/themes/default/easyui.css">
+  <link type="text/css" rel="stylesheet" href="js/easyui/themes/icon.css">
+
+  <!--
+  <script type="text/javascript" src="js/pace.min.js"></script>
+  <script type="text/javascript" src="js/annyang.min.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  -->
+  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.poshytip.min.js"></script>
+  <script type="text/javascript" src="js/jquery-barcode.js"></script>
+  <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="js/easyui/datagrid-groupview.js"></script>
+  <script type="text/javascript" src="js/easyui/treegrid-dnd.js"></script>
+  <script type="text/javascript" src="js/nicedit/nicEdit.js"></script>
+  <script type="text/javascript" src="js/country-abbreviation.js"></script>
+  <script type="text/javascript" src="js/country-states.js"></script>
+  <script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
+  <script type="text/javascript" src="js/decimal.min.js"></script>
+  <script type="text/javascript" src="js/filesize.min.js"></script>
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <script type="text/javascript" src="js/base64vars.js"></script>
+  <script type="text/javascript" src="js/raphael.js"></script>
+  <script type="text/javascript" src="js/treant.js"></script>
+  <script type="text/javascript" src="js/jquery.card.js"></script>
+  <script type="text/javascript" src="js/moment.min.js"></script>
+  <script type="text/javascript" src="js/underscore.js"></script>
+  <script type="text/javascript" src="js/underscore.string.js"></script>
+  <script type="text/javascript" src="js/primus-compiled.js"></script>
+
+  <script type="text/javascript" src="clients-globals.js"></script>
+  <script type="text/javascript" src="dlg-product-select.js"></script>
+  <script type="text/javascript" src="dlg-product-search.js"></script>
+  <script type="text/javascript" src="dlg-product-select-price.js"></script>
+  <script type="text/javascript" src="dlg-product-pricing.js"></script>
+  <script type="text/javascript" src="dlg-product-template-details.js"></script>
+  <script type="text/javascript" src="dlg-invoice-search.js"></script>
+  <script type="text/javascript" src="dlg-order-search.js"></script>
+  <script type="text/javascript" src="dlg-order-pay.js"></script>
+  <script type="text/javascript" src="clients-tab-orders.js"></script>
+  <script type="text/javascript" src="clients-tab-chat.js"></script>
+  <script type="text/javascript" src="clients-primushandlers.js"></script>
+  <script type="text/javascript" src="clients-listeners.js"></script>
+
+  <script type="text/javascript">
+    var isclient = true;
+    var clientid = -1;
+    var theclientid = 1138;
+
+    // ************************************************************************************************************************************************************************
+    // Init DOM elements right away...
+    $(function()
+    {
+      Decimal.config({precision: 8, rounding: 8});
+    });
+
+    // ************************************************************************************************************************************************************************
+    // Init form elements
+    function BeforeUnload()
+    {
+      // We use beforeunload to give javascript/primus emit chance to execute before all code gets dropped....
+      primus.emit('logout', {fguid: fguid, pdata: 'onbeforeunload'});
+    }
+
+    $(document).ready(function()
+    {
+      $('#divDashConnectionStatus').html('<img style="vertical-align: middle;" src="images/ajax_waiting.gif" width="24" height="24"/> Server isn\'t available');
+
+      $.noty.defaults =
+      {
+        layout: 'top',
+        theme: 'defaultTheme',
+        type: 'alert',
+        text: '',
+        dismissQueue: true,
+        template: '<div class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>',
+        animation:
+        {
+          open: {height: 'toggle'},
+          close: {height: 'toggle'},
+          easing: 'swing',
+          speed: 500
+        },
+        timeout: false,
+        force: false,
+        modal: false,
+        maxVisible: 5,
+        killer: false,
+        closeWith: ['click'],
+        callback:
+        {
+          onShow: function() {},
+          afterShow: function() {},
+          onClose: function() {},
+          afterClose: function() {}
+        },
+        buttons: false
+      };
+
+      // ************************************************************************************************************************************************************************
+      // Start login process and register login/logout listeners...
+
+      $('#dlgLogin').dialog
+      (
+        {
+          onOpen: function()
+          {
+            doTextboxFocus('fldUid');
+          },
+          buttons:
+          [
+            {
+              text: 'Login',
+              handler: function()
+              {
+                doLogin();
+              }
+            }
+          ]
+        }
+      ).dialog('center');
+
+      $('#spnBuildno').text('Build: ' + buildno);
+
+      $('#frmOrderPayCreditCard').card
+      (
+        {
+          container: '.card-wrapper'
+        }
+      );
+
+      doPrimus();
+      doWidgetListeners();
+
+      $.extend
+      (
+        $.fn.validatebox.defaults.rules,
+        {
+          confirmPass:
+          {
+            validator: function(value, param)
+            {
+              var pass = $(param[0]).passwordbox('getValue');
+              return value == pass;
+            },
+            message: 'Password does not match...'
+          }
+        }
+      );
+    });
+
+    // ************************************************************************************************************************************************************************
+    onbeforeunload = BeforeUnload;
+  </script>
+</head>
+<body style="background-color: #3ca9e5; margin: 0; color: #000;">
+  <!-- ************************************************************************************************************************************************************************** -->
+  <!-- Hidden DIVs for dialogs etc etc -->
+  <div id="divAccountsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doAccountsNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doAccountsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doAccountsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+  </div>
+
+  <div id="divTaxCodesMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doTaxCodesNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doTaxCodesEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doTaxCodesRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+  </div>
+
+  <div id="divSuperfundsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doSuperfundsNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doSuperfundsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doSuperfundsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+  </div>
+
+  <div id="divExchangeRatesMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doExchangeRatesNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doExchangeRatesEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doExchangeRatesRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+  </div>
+
+  <div id="divLocationsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doLocationsNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doLocationsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doLocationsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div class="menu-sep"></div>
+    <div onclick="doLocationsRemoveParent()" data-options="iconCls: 'icon-hierarchy'">No Parent</div>
+    <div class="menu-sep"></div>
+    <div onclick="doLocationsLocate()" data-options="iconCls: 'icon-mappin'">Locate</div>
+  </div>
+
+  <div id="divUsersMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doUsersNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doUsersEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doUsersRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+  </div>
+
+  <div id="divTimesheetsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doTimesheetsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doTimesheetsDetails()" data-options="iconCls: 'icon-teacher'">Employee Details</div>
+  </div>
+
+  <div id="divEmployeesMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doEmployeesNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doEmployeesEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doEmployeesRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div class="menu-sep"></div>
+    <div onclick="doEmployeesRemoveParent()" data-options="iconCls: 'icon-hierarchy'">No Manager</div>
+  </div>
+
+  <div id="divClientsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doClientsNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doClientsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doClientsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div onclick="doClientsAttachments()" data-options="iconCls: 'icon-attachment'">Attachments</div>
+    <div class="menu-sep"></div>
+    <div onclick="doClientsRemoveParent()" data-options="iconCls: 'icon-hierarchy'">No Parent</div>
+    <div class="menu-sep"></div>
+    <div onclick="doClientsNewOrder()" data-options="iconCls: 'icon-order'">New Order</div>
+  </div>
+
+  <div id="divClientAttachmentsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doClientAttachmentsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doClientAttachmentsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div onclick="doClientAttachmentsDownload()" data-options="iconCls: 'icon-download'">Download</div>
+  </div>
+
+  <div id="divSuppliersMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doSuppliersNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doSuppliersEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doSuppliersRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div onclick="doSuppliersAttachments()" data-options="iconCls: 'icon-attachment'">Attachments</div>
+    <div class="menu-sep"></div>
+    <div onclick="doSuppliersRemoveParent()" data-options="iconCls: 'icon-hierarchy'">No Parent</div>
+  </div>
+
+  <!--
+  <div id="divClientAttachmentsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doClientAttachmentsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doClientAttachmentsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div onclick="doClientAttachmentsDownload()" data-options="iconCls: 'icon-download'">Download</div>
+  </div>
+  -->
+
+  <div id="divTemplatesMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doTemplatesNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doTemplatesEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doTemplatesRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div onclick="doTemplatesDuplicate()" data-options="iconCls: 'icon-duplicate'">Duplicate</div>
+    <div onclick="doTemplatesDetails()" data-options="iconCls: 'icon-large-smartart'">Details</div>
+    <div class="menu-sep"></div>
+    <div onclick="doTemplatesRemoveParent()" data-options="iconCls: 'icon-hierarchy'">No Parent</div>
+  </div>
+
+  <div id="divTemplatesDetailsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doTemplateDetailsNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doTemplateDetailsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doTemplateDetailsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+  </div>
+
+  <div id="divCategoriesMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doCategoriesNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doCategoriesEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doCategoriesRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div class="menu-sep"></div>
+    <div onclick="doCategoriesRemoveParent()" data-options="iconCls: 'icon-hierarchy'">No Parent</div>
+  </div>
+
+  <div id="divProductsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doProductsNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doProductsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doProductsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div onclick="doProductsDuplicate()" data-options="iconCls: 'icon-duplicate'">Duplicate</div>
+    <div onclick="doProductsViewPrices()" data-options="iconCls: 'icon-dollar'">View Prices</div>
+    <div onclick="doProductsViewBarcode()" data-options="iconCls: 'icon-barcode'">View Barcode</div>
+  </div>
+
+  <div id="divProductPricesMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doProductPriceNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doProductPriceEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doProductPriceRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+  </div>
+
+  <div id="divInventoryBuildsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doInventoryBuildsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+  </div>
+
+  <div id="divInvoicesMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doInvoicesRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div onclick="doInvoicesPrint()" data-options="iconCls: 'icon-print'">Print</div>
+  </div>
+
+  <div id="divOrdersMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doOrdersNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doOrdersEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doOrdersRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div onclick="doOrdersDuplicate()" data-options="iconCls: 'icon-duplicate'">Duplicate</div>
+    <div onclick="doOrdersProducts()" data-options="iconCls: 'icon-orderform'">Products</div>
+    <div onclick="doOrdersStatuses()" data-options="iconCls: 'icon-todolist'">Statuses</div>
+    <div onclick="doOrdersAttachments()" data-options="iconCls: 'icon-attachment'">Attachments</div>
+    <div onclick="doOrdersNewVersion()" data-options="iconCls: 'icon-newnote'">New Version</div>
+    <div onclick="doOrdersInvoice()" data-options="iconCls: 'icon-invoice'">Invoice</div>
+  </div>
+
+  <div id="divOrderDetailsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doOrderDetailsNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doOrderDetailsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doOrderDetailsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+  </div>
+
+  <div id="divOrderStatusesMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doOrderStatusesNew()" data-options="iconCls: 'icon-add'">Add</div>
+  </div>
+
+  <div id="divOrderAttachmentsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doOrderAttachmentsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doOrderAttachmentsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+    <div onclick="doOrderAttachmentsDownload()" data-options="iconCls: 'icon-download'">Download</div>
+  </div>
+
+  <div id="divStatusAlertsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
+    <div onclick="doStatusAlertsNew()" data-options="iconCls: 'icon-add'">Add</div>
+    <div onclick="doStatusAlertsEdit()" data-options="iconCls: 'icon-edit'">Edit</div>
+    <div onclick="doStatusAlertsRemove()" data-options="iconCls: 'icon-remove'">Remove</div>
+  </div>
+
+  <div id="dlgLogin" class="easyui-dialog" title="Login to Remedy" style="width: 250px; height: 175px;" data-options="resizable: false, modal: true, closable: false">
+    <table>
+      <tr>
+        <td>User ID:</td>
+        <td><input type="text" id="fldUid" class="easyui-textbox" data-options="iconCls: 'icon-man'"></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type="password" id="fldPwd" class="easyui-textbox"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgChangePassword" class="easyui-dialog" title="Change Password" style="width: 300px; height: 200px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>New Password:</td>
+        <td><input id="fldNewPwd" type="password" class="easyui-textbox" data-options="iconCls: 'icon-lock'"></td>
+      </tr>
+      <tr>
+        <td>Verify Password:</td>
+        <td><input id="fldVerifyPwd" type="password" class="easyui-textbox" data-options="iconCls: 'icon-lock'"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgAddComment" class="easyui-dialog" title="Enter Comment" style="width: 300px; height: 200px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Comment:</td>
+        <td><input id="fldComment" class="easyui-textbox" data-options="iconCls: 'icon-notes'"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgOrderPay" class="easyui-dialog" title="Pay Order" style="width: 800px; height: 400px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Amount:</td>
+        <td><input id="fldOrderPayAmount" class="easyui-numberbox" data-options="iconCls: 'icon-cash', precision: 2"></td>
+      </tr>
+      <tr>
+        <td valign="top">Credit Card:</td>
+        <td>
+          <div class="card-wrapper" style="float: left;"></div>
+          <form id="frmOrderPayCreditCard">
+            <input placeholder="Card number" type="text" name="number" id="fldCCNo" style="font-size: 16px;">
+            <input placeholder="Full name" type="text" name="name" id="fldCCName" style="font-size: 16px;"/>
+            <input placeholder="MM/YY" type="text" name="expiry" id="fldExpiry" style="font-size: 16px;"/>
+            <input placeholder="CVV/CVC" type="text" name="cvc" id="fldCCCVC" style="font-size: 16px;"/>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgOrderEmail" class="easyui-dialog" title="Email Order" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Email:</td>
+        <td><div id="fldOrderEmailRecipients" style="width: 880px;"></div></td>
+      </tr>
+      <tr>
+        <td>Subject:</td>
+        <td><div id="fldOrderEmailSubject" style="width: 880px;"></div></td>
+      </tr>
+      <tr>
+        <td>Message:</td>
+        <td><textarea id="fldOrderEmailMessage" style="width: 880px; height: 400px;"></textarea></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgEmailTemplate" class="easyui-dialog" title="Email Template" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <div id="divEmailTemplate" style="width: 100%;"></div>
+  </div>
+
+  <div id="dlgViewBarcode" class="easyui-dialog" title="Barcode Viewer" style="width: 350px; height: 250px;" data-options="resizable: false, modal: true, closable: true, closed: true">
+    <table>
+      <tr>
+        <td>Product:</td>
+        <td><span id="spnViewBCProduct"></span></td>
+      </tr>
+      <tr>
+        <td>Barcode:</td>
+        <td><span id="spnViewBCNo"></span></td>
+      </tr>
+      <tr>
+        <td>Type:</td>
+        <td><div id="cbProductsBarcodeTypes"></div></td>
+      </tr>
+      <tr>
+        <td>&nbsp;nbsp;</td>
+        <td><div id="divBarcodeView" style="width: 300px; height: 50px;"></div></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgProductPrices" class="easyui-dialog" title="Product Prices" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Product:</td>
+        <td><span id="spnViewPriceProduct"></span></td>
+      </tr>
+    </table>
+    <div id="divProductPricesG" style="width: 100%; height: 500px;"></div>
+  </div>
+
+  <div id="dlgProductSelectPrice" class="easyui-dialog" title="Product Prices" style="width: 500px; height: 400px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Product:</td>
+        <td><span id="spnViewSelectPriceProduct"></span></td>
+      </tr>
+    </table>
+    <div id="divProductSelectPriceG" style="width: 100%; height: 300px;"></div>
+  </div>
+
+  <div id="dlgProductSearch" class="easyui-dialog" title="Search for Product" style="width: 820px; height: 400px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td style="width: 300px;">Code/Name/Attribute:</td>
+        <td><div id="fldSearchProductText" style="width: 200px;"></div></td>
+      </tr>
+      <tr>
+        <td>Max Results:</td>
+        <td>
+          <select id="cbSearchProductMaxHistory" class="easyui-combobox" style="width: 120px;">
+            <option>200</option>
+            <option>500</option>
+            <option>1000</option>
+            <option>2000</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <div id="divProductSelectG" style="width: 100%; height: 300px;"></div>
+  </div>
+
+  <div id="dlgClientNotes" class="easyui-dialog" title="Client Notes" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Client:</td>
+        <td><span id="spnClientNotes"></span></td>
+      </tr>
+    </table>
+    <table id="divClientNotesG" style="width: 965px; height: 700px;"></table>
+  </div>
+
+  <div id="dlgClientAttachments" class="easyui-dialog" title="Client Attachments" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Client:</td>
+        <td><span id="spnClientName"></span></td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td><input type="text" id="fldClientAttachmentDescription" class="easyui-textbox" style="width: 250px;" data-options="iconCls: 'icon-comments'"></td>
+      </tr>
+      <tr>
+        <td>Dropzone:</td>
+        <td><div class="dropzone" id="divClientAttachmentFile"></div></td>
+      </tr>
+    </table>
+    <div id="divClientAttachmentsG" style="width: 100%; height: 320px;"></div>
+  </div>
+
+  <div id="dlgSupplierNotes" class="easyui-dialog" title="Supplier Notes" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Supplier:</td>
+        <td><span id="spnSupplierNotes"></span></td>
+      </tr>
+    </table>
+    <table id="divSupplierNotesG" style="width: 965px; height: 700px;"></table>
+  </div>
+
+  <div id="dlgTemplateDetails" class="easyui-dialog" title="Template Details" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Template:</td>
+        <td><span id="spnTemplateName"></span></td>
+      </tr>
+    </table>
+    <div id="divTemplateProductsG" style="width: 100%; height: 500px;"></div>
+  </div>
+
+  <div id="dlgTemplateSearch" class="easyui-dialog" title="Search for Template" style="width: 820px; height: 400px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td style="width: 300px;">Code/Name:</td>
+        <td><div id="fldSearchTemplateText" style="width: 200px;"></div></td>
+      </tr>
+      <tr>
+        <td>Max Results:</td>
+        <td>
+          <select id="cbSearchTemplateMaxHistory" class="easyui-combobox" style="width: 120px;">
+            <option>200</option>
+            <option>500</option>
+            <option>1000</option>
+            <option>2000</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+    <div id="divTemplateSelectG" style="width: 100%; height: 300px;"></div>
+  </div>
+
+  <div id="dlgBuildTemplate" class="easyui-dialog" title="Template Build" style="width: 800px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Template:</td>
+        <td><span id="spnViewBuildName"></span></td>
+      </tr>
+      <tr>
+        <td>Product:</td>
+        <td><div id="cbBuildProducts" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td>Qty:</td>
+        <td><input type="text" id="fldBuildQty" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', precision: 4"></td>
+      </tr>
+    </table>
+    <div id="divBuildProductsG" style="width: 100%; height: 400px;"></div>
+  </div>
+
+  <div id="dlgInventoryBuilds" class="easyui-dialog" title="Build History" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <div id="divInventoryBuildsG" style="width: 100%; height: 500px;"></div>
+  </div>
+
+  <div id="dlgUserPermissions" class="easyui-dialog" title="User Permissions" style="width: 220px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>User:</td>
+        <td><span id="spnUserName"></span></td>
+      </tr>
+    </table>
+    <div id="divPermissionsPG" style="width: 100%; height: 500px;"></div>
+  </div>
+
+  <div id="dlgDataImportProducts" class="easyui-dialog" title="Import Products" style="width: 450px; height: 300px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Category:</td>
+        <td><div id="cbImportProductCategories" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td>Dropzone:</td>
+        <td><div class="dropzone" id="divDataImportProductsFile"></div></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgDataImportClients" class="easyui-dialog" title="Import Clients" style="width: 450px; height: 300px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <div class="dropzone" id="divDataImportClientsFile"></div>
+  </div>
+
+  <div id="dlgProductSelect" class="easyui-dialog" title="Select Product" style="width: 500px; height: 300px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Product:</td>
+        <td><div id="cbProductSelectProducts" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td>Qty:</td>
+        <td><input type="text" id="fldProductSelectQty" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', precision: 4"></td>
+      </tr>
+      <tr>
+        <td>Price:</td>
+        <td><input type="text" id="fldProductSelectPrice" class="easyui-numberbox" data-options="iconCls: 'icon-cash', precision: 4"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgOrderDetails" class="easyui-dialog" title="Order Details" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Order:</td>
+        <td><span id="spnOrderNoDetails"></span></td>
+      </tr>
+    </table>
+    <div id="divOrderProductsG" style="width: 100%; height: 500px;"></div>
+  </div>
+
+  <div id="dlgOrderStatuses" class="easyui-dialog" title="Order Statuses" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Order:</td>
+        <td><span id="spnOrderNoStatuses"></span></td>
+      </tr>
+    </table>
+    <div id="divOrderStatusesG" style="width: 100%; height: 500px;"></div>
+  </div>
+
+  <div id="dlgOrderStatusNew" class="easyui-dialog" title="Add Order Status" style="width: 480px; height: 320px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td style="width: 180px;">Status:</td>
+        <td><div id="cbOrderStatusesNewStatus" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td>Con Note:</td>
+        <td><input id="fldOrderStatusesNewConnote" class="easyui-textbox" data-options="iconCls: 'icon-delivery'" style="width: 300px;"></td>
+      </tr>
+      <tr>
+        <td>Carrier/Comment:</td>
+        <td><input id="fldOrderStatusesNewComment" class="easyui-textbox" data-options="iconCls: 'icon-notes'" style="width: 300px;"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgOrderNotes" class="easyui-dialog" title="Order Notes" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Order:</td>
+        <td><span id="spnOrderNoNotes"></span></td>
+      </tr>
+    </table>
+    <table id="divOrderNotesG" style="width: 965px; height: 700px;"></table>
+  </div>
+
+  <div id="dlgOrderAttachments" class="easyui-dialog" title="Order Attachments" style="width: 1050px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td>Order:</td>
+        <td><span id="spnOrderNoAttachments"></span></td>
+      </tr>
+      <tr>
+        <td>Description:</td>
+        <td><input type="text" id="fldOrderAttachmentDescription" class="easyui-textbox" style="width: 250px;" data-options="iconCls: 'icon-comments'"></td>
+      </tr>
+
+      <tr>
+        <td>Thumbnail:</td>
+        <td><input id="cbOrderAttachmentThumbnail" class="easyui-switchbutton" data-options="onText: 'Yes', offText: 'No', width: 80, checked: false"></td>
+      </tr>
+
+      <tr>
+        <td>Dropzone:</td>
+        <td><div class="dropzone" id="divOrderAttachmentFile"></div></td>
+      </tr>
+    </table>
+    <div id="divOrderAttachmentsG" style="width: 100%; height: 320px;"></div>
+  </div>
+
+  <div id="dlgOrderSearch" class="easyui-dialog" title="Order Search" style="width: 450px; height: 320px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td style="width: 200px;">Order No.:</td>
+        <td><input type="text" id="fldSearchOrderNo" class="easyui-textbox"></td>
+      </tr>
+      <tr>
+        <td>P.O. No.:</td>
+        <td><input type="text" id="fldSearchPONo" class="easyui-textbox"></td>
+      </tr>
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" id="fldSearchOrderName" class="easyui-textbox"></td>
+      </tr>
+      <tr>
+        <td>Version:</td>
+        <td><input type="text" id="fldSearchOrderVersion" class="easyui-numberbox"></td>
+      </tr>
+      <tr>
+        <td>Client:</td>
+        <td><div id="cbSearchOrderClients" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td>Date From:</td>
+        <td><div id="dtSearchDateStart"></div></td>
+      </tr>
+      <tr>
+        <td>Date To:</td>
+        <td><div id="dtSearchDateEnd"></div></td>
+      </tr>
+      <tr>
+        <td>Max Results:</td>
+        <td>
+          <select id="cbSearchOrderMaxHistory" class="easyui-combobox" style="width: 120px;">
+            <option>200</option>
+            <option>500</option>
+            <option>1000</option>
+            <option>2000</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgInventoryNew" class="easyui-dialog" title="Add Inventory Entry" style="width: 480px; height: 320px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td style="width: 180px;">Location:</td>
+        <td><div id="cbInventoryNewLocations" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td>Product:</td>
+        <td><div id="cbInventoryNewProducts" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td>Qty:</td>
+        <td><input type="text" id="fldInventoryNewQty" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', precision: 4"></td>
+      </tr>
+      <tr>
+        <td>Batch No:</td>
+        <td><input type="text" id="fldInventoryNewBatchno" class="easyui-textbox" data-options="iconCls: 'icon-barcode'"></td>
+      </tr>
+      <tr>
+        <td>Batch Expiry:</td>
+        <td><div id="dtInventoryNewDateExpiry"></div></td>
+      </tr>
+      <tr>
+        <td>Production Date:</td>
+        <td><div id="dtInventoryNewDateProduction"></div></td>
+      </tr>
+      <tr>
+        <td>Type:</td>
+        <td><div id="cbInventoryNewTypes"></div></td>
+      </tr>
+      <tr>
+        <td>Comment:</td>
+        <td><input id="fldInventoryNewComment" class="easyui-textbox" data-options="iconCls: 'icon-notes'" style="width: 300px;"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgInventoryTransfer" class="easyui-dialog" title="Transfer Inventory" style="width: 480px; height: 320px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td style="width: 180px;">From Location:</td>
+        <td><div id="cbInventorySourceLocations" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td style="width: 180px;">To Location:</td>
+        <td><div id="cbInventoryDestinationLocations" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td>Product:</td>
+        <td><div id="cbInventoryTransferProducts" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td>Qty:</td>
+        <td><input type="text" id="fldInventoryTransferQty" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', precision: 4"></td>
+      </tr>
+      <tr>
+        <td>Batch No:</td>
+        <td><input type="text" id="fldInventoryTransferBatchno" class="easyui-textbox" data-options="iconCls: 'icon-barcode'"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgPayment" class="easyui-dialog" title="Make Payment" style="width: 1000px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td style="width: 180px;">Client:</td>
+        <td><div id="cbPaymentClients" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td style="width: 180px;">Reference:</td>
+        <td><input type="text" id="fldPaymentReference" class="easyui-textbox" data-options="iconCls: 'icon-object'"></td>
+      </tr>
+      <tr>
+        <td>Type:</td>
+        <td>
+          <select id="cbPaymentType" class="easyui-combobox" style="width: 120px;">
+            <option>EFT</option>
+            <option>Cheque</option>
+            <option>Cash</option>
+            <option>Credit Card</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Amount:</td>
+        <td><input type="text" id="fldPaymentAmount" class="easyui-numberbox" data-options="iconCls: 'icon-dollar', precision: 4"></td>
+      </tr>
+      <tr>
+        <td>Date:</td>
+        <td><div id="dtPaymentDate"></div></td>
+      </tr>
+    </table>
+    <div id="divPaymentInvoicesG" style="width: 100%; height: 350px;"></div>
+  </div>
+
+  <div id="dlgRatesLatest" class="easyui-dialog" title="Latest Exchange Rates" style="width: 400px; height: 300px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table id="tblSearchOrders">
+      <tr>
+        <td>Rates:</td>
+        <td><div id="cbLatestRates" style="width: 300px;"></div></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgInvoiceSearch" class="easyui-dialog" title="Invoice Search" style="width: 450px; height: 320px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table>
+      <tr>
+        <td style="width: 200px;">Invoice No.:</td>
+        <td><input type="text" id="fldSearchInvoiceNo" class="easyui-textbox"></td>
+      </tr>
+      <tr>
+        <td>Order No.:</td>
+        <td><input type="text" id="fldSearchInvoiceOrderNo" class="easyui-textbox"></td>
+      </tr>
+      <tr>
+        <td>P.O. No.:</td>
+        <td><input type="text" id="fldSearchInvoicePONo" class="easyui-textbox"></td>
+      </tr>
+      <tr>
+        <td>Name:</td>
+        <td><input type="text" id="fldSearchInvoiceOrderName" class="easyui-textbox"></td>
+      </tr>
+      <tr>
+        <td>Client:</td>
+        <td><div id="cbSearchInvoiceClients" style="width: 300px;"></div></td>
+      </tr>
+      <tr>
+        <td>Date From:</td>
+        <td><div id="dtSearchInvoiceDateStart"></div></td>
+      </tr>
+      <tr>
+        <td>Date To:</td>
+        <td><div id="dtSearchInvoiceDateEnd"></div></td>
+      </tr>
+      <tr>
+        <td>Max Results:</td>
+        <td>
+          <select id="cbSearchInvoiceMaxHistory" class="easyui-combobox" style="width: 120px;">
+            <option>200</option>
+            <option>500</option>
+            <option>1000</option>
+            <option>2000</option>
+          </select>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="divEvents" style="display: none;"></div>
+
+  <!-- ************************************************************************************************************************************************************************** -->
+  <div id="mnuAbout" style="width: 100px;">
+    <div>
+      <span>Remedy</span>
+      <div class="menu-content" style="padding: 10px; text-align: center">
+        <img src="images/logo.png" style="width: 180px; height: 40px">
+        <p style="font-size: 14px; color: #444">Remedy My Business</p>
+        <p style="font-size: 12px; color: #ccc">Copyright &copy; 2016 - 2017</p>
+        <p style="font-size: 12px; color: #ccc">Can Can Pty Ltd</p>
+        <p style="font-size: 12px; color: #ccc"><span id="spnBuildno" align="right">Build</span></p>
+        <p style="font-size: 12px; color: #ccc"><span id="spnServer" align="right"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tbProducts" style="height: auto; display: none">
+    <div style="margin-bottom: 5px">
+      <a href="javascript:void(0)" onClick="doProductsNew()" class="easyui-linkbutton" iconCls="icon-add">New</a>
+      <a href="javascript:void(0)" onClick="doProductsClear()" class="easyui-linkbutton" iconCls="icon-clear">Clear</a>
+      <a href="javascript:void(0)" onClick="doProductsEdit()" class="easyui-linkbutton" iconCls="icon-edit">Edit</a>
+      <a href="javascript:void(0)" onClick="doProductsCancel()" class="easyui-linkbutton" iconCls="icon-cancel">Cancel</a>
+      <a href="javascript:void(0)" onClick="doProductsSave()" class="easyui-linkbutton" iconCls="icon-save">Save</a>
+      <a href="javascript:void(0)" onClick="doProductsRemove()" class="easyui-linkbutton" iconCls="icon-remove">Remove</a>
+      <a href="javascript:void(0)" onClick="doProductsDuplicate()" class="easyui-linkbutton" iconCls="icon-duplicate">Duplicate</a>
+      <a href="javascript:void(0)" onClick="doProductsViewPrices()" class="easyui-linkbutton" iconCls="icon-dollar">View Prices</a>
+      <a href="javascript:void(0)" onClick="doProductsViewBarcode()" class="easyui-linkbutton" iconCls="icon-barcode">View Barcode</a>
+      <a href="javascript:void(0)" onClick="doProductsSearch()" class="easyui-linkbutton" iconCls="icon-search">Search</a>
+      <input id="cbProductsCategories" style="width: 300px">
+    </div>
+  </div>
+
+  <div class="easyui-layout" data-options="fit: true">
+    <div data-options="region: 'north'" style="width: 100%; height: 55px; padding: 5px">
+      <div class="easyui-layout" data-options="fit: true">
+        <div data-options="region: 'west'" style="width: 40%; height: 55px; padding: 5px">
+          <a href="#" class="easyui-menubutton" data-options="menu: '#mnuAbout', iconCls: 'icon-about'">About</a>
+        </div>
+
+        <div data-options="region: 'east'" style="width: 30%; padding: 5px">
+          <span id="spnMenu"></span>
+        </div>
+
+        <div data-options="region: 'center'" style="width: 30%; padding: 5px">
+          <div style="float: left;">
+            <span id="divDashConnectionStatus" style="float: left; "></span><div id="divProgress" style="float: left; width: 250px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-options="region: 'center'" style="width: 100%; height: 500px; padding: 5px">
+      <div class="easyui-panel" title="Remedy..." data-options="fit: true">
+        <div id="asclienttabs" class="easyui-tabs" data-options="fit: true, pill: true">
+
+          <div title="Orders" data-options="iconCls: 'icon-order'">
+            <div id="divOrdersG" data-options="fit: true"></div>
+          </div>
+
+          <div title="Invoices" data-options="iconCls: 'icon-invoice'">
+            <div id="divInvoicesG" data-options="fit: true"></div>
+          </div>
+
+          <div title="Chat Support" data-options="iconCls: 'icon-chat'">
+            <table>
+              <tr>
+                <td>Message:</td>
+                <td><input type="text" id="fldClientsMessage" class="easyui-textbox" style="width: 500px;" data-options="iconCls: 'icon-notes'"></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td><a id="btnSendMessage" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-chat'" onClick="doSendMessage()">Send</a></td>
+              </tr>
+            </table>
+
+            <div id="divChatG" data-options="fit: true"></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a id="ancSpare"></a>
+
+</body>
+</html>
+

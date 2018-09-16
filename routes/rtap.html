@@ -1,0 +1,324 @@
+.<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Description" content="Fluir" />
+  <meta name="Keywords" content="accounting, cloud accounting, business process automation, order management, sales orders, flow, fluir" />
+  <meta http-equiv="Reply-to" content="mailto:webmaster@adtalk.com.au" />
+  <meta name="Copyright" content="Copyright (C) 2017 Adtalk Pty Ltd, All Rights Reserved." />
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+
+  <title>Remedy TAP</title>
+
+  <link type="text/css" rel="stylesheet" href="css/styles.css" />
+  <link type="text/css" rel="stylesheet" href="css/blue/style.css" />
+  <link type="text/css" rel="stylesheet" href="css/tip-yellowsimple.css" />
+  <link type="text/css" rel="stylesheet" href="css/treant.css" />
+  <link type="text/css" rel="stylesheet" href="css/buttons.css" />
+  <link type="text/css" rel="stylesheet" href="css/animate.min.css" />
+  <link type="text/css" rel="stylesheet" href="js/easyui/themes/default/easyui.css">
+  <link type="text/css" rel="stylesheet" href="js/easyui/themes/icon.css">
+
+  <!--
+  <script type="text/javascript" src="js/pace.min.js"></script>
+  <script type="text/javascript" src="js/annyang.min.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  -->
+  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.poshytip.min.js"></script>
+  <script type="text/javascript" src="js/jquery-barcode.js"></script>
+  <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="js/easyui/datagrid-groupview.js"></script>
+  <script type="text/javascript" src="js/easyui/treegrid-dnd.js"></script>
+  <script type="text/javascript" src="js/nicedit/nicEdit.js"></script>
+  <script type="text/javascript" src="js/country-abbreviation.js"></script>
+  <script type="text/javascript" src="js/country-states.js"></script>
+  <script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
+  <script type="text/javascript" src="js/decimal.min.js"></script>
+  <script type="text/javascript" src="js/filesize.min.js"></script>
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <script type="text/javascript" src="js/base64vars.js"></script>
+  <script type="text/javascript" src="js/raphael.js"></script>
+  <script type="text/javascript" src="js/treant.js"></script>
+  <script type="text/javascript" src="js/moment.min.js"></script>
+  <script type="text/javascript" src="js/underscore.js"></script>
+  <script type="text/javascript" src="js/underscore.string.js"></script>
+  <script type="text/javascript" src="js/primus-compiled.js"></script>
+
+  <script type="text/javascript" src="clients-globals.js"></script>
+  <script type="text/javascript" src="clients-tab-orders.js"></script>
+  <script type="text/javascript" src="clients-tab-chat.js"></script>
+  <script type="text/javascript" src="clients-primushandlers.js"></script>
+  <script type="text/javascript" src="clients-listeners.js"></script>
+
+  <script type="text/javascript">
+    // ************************************************************************************************************************************************************************
+    // Init DOM elements right away...
+    $(function()
+    {
+      Decimal.config({precision: 8, rounding: 8});
+    });
+
+    // ************************************************************************************************************************************************************************
+    // Init form elements
+    function BeforeUnload()
+    {
+      // We use beforeunload to give javascript/primus emit chance to execute before all code gets dropped....
+      primus.emit('logout', {fguid: fguid, pdata: 'onbeforeunload'});
+    }
+
+    $(document).ready(function()
+    {
+      $('#divDashConnectionStatus').html('<img style="vertical-align: middle;" src="images/ajax_waiting.gif" width="24" height="24"/> Server isn\'t available');
+
+      $.noty.defaults =
+      {
+        layout: 'top',
+        theme: 'defaultTheme',
+        type: 'alert',
+        text: '',
+        dismissQueue: true,
+        template: '<div class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>',
+        animation:
+        {
+          open: {height: 'toggle'},
+          close: {height: 'toggle'},
+          easing: 'swing',
+          speed: 500
+        },
+        timeout: false,
+        force: false,
+        modal: false,
+        maxVisible: 5,
+        killer: false,
+        closeWith: ['click'],
+        callback:
+        {
+          onShow: function() {},
+          afterShow: function() {},
+          onClose: function() {},
+          afterClose: function() {}
+        },
+        buttons: false
+      };
+
+      // ************************************************************************************************************************************************************************
+      // Start login process and register login/logout listeners...
+
+      $('#dlgLogin').dialog
+      (
+        {
+          onOpen: function()
+          {
+            doTextboxFocus('fldUid');
+          },
+          buttons:
+          [
+            {
+              text: 'Login',
+              handler: function()
+              {
+                doLogin();
+              }
+            }
+          ]
+        }
+      ).dialog('center');
+
+      $('#spnBuildno').text('Build: ' + buildno);
+
+      $('#frmOrderPayCreditCard').card
+      (
+        {
+          container: '.card-wrapper'
+        }
+      );
+
+      doPrimus();
+      doWidgetListeners();
+
+      $.extend
+      (
+        $.fn.validatebox.defaults.rules,
+        {
+          confirmPass:
+          {
+            validator: function(value, param)
+            {
+              var pass = $(param[0]).passwordbox('getValue');
+              return value == pass;
+            },
+            message: 'Password does not match...'
+          }
+        }
+      );
+
+      // Grids...
+      $('#divIncomingG').datagrid
+      (
+        {
+          idField: 'tag',
+          fitColumns: true,
+          singleSelect: true,
+          rownumbers: true,
+          striped: true,
+          toolbar:
+          [
+            {
+              text: 'Generate',
+              iconCls: 'icon-email',
+              handler: function()
+              {
+                window.open('/gettaps', '_blank');
+              }
+            }
+          ],
+          columns:
+          [
+            [
+              {title: 'TAG',  field: 'tag',         width: 200, align: 'left',  resizable: true},
+              {title: 'Name', field: 'name',        width: 250, align: 'left',  resizable: true},
+              {title: 'Code', field: 'code',        width: 200, align: 'left',  resizable: true},
+              {title: 'Date', field: 'datecreated', width: 180, align: 'right', resizable: true}
+            ]
+          ]
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'newrtap',
+        function(ev, args)
+        {
+          if (!connected)
+            return;
+
+          if (_.isUndefined(args.data))
+            return;
+
+          var index = $('#divIncomingG').datagrid('getRowIndex', args.data.tag);
+          if (index == -1)
+          {
+            $('#divIncomingG').datagrid
+            (
+              'insertRow',
+              {
+                index: 0,
+                row:
+                {
+                  tag: args.data.tag,
+                  name: args.data.lastname + ', ' + args.data.firstname,
+                  code: args.data.code,
+                  datecreated: args.data.datecreated
+                }
+              }
+            );
+          }
+          else
+          {
+            $('#divIncomingG').datagrid
+            (
+              'updateRow',
+              {
+                index: index,
+                row:
+                {
+                  tag: args.data.tag,
+                  datecreated: args.data.datecreated
+                }
+              }
+            );
+          }
+        }
+      );
+    });
+
+    // ************************************************************************************************************************************************************************
+    onbeforeunload = BeforeUnload;
+  </script>
+</head>
+<body style="background-color: #3ca9e5; margin: 0; color: #000;">
+  <!-- ************************************************************************************************************************************************************************** -->
+  <!-- Hidden DIVs for dialogs etc etc -->
+  <div id="dlgLogin" class="easyui-dialog" title="Login to Fluir" style="width: 280px; height: 175px;" data-options="resizable: false, modal: true, closable: false">
+    <table>
+      <tr>
+        <td>User ID:</td>
+        <td><input type="text" id="fldUid" class="easyui-textbox" data-options="iconCls: 'icon-man'"></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type="password" id="fldPwd" class="easyui-textbox"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="divEvents" style="display: none;"></div>
+
+  <!-- ************************************************************************************************************************************************************************** -->
+  <div id="mnuAbout" style="width: 100px;">
+    <div>
+      <span>Fluir</span>
+      <div class="menu-content" style="padding: 10px; text-align: center">
+        <img src="images/logo.png" style="width: 180px; height: 40px">
+        <p style="font-size: 14px; color: #444">Fluir BPA</p>
+        <p style="font-size: 12px; color: #ccc">Copyright &copy; 2017</p>
+        <p style="font-size: 12px; color: #ccc">Can Can Pty Ltd</p>
+        <p style="font-size: 12px; color: #ccc"><span id="spnBuildno" align="right">Build</span></p>
+        <p style="font-size: 12px; color: #ccc"><span id="spnServer" align="right"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <div id="tbProducts" style="height: auto; display: none">
+    <div style="margin-bottom: 5px">
+      <a href="javascript:void(0)" onClick="doProductsNew()" class="easyui-linkbutton" iconCls="icon-add">New</a>
+      <a href="javascript:void(0)" onClick="doProductsClear()" class="easyui-linkbutton" iconCls="icon-clear">Clear</a>
+      <a href="javascript:void(0)" onClick="doProductsEdit()" class="easyui-linkbutton" iconCls="icon-edit">Edit</a>
+      <a href="javascript:void(0)" onClick="doProductsCancel()" class="easyui-linkbutton" iconCls="icon-cancel">Cancel</a>
+      <a href="javascript:void(0)" onClick="doProductsSave()" class="easyui-linkbutton" iconCls="icon-save">Save</a>
+      <a href="javascript:void(0)" onClick="doProductsRemove()" class="easyui-linkbutton" iconCls="icon-remove">Remove</a>
+      <a href="javascript:void(0)" onClick="doProductsDuplicate()" class="easyui-linkbutton" iconCls="icon-duplicate">Duplicate</a>
+      <a href="javascript:void(0)" onClick="doProductsViewPrices()" class="easyui-linkbutton" iconCls="icon-dollar">View Prices</a>
+      <a href="javascript:void(0)" onClick="doProductsViewBarcode()" class="easyui-linkbutton" iconCls="icon-barcode">View Barcode</a>
+      <a href="javascript:void(0)" onClick="doProductsSearch()" class="easyui-linkbutton" iconCls="icon-search">Search</a>
+      <input id="cbProductsCategories" style="width: 300px">
+    </div>
+  </div>
+
+  <div class="easyui-layout" data-options="fit: true">
+    <div data-options="region: 'north'" style="width: 100%; height: 55px; padding: 5px">
+      <div class="easyui-layout" data-options="fit: true">
+        <div data-options="region: 'west'" style="width: 40%; height: 55px; padding: 5px">
+          <a href="#" class="easyui-menubutton" data-options="menu: '#mnuAbout', iconCls: 'icon-about'">About</a>
+        </div>
+
+        <div data-options="region: 'east'" style="width: 30%; padding: 5px">
+          <span id="spnMenu"></span>
+        </div>
+
+        <div data-options="region: 'center'" style="width: 30%; padding: 5px">
+          <div style="float: left;">
+            <span id="divDashConnectionStatus" style="float: left; "></span><div id="divProgress" style="float: left; width: 250px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-options="region: 'center'" style="width: 100%; height: 500px; padding: 5px">
+      <div class="easyui-panel" title="Fluir..." data-options="fit: true">
+        <div id="rtaptabs" class="easyui-tabs" data-options="fit: true, pill: true">
+
+          <div title="Incoming" data-options="iconCls: 'icon-alarm'">
+            <div id="divIncomingG" data-options="fit: true"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a id="ancSpare"></a>
+
+</body>
+</html>
+

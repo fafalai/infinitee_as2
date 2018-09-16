@@ -1,0 +1,195 @@
+[env]
+version = 1.2.68
+debug = true
+notificationschannel = com.adtalk.as1
+statschannel = com.adtalk.as1stats
+adminuserid = 1
+windows = true
+
+loginURL = https://localhost
+loginPort = 57555
+
+ssl_priv = ./mymac.key.pem
+ssl_cert = ./mymac.ssl.pem
+
+# Min #minutes between recognising/recording RFID band taps
+tapdistance = seconds
+mintapdistance = 5
+taptemplate = rtap.xlsx
+
+# No. of minutes for breaks in one day...
+lunchbreak = 30
+
+emailtaps = ian@bigpixel.com.au
+feedbackemail = mitchamrumpus@gmail.com
+
+customer = tpcc
+
+[defaults]
+defaultcustomerid = 2
+defaultadminuserid = 13
+defaultpaydow = 4
+defaultcountry = Australia
+defaultmaxhistory = 50
+
+itype_order_order = 1
+itype_order_invoice = 2
+itype_order_quote = 3
+itype_order_deliverydocket = 4
+
+itype_inventory_xfer = 1
+itype_inventory_adjust = 2
+itype_inventory_order = 3
+itype_inventory_stock = 4
+itype_inventory_build = 5
+
+itype_account_asset = 1
+itype_account_expense = 2
+itype_account_liability = 3
+itype_account_equity = 4
+itype_account_revenue = 5
+itype_account_costofgoodssold = 6
+itype_account_otherrevenue = 7
+itype_account_otherexpenses = 8
+itype_account_bank = 99
+
+defaultPrefixInvoiceFilename = Invoice_
+defaultPrefixOrderFilename = Order_
+defaultXLExtension = .xlsx
+
+[errorcodes]
+errcode_none = 0
+errcode_nodata = -1
+errcode_missingparams = -2
+errcode_fatal = -3
+errcode_notloggedin = -4
+errcode_sessionexpired = -5
+errcode_resourceunavail = -6
+errcode_dbunavail = -7
+errcode_userexists = -8
+errcode_dberr = -9
+errcode_fileerr = -10
+errcode_usernotregistered = -11
+errcode_passwdhash = -12
+errcode_invalidconnection = -13
+errcode_invalidlogin = -14
+errcode_missingurl = -15
+errcode_smserror = -16
+errcode_invalidsession = -17
+errcode_invalidclient = -18
+errcode_unablerestoresession = -19
+errcode_committx = -20
+errcode_jsonparse = -21
+errcode_jsonstringify = -22
+errcode_unablecreatenewuser = -23
+errcode_unableloginuser = -24
+errcode_unablesaveclient = -25
+errcode_unablesaveproduct = -26
+errcode_insufficientqty = -27
+
+[dbmain]
+host = 127.0.0.1:5432
+db = as1
+user = as1
+password = lmi$$
+
+[modules]
+auth = true
+counters = false
+oxr = false
+
+[geocoder]
+provider = google
+httpadapter = https
+
+[folders]
+# Make sure folders end with trailing backslash and are fully qualified paths...
+invoices = /Users/ianwu/WebstormProjects/as1/routes/downloads/invoices/
+orders = /Users/ianwu/WebstormProjects/as1/routes/downloads/orders/
+templates = /Users/ianwu/WebstormProjects/as1/routes/uploads/printtemplates/
+timesheets = /Users/ianwu/WebstormProjects/as1/routes/downloads/timesheets/
+
+# For access by http...
+invoicedownload = downloads/invoices/
+clientattachments = uploads/clientattachments/
+orderattachments = uploads/orderattachments/
+printtemplates = uploads/printtemplates/
+jobsheetimages = uploads/jobsheetimages/
+
+uploadfolder = uploads/
+ordertemplatesfolder = uploads/ordertemplates/
+
+[redis]
+rHost = localhost
+rPort = 6379
+rChannel = as1primus
+prefix = as1:
+custconfig = custcfg:
+rtap = rtap:
+
+[primus]
+transformer = sockjs
+pathname = /as1
+
+[openexchangerates]
+appid = 7af5f4439c4f4b5ab53375bcea47435d
+endpoint = https://openexchangerates.org/api/latest.json?appid=
+localcurrency = AUD
+basecurrency = USD
+
+[google]
+url_directions = https://maps.googleapis.com/maps/api/directions/json?origin=XXX_SRC&destination=XXX_DST&apikey=XXX_APIKEY
+webkey = AIzaSyB49CieTMF_l9W7XjMoDZ-hAUKoXaKuZyU
+defaultregion = au
+
+[counters]
+schedule = 0 6 * * * *
+
+[scrypt]
+# param1 (cost)
+# param2 (blocksize)
+# param3 (parallelisation)
+# param4 (key size)
+param1 = 8192
+param2 = 8
+param3 = 2
+param4 = 64
+
+[smtp]
+pool = true
+port = 25
+secure = false
+#host = mail.adtalkserver.net
+#user = noreply@adtalk.services
+#pass = adtalk$$00
+
+host = outbound.mailhop.org
+user = ecom88
+pass = 5BrokegirlS
+
+[diceware]
+wordcount = 3
+format = string
+
+[cron]
+# Crontab format:
+# second  minute  hour  dayofmonth month  dayofweek
+# (0-59)  (0-59) (0-23)   (1-31)   (1-12)   (0-6)
+# Every thursday 2am
+rtapreport = 0 0 23 * * 3
+#rtapreport = 20 * * * * *
+
+[log]
+name = as1
+info = ./logs/info.log
+warn = ./logs/warn.log
+error = ./logs/error.log
+debug = ./logs/debug.log
+
+# Real production reduce log level to 1...
+# Log levels:
+# 0 - error
+# 1 - warn
+# 2 - info
+# 3 - debug
+level = 2

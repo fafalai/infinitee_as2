@@ -1,0 +1,2318 @@
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Description" content="XXX_META_DESCRIPTION" />
+  <meta name="Keywords" content="XXX_META_KEYWORDS" />
+  <meta http-equiv="Reply-to" content="XXX_META_REPLYTO" />
+  <meta name="Copyright" content="XXX_META_COPYRIGHT" />
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <meta charset="UTF-8">
+
+  <title>XXX_META_TITLE</title>
+
+  <link rel="icon" type="image/png" href="XXX_FAVICO32" sizes="32x32" />
+  <link rel="icon" type="image/png" href="XXX_FAVICO16" sizes="16x16" />
+
+  <link type="text/css" rel="stylesheet" href="css/styles.css" />
+  <link type="text/css" rel="stylesheet" href="css/blue/style.css" />
+  <link type="text/css" rel="stylesheet" href="css/buttons.css" />
+  <link type="text/css" rel="stylesheet" href="css/animate.min.css" />
+  <link type="text/css" rel="stylesheet" href="js/easyui/themes/default/easyui.css">
+  <link type="text/css" rel="stylesheet" href="js/easyui/themes/icon.css">
+  <link type="text/css" rel="stylesheet" href="js/easyui/themes/color.css">
+
+  <script type="text/javascript" src="js/annyang.min.js"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
+
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <script type="text/javascript" src="js/accounting.min.js"></script>
+  <script type="text/javascript" src="js/decimal.min.js"></script>
+  <script type="text/javascript" src="js/reflection.js"></script>
+  <script type="text/javascript" src="js/moment.min.js"></script>
+  <script type="text/javascript" src="js/underscore.js"></script>
+  <script type="text/javascript" src="js/underscore.string.js"></script>
+  <script type="text/javascript" src="js/base64vars.js"></script>
+  <script type="text/javascript" src="js/primus-compiled.js"></script>
+  <script type="text/javascript" src="js/epos-2.7.0.js"></script>
+  <script type="text/javascript" src="js/country-abbreviation.js"></script>
+  <script type="text/javascript" src="js/country-states.js"></script>
+
+  <script type="text/javascript" src="globals.js"></script>
+  <script type="text/javascript" src="primushandlers.js"></script>
+  <script type="text/javascript" src="dlg-pick-abn.js"></script>
+  <!--
+  <script type="text/javascript" src="listeners.js"></script>
+  -->
+  <style>
+    a.addbutton,.addbutton:hover,.addbutton>.panel-header
+    {
+      color: #fff;
+      border-color: #3c8b3c;
+      border-radius: 25px;
+      background: #4cae4c;
+      background: -webkit-linear-gradient(top,#4cae4c 0,#449d44 100%);
+      background: -moz-linear-gradient(top,#4cae4c 0,#449d44 100%);
+      background: -o-linear-gradient(top,#4cae4c 0,#449d44 100%);
+      background: linear-gradient(to bottom,#4cae4c 0,#449d44 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffb3b3,endColorstr=#449d44,GradientType=0);
+
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    a.addbutton:hover
+    {
+	    background: #449d44;
+	    filter: none;
+    }
+
+    a.itembutton,.itembutton:hover,.itembutton>.panel-header
+    {
+      color: #fff;
+      border-color: #ff8080;
+      border-radius: 25px;
+      background: #ffb3b3;
+      background: -webkit-linear-gradient(top,#ffb3b3 0,#ff9999 100%);
+      background: -moz-linear-gradient(top,#ffb3b3 0,#ff9999 100%);
+      background: -o-linear-gradient(top,#ffb3b3 0,#ff9999 100%);
+      background: linear-gradient(to bottom,#ffb3b3 0,#ff9999 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffb3b3,endColorstr=#ff9999,GradientType=0);
+
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    a.itembutton:hover
+    {
+	    background: #ff9999;
+	    filter: none;
+    }
+
+    a.salebutton,.salebutton:hover,.salebutton>.panel-header
+    {
+      color: #000;
+      border-color: #e68900;
+      border-radius: 25px;
+      background: #ffab2e;
+      background: -webkit-linear-gradient(top,#ffab2e 0,#ff9900 100%);
+      background: -moz-linear-gradient(top,#ffab2e 0,#ff9900 100%);
+      background: -o-linear-gradient(top,#ffab2e 0,#ff9900 100%);
+      background: linear-gradient(to bottom,#ffab2e 0,#ff9900 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffab2e,endColorstr=#ff9900,GradientType=0);
+
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    a.salebutton:hover
+    {
+	    background: #ff9900;
+	    filter: none;
+    }
+
+    a.creditbutton,.creditbutton:hover,.creditbutton>.panel-header
+    {
+      color: #000;
+      border-color: #e68900;
+      border-radius: 25px;
+      background: #cd8ef7;
+      background: -webkit-linear-gradient(top,#cd8ef7 0,#a70af0 100%);
+      background: -moz-linear-gradient(top,#cd8ef7 0,#a70af0 100%);
+      background: -o-linear-gradient(top,#cd8ef7 0,#a70af0 100%);
+      background: linear-gradient(to bottom,#cd8ef7 0,#a70af0 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#cd8ef7,endColorstr=#a70af0,GradientType=0);
+
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    a.creditbutton:hover
+    {
+	    background: #a70af0;
+	    filter: none;
+    }
+
+    a.custbutton,.custbutton:hover,.custbutton>.panel-header
+    {
+      color: #000;
+      border-color: #e68900;
+      border-radius: 25px;
+      background: #f1d848;
+      background: -webkit-linear-gradient(top,#f1d848 0,#e2e484 100%);
+      background: -moz-linear-gradient(top,#f1d848 0,#e2e484 100%);
+      background: -o-linear-gradient(top,#f1d848 0,#e2e484 100%);
+      background: linear-gradient(to bottom,#f1d848 0,#e2e484 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffab2e,endColorstr=#e2e484,GradientType=0);
+
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    a.custbutton:hover
+    {
+	    background: #e2e484;
+	    filter: none;
+    }
+
+    a.numbutton,.numbutton:hover,.numbutton>.panel-header
+    {
+      color: #000;
+      border-color: #52d689;
+      border-radius: 25px;
+      background: #b8eecf;
+      background: -webkit-linear-gradient(top,#b8eecf 0,#a4e9c1 100%);
+      background: -moz-linear-gradient(top,#b8eecf 0,#a4e9c1 100%);
+      background: -o-linear-gradient(top,#b8eecf 0,#a4e9c1 100%);
+      background: linear-gradient(to bottom,#b8eecf 0,#a4e9c1 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b8eecf,endColorstr=#a4e9c1,GradientType=0);
+
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    a.numbutton:hover
+    {
+	    background: #e4e9a4;
+	    filter: none;
+    }
+
+    a.paybutton,.paybutton:hover,.paybutton>.panel-header
+    {
+      color: #fff;
+      border-color: #4b72a4;
+      border-radius: 25px;
+      background: #698cba;
+      background: -webkit-linear-gradient(top,#698cba 0,#577eb2 100%);
+      background: -moz-linear-gradient(top,#698cba 0,#577eb2 100%);
+      background: -o-linear-gradient(top,#698cba 0,#577eb2 100%);
+      background: linear-gradient(to bottom,#698cba 0,#577eb2 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#698cba,endColorstr=#577eb2,GradientType=0);
+
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    a.paybutton:hover
+    {
+	    background: #577eb2;
+	    filter: none;
+    }
+
+    a.orderbutton,.orderbutton:hover,.orderbutton>.panel-header
+    {
+      color: #fff;
+      border-color: #4b72a4;
+      border-radius: 25px;
+      background: #698cba;
+      background: -webkit-linear-gradient(top,#698cba 0,#96b2d6 100%);
+      background: -moz-linear-gradient(top,#698cba 0,#96b2d6 100%);
+      background: -o-linear-gradient(top,#698cba 0,#96b2d6 100%);
+      background: linear-gradient(to bottom,#698cba 0,#96b2d6 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#698cba,endColorstr=#96b2d6,GradientType=0);
+
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    a.orderbutton:hover
+    {
+	    background: #96b2d6;
+	    filter: none;
+    }
+
+    a.redbutton,.redbutton:hover,.redbutton>.panel-header
+    {
+      color: #fff;
+      border-color: #b52b27;
+      border-radius: 25px;
+      background: #d84f4b;
+      background: -webkit-linear-gradient(top,#d84f4b 0,#c9302c 100%);
+      background: -moz-linear-gradient(top,#d84f4b 0,#c9302c 100%);
+      background: -o-linear-gradient(top,#d84f4b 0,#c9302c 100%);
+      background: linear-gradient(to bottom,#d84f4b 0,#c9302c 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#d84f4b,endColorstr=#c9302c,GradientType=0);
+
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    a.redbutton:hover
+    {
+	    background: #c9302c;
+	    filter: none;
+    }
+
+    a.searchbutton,.searchbutton:hover,.searchbutton>.panel-header
+    {
+      color: #fff;
+      border-color: #5f5f5f;
+      border-radius: 25px;
+      background: #747474;
+      background: -webkit-linear-gradient(top,#747474 0,#676767 100%);
+      background: -moz-linear-gradient(top,#747474 0,#676767 100%);
+      background: -o-linear-gradient(top,#747474 0,#676767 100%);
+      background: linear-gradient(to bottom,#747474 0,#676767 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#747474,endColorstr=#676767,GradientType=0);
+
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: middle;
+      display: table-cell;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    a.searchbutton:hover
+    {
+	    background: #676767;
+	    filter: none;
+    }
+
+    a.bigsize
+    {
+      width: 100px;
+      height: 100px;
+    }
+
+    td.datagrid-cell
+    {
+      padding: 1px;
+    }
+
+    td.item
+    {
+      padding: 10px;
+    }
+
+    .textbox .textbox-text
+    {
+      font-size: 36px;
+    }
+
+    .numberbox .textbox-text
+    {
+      font-size: 200%;
+    }
+
+    .datagrid-cell
+    {
+      font-size: 32px;
+      margin-top: 5px;
+      padding-top: 5px;
+      vertical-align: middle;
+      min-height: 32px;
+    }
+
+    /*
+    .datagrid-row
+    {
+      height: 40px;
+    }
+    */
+
+    .combobox-item
+    {
+      font-size: 36px;
+      min-height: 28px;
+      padding: 5px;
+    }
+
+    .tree-node
+    {
+      font-size: 36px;
+      min-height: 28px;
+      padding: 5px;
+    }
+
+    .tree-title
+    {
+      font-size: 36px;
+      min-height: 28px;
+      padding: 5px;
+    }
+
+    .dialog-button
+    {
+      height: 45px;
+    }
+
+    .l-btn
+    {
+      height: 36px;
+    }
+
+    .l-btn-text
+    {
+      font-size: 30px;
+      min-height: 26px;
+      padding: 3px;
+    }
+
+    .panel-title
+    {
+      font-size: 20px;
+      min-height: 18px;
+      padding: 3px;
+    }
+
+    .menu-text, .menu-item
+    {
+      font-size: 20px;
+      min-height: 25px;
+      padding: 3px;
+    }
+
+    .calendar, .calendar-body th .calendar-body td .calendar-menu, .calendar-title, .calendar-dtable, .calendar-day
+    {
+      font-size: 20px;
+    }
+
+    /* For Google address lookup */
+    .pac-item, .pac-matched, .pac-item-query
+    {
+      font-size: 20px;
+      min-height: 25px;
+    }
+
+    input[type='radio'] {transform: scale(2);}
+  </style>
+
+  <script type="text/javascript">
+    var primus = null;
+    var total = 0.0;
+    // These vars are filled in/replaced by node when this HTML is loaded...
+    var buildno = 'XXX_BUILDNO';
+    var defaultCountry = 'XXX_DEFAULTCOUNTRY';
+    var defaultRegionCode = 'XXX_GOOGLEDEFAULTREGION';
+    var builds = [];
+    //
+    var errcode_none = XXX_ERRCODE_NONE;
+    var errcode_nodata = XXX_ERRCODE_NODATA;
+    var errcode_missingparams = XXX_ERRCODE_MISSINGPARAMS;
+    var errcode_fatal = XXX_ERRCODE_FATAL;
+    var errcode_notloggedin = XXX_ERRCODE_NOTLOGGEDIN;
+    var errcode_sessionexpired = XXX_ERRCODE_SESSIONEXPIRED;
+    var errcode_resourceunavail = XXX_ERRCODE_RESOURCEUNAVAIL;
+    var errcode_dbunavail = XXX_ERRCODE_DBUNAVAIL;
+    var errcode_userexists = XXX_ERRCODE_USEREXISTS;
+    var errcode_dberr = XXX_ERRCODE_DBERR;
+    var errcode_fileerr = XXX_ERRCODE_FILEERR;
+    var errcode_usernotregistered = XXX_ERRCODE_USERNOTREGISTERED;
+    var errcode_passwdhash = XXX_ERRCODE_PASSWDHASH;
+    var errcode_invalidconnection = XXX_ERRCODE_INVALIDCONNECTION;
+    var errcode_invalidlogin = XXX_ERRCODE_INVALIDLOGIN;
+    var errcode_missingurl = XXX_ERRCODE_MISSINGURL;
+    var errcode_smserror = XXX_ERRCODE_SMSERROR;
+    var errcode_invalidsession = XXX_ERRCODE_INVALIDSESSION;
+    var errcode_invalidclient = XXX_ERRCODE_INVALIDCLIENT;
+    var errcode_unablerestoresession = XXX_ERRCODE_UNABLERESTORESESSION;
+    var errcode_committx = XXX_ERRCODE_COMMITTX;
+    var errcode_jsonparse = XXX_ERRCODE_JSONPARSE;
+    var errcode_jsonstringify = XXX_ERRCODE_JSONSTRINGIFY;
+    var errcode_unablecreatenewuser = XXX_ERRCODE_UNABLECREATENEWUSER;
+    var errcode_unableloginuser = XXX_ERRCODE_UNABLELOGINUSER;
+    var errcode_unablesaveclient = XXX_ERRCODE_UNABLESAVECLIENT;
+    var errcode_unablesaveproduct = XXX_ERRCODE_UNABLESAVEPRODUCT;
+    var errcode_insufficientqty = XXX_ERRCODE_INSUFFICIENTQTY;
+    //
+    var barcode_defaultformat = 'XXX_BARCODE_FORMAT';
+    var barcode_defaultformat_length = XXX_BARCODE_LENGTH;
+    var barcode_prefixlength = XXX_BARCODE_PREFIX_LENGTH;
+    var barcode_colour = 'black';
+    var barcode_fontOptions = 'bold';
+    var barcode_textmargin = 0;
+    var barcode_width = 2;
+    var barcode_height = 50;
+    //
+    var rowid = 0;
+    var existingorderno = '';
+    var existingorderpaymenttype = 0;
+    var existingordertendered = 0;
+    var exisingorderchange = 0;
+    var existingordercreated = '';
+    var existingorderby = '';
+    // For POS printer...
+    var printer = null;
+    var ePosDev = new epson.ePOSDevice();
+    var context = null;
+    var receiptimage = new Image();
+
+    // ************************************************************************************************************************************************************************
+    // Init DOM elements right away...
+    $(function()
+    {
+      ispos = true;
+      Decimal.config({precision: 8, rounding: 8});
+    });
+
+    // ************************************************************************************************************************************************************************
+    // Init form elements
+    function BeforeUnload()
+    {
+      // We use beforeunload to give javascript/primus emit chance to execute before all code gets dropped....
+      primus.emit('logout', {fguid: fguid, pdata: 'onbeforeunload'});
+    }
+
+    $(document).ready(function()
+    {
+      console.log('***** Begin...');
+      $('#divDashConnectionStatus').html('<img style="vertical-align: middle;" src="images/ajax_waiting.gif" width="24" height="24"/> Server isn\'t available');
+
+      console.log('***** Set widget extensions...');
+      $.noty.defaults =
+      {
+        layout: 'top',
+        theme: 'defaultTheme',
+        type: 'alert',
+        text: '',
+        dismissQueue: true,
+        template: '<div class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>',
+        animation:
+        {
+          open: {height: 'toggle'},
+          close: {height: 'toggle'},
+          easing: 'swing',
+          speed: 500
+        },
+        timeout: false,
+        force: false,
+        modal: false,
+        maxVisible: 5,
+        killer: false,
+        closeWith: ['click'],
+        callback:
+        {
+          onShow: function() {},
+          afterShow: function() {},
+          onClose: function() {},
+          afterClose: function() {}
+        },
+        buttons: false
+      };
+
+      // Add autocomolete to combotree...
+      $.fn.combotree.defaults.editable = true;
+      $.extend
+      (
+        $.fn.combotree.defaults.keyHandler,
+        {
+          up: function()
+          {
+            console.log('up')
+          },
+          down: function()
+          {
+            console.log('down')
+          },
+          enter: function()
+          {
+            console.log('enter')
+          },
+          query: function(q)
+          {
+            var t = $(this).combotree('tree');
+            var nodes = t.tree('getChildren');
+            var ql = q.toLowerCase();
+
+            for (var i = 0; i < nodes.length; i++)
+            {
+              var node = nodes[i];
+
+              if (node.text.toLowerCase().indexOf(ql) >= 0)
+                $(node.target).show();
+              else
+                $(node.target).hide();
+            }
+
+            var opts = $(this).combotree('options');
+
+            if (!opts.hasSetEvents)
+            {
+              opts.hasSetEvents = true;
+
+              var onShowPanel = opts.onShowPanel;
+
+              opts.onShowPanel = function()
+              {
+                var nodes = t.tree('getChildren');
+
+                for (var i = 0; i < nodes.length; i++)
+                {
+                  $(nodes[i].target).show();
+                }
+
+                onShowPanel.call(this);
+              };
+
+              $(this).combo('options').onShowPanel = opts.onShowPanel;
+            }
+          }
+        }
+      );
+
+      $.extend
+      (
+        $.fn.linkbutton.methods,
+        {
+          setFontSize: function(jq, size)
+          {
+            return jq.each(function() {$(this).find('.l-btn-text').css('font-size', size);})
+          }
+        }
+      );
+
+      // Image for receipt printer...
+      receiptimage.src = 'images/logos/longfine2.png?' + new Date().getTime();
+      receiptimage.onload = function()
+      {
+        var canvas = document.getElementById('canvas');
+
+        if (canvas.getContext)
+        {
+          canvas.width = receiptimage.width;
+          canvas.height = receiptimage.height;
+          context = canvas.getContext('2d');
+          context.drawImage(receiptimage, 0, 0);
+        }
+      }
+
+      console.log('***** Connect to POS printer...');
+      ppConnect();
+
+      console.log('***** Starting Primus...');
+      doPrimus();
+
+      // ************************************************************************************************************************************************************************
+      // Start login process and register login/logout listeners...
+      console.log('***** Fire login dialog...');
+      $('#dlgLogin').dialog
+      (
+        {
+          onOpen: function()
+          {
+            $('#fldPwd').passwordbox('textbox').bind
+            (
+              'keydown',
+              function(ev)
+              {
+                if (ev.keyCode == 13)
+                  doLogin();
+              }
+            );
+
+            if (self.location.hostname == 'localhost')
+            {
+              // $('#fldUid').textbox('setValue', 'iwu');
+              // $('#fldPwd').textbox('setValue', 'letmein');
+            }
+
+            doTextboxFocus('fldUid');
+          },
+          buttons:
+          [
+            {
+              text: 'Login',
+              id: 'btnLogin',
+              handler: function()
+              {
+                doLogin();
+              }
+            }
+          ]
+        }
+      ).dialog('center');
+
+      $('#spnBuildno').text('Build: ' + buildno);
+
+      $('#divEvents').on
+      (
+        'refresh-all',
+        function(ev, args)
+        {
+          console.log('refreshall event');
+          //doTextboxFocus('fldCode');
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'posready',
+        function(ev, args)
+        {
+          showIdle();
+
+          console.log('pos ready event');
+          $('#divProductsG').datagrid('resize');
+
+          primus.emit('listclients', {fguid: fguid, uuid: uuid, session: session, pdata: {type: 'refresh'}});
+          doTextboxFocus('fldCode');
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'poswelcome',
+        function(ev, args)
+        {
+          console.log('pos welcome event');
+          doTextboxFocus('fldUid');
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'poscashsale',
+        function(ev, args)
+        {
+          doPrintToDocket(args.data.orderno, null, args.data.total, args.data.cash, args.data.credit, args.data.tendered, args.data.change, uname);
+          // Instead of clearing to new sale, we'll recall the order in case we wanna print again... (or paper out in printer etc)
+          doServerDataMessage('possearchsale', {orderno: args.data.orderno}, {type: 'refresh'});
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'poscreditsale',
+        function(ev, args)
+        {
+          doPrintToDocket(args.data.orderno, null, args.data.total, args.data.cash, args.data.credit, uname);
+          doNewSale();
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'possplitsale',
+        function(ev, args)
+        {
+          doPrintToDocket(args.data.orderno, null, args.data.total, args.data.cash, args.data.credit, uname);
+          doNewSale();
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'posgetproduct',
+        function(ev, args)
+        {
+          // Found anything?
+          console.log(args.data);
+          if (!_.isUndefined(args.data.rs) && (args.data.rs.length > 0))
+          {
+            if (args.data.rs.length == 1)
+              doAddProduct(args.data.rs[0]);
+            else
+            {
+              $('#dlgPickProduct').dialog
+              (
+                {
+                  title: 'Found ' + args.data.rs.length + ' products - please select one...',
+                  onOpen: function()
+                  {
+                    $('#divMatchingProductsG').datagrid
+                    (
+                      {
+                        idField: 'id',
+                        fitColumns: true,
+                        singleSelect: true,
+                        rownumbers: false,
+                        striped: true,
+                        data: args.data.rs,
+                        columns:
+                        [
+                          [
+                            {title: 'Name',    field: 'name',    width: 600, align: 'left', styler: function(value, row, index) {return 'background-color: ' + colour_mistyrose}},
+                            {title: 'Code',    field: 'code',    width: 350, align: 'left'},
+                            {title: 'Barcode', field: 'barcode', width: 250, align: 'left'},
+                            {title: 'Price',   field: 'price',   width: 150, align: 'right', formatter: function(value, row, index) {if (!_.isUndefined(value)) return _.formatnumber(value, 2, true);}}
+                          ]
+                        ],
+                        onClickRow: function(index, row)
+                        {
+                          doTextboxFocus('fldCode');
+                        }
+                      }
+                    );
+                  },
+                  onClose: function()
+                  {
+                    $('#divMatchingProductsG').datagrid('loadData', []);
+                    $('#divMatchingProductsG').datagrid('clearSelections');
+                  },
+                  buttons:
+                  [
+                    {
+                      text: 'Select',
+                      id: 'btnPickProductSelect',
+                      handler: function()
+                      {
+                        if (!doGridGetSelectedRowData
+                          (
+                            'divMatchingProductsG',
+                            function(r, index)
+                            {
+                              $('#dlgPickProduct').dialog('close');
+                              doAddProduct(r);
+                            }
+                          ))
+                        {
+                          doTextboxFocus('fldCode');
+                        }
+                      }
+                    },
+                    {
+                      text: 'Cancel',
+                      id: 'btnPickProductCancel',
+                      handler: function()
+                      {
+                        $('#dlgPickProduct').dialog('close');
+                        doClear();
+                      }
+                    }
+                  ]
+                }
+              ).dialog('center').dialog('open');
+            }
+          }
+          else
+          {
+            doShowWarning('No matching products found...');
+            doTextboxFocus('fldCode');
+          }
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'possearchsale',
+        function(ev, args)
+        {
+          if (_.isUndefined(args.data.rs) || (args.data.rs.length == 0))
+          {
+            doShowWarning('No matching orders found...');
+            return;
+          }
+
+          if (args.data.rs.length == 1)
+            primus.emit('posloadsale', {fguid: fguid, uuid: uuid, session: session, orderno: args.data.rs[0].orderno, pdata: {type: 'refresh'}});
+          else
+            doDlgPickSale(args.data.rs);
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'posloadsale',
+        function(ev, args)
+        {
+          if (_.isUndefined(args.data.order) || (args.data.order.length == 0))
+            return;
+
+          doLoadSale(args.data.order, args.data.products);
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'posnewcust',
+        function(ev, args)
+        {
+          primus.emit('listclients', {fguid: fguid, uuid: uuid, session: session, pdata: {type: 'refresh'}});
+          doShowSuccess('New customer created with code: ' + args.data.code);
+          $('#dlgNewCust').dialog('close');
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'listclients',
+        function(ev, args)
+        {
+          $('#cbCustomers').combotree('loadData', cache_clients);
+          doTextboxFocus('fldCode');
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'abnselected',
+        function(ev, args)
+        {
+          // Make sure we don't trigger onChange....
+          $('#fldNewCustName').textbox('initValue', args.name);
+          $('#fldNewCustABN').textbox('setValue', args.abn);
+          doTextboxFocus('fldNewCustAddress1');
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'abnlookup',
+        function(ev, args)
+        {
+          if (!_.isUndefined(args.data.rs.Names))
+            doDlgPickABN(args.data.rs.Names);
+          else
+            doTextboxFocus('fldCode');
+        }
+      );
+
+      var cardview = $.extend
+      (
+        {},
+        $.fn.datagrid.defaults.view,
+        {
+          renderRow: function(target, fields, frozen, rowIndex, rowData)
+          {
+            var cc = [];
+
+            if (!_.isUndefined(rowData) && !_.isUndefined(rowData.id))
+            {
+              // "Force" width of numeric columns...
+              var d = _.isUndefined(rowData.discount) ? _.forcehtmlspacelpad('', 5) : _.forcehtmlspacelpad(_.formatnumber(rowData.discount, 0, true) + '%', 5);
+              var p = _.forcehtmlspacelpad(_.formatnumber(rowData.price, 2, true), 9);
+              var q = _.forcehtmlspacelpad(rowData.qty.toString(), 5);
+              var s = _.forcehtmlspacelpad(_.formatnumber(rowData.sub, 2), 10);
+
+              cc.push
+              (
+                '<td style="font-size: 32px; border: 0; text-align: left; vertical-align: top;">' +
+                  '<table style="width: 100%; font-size: 32px;">' +
+                    '<tr><td style="border: 0; text-align: left; vertical-align: top;">' + _.titleize(rowData.name) + '</td></tr>' +
+                    '<tr><td style="border: 0; text-align: left; vertical-align: top; color: ' + colour_darkkhaki + '">' + rowData.code + '</td></tr>' +
+                  '</table>' +
+                '</td>'
+              );
+              cc.push('<td style="font-size: 32px; border: 0; text-align: right; vertical-align: top;">' + p + '</td>');
+              cc.push('<td style="font-size: 32px; border: 0; background-color: ' + colour_lavender + '; text-align: right; vertical-align: top;">' + q + '</td>');
+              cc.push('<td style="font-size: 32px; border: 0; background-color: ' + colour_mistyrose + '; text-align: right; vertical-align: top;">' + d + '</td>');
+              cc.push('<td style="font-size: 32px; border: 0; text-align: right; vertical-align: top;">' + s + '</td>');
+            }
+            else
+              cc.push('<td style="width: 100%; padding: 5px 5px; border: 0; colspan="5">&nbsp;</td>');
+
+            return cc.join('');
+          }
+        }
+      );
+
+      $('#divProductsG').datagrid
+      (
+        {
+          idField: 'rowid',
+          fitColumns: false,
+          singleSelect: true,
+          rownumbers: false,
+          view: cardview,
+          onClickRow: function(index, row)
+          {
+            doTextboxFocus('fldCode');
+          }
+        }
+      );
+
+      $('#imgPOSLogo').reflect({height: 0.55, opacity: 0.25});
+
+      $('#fldAmountPaid').textbox
+      (
+        {
+          onChange: function(newValue, oldValue)
+          {
+            doAmountPaidChange();
+          }
+        }
+      );
+
+      $('#cbCustomers').combotree
+      (
+        {
+          valueField: 'id',
+          textField: 'name',
+          limitToList: true,
+          data: cache_clients
+        }
+      );
+
+      console.log('***** End...');
+    });
+
+    // ************************************************************************************************************************************************************************
+    // POS printer functions
+    function ppConnect()
+    {
+      var ip = 'XXX_POSPRINTERIP';
+      var port = XXX_POSPRINTERPORT;
+      ePosDev.connect(ip, port, ppCallbackConnect);
+    }
+
+    function ppCallbackConnect(resultConnect)
+    {
+      
+      var options = {crypto: true, buffer: true};
+      var deviceID = 'XXX_POSPRINTERID';
+      console.log('Callback connect: ' + resultConnect);
+
+      if ((resultConnect === 'OK') || (resultConnect === 'SSL_CONNECT_OK')) 
+        ePosDev.createDevice(deviceID, ePosDev.DEVICE_TYPE_PRINTER, options, ppCallbackCreateDevice);
+      else
+        doShowWarning('Unable to connect to POS receipt Printer: ' + resultConnect);
+    }
+
+    function ppCallbackCreateDevice(deviceObj, errorCode)
+    {
+      console.log('**** device obj');
+      console.log(deviceObj);
+      console.log(errorCode);
+      console.log('*****');
+      printer = deviceObj;
+
+      printer.onreceive = function(response)
+      {
+        console.log(response)
+        if (response.success)
+        {
+          console.log('***** Print Complete');
+          printer.addPulse(printer.DRAWER_1, printer.PULSE_100);
+        }
+        else
+          doShowWarning('Print Error: ' + response.code);
+      };
+
+      printer.oncoveropen = function(status)
+      {
+        doShowWarning('Printer cover is open');
+      };
+
+      printer.startMonitor();
+    }
+
+    function setText(text, [reverse, underline, bold], size, align = 'ALIGN_LEFT')
+    {
+      if (_.isNull(printer))
+      {
+        console.log('***** ' + text);
+        return;
+      }
+
+      var color = printer.COLOR_1;
+      var height = size;
+      var width = size;
+
+      printer.addTextStyle(reverse, underline, bold, color);
+      printer.addTextSize(height, width);
+      printer.addTextAlign(printer[align]);
+      printer.addTextSmooth(true);
+      printer.addText(text);
+    }
+
+    function setBarcode(code)
+    {
+      if (_.isNull(printer))
+        return;
+
+      var data = code;
+      var barcodeType = printer.BARCODE_CODE39;
+      var width = 2;
+      var height = 32;
+
+      printer.addBarcode(data, barcodeType, printer.HR_BELOW, printer.FONT_A, width, height);
+      printer.addFeedLine(2);
+    }
+
+    function setQRcode1()
+    {
+      if (_.isNull(printer))
+        return;
+
+      setText('www.longfine.com.au', [false, false, false], 1, 'ALIGN_CENTER');
+      //printer.addFeed();
+      //printer.addTextAlign(printer.ALIGN_CENTER);
+      //printer.addSymbol('http://www.longfine.com.au', printer.SYMBOL_QRCODE_MODEL_2, printer.LEVEL_M, 4, 8, 0);
+      printer.addFeedLine(2);
+    }
+
+    function setQRcode2(orderno)
+    {
+      if (_.isNull(printer))
+        return;
+
+      printer.addSymbol(orderno, printer.SYMBOL_QRCODE_MODEL_2, printer.LEVEL_M, 6, 8, 0);
+      printer.addFeedLine(2);
+    }
+
+    function setLogo()
+    {
+      if (_.isNull(printer))
+        return;
+
+      printer.addTextAlign(printer.ALIGN_LEFT);
+      printer.halftone = printer.HALFTONE_DITHER;
+      printer.brightness = 1.0;
+      printer.addImage(context, 0, 0, canvas.width, canvas.height, printer.COLOR_1, printer.MODE_MONO);
+      printer.addFeedLine(2);
+    }
+
+    function printFeed()
+    {
+      if (_.isNull(printer))
+        return;
+      printer.addFeed();
+    }
+
+    function printLineFeed(lines)
+    {
+      if (_.isNull(printer))
+        return;
+      printer.addFeedLine(lines);
+    }
+
+    function printTextPosition(p)
+    {
+      if (_.isNull(printer))
+        return;
+      printer.addTextPosition(p);
+    }
+
+    function printInfoText(label, txt)
+    {
+      setText(label, [false, false, true], 1);
+      if (!_.isNull(printer))
+        printer.addTextPosition(150);
+
+      setText(txt, [false, false, false], 1);
+      if (!_.isNull(printer))
+        printer.addFeed();
+    }
+
+    function printIndented(txt)
+    {
+      if (_.isNull(printer))
+        return;
+
+      printer.addTextPosition(75);
+      setText(txt, [false, false, false], 1);
+      printer.addFeed();
+    }
+
+    function printCutAndSend(iscash)
+    {
+      if (_.isNull(printer))
+        return;
+
+      printer.addFeedLine(3);
+      printer.addCut();
+
+      // Open cash drawer?
+      if (iscash)
+        printer.addPulse(printer.DRAWER_1, printer.PULSE_100);
+      printer.send();
+    }
+
+    // ************************************************************************************************************************************************************************
+    // Helper functions
+    function abnresults(results)
+    {
+      console.log(results);
+    }
+
+    function doShowTotal()
+    {
+      var n = _.formatnumber(total, 2, true);
+      var t = '';
+
+      if (!_.isBlank(n))
+        t = 'Total: $' + n;
+
+      $('#fldTotal').textbox('setValue', t);
+    }
+
+    function doButton(which)
+    {
+      var a = $('#fldQty').textbox('getValue');
+      var hasDecimal = a.indexOf('.') != -1;
+
+      if (hasDecimal)
+      {
+        var n = a.split('.');
+
+        if (n[1].length < 2)
+          a += which;
+      }
+      else
+        a += which;
+
+      $('#fldQty').textbox('setValue', a);
+      doTextboxFocus('fldCode');
+    }
+
+    function doAmountPaidChange()
+    {
+      var a = _.toBigNum($('#fldAmountPaid').textbox('getValue'));
+      var t = _.toBigNum(total);
+      var diff = t.minus(a);
+
+      if (diff.greaterThan(0.0))
+      {
+        $('#fldSplitAmount').textbox('setValue', _.formatnumber(diff, 2, false));
+        $('#fldChange').textbox('clear');
+      }
+      else if (diff.lessThan(0.0))
+      {
+        $('#fldSplitAmount').textbox('clear');
+        $('#fldChange').textbox('setValue', _.formatnumber(diff.times(-1.0), 2, false));
+      }
+      else
+      {
+        $('#fldSplitAmount').textbox('clear');
+        $('#fldChange').textbox('clear');
+      }
+
+      doTextboxFocus('fldAmountPaid');
+    }
+
+    function doLoadSale(order, products)
+    {
+      doNewSale();
+
+      products.forEach
+      (
+        function(p)
+        {
+          var discount = _.toBigNum(p.price).times(p.discount).dividedBy(100.0);
+          var sub = _.toBigNum(p.price).minus(discount).times(p.qty);
+
+          $('#divProductsG').datagrid
+          (
+            'appendRow',
+            {
+              rowid: ++rowid,
+              id: p.productid,
+              code: p.code,
+              name: p.name,
+              price: _.formatnumber(p.price, 2),
+              qty: _.formatnumber(p.qty, 0),
+              exgst: p.exgst,
+              gst: p.gst,
+              sub: _.formatnumber(sub, 2)
+            }
+          );
+        }
+      );
+
+      $('#btnPay').linkbutton({text: 'Print'});
+
+      existingorderno = order.orderno;
+      existingorderpaymenttype = order.paymenttype;
+      existingordertendered = order.tendered;
+      existingorderchange = order.change;
+      existingordercreated = order.datecreated;
+      existingorderby = order.usercreated;
+      $('#spnOrder').html('Order No.: ' + existingorderno);
+
+      total = order.total;
+      doShowTotal();
+    }
+
+    function doPButton(which)
+    {
+      var a = $('#fldAmountPaid').textbox('getValue');
+      var hasDecimal = a.indexOf('.') != -1;
+
+      if (hasDecimal)
+      {
+        var n = a.split('.');
+
+        if (n[1].length < 2)
+          a += which;
+      }
+      else
+        a += which;
+
+      $('#fldAmountPaid').textbox('setValue', a);
+      doAmountPaidChange();
+    }
+
+    function doClear()
+    {
+      $('#cbCustomers').combotree('clear');
+      $('#fldCode').textbox('clear');
+      $('#fldQty').textbox('clear');
+
+      doShowTotal();
+      doTextboxFocus('fldCode');
+    }
+
+    function doDel()
+    {
+      $('#fldQty').textbox('clear');
+
+      doShowTotal();
+      doTextboxFocus('fldCode');
+    }
+
+    function doPClear()
+    {
+      $('#fldAmountPaid').textbox('clear');
+      $('#fldChange').textbox('clear');
+      $('#cbCustomers').combotree('clear');
+
+      doTextboxFocus('fldAmountPaid');
+    }
+
+    function doRemove()
+    {
+      // TODO: Removing items on searched order probably means we're gonna do refund/credit...
+      doGridGetSelectedRowData
+      (
+        'divProductsG',
+        function(row)
+        {
+          var sub = row.sub;
+
+          total -= sub;
+
+          doShowTotal();
+          doGridRemoveRow('divProductsG', row);
+        }
+      );
+
+      doTextboxFocus('fldCode');
+    }
+
+    function doChangeQty()
+    {
+      if (!doGridGetSelectedRowData
+        (
+          'divProductsG',
+          function(row)
+          {
+            var q = $('#fldQty').textbox('getValue');
+            var sub = 0;
+
+            if (_.isBlank(q) || (q == 0))
+              q = 1;
+
+            sub = q * row.price;
+            total -= row.sub;
+            total += sub;
+
+            $('#fldQty').textbox('clear');
+            doShowTotal();
+            doUpdateGridRow('divProductsG', row, {qty: q, sub: sub});
+            doTextboxFocus('fldCode');
+          }
+        ))
+      {
+        doTextboxFocus('fldCode');
+      }
+    }
+
+    function doAddProduct(product)
+    {
+      var q = $('#fldQty').textbox('getValue');
+
+      if (_.isBlank(q) || (q == 0))
+        q = 1;
+
+      var sub = q * product.price;
+
+      total += sub;
+
+      $('#divProductsG').datagrid
+      (
+        'appendRow',
+        {
+          rowid: ++rowid,
+          id: product.id,
+          code: product.code,
+          name: product.name,
+          price: _.formatnumber(product.price, 2),
+          qty: q,
+          exgst: product.exgst,
+          gst: product.gst,
+          sub: _.formatnumber(sub, 2)
+        }
+      );
+
+      // Autoselect new row get ready for qty change or discount selection...
+      $('#divProductsG').datagrid('selectRecord', rowid);
+
+      $('#fldCode').textbox('clear');
+      $('#fldQty').textbox('clear');
+
+      doShowTotal();
+      doTextboxFocus('fldCode');
+    }
+
+    function doDlgPickSale(orders)
+    {
+      $('#dlgPickSale').dialog
+      (
+        {
+          title: 'Found ' + orders.length + ' orders - please select one...',
+          onOpen: function()
+          {
+            $('#divMatchingSalesG').datagrid
+            (
+              {
+                idField: 'id',
+                fitColumns: true,
+                singleSelect: true,
+                rownumbers: true,
+                striped: true,
+                data: orders,
+                columns:
+                [
+                  [
+                    {title: 'Order No.',  field: 'orderno',     width: 280, align: 'left', styler: function(value, row, index) {return 'color: ' + colour_dodgerblue}},
+                    {title: 'Mobile No.', field: 'mobileno',    width: 300, align: 'left'},
+                    {title: 'Email',      field: 'email',       width: 300, align: 'left'},
+                    {title: 'By',         field: 'usercreated', width: 180, align: 'left', formatter: function(value, row, index) {return _.titleize(value);}},
+                    {title: 'Date',       field: 'datecreated', width: 440, align: 'left', formatter: function(value, row) {return _.posdisplaydate(value);}, styler: function(value, row, index) {return 'color: ' + colour_seagreen}}
+                  ]
+                ],
+                onClickRow: function(index, row)
+                {
+                }
+              }
+            );
+          },
+          onClose: function()
+          {
+            $('#divMatchingSalesG').datagrid('loadData', []);
+            $('#divMatchingSalesG').datagrid('clearSelections');
+          },
+          buttons:
+          [
+            {
+              text: 'Select',
+              id: 'btnPickSale',
+              handler: function()
+              {
+                doGridGetSelectedRowData
+                (
+                  'divMatchingSalesG',
+                  function(o)
+                  {
+                    primus.emit('posloadsale', {fguid: fguid, uuid: uuid, session: session, orderno: o.orderno, pdata: {type: 'refresh'}});
+                    $('#dlgPickSale').dialog('close');
+                  }
+                );
+              }
+            },
+            {
+              text: 'Cancel',
+              id: 'btnPickSaleCancel',
+              handler: function()
+              {
+                $('#dlgPickSale').dialog('close');
+              }
+            }
+          ]
+        }
+      ).dialog('center').dialog('open');
+
+    }
+
+    function doDiscount()
+    {
+      if (!doGridGetSelectedRowData
+        (
+          'divProductsG',
+          function(row)
+          {
+            $('#dlgPickDiscount').dialog
+            (
+              {
+                onOpen: function()
+                {
+                  var p10 = row.price - (row.price * 10.0 / 100.0);
+                  var p15 = row.price - (row.price * 15.0 / 100.0);
+                  var p20 = row.price - (row.price * 20.0 / 100.0);
+                  var p25 = row.price - (row.price * 25.0 / 100.0);
+                  var data =
+                  [
+                    {discount: 0, name: 'No Discount', price: row.price, sub: row.sub},
+                    {discount: 10, name: '10%', price: p10, sub: row.qty * p10},
+                    {discount: 15, name: '15%', price: p15, sub: row.qty * p15},
+                    {discount: 20, name: '20%', price: p20, sub: row.qty * p20},
+                    {discount: 25, name: '25%', price: p20, sub: row.qty * p25}
+                  ];
+
+                  $('#divDiscountsG').datagrid
+                  (
+                    {
+                      idField: 'discount',
+                      fitColumns: true,
+                      singleSelect: true,
+                      rownumbers: false,
+                      striped: true,
+                      data: data,
+                      columns:
+                      [
+                        [
+                          {title: 'Discount',      field: 'name',  width: 240, align: 'right', styler: function(value, row, index) {return 'background-color: ' + colour_mistyrose}},
+                          {title: 'New Price',     field: 'price', width: 130, align: 'right', formatter: function(value, row, index) {if (!_.isUndefined(value)) return _.formatnumber(value, 2, true);}},
+                          {title: 'New Sub-Total', field: 'sub',   width: 130, align: 'right', formatter: function(value, row, index) {if (!_.isUndefined(value)) return _.formatnumber(value, 2, true);}}
+                        ]
+                      ],
+                      onClickRow: function(index, row)
+                      {
+                        doTextboxFocus('fldCode');
+                      }
+                    }
+                  );
+
+                  $('#fldDiscountOther').textbox
+                  (
+                    {
+                      onChange: function(newValue, oldValue)
+                      {
+                        var discount = 0.0;
+
+                        if (!_.isBlank(newValue))
+                          discount = newValue;
+
+                        var pother = row.price - (row.price * discount / 100.0);
+                        var sub  = row.qty * pother;
+
+                        $('#fldDiscountNewPrice').textbox('setValue', _.formatnumber(pother, 2, true));
+                        $('#fldDiscountNewSubTotal').textbox('setValue', _.formatnumber(sub, 2, true));
+                      }
+                    }
+                  );
+                  doTextboxFocus('fldDiscountOther');
+                },
+                buttons:
+                [
+                  {
+                    text: 'Apply',
+                    id: 'btnPickDiscountApply',
+                    handler: function()
+                    {
+                      // Manual ebtry overrides selection
+                      var discount = $('#fldDiscountOther').textbox('getValue');
+
+                      if (_.isBlank(discount))
+                      {
+                        if (!doGridGetSelectedRowData
+                          (
+                            'divDiscountsG',
+                            function(r)
+                            {
+                              var sub = row.qty * r.price;
+
+                              total -= row.sub;
+                              total += sub;
+
+                              doShowTotal();
+                              doUpdateGridRow('divProductsG', row, {discount: r.discount, sub: sub});
+                              $('#dlgPickDiscount').dialog('close');
+                              doTextboxFocus('fldCode');
+                            }
+                          ))
+                        {
+                          doTextboxFocus('fldCode');
+                        }
+                      }
+                      else
+                      {
+                        var price = $('#fldDiscountNewPrice').textbox('getValue');
+                        var sub = $('#fldDiscountNewSubTotal').textbox('getValue');
+
+                        total -= row.sub;
+                        total += sub;
+
+                        doShowTotal();
+                        doUpdateGridRow('divProductsG', row, {discount: discount, sub: sub});
+                        $('#dlgPickDiscount').dialog('close');
+                        doTextboxFocus('fldCode');
+                      }
+                    }
+                  },
+                  {
+                    text: 'Reset',
+                    id: 'btnPickDiscountReset',
+                    handler: function()
+                    {
+                      $('#divDiscountsG').datagrid('clearSelections');
+                      $('#fldDiscountOther').textbox('clear');
+                      $('#fldDiscountNewPrice').textbox('clear');
+                      $('#fldDiscountNewSubTotal').textbox('clear');
+                    }
+                  },
+                  {
+                    text: 'Cancel',
+                    id: 'btnPickDiscountCancel',
+                    handler: function()
+                    {
+                      $('#dlgPickDiscount').dialog('close');
+                      doTextboxFocus('fldCode');
+                    }
+                  }
+                ]
+              }
+            ).dialog('center').dialog('open');
+          }
+        ))
+      {
+        doTextboxFocus('fldCode');
+      }
+    }
+
+    function doAdd()
+    {
+      var code = $('#fldCode').textbox('getValue');
+
+      doServerDataMessage('posgetproduct', {code: code}, {type: 'refresh'});
+      doTextboxFocus('fldCode');
+    }
+
+    function doNewSale()
+    {
+      doClear();
+      $('#divProductsG').datagrid('loadData', []);
+      $('#fldTotal').textbox('clear');
+
+      $('#btnPay').linkbutton({text: 'Pay'});
+
+      $('#fldDue').textbox('clear');
+      $('#fldAmountPaid').textbox('clear');
+      $('#fldSplitAmount').textbox('clear');
+      $('#fldChange').textbox('clear');
+
+      $('#spnOrder').html('&nbsp;');
+
+      total = 0.0;
+      existingorderno = '';
+      existingorderpaymenttype = 0;
+      existingordertendered = 0;
+      existingorderchange = 0;
+    }
+
+    function doNewCust()
+    {
+      $('#dlgNewCust').dialog
+      (
+        {
+          onOpen: function()
+          {
+            $('#cbNewCustState').combobox
+            (
+              {
+                valueField: 'state',
+                textField: 'state',
+                limitToList: true,
+                data: doGetStatesFromCountry(defaultCountry)
+              }
+            );
+
+            $('#fldNewCustName').textbox
+            (
+              {
+                onChange: function(newValue, oldValue)
+                {
+                  if (!_.isBlank(newValue))
+                    doServerDataMessage('abnlookup', {name: newValue}, {type: 'refresh'});
+                }
+              }
+            );
+
+            doTextboxFocus('fldNewCustName');
+          },
+          onClose: function()
+          {
+            $('#fldNewCustName').textbox('clear');
+            $('#fldNewCustABN').textbox('clear');
+            $('#fldNewCustAddress1').textbox('clear');
+            $('#fldNewCustAddress2').textbox('clear');
+            $('#fldNewCustCity').textbox('clear');
+            $('#fldNewCustPostcode').textbox('clear');
+            $('#fldNewCustEmail').textbox('clear');
+            $('#fldNewCustContact').textbox('clear');
+            $('#fldNewCustMobile').textbox('clear');
+          },
+          buttons:
+          [
+            {
+              text: 'Create',
+              id: 'btnNewCustCreate',
+              handler: function()
+              {
+                doServerDataMessage
+                (
+                  'posnewcust',
+                  {
+                    name: $('#fldNewCustName').textbox('getValue'),
+                    address1: $('#fldNewCustAddress1').textbox('getValue'),
+                    address2: $('#fldNewCustAddress2').textbox('getValue'),
+                    city: $('#fldNewCustCity').textbox('getValue'),
+                    state: $('#cbNewCustState').combobox('getValue'),
+                    postcode: $('#fldNewCustPostcode').textbox('getValue'),
+                    contact1: $('#fldNewCustContact').textbox('getValue'),
+                    email1: $('#fldNewCustEmail').textbox('getValue'),
+                    phone1: $('#fldNewCustMobile').textbox('getValue'),
+                    abn: $('#fldNewCustABN').textbox('getValue')
+                  },
+                  {type: 'refresh'}
+                );
+
+                $('#dlgNewCust').dialog('close');
+                doTextboxFocus('fldCode');
+              }
+            },
+            {
+              text: 'Cancel',
+              id: 'btnNewCustCancel',
+              handler: function()
+              {
+                $('#dlgNewCust').dialog('close');
+                doTextboxFocus('fldCode');
+              }
+            }
+          ]
+        }
+      ).dialog('center').dialog('open');
+    }
+
+    function doPay()
+    {
+      var data = $('#divProductsG').datagrid('getData');
+
+      // Anything to pay for?...
+      if (data.rows.length > 0)
+      {
+        if (_.isBlank(existingorderno))
+        {
+          // New order...
+          $('#dlgPaymentType').dialog
+          (
+            {
+              onOpen: function()
+              {
+                $('#fldDue').textbox('setValue', '$' + _.formatnumber(total, 2, false));
+
+                doTextboxFocus('fldAmountPaid');
+              },
+              onClose: function()
+              {
+                $('#fldDue').textbox('clear');
+                $('#fldAmountPaid').textbox('clear');
+                $('#fldSplitAmount').textbox('clear');
+                $('#fldChange').textbox('clear');
+              },
+              buttons:
+              [
+                {
+                  text: 'Cancel',
+                  id: 'btnPaymentTypeCancel',
+                  handler: function()
+                  {
+                    $('#dlgPaymentType').dialog('close');
+                    doTextboxFocus('fldCode');
+                  }
+                }
+              ]
+          }
+          ).dialog('center').dialog('open');
+        }
+        else
+        {
+          var cashpaid = 0.0;
+          var creditpaid = 0.0;
+          if (existingorderpaymenttype == 4)
+          {
+            cashpaid = existingordertendered;
+            creditpaid = 0.0;
+          }
+
+          // Existing order - just print...
+          doPrintToDocket(existingorderno, existingordercreated, total, cashpaid, creditpaid, existingordertendered, existingorderchange, existingorderby);
+        }
+      }
+      else
+        doTextboxFocus('fldCode');
+    }
+
+    function doCashSale()
+    {
+      var clientid = doGetComboTreeSelectedId('cbCustomers');
+      var a = _.toBigNum($('#fldAmountPaid').textbox('getValue'));
+      var t = _.toBigNum(total);
+      var diff = t.minus(a);
+
+      // Need exact amount of cash or more (with change)...
+      if (diff.lessThanOrEqualTo(0.0))
+      {
+        var data = $('#divProductsG').datagrid('getData');
+        console.log(data.rows);
+
+        if (data.rows.length > 0)
+        {
+          var mobileno = $('#fldMobileNo').textbox('getValue');
+          var email = $('#fldEmail').textbox('getValue');
+
+          doServerDataMessage('poscashsale', {clientid: clientid, products: data.rows, total: _.formatnumber(total, 2), cash: _.formatnumber(a, 2), mobileno: mobileno, email: email}, {type: 'refresh'});
+        }
+
+        $('#dlgPaymentType').dialog('close');
+      }
+
+      doTextboxFocus('fldCode');
+    }
+
+    function doCreditSale()
+    {
+      var clientid = doGetComboTreeSelectedId('cbCustomers');
+
+      // Assumes exact amount of credit...
+      var data = $('#divProductsG').datagrid('getData');
+
+      if (data.rows.length > 0)
+      {
+        var mobileno = _.toBigNum($('#fldMobileNo').textbox('getValue'));
+        var email = _.toBigNum($('#fldEmail').textbox('getValue'));
+
+        doServerDataMessage('poscreditsale', {clientid: clientid, products: data.rows, total: _.formatnumber(total, 2), credit: _.formatnumber(total, 2), mobileno: mobileno, email: email}, {type: 'refresh'});
+      }
+
+      $('#dlgPaymentType').dialog('close');
+
+      doTextboxFocus('fldCode');
+    }
+
+    function doSplitSale()
+    {
+      var clientid = doGetComboTreeSelectedId('cbCustomers');
+      var a = _.toBigNum($('#fldAmountPaid').textbox('getValue'));
+      var c = _.toBigNum($('#fldSplitAmount').textbox('getValue'));
+      var t = _.toBigNum(total);
+      var diff = t.minus(a.plus(c));
+
+      // Amount paid in full and we actually have a split in cash and credit...
+      if (diff.equals(0.0) && a.lessThan(t))
+      {
+        var data = $('#divProductsG').datagrid('getData');
+
+        if (data.rows.length > 0)
+        {
+          var mobileno = _.toBigNum($('#fldMobileNo').textbox('getValue'));
+          var email = _.toBigNum($('#fldEmail').textbox('getValue'));
+
+          doServerDataMessage('possplitsale', {clientid: clientid, products: data.rows, total: _.formatnumber(total, 2), cash: _.formatnumber(a, 2), credit: _.formatnumber(c, 2)}, {type: 'refresh'});
+        }
+
+        $('#dlgPaymentType').dialog('close');
+      }
+
+      doTextboxFocus('fldCode');
+    }
+
+    function doQuote()
+    {
+      var clientid = doGetComboTreeSelectedId('cbCustomers');
+      var data = $('#divProductsG').datagrid('getData');
+
+      if (data.rows.length > 0)
+        doServerDataMessage('posquote', {clientid: clientid, products: data.rows, total: _.formatnumber(total, 2)}, {type: 'refresh'});
+
+      $('#dlgPaymentType').dialog('close');
+
+      doTextboxFocus('fldCode');
+    }
+
+    function doSearchSale()
+    {
+      $('#dlgSearchSale').dialog
+      (
+        {
+          onOpen: function()
+          {
+            $('#fldSearchOrderNo').textbox('clear');
+
+            $('#dtSearchDateStart').datebox($.extend(dateboxParserObj, {prompt: 'Date Fom', panelWidth: '300px', panelHeight: '300px'}));
+            $('#dtSearchDateEnd').datebox($.extend(dateboxParserObj, {prompt: 'Date To', panelWidth: '300px', panelHeight: '300px'}));
+
+            doTextboxFocus('fldSearchOrderNo');
+          },
+          buttons:
+          [
+            {
+              text: 'Search',
+              id: 'btnSearchSaleGo',
+              handler: function()
+              {
+                var orderno = $('#fldSearchOrderNo').textbox('getValue');
+                var mobileno = $('#fldSearchMobilNo').textbox('getValue');
+                var email = $('#fldSearchEmail').textbox('getValue');
+                var datefrom = $('#dtSearchDateStart').datebox('getValue');
+                var dateto = $('#dtSearchDateEnd').datebox('getValue');
+
+                doServerDataMessage('possearchsale', {orderno: orderno, mobileno: mobileno, email: email, datefrom: datefrom, dateto: dateto}, {type: 'refresh'});
+                $('#dlgSearchSale').dialog('close');
+                doTextboxFocus('fldCode');
+              }
+            },
+            {
+              text: 'Cancel',
+              id: 'btnSearchSaleCancel',
+              handler: function()
+              {
+                $('#dlgSearchSale').dialog('close');
+                doTextboxFocus('fldCode');
+              }
+            }
+          ]
+        }
+      ).dialog('center').dialog('open');
+    }
+
+    // ************************************************************************************************************************************************************************
+    // Print functions
+    function doPrintToDocket(orderno, datecreated, ordertotal, cashpaid, creditpaid, tendered, change, by)
+    {
+      var data = $('#divProductsG').datagrid('getData');
+      var dt = _.isUndefined(datecreated) || _.isNull(datecreated) ? moment().format('MMMM Do YYYY, h:mm a') : moment(datecreated).format('MMMM Do YYYY, h:mm a');
+      var iscash = true;
+      var staff = (!_.isUNB(by) && (by.length > 0)) ? by.split(' ')[0] : '';
+
+      // Company info...
+      setLogo();
+      setQRcode1();
+
+      setText('Tax Invoice ABN: XXX_POSABN', [false, false, true], 1, 'ALIGN_CENTER');
+      printLineFeed(2);
+
+      // Header...
+      printInfoText('Date:', dt);
+      printInfoText('Order No.:', orderno);
+      printInfoText('Phone:', 'XXX_POSPHONE');
+      printInfoText('Store:', 'XXX_POSADDRESS1');
+      printInfoText('', 'XXX_POSADDRESS1');
+      printInfoText('Served By:', staff);
+      printLineFeed(2);
+
+      // Table header
+      setText('Qty', [false, false, true], 1);
+      printTextPosition(50);
+      setText('Item', [false, false, true], 1, 'ALIGN_LEFT');
+      printTextPosition(400);
+      setText('Price', [false, false, true], 1, 'ALIGN_RIGHT');
+      printFeed();
+
+      //                1         2         3         4         5
+      //       12345678901234567890123456789012345678901234567890
+      setText('------------------------------------------', [false, false, false], 1, 'ALIGN_CENTER');
+      printLineFeed(1);
+
+      var total = _.toBigNum(ordertotal);
+      var gst = total.dividedBy(11.0);
+      var cash = _.toBigNum(cashpaid);
+      var credit = _.toBigNum(creditpaid);
+
+      var numitems = 0;
+
+      // Table items...
+      data.rows.forEach
+      (
+        function(d)
+        {
+          var newp = _.isBlank(d.discount) ? d.price : d.price - (d.price * d.discount / 100.0);
+          var p = _.lpad('$' + _.formatnumber(newp, 2, false), 9, ' ');
+
+          setText(d.qty, [false, false, false], 1);
+          printTextPosition(50);
+          setText(d.name.substring(0, 28), [false, false, false], 1);
+          printTextPosition(400);
+          setText(p, [false, false, false], 1, 'ALIGN_RIGHT');
+          printFeed();
+
+          numitems += d.qty;
+        }
+      );
+
+      // Totals...
+      printLineFeed(2);
+      setText('TOTAL for ' + numitems + ' Items:', [false, false, true], 1);
+      printTextPosition(400);
+      setText(_.lpad('$' + _.formatnumber(ordertotal, 2, false), 9, ' '), [false, false, false], 1, 'ALIGN_RIGHT');
+      printFeed();
+
+      setText('GST included in TOTAL:', [false, false, true], 1);
+      printTextPosition(400);
+
+      setText(_.lpad('$' + _.formatnumber(gst, 2, false), 9, ' '), [false, false, false], 1, 'ALIGN_RIGHT');
+      printLineFeed(2);
+
+      // Payments...
+      //if ((existingorderpaymenttype == doGetIdFromStringInObjArray(paymenttype, 'Credit Card')) || (cash.greaterThan(0.0) && credit.greaterThan(0.0)))
+      if (cash.greaterThan(0.0) && credit.greaterThan(0.0))
+      {
+        // Split payment...
+        setText('Cash Paid', [false, false, true], 1);
+        printTextPosition(400);
+        setText(_.lpad('$' + _.formatnumber(cash, 2, false), 9, ' '), [false, false, false], 1, 'ALIGN_RIGHT');
+        printFeed();
+        setText('Credit Paid', [false, false, true], 1);
+        printTextPosition(400);
+        setText(_.lpad('$' + _.formatnumber(credit, 2, false), 9, ' '), [false, false, false], 1, 'ALIGN_RIGHT');
+        printFeed();
+      }
+      else if (cash.greaterThan(0.0))
+      {
+        // Cash payment...
+        setText('Cash Paid', [false, false, true], 1);
+        printTextPosition(400);
+        setText(_.lpad('$' + _.formatnumber(tendered, 2, false), 9, ' '), [false, false, false], 1, 'ALIGN_RIGHT');
+        printFeed();
+        setText('Change Due', [false, false, true], 1);
+        printTextPosition(400);
+        setText(_.lpad('$' + change, 9, ' '), [false, false, false], 1, 'ALIGN_RIGHT');
+        printFeed();
+      }
+      else
+      {
+        // Credit payment...
+        setText('Credit Paid', [false, false, true], 1);
+        printTextPosition(400);
+        setText(_.lpad('$' + _.formatnumber(credit, 2, false), 9, ' '), [false, false, false], 1, 'ALIGN_RIGHT');
+        printFeed();
+        iscash = false;
+      }
+
+      // Footer
+      printLineFeed(2);
+      setText('Thank you', [false, true, false], 2, 'ALIGN_CENTER');
+      printLineFeed(2);
+
+      // Scan codes...
+      setQRcode2(orderno);
+
+      // T&C
+      printLineFeed(1);
+      setText('XXX_POSPOLICY1', [false, false, true], 1);
+      printFeed();
+
+      setText('XXX_POSPOLICY2', [false, false, true], 1);
+      printLineFeed(1);
+
+      setText('XXX_POSFOOTER1', [false, false, true], 1);
+
+      printCutAndSend(iscash);
+    }
+
+    // ************************************************************************************************************************************************************************
+    onbeforeunload = BeforeUnload;
+  </script>
+</head>
+<body style="background-color: #3ca9e5; margin: 0; color: #000;">
+  <!-- ************************************************************************************************************************************************************************** -->
+  <!-- Hidden DIVs for dialogs etc etc -->
+  <div id="divEvents" style="display: none;"></div>
+
+  <!-- ************************************************************************************************************************************************************************** -->
+  <!-- Dialogs -->
+  <div id="dlgLogin" class="easyui-dialog" title="Login to XXX_APPTITLE" style="width: 380px; height: 280px;" data-options="resizable: false, modal: true, closable: false">
+    <table align="center">
+      <tr>
+        <td><input type="text" id="fldUid" class="easyui-textbox" data-options="iconCls: 'icon-man', prompt: 'User ID'" style="width: 300px;"></td>
+      </tr>
+      <tr>
+        <td><input id="fldPwd" class="easyui-passwordbox" data-options="prompt: 'Password'" style="width: 300px;"></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgPickDiscount" class="easyui-dialog" title="Select Discount" style="width: 480px; height: 650px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <div id="divDiscountsG"></div>
+    <table>
+      <tr>
+        <td><input id="fldDiscountOther" type="text" class="easyui-numberbox" data-options="height: 'auto', prompt: 'Discount', min: 0.0, max: 100.0" style="width: 190; text-align: right;"></td>
+        <td><input id="fldDiscountNewPrice" type="text" class="easyui-numberbox" data-options="height: 'auto'" style="width: 120; text-align: right;" disabled></td>
+        <td><input id="fldDiscountNewSubTotal" type="text" class="easyui-numberbox" data-options="height: 'auto'" style="width: 120; text-align: right;" disabled></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgPickProduct" class="easyui-dialog" title="Select Product" style="width: 1400px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <div id="divMatchingProductsG"></div>
+  </div>
+
+  <div id="dlgPickABN" class="easyui-dialog" title="Select Company" style="width: 1400px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <div id="divMatchingABNsG"></div>
+  </div>
+
+  <div id="dlgPickSale" class="easyui-dialog" title="Select Sales Order" style="width: 1600px; height: 600px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <div id="divMatchingSalesG"></div>
+  </div>
+
+  <div id="dlgPaymentType" class="easyui-dialog" title="Payment Type" style="width: 1000px; height: 800px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table style="border-collapse: separate; border-spacing: 10 20px;" align="center">
+      <tr>
+        <td valign="top" style="width: 50%">
+          <table style="border-collapse: separate; border-spacing: 10 20px;">
+            <tr><td class="item" style="font-size: 36px;">Due:</td><td class="item" colspan="2"><input id="fldDue" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Amount due'" style="width: 300px; text-align: right;"></td></tr>
+            <tr><td class="item" style="font-size: 36px;">Cash:</td><td class="item" colspan="2"><input id="fldAmountPaid" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Amount paid'" style="width: 300px; text-align: right;"></td></tr>
+            <tr><td class="item" style="font-size: 36px;">Balance:</td><td class="item" colspan="2"><input id="fldSplitAmount" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Balance'" style="width: 300px; text-align: right;"></td></tr>
+            <tr><td class="item" style="font-size: 36px;">Change:</td><td class="item" colspan="2"><input id="fldChange" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Change'" style="width: 300px; text-align: right;"></td></tr>
+            <tr><td class="item" style="font-size: 36px;">Mobile:</td><td class="item" colspan="2"><input id="fldMobileNo" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Mobile No.'" style="width: 300px; text-align: left;"></td></tr>
+            <tr><td class="item" style="font-size: 36px;">Email:</td><td class="item" colspan="2"><input id="fldEmail" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Email'" style="width: 300px; text-align: left;"></td></tr>
+          </table>
+      </td>
+        <td>
+          <table>
+            <tr>
+              <td class="item"><a id="btnP1" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doPButton(1)">1</a></td>
+              <td class="item"><a id="btnP2" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doPButton(2)">2</a></td>
+              <td class="item"><a id="btnP3" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doPButton(3)">3</a></td>
+              <td class="item">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="item"><a id="btnP4" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doPButton(4)">4</a></td>
+              <td class="item"><a id="btnP5" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doPButton(5)">5</a></td>
+              <td class="item"><a id="btnP6" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doPButton(6)">6</a></td>
+              <td class="item">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="item"><a id="btnP7" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doPButton(7)">7</a></td>
+              <td class="item"><a id="btnP8" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doPButton(8)">8</a></td>
+              <td class="item"><a id="btnP9" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doPButton(9)">9</a></td>
+              <td class="item">&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="item"><a id="btnP0" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doPButton(0)">0</a></td>
+              <td class="item"><a id="btnPDecimal" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton"  onclick="javascript:doPButton('.')">.</a></td>
+              <td class="item"><a id="btnPClear" href="javascript:void(0)" class="easyui-linkbutton bigsize redbutton" onclick="javascript:doPClear()">Clear</a></td>
+              <td class="item">&nbsp;</td>
+            </tr> 
+            <tr>
+              <td class="item"><a id="btnPCash" href="javascript:void(0)" class="easyui-linkbutton bigsize paybutton" onclick="javascript:doCashSale()">Cash</a></td>
+              <td class="item"><a id="btnPCredit" href="javascript:void(0)" class="easyui-linkbutton bigsize paybutton" onclick="javascript:doCreditSale()">Credit</a></td>
+              <td class="item"><a id="btnPSplit" href="javascript:void(0)" class="easyui-linkbutton bigsize paybutton" onclick="javascript:doSplitSale()">Split</a></td>
+              <td class="item">&nbsp;</td>
+            </tr> 
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="dlgSearchSale" class="easyui-dialog" title="Search Sale" style="width: 380px; height: 500px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table style="border-collapse: separate; border-spacing: 10 20px;" align="center">
+      <tr><td colspan="2"><input id="fldSearchOrderNo" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Receipt No.'" style="width: 300;"></td></tr>
+      <tr><td colspan="2"><input id="fldSearchMobilNo" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Mobile No.'" style="width: 300;"></td></tr>
+      <tr><td colspan="2"><input id="fldSearchEmail" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Email'" style="width: 300;"></td></tr>
+      <tr><td><div id="dtSearchDateStart" style="width: 300;"></div></td></tr>
+      <tr><td><div id="dtSearchDateEnd" style="width: 300;"></div></td></tr>
+    </table>
+  </div>
+
+  <div id="dlgNewCust" class="easyui-dialog" title="New Customer" style="width: 640px; height: 880px;" data-options="resizable: false, modal: true, closable: false, closed: true">
+    <table style="border-collapse: separate; border-spacing: 10 20px;">
+      <tr>
+        <td><input id="fldNewCustName" type="text" class="easyui-textbox" data-options="prompt: 'Customer Name'" style="width: 550;"></td>
+      </tr>
+      <tr>
+        <td><input id="fldNewCustABN" type="text" class="easyui-textbox" data-options="prompt: 'ABN'" style="width: 300;"></td>
+      </tr>
+      <tr>
+        <td><input id="fldNewCustAddress1" type="text" class="easyui-textbox" data-options="prompt: 'Address Line 1'" style="width: 550;"></td>
+      </tr>
+      <tr>
+        <td><input id="fldNewCustAddress2" type="text" class="easyui-textbox" data-options="prompt: 'Address Line 2'" style="width: 550;"></td>
+      </tr>
+      <tr>
+        <td><input id="fldNewCustCity" type="text" class="easyui-textbox" data-options="prompt: 'City'" style="width: 550;"></td>
+      </tr>
+      <tr>
+        <td><div id="cbNewCustState" style="width: 550;"></div></td>
+      </tr>
+      <tr>
+        <td><input id="fldNewCustPostcode" type="text" class="easyui-textbox" data-options="prompt: 'Postcode'" style="width: 300;"></td>
+      </tr>
+      <tr>
+        <td><input id="fldNewCustEmail" type="text" class="easyui-textbox" data-options="prompt: 'Email'" style="width: 550;"></td>
+      </tr>
+      <tr>
+        <td><input id="fldNewCustContact" type="text" class="easyui-textbox" data-options="prompt: 'Contact Name'" style="width: 550;"></td>
+      </tr>
+      <tr>
+        <td><input id="fldNewCustMobile" type="text" class="easyui-textbox" data-options="prompt: 'Mobile No.'" style="width: 300;"></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ************************************************************************************************************************************************************************** -->
+  <!-- Menus -->
+  <div id="mnuAbout" style="width: 250px;">
+    <div>
+      XXX_MENUTITLE
+      <div class="menu-content" style="padding: 10px; text-align: center">
+        <img src="images/logo.png" style="width: 180px; height: 40px">
+        <p style="font-size: 24px; color: #444">XXX_MENUSUBTITLE</p>
+        <p style="font-size: 22px; color: #ccc">XXX_COPYRIGHT</p>
+        <p style="font-size: 22px; color: #ccc">XXX_MENUTITLE</p>
+        <p style="font-size: 22px; color: #ccc"><span id="spnBuildno" align="right">Build</span></p>
+        <p style="font-size: 22px; color: #ccc"><span id="spnServer" align="right"></span></p>
+      </div>
+    </div>
+    <!-- <div data-options="iconCls: 'icon-comments'" onclick="doFeedback()">Send Feedback</div> -->
+    <!-- <div data-options="iconCls: 'icon-help'" onclick="doDlgHelp()">Quick Help</div> -->
+  </div>
+
+  <div class="easyui-layout" data-options="fit: true">
+    <div data-options="region: 'north'" style="width: 100%; height: 60px; padding: 5px">
+      <div class="easyui-layout" data-options="fit: true">
+        <div data-options="region: 'west'" style="width: 40%; height: 55px; padding: 5px">
+          <a href="#" class="easyui-menubutton" data-options="menu: '#mnuAbout', iconCls: 'icon-about'">About</a>
+        </div>
+
+        <div data-options="region: 'east'" style="width: 30%; padding: 5px">
+          <span id="spnMenu"></span>
+        </div>
+
+        <div data-options="region: 'center'" style="width: 30%; padding: 5px">
+          <div style="float: left;">
+            <span id="divDashConnectionStatus" style="float: left; "></span><div id="divProgress" style="float: left; width: 150px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-options="region: 'center'" style="width: 100%; height: 500px; padding: 5px">
+      <div class="easyui-layout" data-options="fit: true">
+        <div data-options="region: 'west'" style="width: 48%; padding: 5px">
+          <table id="divProductsG" style="width: 100%; height: 90%; font-size: 32px;">
+          </table>
+        </div>
+
+        <div data-options="region: 'center'" style="width: 24%; padding: 5px">
+          <div class="easyui-panel" title="Item" data-options="fit: true">
+            <div id="divCosts" style="width: 100%; height: 90%;">
+              <table style="width: 90%">
+                <tr>
+                  <td class="item" colspan="2"><div id="cbCustomers" style="width: 95%;"></div></td>
+                </tr>
+                <tr>
+                  <td class="item" colspan="2"><input id="fldTotal" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Sale Total'" style="width: 98%;"></td>
+                </tr>
+                <tr>
+                  <td class="item" colspan="2"><input id="fldCode" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Enter/Scan Item Code'" style="width: 98%;"></td>
+                </tr>
+                <tr>
+                  <td class="item" colspan="2"><input id="fldQty" type="text" class="easyui-textbox" data-options="height: 'auto', prompt: 'Item Qty'" style="width: 98%;"></td>
+                </tr>
+                <tr><td>&nbsp;</td></tr>
+                <tr align="center">
+                  <td><img id="imgPOSLogo" src="images/logos/XXX_LOGO1" width="342px" height="256px"/></td>
+                </tr>
+                <tr>
+                  <td style="text-align: center"><span id="spnOrder" style="font-weight: bold; font-size: 150%; color: #6b8e23"></span></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div data-options="region: 'east'" style="width: 28%; padding: 5px">
+        <div class="easyui-panel" title="POS" data-options="fit: true">
+          <div style="margin: 5px 0 5px 0;">
+            <table style="width: 100%">
+              <tr>
+                <td class="item"><a id="btnAdd" href="javascript:void(0)" class="easyui-linkbutton bigsize addbutton"  onclick="javascript:doAdd()">Add</a></td>
+                <td class="item"><a id="btnRemove" href="javascript:void(0)" class="easyui-linkbutton bigsize addbutton"  onclick="javascript:doRemove()">Rem</a></td>
+                <td class="item"><a id="btnChangeQty" href="javascript:void(0)" class="easyui-linkbutton bigsize itembutton" onclick="javascript:doChangeQty()">Chg</a></td>
+                <td class="item"><a id="btnDiscount" href="javascript:void(0)" class="easyui-linkbutton bigsize itembutton" onclick="javascript:doDiscount()">Disc</a></td>
+              </tr>
+              <tr>
+                <td class="item"><a id="btnNewCust" href="javascript:void(0)" class="easyui-linkbutton bigsize custbutton" onclick="javascript:doNewCust()">+Cust</a></td>
+                <td class="item"><a id="btn1" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doButton(1)">1</a></td>
+                <td class="item"><a id="btn2" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doButton(2)">2</a></td>
+                <td class="item"><a id="btn3" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doButton(3)">3</a></td>
+              </tr>
+              <tr>
+                <td class="item">&nbsp;</td>
+                <td class="item"><a id="btn4" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doButton(4)">4</a></td>
+                <td class="item"><a id="btn5" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doButton(5)">5</a></td>
+                <td class="item"><a id="btn6" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doButton(6)">6</a></td>
+              </tr>
+              <tr>
+                <td class="item">&nbsp;</td>
+                <td class="item"><a id="btn7" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doButton(7)">7</a></td>
+                <td class="item"><a id="btn8" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doButton(8)">8</a></td>
+                <td class="item"><a id="btn9" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doButton(9)">9</a></td>
+              </tr>
+              <tr>
+                <td class="item"><a id="btnQuote" href="javascript:void(0)" class="easyui-linkbutton bigsize orderbutton" onclick="javascript:doQuote()">Quote</a></td>
+                <td class="item"><a id="btn10" href="javascript:void(0)" class="easyui-linkbutton bigsize numbutton" onclick="javascript:doButton(0)">0</a></td>
+                <td class="item"><a id="btnClear" href="javascript:void(0)" class="easyui-linkbutton bigsize redbutton" onclick="javascript:doClear()">Clear</a></td>
+                <td class="item"><a id="btnDel" href="javascript:void(0)" class="easyui-linkbutton bigsize redbutton" onclick="javascript:doDel()">Del</a></td>
+              </tr> 
+              <tr>
+                <td class="item"><a id="btnPay" href="javascript:void(0)" class="easyui-linkbutton bigsize paybutton" onclick="javascript:doPay()">Pay</a></td>
+                <td class="item"><a id="btnNewSale" href="javascript:void(0)" class="easyui-linkbutton bigsize salebutton" onclick="javascript:doNewSale()">New</a></td>
+                <td class="item"><a id="btnSearch" href="javascript:void(0)" class="easyui-linkbutton bigsize searchbutton" onclick="javascript:doSearchSale()">Find</a></td>
+                <td class="item"><a id="btnCredit" href="javascript:void(0)" class="easyui-linkbutton bigsize creditbutton" onclick="javascript:doCreditSale()">Cred</a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <a id="ancSpare"></a>
+  <canvas id="canvas" width="0" height="0" style="visibility: hidden;"></canvas>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places&callback=initMap&key=XXX_GOOGLEWEBKEY&region=XXX_GOOGLEDEFAULTREGION" async defer></script>
+</body>
+</html>

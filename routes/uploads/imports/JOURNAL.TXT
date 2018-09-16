@@ -1,0 +1,16 @@
+Journal Number	Date	Memo	Account Number	Debit Amount	Credit Amount	Job	Currency Code	Exchange Rate	Allocation Memo	Category
+GJ000000	01/07/2016	End of Year Adjustment	39000	$1,457,229.28						
+GJ000000	01/07/2016	End of Year Adjustment	38000		$1,457,229.28					
+
+GJ000028	01/07/2016	Deposit Machinery 260USD @ 0.75	13110	$346,666.67						
+GJ000028	01/07/2016	Deposit Machinery 260USD @ 0.75	21701		$346,666.67					
+
+GJ000029	22/07/2016	Balance Machinery 550K USD @ 0.75	13130	$733,333.33						
+GJ000029	22/07/2016	Balance Machinery 550K USD @ 0.75	21701		$733,333.33					
+
+GJ000030	01/10/2016	12oz Machines $557269 USD @ .75	13130	$743,025.33						
+GJ000030	01/10/2016	12oz Machines $557269 USD @ .75	21701		$743,025.33					
+
+GJ000031	23/12/2016	Unknown From??? Maybe Aircon	22300	$6,300.00						
+GJ000031	23/12/2016	Unknown From??? Maybe Aircon	21701		$6,300.00					
+

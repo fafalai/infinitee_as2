@@ -1,0 +1,610 @@
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="Description" content="Remedy" />
+  <meta name="Keywords" content="accounting, cloud accounting, business process automation, order management, sales orders, flow, remedy" />
+  <meta http-equiv="Reply-to" content="mailto:webmaster@adtalk.com.au" />
+  <meta name="Copyright" content="Copyright (C) 2016-2017 Adtalk Pty Ltd, All Rights Reserved." />
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="-1">
+  <meta charset="UTF-8">
+
+  <title>TPCC Orders - Job Sheet</title>
+
+  <link rel="shortcut icon" id="favicon" href="favicon.png" type="image/x-icon">
+
+  <link type="text/css" rel="stylesheet" href="css/styles.css" />
+  <link type="text/css" rel="stylesheet" href="css/blue/style.css" />
+  <link type="text/css" rel="stylesheet" href="css/buttons.css" />
+  <link type="text/css" rel="stylesheet" href="css/animate.min.css" />
+  <link type="text/css" rel="stylesheet" href="js/easyui/themes/default/easyui.css">
+  <link type="text/css" rel="stylesheet" href="js/easyui/themes/icon.css">
+  <link type="text/css" rel="stylesheet" href="js/easyui/themes/color.css">
+
+  <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="js/easyui/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"></script>
+
+  <script type="text/javascript" src="js/modernizr.js"></script>
+  <script type="text/javascript" src="js/decimal.min.js"></script>
+  <script type="text/javascript" src="js/moment.min.js"></script>
+  <script type="text/javascript" src="js/underscore.js"></script>
+  <script type="text/javascript" src="js/underscore.string.js"></script>
+  <script type="text/javascript" src="js/base64vars.js"></script>
+  <script type="text/javascript" src="js/primus-compiled.js"></script>
+
+  <script type="text/javascript" src="globals.js"></script>
+  <script type="text/javascript" src="primushandlers.js"></script>
+  <script type="text/javascript" src="listeners.js"></script>
+
+  <script type="text/javascript">
+    var buildno = 'XXX_BUILDNO';
+    var defaultCountry = 'XXX_DEFAULTCOUNTRY';
+    var colournames =
+    [
+      {name: 'Cyan'},
+      {name: 'Magenta'},
+      {name: 'Yellow'},
+      {name: 'Black'}
+    ];
+
+    function doSave()
+    {
+      var g = $('#cbOrders').combogrid('grid');
+
+      if (!_.isNull(g))
+      {
+        var row = g.datagrid('getSelected');
+
+        if (!_.isNull(row))
+        {
+          var orderid = row.orderid;
+          var reelwidth = $('#fldReelWidth').numberbox('getValue');
+          var thickness = $('#fldThickness').numberbox('getValue');
+          var gear = $('#fldGear').numberbox('getValue');
+          var sleevesize = $('#fldSleeveSize').numberbox('getValue');
+          var across = $('#fldNumAcross').numberbox('getValue');
+          var around = $('#fldNumAround').numberbox('getValue');
+
+          for (var u = 1; u <= 6; u++)
+          {
+            var fc= '#fldUnit' + u + 'Colour';
+            var nb = '#fldUnit' + u + 'Anilox';
+            var colour = $(fc).textbox('getValue');
+            var anilox = $(nb).numberbox('getValue');
+
+            if (!_.isBlank(colour))
+              doServerDataMessage('tpccsavejobsheet', {orderid: orderid, status: 8000, comment: 'Production Unit ' + u + ' Colour: ' + colour}, {type: 'refresh'});
+
+            if (!_.isBlank(anilox))
+              doServerDataMessage('tpccsavejobsheet', {orderid: orderid, status: 8000, comment: 'Production Unit ' + u + ' Anilox: ' + anilox}, {type: 'refresh'});
+          }
+
+          if (!_.isBlank(reelwidth))
+            doServerDataMessage('tpccsavejobsheet', {orderid: orderid, status: 8000, comment: 'Reel Width (mm): ' + reelwidth}, {type: 'refresh'});
+
+          if (!_.isBlank(thickness))
+            doServerDataMessage('tpccsavejobsheet', {orderid: orderid, status: 8000, comment: 'Thickness (GSM): ' + thickness}, {type: 'refresh'});
+
+          if (!_.isBlank(gear))
+            doServerDataMessage('tpccsavejobsheet', {orderid: orderid, status: 8000, comment: 'Gear (Teeth): ' + gear}, {type: 'refresh'});
+
+          if (!_.isBlank(sleevesize))
+            doServerDataMessage('tpccsavejobsheet', {orderid: orderid, status: 8000, comment: 'Sleeve Size: ' + sleevesize}, {type: 'refresh'});
+
+          if (!_.isBlank(across))
+            doServerDataMessage('tpccsavejobsheet', {orderid: orderid, status: 8000, comment: '#Across: ' + across}, {type: 'refresh'});
+
+          if (!_.isBlank(around))
+            doServerDataMessage('tpccsavejobsheet', {orderid: orderid, status: 8000, comment: '#Around: ' + around}, {type: 'refresh'});
+        }
+        else
+          doShowError('Please select an order');
+      }
+    }
+
+    function doJobStart()
+    {
+      var g = $('#cbOrders').combogrid('grid');
+
+      if (!_.isNull(g))
+      {
+        var row = g.datagrid('getSelected');
+
+        if (!_.isNull(row))
+        {
+          var orderid = row.orderid;
+
+          doServerDataMessage('tpccsavejobsheet', {orderid: orderid, status: 8000, comment: 'Job started: ' + global.moment(d).format('YYYY-MM-DD HH:mm:ss')}, {type: 'refresh'});
+        }
+        else
+          doShowError('Please select an order');
+      }
+    }
+
+    function doJobComplete()
+    {
+      var g = $('#cbOrders').combogrid('grid');
+
+      if (!_.isNull(g))
+      {
+        var row = g.datagrid('getSelected');
+
+        if (!_.isNull(row))
+        {
+          var orderid = row.orderid;
+
+          doServerDataMessage('tpccsavejobsheet', {orderid: orderid, status: 8000, comment: 'Job completed: ' + global.moment(d).format('YYYY-MM-DD HH:mm:ss')}, {type: 'refresh'});
+        }
+        else
+          doShowError('Please select an order');
+      }
+    }
+
+    function doJobThumbnail()
+    {
+      var g = $('#cbOrders').combogrid('grid');
+
+      if (!_.isNull(g))
+      {
+        var row = g.datagrid('getSelected');
+
+        if (!_.isNull(row))
+        {
+          var orderid = row.orderid;
+          doServerDataMessage('getorderthumbnail', {orderid: orderid}, {type: 'refresh'});
+        }
+        else
+          doShowError('Please select an order');
+      }
+    }
+
+    // ************************************************************************************************************************************************************************
+    // Init DOM elements right away...
+    $(function()
+    {
+    });
+
+    // ************************************************************************************************************************************************************************
+    // Init form elements
+    function BeforeUnload()
+    {
+    }
+
+    $(document).ready(function()
+    {
+      $('#divDashConnectionStatus').html('<img style="vertical-align: middle;" src="images/ajax_waiting.gif" width="24" height="24"/> Server isn\'t available');
+
+      $.noty.defaults =
+      {
+        layout: 'top',
+        theme: 'defaultTheme',
+        type: 'alert',
+        text: '',
+        dismissQueue: true,
+        template: '<div class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>',
+        animation:
+        {
+          open: {height: 'toggle'},
+          close: {height: 'toggle'},
+          easing: 'swing',
+          speed: 500
+        },
+        timeout: false,
+        force: false,
+        modal: false,
+        maxVisible: 5,
+        killer: false,
+        closeWith: ['click'],
+        callback:
+        {
+          onShow: function() {},
+          afterShow: function() {},
+          onClose: function() {},
+          afterClose: function() {}
+        },
+        buttons: false
+      };
+
+      // ************************************************************************************************************************************************************************
+      // Extend widget functionality...
+      // Special case grid editor to allow cell value change without declaring as an actual editor...
+      $.extend
+      (
+        $.fn.datagrid.defaults.editors,
+        {
+          label:
+          {
+            init: function(container,options)
+            {
+              return $('<div></div>').appendTo(container);
+            },
+            getValue: function(target)
+            {
+              return target.value || $(target).html();
+            },
+            setValue: function(target,value)
+            {
+              target.value = value;
+              $(target).html(value);
+            },
+            resize: function(target,width)
+            {
+              $(target)._outerWidth(width);
+            }
+          }
+        }
+      );
+
+      //Add autocomolete to combotree...
+      $.fn.combotree.defaults.editable = true;
+      $.extend
+      (
+        $.fn.combotree.defaults.keyHandler,
+        {
+          up: function()
+          {
+            console.log('up')
+          },
+          down: function()
+          {
+            console.log('down')
+          },
+          enter: function()
+          {
+            console.log('enter')
+          },
+          query: function(q)
+          {
+            var t = $(this).combotree('tree');
+            var nodes = t.tree('getChildren');
+            var ql = q.toLowerCase();
+
+            for (var i = 0; i < nodes.length; i++)
+            {
+              var node = nodes[i];
+
+              if (node.text.toLowerCase().indexOf(ql) >= 0)
+                $(node.target).show();
+              else
+                $(node.target).hide();
+            }
+
+            var opts = $(this).combotree('options');
+
+            if (!opts.hasSetEvents)
+            {
+              opts.hasSetEvents = true;
+
+              var onShowPanel = opts.onShowPanel;
+
+              opts.onShowPanel = function()
+              {
+                var nodes = t.tree('getChildren');
+
+                for (var i = 0; i < nodes.length; i++)
+                {
+                  $(nodes[i].target).show();
+                }
+
+                onShowPanel.call(this);
+              };
+
+              $(this).combo('options').onShowPanel = opts.onShowPanel;
+            }
+          }
+        }
+      );
+
+      $.extend
+      (
+        $.fn.validatebox.defaults.rules,
+        {
+          confirmPass:
+          {
+            validator: function(value, param)
+            {
+              var pass = $(param[0]).passwordbox('getValue');
+              return value == pass;
+            },
+            message: 'Password does not match...'
+          }
+        }
+      );
+
+      // ************************************************************************************************************************************************************************
+      // Start login process and register login/logout listeners...
+      $('#spnBuildno').text('Build: ' + buildno);
+
+      doPrimus();
+
+      $('#cbOrders').combogrid
+      (
+        {
+          idField: 'id',
+          textField: 'orderno',
+          limitToList: true,
+          singleSelect: true,
+          panelWidth: 600,
+          columns:
+          [
+            [
+              {field: 'orderno',     title: 'Order No.',    width: 150, sortable: true},
+              {field: 'productcode', title: 'Product',      width: 300, sortable: true},
+              {field: 'qtyordered',  title: 'Qty Ordered',  width: 100, sortable: true}
+            ]
+          ],
+          onSelect: function(record)
+          {
+            doComboGridGetSelectedRowData
+            (
+              'cbOrders',
+              function(row)
+              {
+                $('#imgAttachment').attr('src', server + '/' + row.attachmentimage);
+              }
+            );
+          }
+        }
+      );
+
+      // Respond to these events...
+      $('#divEvents').on
+      (
+        'tpccorderbuilds',
+        function(ev, args)
+        {
+          var g = $('#cbOrders').combogrid('grid');
+
+          if (!_.isNull(g))
+          {
+            var builds = [];
+
+            args.data.rs.forEach
+            (
+              function(b)
+              {
+                // Real inventory entries append to list of locations we just populated...
+                builds.push
+                (
+                  {
+                    id: b.orderid + '_' + b.productid,
+                    orderid: doNiceId(b.orderid),
+                    orderno: doNiceString(b.orderno),
+                    productid: doNiceId(b.productid),
+                    productcode: doNiceString(b.productcode),
+                    buildtemplateid: doNiceId(b.buildtemplateid),
+                    orderbuildid: doNiceId(b.orderbuildid),
+                    qtyordered: _.formatnumber(b.qtyordered, 4),
+                    qtybuilt: _.formatnumber(b.qtybuilt, 4),
+                    attachmentimage: doNiceString(b.attachmentimage),
+                    dateordered: doNiceDate(b.dateordered),
+                    datebuilt: doNiceDate(b.datebuilt),
+                    userordered: doNiceTitleizeString(b.userordered),
+                    userbuilt: doNiceTitleizeString(b.userbuilt)
+                  }
+                );
+              }
+            );
+
+            g.datagrid('loadData', builds);
+          }
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'tpccaddstatus',
+        function(ev, args)
+        {
+          $('#cbOrders').combogrid('clear');
+
+          $('#cbUnit1Colour').combobox('clear');
+          $('#fldUnit1Anilox').numberbox('clear');
+          $('#cbUnit2Colour').combobox('clear');
+          $('#fldUni21Anilox').numberbox('clear');
+          $('#cbUnit3Colour').combobox('clear');
+          $('#fldUni31Anilox').numberbox('clear');
+          $('#cbUnit4Colour').combobox('clear');
+          $('#fldUni41Anilox').numberbox('clear');
+          $('#cbUnit5Colour').combobox('clear');
+          $('#fldUni51Anilox').numberbox('clear');
+          $('#cbUnit6Colour').combobox('clear');
+          $('#fldUni61Anilox').numberbox('clear');
+
+          $('#fldReelWidth').numberbox('clear');
+          $('#fldThickness').numberbox('clear');
+          $('#fldGear').numberbox('clear');
+          $('#fldSleeveSize').numberbox('clear');
+          $('#fldNumAcross').numberbox('clear');
+          $('#fldNumAround').numberbox('clear');
+        }
+      );
+
+      $('#divEvents').on
+      (
+        'getorderthumbnail',
+        function(ev, args)
+        {
+          if (!_.isUndefined(args.data.orderattachmentid))
+            doThrowOrderAttachment(args.data.orderattachmentid)
+        }
+      );
+
+      doServerMessage('tpccorderbuilds', {type: 'refresh'});
+    });
+
+    // ************************************************************************************************************************************************************************
+    onbeforeunload = BeforeUnload;
+  </script>
+</head>
+<body style="background-color: #3ca9e5; margin: 0; color: #000;">
+  <!-- ************************************************************************************************************************************************************************** -->
+  <!-- Hidden DIVs for dialogs etc etc -->
+  <div id="divEvents" style="display: none;"></div>
+
+  <!-- ************************************************************************************************************************************************************************** -->
+  <div id="mnuAbout" style="width: 150px;">
+    <div data-options="iconCls: 'icon-remedy'">
+      <span>Remedy</span>
+      <div class="menu-content" style="padding: 10px; text-align: center">
+        <img src="images/logo.png" style="width: 180px; height: 40px">
+        <p style="font-size: 14px; color: #444">Remedy Centre</p>
+        <p style="font-size: 12px; color: #ccc">Copyright &copy; 2016 - 2017</p>
+        <p style="font-size: 12px; color: #ccc">Can Can Pty Ltd</p>
+        <p style="font-size: 12px; color: #ccc"><span id="spnBuildno" align="right">Build</span></p>
+        <p style="font-size: 12px; color: #ccc"><span id="spnServer" align="right"></span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ************************************************************************************************************************************************************************** -->
+  <!-- Context menus -->
+
+  <!-- ************************************************************************************************************************************************************************** -->
+  <!-- Toolbars -->
+
+  <!-- ************************************************************************************************************************************************************************** -->
+  <!-- Main layout -->
+  <div class="easyui-layout" data-options="fit: true">
+    <div data-options="region: 'north'" style="width: 100%; height: 55px; padding: 5px">
+      <div class="easyui-layout" data-options="fit: true">
+        <div data-options="region: 'west'" style="width: 40%; height: 55px; padding: 5px">
+          <a href="#" class="easyui-menubutton" data-options="menu: '#mnuAbout', iconCls: 'icon-about'">About</a>
+        </div>
+
+        <div data-options="region: 'east'" style="width: 30%; padding: 5px">
+          <span id="spnMenu"></span>
+        </div>
+
+        <div data-options="region: 'center'" style="width: 30%; padding: 5px">
+          <div style="float: left;">
+            <span id="divDashConnectionStatus" style="float: left; "></span><div id="divProgress" style="float: left; width: 250px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div data-options="region: 'center'" style="width: 100%; height: 500px; padding: 5px">
+      <div class="easyui-panel" title="TPCC Orders" data-options="fit: true" id="pnlTitle">
+        <table>
+          <tr>
+            <td>Order:</td>
+            <td><div id="cbOrders" style="width: 400px"></div></td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td>Unit 1:</td>
+            <td>
+              <table>
+                <tr>
+                  <td>Colour:</td>
+                  <td><input type="text" id="fldUnit1Colour" class="easyui-textbox" data-options="iconCls: 'icon-inventory'" style="text-align: left"></td>
+                  <td>Anilox:</td>
+                  <td><input type="text" id="fldUnit1Anilox" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+                </tr>
+              </table>
+            </td>
+            <td width="25px">&nbsp</td>
+            <td>Reel Width (mm):</td>
+            <td><input type="text" id="fldReelWidth" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+            <td rowspan="6"><img id="imgAttachment" src="" /></td>
+          </tr>
+          <tr>
+            <td>Unit 2:</td>
+            <td>
+              <table>
+                <tr>
+                  <td>Colour:</td>
+                  <td><input type="text" id="fldUnit2Colour" class="easyui-textbox" data-options="iconCls: 'icon-inventory'" style="text-align: left"></td>
+                  <td>Anilox:</td>
+                  <td><input type="text" id="fldUnit2Anilox" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+                </tr>
+              </table>
+            </td>
+            <td width="25px">&nbsp</td>
+            <td>Thickness (GSM):</td>
+            <td><input type="text" id="fldThickness" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+          </tr>
+          <tr>
+            <td>Unit 3:</td>
+            <td>
+              <table>
+                <tr>
+                  <td>Colour:</td>
+                  <td><input type="text" id="fldUnit3Colour" class="easyui-textbox" data-options="iconCls: 'icon-inventory'" style="text-align: left"></td>
+                  <td>Anilox:</td>
+                  <td><input type="text" id="fldUnit3Anilox" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+                </tr>
+              </table>
+            </td>
+            <td width="25px">&nbsp</td>
+            <td>Gear (teeth):</td>
+            <td><input type="text" id="fldGear" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+          </tr>
+          <tr>
+            <td>Unit 4:</td>
+            <td>
+              <table>
+                <tr>
+                  <td>Colour:</td>
+                  <td><input type="text" id="fldUnit4Colour" class="easyui-textbox" data-options="iconCls: 'icon-inventory'" style="text-align: left"></td>
+                  <td>Anilox:</td>
+                  <td><input type="text" id="fldUnit4Anilox" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+                </tr>
+              </table>
+            </td>
+            <td width="25px">&nbsp</td>
+            <td>Sleeve Size:</td>
+            <td><input type="text" id="fldSleeveSize" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+          </tr>
+          <tr>
+            <td>Unit 5:</td>
+            <td>
+              <table>
+                <tr>
+                  <td>Colour:</td>
+                  <td><input type="text" id="fldUnit5Colour" class="easyui-textbox" data-options="iconCls: 'icon-inventory'" style="text-align: left"></td>
+                  <td>Anilox:</td>
+                  <td><input type="text" id="fldUnit5Anilox" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+                </tr>
+              </table>
+            </td>
+            <td width="25px">&nbsp</td>
+            <td>#Across:</td>
+            <td><input type="text" id="fldNumAcross" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+          </tr>
+          <tr>
+            <td>Unit 6:</td>
+            <td>
+              <table>
+                <tr>
+                  <td>Colour:</td>
+                  <td><input type="text" id="fldUnit6Colour" class="easyui-textbox" data-options="iconCls: 'icon-inventory'" style="text-align: left"></td>
+                  <td>Anilox:</td>
+                  <td><input type="text" id="fldUnit6Anilox" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+                </tr>
+              </table>
+            </td>
+            <td width="25px">&nbsp</td>
+            <td>#Around:</td>
+            <td><input type="text" id="fldNumAround" class="easyui-numberbox" data-options="iconCls: 'icon-inventory', groupSeparator: ',', precision: 0" style="text-align: right"></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+            <td>
+              <a href="#" class="easyui-linkbutton" data-options="iconCls: 'icon-save'" onclick="doSave()">Save</a>
+              <a href="#" class="easyui-linkbutton" data-options="iconCls: 'icon-alarm'" onclick="doJobStart()">Job Start</a>
+              <a href="#" class="easyui-linkbutton" data-options="iconCls: 'icon-alarm'" onclick="doJobComplete()">Job Complete</a>
+              <a href="#" class="easyui-linkbutton" data-options="iconCls: 'icon-product'" onclick="doJobThumbnail()">View Thumbnail</a>
+            </td>
+            <td>&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <a id="ancSpare"></a>
+</body>
+</html>
+

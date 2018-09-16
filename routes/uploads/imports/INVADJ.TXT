@@ -1,0 +1,508 @@
+Journal Number	Date	Memo	Item Number	Location	Quantity	Unit Cost	Amount	Account	Job	Allocation Memo	Category
+IJ009797	08/07/2016	Inventory count	C123_TRMBTA_SW_04_TRMBTA	Location1	-21	$11.16	-$234.30	39999			
+
+IJ009807	11/07/2016	Inventory count	TPCC_DW_12_RED	Location1	12	$0.00	$0.00				
+
+IJ009814	12/07/2016	Inventory count	C031_LOMB_DW_08_DIB_MAP	Location1	-8	$19.37	-$154.93	39999			
+IJ009814	12/07/2016	Inventory count	TPCC_DW_08_BLK	Location1	8	$19.37	$154.93	39999			
+
+IJ009831	13/07/2016	Inventory count	C031_LOMB_DW_12_SHINGINN	Location1	-5	$18.39	-$91.93	39999			
+
+IJ009844	14/07/2016	Inventory count	TPCC_DW_12_BLK	Location1	2	$0.00	$0.00				
+
+IJ009885	19/07/2016	Inventory Count	SP250-313	Location1	500	$1.84	$922.45	39999			
+
+IJ009895	20/07/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-4	$14.68	-$58.72	39999			
+IJ009895	20/07/2016	Inventory count	TPCC_DW_16_BLK	Location1	4	$0.00	$0.00				
+
+IJ009896	20/07/2016	Inventory count	C031_LOMB_DW_08T_DJONES	Location1	-1	$18.81	-$18.81	39999			
+IJ009896	20/07/2016	Inventory count	TPCC_DW_08T_BLK	Location1	1	$0.00	$0.00				
+
+IJ009897	20/07/2016	Inventory count	C031_LOMB_DW_04_DIB_MAP	Location1	-1	$16.22	-$16.22	39999			
+IJ009897	20/07/2016	Inventory count	TPCC_DW_04_BRN	Location1	1	$0.00	$0.00				
+
+IJ009898	20/07/2016	Inventory count	C031_LOMB_DW_04_DIB_MAP	Location1	-1	$16.22	-$16.22	39999			
+IJ009898	20/07/2016	Inventory count	TPCC_DW_04_BLK	Location1	1	$16.22	$16.22	39999			
+
+IJ009900	20/07/2016	Inventory count	C031_LOMB_DW_08T_DIB_MAP	Location1	1	$14.86	$14.86	39999			
+IJ009900	20/07/2016	Inventory count	TPCC_DW_08T_BLK	Location1	-1	$0.00	$0.00				
+
+IJ009923	22/07/2016	Inventory count	SPM712-208	Location1	600	$1.86	$1,117.62	39999			
+
+IJ009925	25/07/2016	Inventory Count	SP250-313	Location1	500	$1.84	$922.45	39999			
+
+IJ009941	26/07/2016	Inventory Count	C-Group2	Location1	800	$1.04	$831.84	39999			
+
+IJ009972	29/07/2016	Inventory count	C-Group2	Location1	147.2	$1.04	$153.05	39999			
+
+IJ009979	29/07/2016	Inventory count	C-Group2	Location1	50	$1.04	$52.00	39999			
+
+IJ009981	29/07/2016	Inventory count	TPCC_FC_16_WH	Location1	29	$17.36	$503.45	39999			
+
+IJ009996	01/08/2016	Inventory count	SP250-313	Location1	500	$1.84	$922.46	39999			
+
+IJ010003	02/08/2016	Inventory Count	C023_ICM8_SC_16_ICM8	Location1	-1	$22.75	-$22.75	39999			
+
+IJ010468	03/08/2016	Inventory Count	JL_HLS_4_B	Location1	15	$17.15	$257.21	39999			
+
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_DW_16_WH	Location1	-3	$14.59	-$43.78	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_FC_08_WH	Location1	8	$15.86	$126.85	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_FC_20_WH	Location1	11	$18.01	$198.13	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_FC_25_WH	Location1	-1	$19.39	-$19.39	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_FC_30_WH	Location1	-1	$20.59	-$20.59	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_IC_05_WH	Location1	40	$15.93	$637.34	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_IC_08_WH	Location1	-1	$16.63	-$16.63	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_SW_04_WH	Location1	-17	$11.46	-$194.76	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_SW_06_WH_1800	Location1	2	$23.10	$46.19	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_SW_08_WH	Location1	7	$24.86	$174.01	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_SW_16_WH	Location1	-2	$29.66	-$59.31	39999			
+IJ010045	04/08/2016	Inventory count - Physical Count	TPCC_SW_12_WH	Location1	4	$0.00	$0.00				
+
+IJ010046	05/08/2016	Inventory count	TPCC_SW_02_W	Location1	-4	$10.41	-$41.64	39999			
+
+IJ010071	08/08/2016	Inventory Count	OP275-230	Location1	2,000	$1.54	$3,076.60	39999			
+
+IJ010106	10/08/2016	Inventory count	BP48-254	Location1	300	$1.23	$368.40	39999			
+IJ010106	10/08/2016	Inventory count	BP65-254	Location1	700	$1.95	$1,362.94	39999			
+IJ010106	10/08/2016	Inventory count	BP82-254	Location1	1,106.864	$2.04	$2,258.79	39999			
+IJ010106	10/08/2016	Inventory count	SP200-313	Location1	1,600	$1.67	$2,666.67	39999			
+IJ010106	10/08/2016	Inventory count	IP730-278	Location1	-3,429.546	$1.62	-$5,568.28	39999			
+IJ010106	10/08/2016	Inventory count	OP760-230	Location1	-4,856.32	$1.61	-$7,803.75	39999			
+IJ010106	10/08/2016	Inventory count	SP305-313	Location1	656	$1.75	$1,146.05	39999			
+IJ010106	10/08/2016	Inventory count	SP275-313	Location1	-6,000	$1.85	-$11,092.52	39999			
+IJ010106	10/08/2016	Inventory count	SP690-313	Location1	-545	$1.77	-$964.65	39999			
+IJ010106	10/08/2016	Inventory count	SP730-313	Location1	3,400	$1.78	$6,053.06	39999			
+IJ010106	10/08/2016	Inventory count	SP230-313	Location1	-2,000	$1.67	-$3,342.00	39999			
+IJ010106	10/08/2016	Inventory count	SPC275-273	Location1	2,500	$1.76	$4,387.50	39999			
+IJ010106	10/08/2016	Inventory count	SPC305 -273	Location1	-756	$1.84	-$1,392.55	39999			
+
+IJ010149	15/08/2016	Inventory count: Not in Warehouse	C109_MAH_DW_08_MAHALIA	Location1	-2	$19.84	-$39.67	39999			
+
+IJ010162	16/08/2016	Inventory count	C031_LOMB_DW_08T_DIB_MAP	Location1	-3	$14.86	-$44.57	39999			
+IJ010162	16/08/2016	Inventory count	TPCC_DW_08T_BLK	Location1	3	$14.86	$44.57	39999			
+
+IJ010164	16/08/2016	Inventory count	C031_LOMB_DW_12_DIB_MAP	Location1	2	$19.13	$38.26	39999			
+IJ010164	16/08/2016	Inventory count	TPCC_DW_12_BLK	Location1	-2	$19.13	-$38.26	39999			
+
+IJ010169	16/08/2016	Inventory count	JL_FLT_8~30_B	Location1	-2	$22.87	-$45.74	39999			
+
+IJ010208	19/08/2016	Inventory count	CM150_35_P	Location1	-1	$30.42	-$30.42	39999			
+
+IJ010215	19/08/2016	Inventory count	IP 305PP-280	Location1	1,000	$2.31	$2,310.00	11310			
+
+IJ010216	19/08/2016	Inventory count	BP120PP-254	Location1	1,000	$2.53	$2,530.00	11310			
+
+IJ010242	22/08/2016	Inventory count	BP75-254	Location1	1,000	$2.12	$2,119.85	39999			
+
+IJ010269	24/08/2016	Inventory count	C031_LOMB_DW_08_DIB_MAP	Location1	-18	$18.56	-$334.02	39999			
+IJ010269	24/08/2016	Inventory count	C031_LOMB_DW_12_DIB_MAP	Location1	-4	$18.58	-$74.30	39999			
+IJ010269	24/08/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-32	$14.68	-$469.77	39999			
+IJ010269	24/08/2016	Inventory count	TPCC_DW_08_BLK	Location1	18	$18.56	$334.02	39999			
+IJ010269	24/08/2016	Inventory count	TPCC_DW_12_BLK	Location1	4	$18.58	$74.30	39999			
+IJ010269	24/08/2016	Inventory count	TPCC_DW_16_BLK	Location1	32	$14.68	$469.77	39999			
+
+IJ010270	24/08/2016	Inventory count	C031_LOMB_DW_04_DIB_MAP	Location1	-1	$16.22	-$16.22	39999			
+IJ010270	24/08/2016	Inventory count	TPCC_DW_04_BLK	Location1	1	$16.22	$16.22	39999			
+
+IJ010303	27/08/2016	Inventory count	C031_LOMB_SW_08_illy	Location1	-20	$26.60	-$531.97	39999			
+IJ010303	27/08/2016	Inventory count	C031_LOMB_SW_12_illy	Location1	-7	$29.61	-$207.30	39999			
+IJ010303	27/08/2016	Inventory count	C031_LOMB_SW_16_illy	Location1	-25	$25.84	-$646.00	39999			
+IJ010303	27/08/2016	Inventory count	C353_KAFF_SW_08_illy	Location1	20	$26.60	$531.97	11326			
+IJ010303	27/08/2016	Inventory count	C353_KAFF_SW_12_illy	Location1	7	$29.61	$207.30	11327			
+IJ010303	27/08/2016	Inventory count	C353_KAFF_SW_16_illy	Location1	25	$25.84	$646.00	11328			
+
+IJ010319	30/08/2016	Inventory Count	OP275-230	Location1	3,700	$1.62	$5,983.27	39999			
+
+IJ010320	30/08/2016	Inventory count	JL_CLD_8~16_DOME_H	Location1	6	$0.00	$0.00				
+
+IJ010347	01/09/2016	Inventory count	C353_KAFF_SW_08_illy	Location1	1	$26.60	$26.60	39999			
+IJ010347	01/09/2016	Inventory count	C353_KAFF_SW_12_illy	Location1	-4	$29.62	-$118.46	39999			
+
+IJ010353	01/09/2016	Inventory count	C031_LOMB_DW_12_STEVINS	Location1	3	$19.21	$57.62	39999			
+
+IJ010359	01/09/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-5	$14.68	-$73.40	39999			
+
+IJ010360	01/09/2016	Inventory count	TPCC_DW_16_BLK	Location1	5	$13.68	$68.40	39999			
+
+IJ010387	05/09/2016	Inventory count Stock Counted	BP60-254	Location1	-1,000	$1.00	-$1,000.00	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	BP82-254	Location1	1,149.593	$2.05	$2,352.05	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	BP95-254	Location1	-661.392	$2.03	-$1,345.34	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	SP200-313	Location1	400	$1.67	$666.67	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	OP275-230	Location1	2,157.15	$1.62	$3,488.30	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	OP760-230	Location1	-2,400	$1.61	-$3,867.62	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	OPK275-220	Location1	3,060	$1.65	$5,060.11	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	OPK760-220	Location1	-4,000	$1.58	-$6,331.90	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	SP250-313	Location1	-880	$1.83	-$1,611.16	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	SP275-313	Location1	2,000	$1.92	$3,837.23	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	SP305-313	Location1	-4,226	$1.78	-$7,510.81	39999			
+IJ010387	05/09/2016	Inventory count Stock Counted	SP355-313	Location1	-1,000	$1.92	-$1,917.76	39999			
+
+IJ010400	07/09/2016	Inventory count	C031_LOMB_DW_08T_DIB_MAP	Location1	-4	$15.03	-$60.11	39999			
+IJ010400	07/09/2016	Inventory count	TPCC_DW_08T_BLK	Location1	4	$15.03	$60.11	39999			
+
+IJ010412	08/09/2016	Inventory count	JL_FLD_8~30_SDOME_H	Location1	1	$28.20	$28.20	39999			
+
+IJ010416	08/09/2016	Inventory count	TPCC_FC_08_WH	Location1	-8	$15.97	-$127.75	39999			
+
+IJ010419	08/09/2016	Inventory count	JL_FLT_8~30_W	Location1	-5	$18.18	-$90.89	39999			
+
+IJ010443	12/09/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-4	$16.07	-$64.26	39999			
+IJ010443	12/09/2016	Inventory count	TPCC_DW_16_BLK	Location1	4	$16.07	$64.26	39999			
+
+IJ010453	13/09/2016	Inventory count	JL_CLD_8~16_DOME_H	Location1	1	$0.00	$0.00	39999			
+IJ010453	13/09/2016	Inventory count	JL_CLD_8~16_DOME_NH	Location1	-7	$8.41	-$58.88	39999			
+
+IJ010454	13/09/2016	Converting SP355 from SP730 as per Darryl	SP355-313	Location1	1,400	$1.92	$2,686.88	39999			
+IJ010454	13/09/2016	Converting SP355 from SP730 as per Darryl	SP730-313	Location1	-1,400	$1.80	-$2,524.76	39999			
+
+IJ010497	15/09/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-64	$16.07	-$1,028.16	39999			
+IJ010497	15/09/2016	Inventory count	TPCC_DW_16_BLK	Location1	64	$16.07	$1,028.16	39999			
+
+IJ010498	16/09/2016	Inventory count	C031_LOMB_DW_08_DIB_MAP	Location1	-3	$20.37	-$61.12	39999			
+IJ010498	16/09/2016	Inventory count	TPCC_DW_08_BLK	Location1	3	$20.37	$61.12	39999			
+
+IJ010510	16/09/2016	Inventory count	C031_LOMB_SW_16_DIB_MAP	Location1	-18	$26.62	-$479.14	39999			
+IJ010510	16/09/2016	Inventory count	TPCC_SW_16_BLK	Location1	18	$26.62	$479.14	39999			
+
+IJ010524	19/09/2016	Inventory count	SP355-313	Location1	200	$1.92	$383.84	39999			
+
+IJ010529	19/09/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-8	$16.07	-$128.52	39999			
+IJ010529	19/09/2016	Inventory count	TPCC_DW_16_BLK	Location1	-1	$16.07	-$16.07	39999			
+
+IJ010541	20/09/2016	42 without Hole in stock not with - Inventory count: 	JL_FLT_8~30_B	Location1	-42	$28.20	-$1,184.40	39999			
+
+IJ011306	20/09/2016	Inventory Count	JL_HL_T8_W	Location1	40	$18.57	$742.80	39999			
+
+IJ010585	23/09/2016	Inventory count	TPCC_IC_03_WH	Location1	-1	$17.69	-$17.69	39999			
+
+IJ010587	26/09/2016	Inventory count	C021_HPSOL_DW_12_ADAMO_BLK	Location1	-2	$19.72	-$39.43	39999			
+
+IJ010625	29/09/2016	Inventory count	C031_LOMB_DW_08T_DIB_MAP	Location1	-24	$15.03	-$360.66	39999			
+IJ010625	29/09/2016	Inventory count	TPCC_DW_08T_BLK	Location1	24	$0.00	$0.00				
+
+IJ010645	03/10/2016	Stock Inventory Count = 0	4CUP-TRAY	Location1	-4	$15.00	-$60.00	39999			
+
+IJ010721	10/10/2016	Inventory count	C031_LOMB_DW_04_DIB_MAP	Location1	-4	$16.22	-$64.88	39999			
+IJ010721	10/10/2016	Inventory count	TPCC_DW_04_BLK	Location1	4	$16.22	$64.88	39999			
+
+IJ010734	11/10/2016	Inventory count: Anast found 1 carton in WH	TPCC_FC_08_WH	Location1	1	$0.00	$0.00				
+
+IJ010745	12/10/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-10	$16.03	-$160.25	39999			
+IJ010745	12/10/2016	Inventory count	TPCC_DW_16_BLK	Location1	10	$16.03	$160.25	39999			
+
+IJ010749	12/10/2016	Were never made but MYOB won't let me delete build	C119_OKELLY_DW_12_SILFOX	Location1	-8	$20.00	-$159.96	39999			
+
+IJ010765	13/10/2016	Inventoryy Count	SP250-313	Location1	500	$1.83	$915.45	39999			
+
+IJ010770	13/10/2016	Inventory count	JL_FLS_8~30_DOME_H	Location1	2	$27.64	$55.28	39999			
+
+IJ010800	17/10/2016	Inventory Count	OP760-230	Location1	1,800	$1.62	$2,908.26	39999			
+
+IJ010832	19/10/2016	Inventory count	C031_LOMB_DW_04_DIB_MAP	Location1	1	$16.22	$16.22	39999			
+
+IJ010853	20/10/2016	Inventory Count	SP200-313	Location1	500	$1.67	$833.35	39999			
+
+IJ010877	21/10/2016	Sold to BonBon's	C031_LOMB_DW_08T_DIB_MAP	Location1	-4	$15.09	-$60.36	39999			
+
+IJ010878	21/10/2016	Sold to BonBon's	TPCC_DW_08T_BLK	Location1	4	$14.91	$59.62	39999			
+
+IJ010880	21/10/2016	Inventory count WAS NEVER MADE	C031_LOMB_DW_12_MATT_COOP	Location1	-3	$20.00	-$59.99	39999			
+
+IJ010893	24/10/2016	Inventory count	SP200-313	Location1	1,400	$1.67	$2,333.39	39999			
+IJ010893	24/10/2016	Inventory count	OP250-230	Location1	800	$1.53	$1,220.21	39999			
+IJ010893	24/10/2016	Inventory count	SP250-313	Location1	2,400	$1.83	$4,394.19	39999			
+IJ010893	24/10/2016	Inventory count	SP305-313	Location1	1,800	$1.78	$3,199.12	39999			
+IJ010893	24/10/2016	Inventory count	SP355-313	Location1	597.976	$1.84	$1,101.66	39999			
+IJ010893	24/10/2016	Inventory count	SP690-313	Location1	-3,100	$1.83	-$5,662.58	39999			
+IJ010893	24/10/2016	Inventory count	SPC275-273	Location1	-2,300	$1.76	-$4,036.50	39999			
+IJ010893	24/10/2016	Inventory count	SPC305 -273	Location1	1,500	$1.84	$2,763.01	39999			
+
+IJ010899	24/10/2016	Inventory count	SPC275-273	Location1	-587.728	$1.75	-$1,031.46	39999			
+IJ010899	24/10/2016	Inventory count	SP275-313	Location1	587.728	$1.75	$1,031.46	39999			
+
+IJ010907	25/10/2016	Inventory count	TPCC_SW_02_RED	Location1	-1	$13.27	-$13.27	39999			
+
+IJ010908	25/10/2016	Inventory count	C352_BNCHMRK_FC_16_CHARL	Location1	-1	$18.94	-$18.94	39999			
+
+IJ010914	25/10/2016	Inventory count	TPCC_IC_03_WH	Location1	-1	$17.76	-$17.76	39999			
+
+IJ010962	28/10/2016	Inventory Count	JL_HL_8~16_B	Location1	6	$21.01	$126.06	39999			
+
+IJ010970	28/10/2016	Stocktake Inventory count	TPCC_SW_06_WH_1800	Location1	6	$23.07	$138.44	39999			
+
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_SW_02_W	Location1	4	$11.19	$44.74	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_SW_04_WH	Location1	1	$11.46	$11.46	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_SW_08T_WH	Location1	4	$22.54	$90.16	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_SW_16_WH	Location1	-20	$24.13	-$482.63	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_DW_08T_WHITE	Location1	-4	$14.17	-$56.68	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_FC_08_WH	Location1	4	$15.86	$63.42	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_FC_16_WH	Location1	1	$18.13	$18.13	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_FC_25_WH	Location1	-32	$19.39	-$620.42	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_IC_05_WH	Location1	-1	$16.75	-$16.75	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_IC_08_WH	Location1	-3	$16.63	-$49.89	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_CH_12_WH	Location1	34	$22.93	$779.66	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	C031_LOMB_DW_08T_DIB_MAP	Location1	-41	$15.09	-$618.72	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-22	$16.03	-$352.56	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	C031_LOMB_SW_04_DIB_MAP	Location1	38	$11.46	$435.34	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	C031_LOMB_SW_08_DIB_MAP	Location1	13	$22.54	$293.01	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	C031_LOMB_SW_08T_DIB_MAP	Location1	40	$22.54	$901.56	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_DW_08T_RED	Location1	20	$16.03	$320.51	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_DW_08TK_G	Location1	1	$14.97	$14.97	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_SW_08_BLK	Location1	-13	$25.64	-$333.30	39999			
+IJ010971	28/10/2016	Stocktake Inventory count	TPCC_SW_16_BLK	Location1	-2	$26.62	-$53.24	39999			
+
+IJ010973	28/10/2016	Inventory count	TPCC_DW_08_BLK	Location1	29	$20.41	$591.79	39999			
+IJ010973	28/10/2016	Inventory count	C031_LOMB_DW_08_DIB_MAP	Location1	-29	$20.41	-$591.79	39999			
+
+IJ010986	03/11/2016	Inventory count	IP730-278	Location1	2,000	$1.70	$3,404.20	39999			
+
+IJ010997	04/11/2016	Inventory Count	OP250-230	Location1	200	$1.53	$305.04	39999			
+IJ010997	04/11/2016	Inventory Count	OP275-230	Location1	-200	$1.35	-$270.60	39999			
+
+IJ011022	08/11/2016	Inventory count	C031_LOMB_DW_08T_FERGPL	Location1	-1	$14.82	-$14.82	39999			
+
+IJ011027	08/11/2016	Inventory count	IP730-278	Location1	1,000	$5.14	$5,141.79	39999			
+
+IJ011035	08/11/2016	Inventory Count	IP730-278	Location1	1,000	$5.14	$5,141.80	39999			
+
+IJ011055	09/11/2016	Inventory count	JL_HLT_8~16_W	Location1	-30	$20.59	-$617.70	39999			
+
+IJ011088	11/11/2016	Inventory count	TPCC_SM_02_G01	Location1	2	$10.51	$21.01	39999			
+
+IJ011144	15/11/2016	Inventory count	SP355-313	Location1	1,000	$1.84	$1,842.29	39999			
+
+IJ011184	17/11/2016	Inventory count	TPCC_IC_03_G01	Location1	-43	$18.03	-$775.19	39999			
+
+IJ011193	17/11/2016	Inventory count	TPCC_FC_16_WH	Location1	-1	$18.13	-$18.13	39999			
+
+IJ011212	19/11/2016	Inventory count	OP275-230	Location1	1,000	$1.48	$1,477.06	39999			
+
+IJ011224	19/11/2016	Inventory count	OP275-230	Location1	2,000	$1.48	$2,954.20	39999			
+
+IJ011226	21/11/2016	Inventory count	JL_HLT_T8_B	Location1	-15	$20.22	-$303.30	39999			
+IJ011226	21/11/2016	Inventory count	JL_HLT_T8_W	Location1	-41	$19.19	-$786.79	39999			
+
+IJ011229	21/11/2016	Inventory count	TPCC_DW_12_BLK	Location1	-18	$18.76	-$337.69	39999			
+
+IJ011239	21/11/2016	Inventory count	TPCC_CH_12_WH	Location1	-34	$22.93	-$779.66	39999			
+IJ011239	21/11/2016	Inventory count	TPCC_FC_08_WH	Location1	-4	$15.88	-$63.52	39999			
+IJ011239	21/11/2016	Inventory count	TPCC_FC_25_WH	Location1	32	$19.39	$620.48	39999			
+IJ011239	21/11/2016	Inventory count	TPCC_IC_08_WH	Location1	3	$16.63	$49.89	39999			
+IJ011239	21/11/2016	Inventory count	TPCC_SW_02_RED	Location1	10	$13.77	$137.74	39999			
+IJ011239	21/11/2016	Inventory count	TPCC_SW_12_WH	Location1	8	$25.21	$201.71	39999			
+IJ011239	21/11/2016	Inventory count	TPCC_SW_16_WH	Location1	32	$24.13	$772.22	39999			
+IJ011239	21/11/2016	Inventory count	C031_LOMB_DW_08T_DIB_MAP	Location1	40	$15.09	$603.63	39999			
+IJ011239	21/11/2016	Inventory count	C031_LOMB_DW_12_DIB_MAP	Location1	2	$19.40	$38.79	39999			
+IJ011239	21/11/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	28	$16.03	$448.71	39999			
+
+IJ011240	21/11/2016	Inventory count	C031_LOMB_SW_04_DIB_MAP	Location1	-38	$11.46	-$435.34	39999			
+IJ011240	21/11/2016	Inventory count	C031_LOMB_SW_08T_DIB_MAP	Location1	-40	$22.54	-$901.56	39999			
+IJ011240	21/11/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	2	$16.03	$32.05	39999			
+
+IJ011241	21/11/2016	Inventory count	C031_LOMB_DW_08T_DIB_MAP	Location1	-2	$15.09	-$30.18	39999			
+IJ011241	21/11/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-3	$16.03	-$48.08	39999			
+IJ011241	21/11/2016	Inventory count	TPCC_DW_08T_BLK	Location1	2	$15.09	$30.18	39999			
+IJ011241	21/11/2016	Inventory count	TPCC_DW_16_BLK	Location1	3	$16.03	$48.08	39999			
+
+IJ011258	22/11/2016	Inventory count	C031_LOMB_DW_12_DIB_MAP	Location1	-16	$19.40	-$310.34	39999			
+IJ011258	22/11/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-20	$16.03	-$320.51	39999			
+IJ011258	22/11/2016	Inventory count	TPCC_DW_12_BLK	Location1	16	$19.40	$310.34	39999			
+IJ011258	22/11/2016	Inventory count	TPCC_DW_16_BLK	Location1	20	$16.03	$320.51	39999			
+
+IJ011274	23/11/2016	Inventory count	SP355-313	Location1	1,000	$1.84	$1,842.30	39999			
+
+IJ011289	24/11/2016	Inventory Counts	SP275-313	Location1	2,000	$1.92	$3,845.60	39999			
+
+IJ011295	24/11/2016	Inventory count, Deducting from Inventory as they are invoiced as Freight	PLAIN PALLETS	Location1	-2,022	$9.50	-$19,209.00	39999			
+
+IJ011296	24/11/2016	Inventory count	SP355-313	Location1	1,000	$1.84	$1,841.58	39999			
+IJ011296	24/11/2016	Inventory count	SP690-313	Location1	-2,000	$1.84	-$3,678.33	39999			
+
+IJ011307	25/11/2016	Inventory count	C031_LOMB_DW_16_SHINGINN	Location1	2	$0.00	$0.00				
+
+IJ011319	25/11/2016	Inventory count	SP355-313	Location1	2,000	$1.84	$3,683.32	39999			
+IJ011319	25/11/2016	Inventory count	SP690-313	Location1	2,000	$1.84	$3,683.32	39999			
+
+IJ011336	29/11/2016	Inventory count	OP760-230	Location1	2,000	$1.62	$3,241.40	39999			
+
+IJ011359	30/11/2016	Inventory count	OP275-230	Location1	1,000	$1.49	$1,489.90	39999			
+
+IJ011366	01/12/2016	Inventory count	OP760-230	Location1	1,000	$1.62	$1,620.68	39999			
+
+IJ011370	01/12/2016	Inventory count	C190_DOOLEYS_IC_03_DOOLEYS	Location1	-2	$19.27	-$38.53	39999			
+
+IJ011384	02/12/2016	Inventory count	SP355-313	Location1	1,000	$1.84	$1,841.66	39999			
+
+IJ011406	05/12/2016	Inventory Count	SP275-313	Location1	3,000	$1.92	$5,768.40	39999			
+
+IJ011409	05/12/2016	Inventory count	C031_LOMB_DW_08T_DIB_MAP	Location1	-2	$15.09	-$30.18	39999			
+IJ011409	05/12/2016	Inventory count	C031_LOMB_DW_12_DIB_MAP	Location1	-2	$19.40	-$38.79	39999			
+IJ011409	05/12/2016	Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-2	$16.03	-$32.05	39999			
+
+IJ011410	05/12/2016	Inventory count	TPCC_DW_16_BLK	Location1	2	$16.75	$33.50	39999			
+IJ011410	05/12/2016	Inventory count	TPCC_DW_12_BLK	Location1	2	$20.20	$40.40	39999			
+IJ011410	05/12/2016	Inventory count	TPCC_DW_08T_BLK	Location1	2	$0.00	$0.00				
+
+IJ011416	06/12/2016	Inventory count	C031_LOMB_DW_04_DIB_MAP	Location1	-1	$16.41	-$16.41	39999			
+IJ011416	06/12/2016	Inventory count	TPCC_DW_04_BLK	Location1	1	$16.41	$16.41	39999			
+
+IJ011423	06/12/2016	Stocktake Inventory count	C031_LOMB_SW_08_DIB_MAP	Location1	-13	$22.54	-$293.01	39999			
+IJ011423	06/12/2016	Stocktake Inventory count	C031_LOMB_DW_04_DIB_MAP	Location1	-17	$16.41	-$278.95	39999			
+IJ011423	06/12/2016	Stocktake Inventory count	C031_LOMB_DW_08T_DIB_MAP	Location1	-83	$15.09	-$1,252.54	39999			
+IJ011423	06/12/2016	Stocktake Inventory count	C031_LOMB_DW_12_DIB_MAP	Location1	-32	$19.40	-$620.67	39999			
+IJ011423	06/12/2016	Stocktake Inventory count	C031_LOMB_DW_16_DIB_MAP	Location1	-18	$16.03	-$288.45	39999			
+IJ011423	06/12/2016	Stocktake Inventory count	TPCC_DW_04_BLK	Location1	32	$16.41	$525.08	39999			
+IJ011423	06/12/2016	Stocktake Inventory count	TPCC_DW_08T_BLK	Location1	10	$15.09	$150.91	39999			
+IJ011423	06/12/2016	Stocktake Inventory count	TPCC_DW_12_BLK	Location1	48	$19.40	$931.00	39999			
+IJ011423	06/12/2016	Stocktake Inventory count	TPCC_DW_16_BLK	Location1	16	$16.88	$270.08	39999			
+IJ011423	06/12/2016	Stocktake Inventory count	TPCC_SW_08_BLK	Location1	13	$22.54	$293.01	39999			
+
+IJ011439	07/12/2016	Inventory count	TPCC_IC_08_WH	Location1	-2	$19.30	-$38.60	39999			
+
+IJ011464	08/12/2016	Inventory count	OP760-230	Location1	1,000	$1.55	$1,547.96	39999			
+
+IJ011469	08/12/2016	Inventory count	TPCC_DW_08T_WHITE	Location1	4	$0.00	$0.00				
+
+IJ011471	08/12/2016	Inventory count	TPCC_SW_08T_WH	Location1	-5	$23.31	-$116.55	39999			
+
+IJ011486	09/12/2016	Inventory count	DC285	Location1	-108	$45.16	-$4,877.28	39999			
+IJ011486	09/12/2016	Inventory count	C005_NESTLE_PP_8ozT_DOLCE	Location1	108	$45.16	$4,877.28	39999			
+
+IJ011489	09/12/2016	Inventory count	SP355-313	Location1	1,000	$1.84	$1,841.72	39999			
+
+IJ011506	11/12/2016	Inventory count	SP690-313	Location1	-2,000	$1.84	-$3,679.20	39999			
+IJ011506	11/12/2016	Inventory count	SP355-313	Location1	2,000	$1.84	$3,679.20	39999			
+
+IJ011522	12/12/2016	Inventory count	TPCC_DW_08T_BLK	Location1	73	$15.09	$1,101.64	39999			
+
+IJ011524	12/12/2016	Inventory count	OP275-230	Location1	1,000	$1.62	$1,619.97	39999			
+
+IJ011533	12/12/2016	Inventory count	C219_BEVSERV_DW_04_DILMAH	Location1	-1	$15.72	-$15.72	39999			
+
+IJ011538	13/12/2016	Inventory count	OP275-230	Location1	1,000	$1.62	$1,620.08	39999			
+
+IJ011560	14/12/2016	Inventory count	OP275-230	Location1	2,000	$1.62	$3,240.00	39999			
+
+IJ011574	15/12/2016	Inventory count	SP690-313	Location1	-2,000	$1.84	-$3,679.22	39999			
+IJ011574	15/12/2016	Inventory count	SP355-313	Location1	2,000	$1.84	$3,679.22	39999			
+
+IJ011596	16/12/2016	Inventory count: Sold to Flint Group	C086_CROAST_DW_08_G01	Location1	-3	$20.02	-$60.07	39999			
+
+IJ011610	16/12/2016	Inventory count	TPCC_DW_08_BLK	Location1	-5	$11.65	-$58.24	39999			
+
+IJ011625	19/12/2016	Inventory count	OP760-230	Location1	1,000	$1.61	$1,607.58	39999			
+
+IJ011636	20/12/2016	Inventory Count	JL_HL_8~16_W	Location1	28	$19.98	$559.44	39999			
+
+IJ011645	20/12/2016	Inventory count	C143_ALTIMATE_IC_05_FTTRT	Location1	-1	$18.19	-$18.19	39999			
+
+IJ011656	21/12/2016	Inventory count: Supplied to Lombard under their code	C031_LOMB_DW_08T_DIB_MAP	Location1	40	$15.09	$603.64	39999			
+IJ011656	21/12/2016	Inventory count: Supplied to Lombard under their code	TPCC_DW_08T_BLK	Location1	-40	$15.09	-$603.64	39999			
+
+IJ011667	21/12/2016	Inventory count	OP760-230	Location1	2,000	$1.61	$3,215.20	39999			
+
+IJ011671	22/12/2016	Stocktake Inventory count	JL_FL_3_W	Location1	-1	$29.00	-$29.00	39999			
+
+IJ011677	22/12/2016	Stocktake Inventory count	TPCC_IC_05_WH	Location1	-1	$18.71	-$18.71	39999			
+
+IJ011680	22/12/2016	Inventory count	C133_METWOD_FC_08_SAKE	Location1	1	$0.00	$0.00				
+
+IJ011681	22/12/2016	Inventory count	C133_METWOD_FC_16_SAKE	Location1	-1	$19.01	-$19.01	39999			
+
+IJ011682	22/12/2016	Inventory count	JL_FLT_8~30_W	Location1	-3	$23.13	-$69.39	39999			
+
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_SW_04_WH	Location1	-1	$11.46	-$11.46	39999			
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_SW_06_WH_1800	Location1	-1	$23.70	-$23.70	39999			
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_SW_08T_WH	Location1	-9	$19.33	-$173.93	39999			
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_SW_08_WH	Location1	-10	$23.65	-$236.54	39999			
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_SW_12_WH	Location1	24	$25.89	$621.42	39999			
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_DW_16_WH	Location1	-2	$16.26	-$32.52	39999			
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_IC_03_WH	Location1	1	$19.07	$19.07	39999			
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_DW_12_BLK	Location1	-10	$14.60	-$146.03	39999			
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_DW_08TK_G	Location1	-1	$14.97	-$14.97	39999			
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_DW_16K_G	Location1	-1	$15.33	-$15.33	39999			
+IJ011683	22/12/2016	Stocktake Inventory count	TPCC_SW_02_RED	Location1	-30	$13.77	-$413.24	39999			
+
+IJ011689	23/12/2016	Inventory count	C-Group5	Location1	-1,359	$0.93	-$1,268.01	39999			
+
+IJ011691	23/12/2016	Stocktake Inventory count	TPCC_SW_16_WH	Location1	-6	$24.71	-$148.23	39999			
+IJ011691	23/12/2016	Stocktake Inventory count	TPCC_FC_08_WH	Location1	1	$15.93	$15.93	39999			
+IJ011691	23/12/2016	Stocktake Inventory count	TPCC_DW_04_BLK	Location1	-16	$16.41	-$262.54	39999			
+IJ011691	23/12/2016	Stocktake Inventory count	TPCC_DW_12_BLK	Location1	10	$15.42	$154.19	39999			
+
+IJ011693	16/01/2017	Stocktake Inventory count: Anast found extra in WH	C031_LOMB_DW_08K_P&O	Location1	6	$19.64	$117.81	39999			
+IJ011693	16/01/2017	Stocktake Inventory count: Anast found extra in WH	C031_LOMB_DW_12K_P&O	Location1	2	$18.74	$37.47	39999			
+
+IJ011694	16/01/2017	Inventory count	TPCC_SW_12_WH	Location1	-4	$25.95	-$103.81	39999			
+
+IJ011695	16/01/2017	Inventory count	C031_LOMB_DW_12K_P&O	Location1	-2	$18.74	-$37.47	39999			
+
+IJ011696	16/01/2017	Stocktake Inventory count	TPCC_SM_02_G01	Location1	-10	$11.43	-$114.34	39999			
+
+IJ011701	17/01/2017	Inventory Count	JL_HL_T8_B	Location1	14	$19.60	$274.44	39999			
+
+IJ011703	17/01/2017	Inventory Count	JL_HLS_4_W	Location1	11	$17.12	$188.32	39999			
+
+IJ011736	19/01/2017	Stocktake Inventory count	C031_LOMB_DW_16_SHINGINN	Location1	-2	$16.81	-$33.62	39999			
+
+IJ011818	31/01/2017	Stocktake Inventory count 27/01	TPCC_FC_08_WH	Location1	31	$15.93	$493.97	39999			
+
+IJ011821	31/01/2017	Inventory count	OP760-230	Location1	3,000	$1.62	$4,857.99	39999			
+
+IJ011832	01/02/2017	Stocktake Inventory count 27/01	TPCC_SW_16_WH	Location1	8	$24.71	$197.64	39999			
+
+IJ011932	10/02/2017	Inventory count Slit down from 730 to (275&230)	SP730-313	Location1	-863	$1.90	-$1,636.59	39999			
+IJ011932	10/02/2017	Inventory count Slit down from 730 to (275&230)	SP230-313	Location1	533	$1.67	$892.19	39999			
+IJ011932	10/02/2017	Inventory count Slit down from 730 to (275&230)	SP275-313	Location1	330	$2.26	$744.40	39999			
+
+IJ011933	10/02/2017	Slit 4 x sp690 @530 into sp230 total 2120kgs	SP690-313	Location1	-2,120	$1.74	-$3,696.69	39999			
+IJ011933	10/02/2017	Slit 4 x sp690 @530 into sp230 total 2120kgs	SP230-313	Location1	2,120	$1.74	$3,696.69	39999			
+
+IJ011939	13/02/2017	Inventory count	TPCC_DW_08T_WHITE	Location1	-80	$13.47	-$1,077.63	39999			
+
+IJ011940	13/02/2017	sp275 = 160 from 730 & 1,000 from 303	SP730-313	Location1	-420	$1.90	-$796.49	39999			
+IJ011940	13/02/2017	sp275 = 160 from 730 & 1,000 from 303	SP230-313	Location1	260	$1.90	$493.06	39999			
+IJ011940	13/02/2017	sp275 = 160 from 730 & 1,000 from 303	SP275-313	Location1	160	$1.90	$303.43	39999			
+IJ011940	13/02/2017	sp275 = 160 from 730 & 1,000 from 303	SP305-313	Location1	-1,000	$1.83	-$1,829.86	39999			
+IJ011940	13/02/2017	sp275 = 160 from 730 & 1,000 from 303	SP275-313	Location1	1,000	$1.83	$1,829.86	39999			
+
+IJ011966	15/02/2017	Inventory count	TPCC_SW_16_WH	Location1	-2	$24.71	-$49.41	39999			
+IJ011966	15/02/2017	Inventory count	TPCC_DW_08T_BLK	Location1	104	$15.62	$1,624.87	39999			
+
+IJ011973	15/02/2017	Inventory count	JL_CLD_05_DOME_NH	Location1	-2	$17.00	-$33.99	39999			
+
+IJ011978	16/02/2017	Stocktake Inventory count 13/02	TPCC_DW_16_WH	Location1	2	$16.26	$32.52	39999			
+IJ011978	16/02/2017	Stocktake Inventory count 13/02	TPCC_DW_08_BLK	Location1	6	$16.93	$101.56	39999			
+
+IJ011992	17/02/2017	Inventory count	SP275-313	Location1	2,000	$1.93	$3,856.43	39999			
+
+IJ011995	17/02/2017	Inventory count	BP82-254	Location1	1,000	$2.13	$2,125.04	39999			
+
+IJ012015	21/02/2017	IP_SP200 to IP730	SP200-313	Location1	-85.006	$1.67	-$141.68	39999			
+IJ012015	21/02/2017	IP_SP200 to IP730	IP730-278	Location1	85.006	$1.67	$141.68	39999			
+
+IJ012022	21/02/2017	Inventory count	C031_LOMB_DW_12_MAP	Location1	-13	$19.88	-$258.44	39999			
+
+IJ012076	24/02/2017	Inventory count	SP730-313	Location1	-2,500	$1.90	-$4,740.98	39999			
+IJ012076	24/02/2017	Inventory count	SP230-313	Location1	1,625	$1.90	$3,081.65	39999			
+IJ012076	24/02/2017	Inventory count	SP275-313	Location1	875	$1.90	$1,659.35	39999			
+
+IJ012086	28/02/2017	Inventory	TPCC_SM_02_G01	Location1	40	$11.55	$461.99	39999			
+
+IJ012150	03/03/2017	STOCKTAKE Inventory count	TPCC_FC_16_WH	Location1	-1	$18.80	-$18.80	39999			
+IJ012150	03/03/2017	STOCKTAKE Inventory count	TPCC_IC_05_WH	Location1	4	$18.68	$74.70	39999			
+IJ012150	03/03/2017	STOCKTAKE Inventory count	TPCC_DW_08T_BLK	Location1	-1	$15.62	-$15.62	39999			
+
+IJ012130	06/03/2017	Inventory count	TPCC_FC_08_WH	Location1	-11	$15.92	-$175.08	39999			
+
+IJ012148	07/03/2017	Inventory count	OP760-230	Location1	1,000	$1.62	$1,623.15	39999			
+
+IJ012152	08/03/2017	Inventory count	TPCC_FC_08_WH	Location1	1	$0.00	$0.00				
+
+IJ012158	08/03/2017	Inventory count	C149_N2_IC_05_1000_NN2	Location1	2	$19.85	$39.69	39999			
+
+IJ012183	16/03/2017	Inventory count	TPCC_FC_08_WH	Location1	-21	$16.04	-$336.90	39999			
+
+IJ012196	17/03/2017	Inventory count	OPK760-220	Location1	-1,100	$1.58	-$1,741.27	39999			
+IJ012196	17/03/2017	Inventory count	OPK250-220	Location1	1,100	$1.58	$1,741.27	39999			
+

@@ -1,0 +1,357 @@
+Account Number	Account Name	Header	Balance	Account Type	Last Cheque Number	Tax Code	Currency Code	Exchange Account	Inactive Account	AccountantLink Code	BSB Number	B/Account Number	B/Account Name	Company Trading Name	Create Bank Files	Bank Code	Direct Entry User ID	Self Balancing Transaction	Description	Classification for Statement of Cash Flow	Subtotal header Accounts
+10000	Assets	H	"$4,532,029.88"	Asset					N												Y
+11000	Current Assets	H	"$1,784,791.16"	Asset					N												Y
+11100	Cash on Hand	H	"$24,095.63"	Asset					N												Y
+11110	Cheque Account - Westpac 22770		"$13,520.91"	Bank	400903	N-T			N		033-134	227703	THE PAPER CUP COMPANY	TPCC	Y	WBC	361974	N			
+11111	Maxi Direct - Cash Reserv		$193.70	Bank	2	N-T			N						N			N			
+11112	United States Dollars		"$9,811.82"	Bank	19	N-T			N						N			N			
+11113	Buisness One 416440		$0.00	Bank	0	N-T			N						N			N			
+11120	Payroll Cheque Account		$0.00	Bank	403595	N-T			N						N			N			
+11130	Petty Cash		$569.20	Bank	2	N-T			N						N			N			
+11135	CONTRA SUSPENSE		$0.00	Bank	0	N-T			N						N			N			
+11150	SECONDS VARIOUS		$0.00	Other Asset		N-T			N											O	
+11180	Undeposited Funds		$0.00	Bank	0	N-T			N						N			N			
+11190	Electronic Clearing Account		$0.00	Bank	404252	N-T			N		033-134	227703	THE PAPER CUP COMPANY PTY LTD	THE PAPER CUP CO	Y			N			
+11192	United States Dollars Currency		$0.00	Bank	3	N-T			N						N			N			
+11200	Trade Debtors		"$1,410,041.33"	Accounts Receivable		N-T			N											O	
+11210	Less Prov'n for Doubtful Debts		$0.00	Other Asset		N-T			N											O	
+11221	Loan to Ashur Sarkis		$0.00	Other Asset		N-T			Y											O	
+11222	Bond to Immigration Dept		"$2,080.00"	Other Current Asset		N-T			N											O	
+11300	Inventory	H	"$184,175.28"	Asset					N												Y
+11309	PLAIN PALLETS		"$1,805.00"	Other Asset		GST			N											O	
+11310	Raw Materials -Paper Stock		"$154,685.65"	Other Asset		GST			N											O	
+11311	SPOON LIDS		$204.67	Other Asset		N-T			N											O	
+11312	Paper Sleeves		$0.00	Other Asset		GST			N											O	
+11313	Inventory - Cartons		"$7,567.40"	Other Asset		GST			N											O	
+11314	Inventory - Ink		$0.00	Other Asset		GST			N											O	
+11315	Inventory - Spoons		"$9,298.80"	Other Asset		GST			N											O	
+11316	Inventory - Glue		$0.00	Other Asset		GST			N											O	
+11317	Inventory - Sleeves -Materials		"$10,613.76"	Other Asset		GST			N											O	
+11319	Cardboard Pallets		$0.00	Other Asset		N-T			N											O	
+11320	Cups Bought		$0.00	Other Asset		GST			N											O	
+11321	Finished Goods - Paper Trays		$0.00	Other Asset		GST			N											O	
+11322	Dispensers		$0.00	Other Asset		N-T			N											O	
+11323	Finished GoodsMilk Shake Gener		$0.00	Other Asset		GST			N											O	
+11324	Finished Goods Food Containers		$0.00	Other Asset		GST			N											O	
+11325	F/G 4 oz S/W Paper Cups		$568.50	Other Asset		GST			N											O	
+11326	F/G - 8 oz S/W Paper Cups		"$4,111.94"	Other Asset		GST			N											O	
+11327	F/G 12 oz S/W Paper Cup		"$7,382.99"	Other Asset		GST			N											O	
+11328	F/G 16 oz S/W Paper Cup		"$3,741.06"	Other Asset		GST			N											O	
+11329	F/G 4oz D/W Paper Cups		"$1,645.22"	Other Asset		GST			N											O	
+11330	F/G 8 oz D/W Paper Cups		"$4,412.38"	Other Asset		GST			N											O	
+11331	F/G 12 oz D/W Paper Cups		"$4,452.56"	Other Asset		GST			N											O	
+11332	F/G 16 oz D/W Paper Cups		"$8,256.87"	Other Asset		GST			N											O	
+11333	F/G 2 oz S/W Paper Cups		"$1,574.70"	Other Asset		GST			N											O	
+11334	F/G Food Container 1		"$2,643.12"	Other Asset		GST			N											O	
+11335	F/G Food Container 2		"$1,601.14"	Other Asset		GST			N											O	
+11336	F/G Food Container 3		"$1,299.34"	Other Asset		GST			N											O	
+11337	F/G Food Container 4		$175.24	Other Asset		GST			N											O	
+11338	F/G Food Container 5		$524.71	Other Asset		GST			N											O	
+11339	F/G 6.5 S/W Paper Cups		"$1,138.15"	Other Asset		GST			N											O	
+11340	F/G 8 oz T S/W Paper Cups		$642.56	Other Asset		GST			N											O	
+11341	F/G 8oz T S/W Cold Dink		$0.00	Other Asset		GST			N											O	
+11342	F/G 8 ozT D/W Paper Cups		"$5,129.00"	Other Asset		GST			N											O	
+11343	F/G 22 oz S/W Cold Cups		$52.29	Other Asset		GST			N											O	
+11344	F/G 24 oz S/W  Cold Cup		$0.00	Other Asset		GST			N											O	
+11345	F/G 12 oz S/W Cold Cups		$0.00	Other Asset		GST			N											O	
+11346	F/G 16 oz S/W Cold Cups		-$640.62	Other Asset		GST			N											O	
+11347	F/G 3 oz Ice Cream		"$29,221.40"	Other Asset		GST			N											O	
+11348	F/G 5 oz Ice Cream		"$1,601.09"	Other Asset		GST			N											O	
+11349	F/G 8 oz Ice Cream		"$1,238.90"	Other Asset		GST			N											O	
+11350	F/G 8oz S/W Cold Cups		$0.00	Other Asset		GST			N											O	
+11351	F/G 12oz Chip Cup		"$3,322.97"	Other Asset		GST			N											O	
+11352	8oz Chip Cups		$22.31	Other Asset		GST			N											O	
+11353	F/G Paper Plates		$0.00	Other Asset		GST			N											O	
+11354	Assets - Straws		$242.53	Other Asset		GST			N											O	
+11355	Assets - Napkins		$0.00	Other Asset		GST			N											O	
+11356	Inventory - Lids		"$80,038.57"	Other Asset		GST			N											O	
+11357	STIRRERS		$0.00	Other Asset		N-T			N											O	
+11441	Inventory - Ink		"$12,787.85"	Other Asset		GST			N											O	
+11442	Inventory Uniforms		"$5,580.83"	Other Asset		FRE			N											O	
+11950	Withholding Credits	H	$0.00	Asset					N												Y
+11960	Voluntary Withholding Credits		$0.00	Other Asset		N-T			N											O	
+11966	Rental Bond - Factory 8D		$0.00	Other Asset		N-T			N											O	
+11970	ABN Withholding Credits		$0.00	Other Asset		N-T			N											O	
+12000	Other Assets	H	$719.00	Asset					N												Y
+12100	Deposits Paid		$719.00	Other Asset		GST			N											O	
+12200	Prepaid Insurance		$0.00	Other Asset		GST			N											O	
+13000	Fixed Assets	H	"$2,728,151.04"	Asset					N												Y
+13100	Plant & Equipment	H	"$2,393,301.72"	Asset					N												Y
+13110	Manufacturing Plant at Cost		"$675,482.42"	Other Asset		CAP			N											O	
+13120	Manufac. Plant Accum Dep		$0.00	Other Asset		N-T			N											O	
+13130	Manufacturing Equipment Cost		"$1,717,819.30"	Other Asset		CAP			N											O	
+13140	Manufac. Equip Accum Dep		$0.00	Other Asset		N-T			N											O	
+13200	Furniture & Fixtures	H	"$73,276.32"	Asset					N												Y
+13210	Furniture & Fixtures at Cost		"$73,276.32"	Other Asset		CAP			N											O	
+13220	Furniture & Fixtures Accum Dep		$0.00	Other Asset		N-T			N											O	
+13300	Office Equipment	H	"$28,737.15"	Asset					N												Y
+13310	Office Equip at Cost		"$28,737.15"	Other Asset		CAP			N											O	
+13320	Office Equip Accum Dep		$0.00	Other Asset		N-T			N											O	
+13330	Equipment At Cost	H	"$54,974.38"	Asset					N												N
+13340	Plant & Equipment At Cost		"$54,974.38"	Fixed Asset		CAP			N											I	
+13350	Plant & Equipment Acc Dep		$77.26	Fixed Asset		N-T			N											I	
+13400	Motor Vehicles	H	"$177,784.21"	Asset					N												Y
+13410	Motor Vehicles at Cost		"$177,784.21"	Other Asset		CAP			N											O	
+13420	Motor Vehicles Accum Dep		$0.00	Other Asset		N-T			N											O	
+20000	Liabilities	H	"$7,569,998.03"	Liability					N												Y
+21000	Current Liabilities	H	"$4,444,998.03"	Liability					N												Y
+21200	Trade Creditors		"$237,926.72"	Accounts Payable		N-T			N											O	
+21205	Westpac Insurance Loan		-$149.99	Other Current Liability		N-T			N											O	
+21210	A/P Accrual - Inventory		$0.00	Other Liability		N-T			N											O	
+21300	GST Liabilities	H	"$19,246.19"	Liability					N												Y
+21310	GST Collected		"$109,210.21"	Other Liability		N-T			N											O	
+21330	GST Paid		"-$89,964.02"	Other Liability		N-T			N											O	
+21355	WET Payable		$0.00	Other Liability		N-T			N											O	
+21360	Import Duty Payable		$0.00	Other Liability		N-T			N											O	
+21370	Voluntary Withholdings Payable		$0.00	Other Liability		N-T			N											O	
+21380	ABN Withholdings Payable		$0.00	Other Liability		N-T			N											O	
+21390	Luxury Car Tax Payable		"-$2,875.18"	Other Liability		N-T			N											O	
+21391	LAND TAX		-$710.00	Other Liability		N-T			N											O	
+21400	Payroll Liabilities	H	"$25,177.41"	Liability					N												Y
+21410	Payroll Accruals Payable		"$33,538.00"	Other Liability		N-T			N											O	
+21412	Super Accurals Payable		"-$2,134.39"	Other Liability		N-T			N											O	
+21420	PAYG Withholding Payable		"-$6,226.20"	Other Liability		N-T			N											O	
+21600	Customer Deposits		"$31,264.18"	Credit Card	0	N-T			N						N			N		O	
+21700	Other Current Liabilities		-$1.02	Other Liability		N-T			N											O	
+21701	Directors Loan John Haddad		"$3,832,710.73"	Credit Card	403604	N-T			N						N			N		O	
+21702	Mr Afaliq Loan Account		"$224,797.25"	Other Liability		N-T			N											O	
+21703	Loans- Elias Haddad Pty Ltd		"$178,611.75"	Other Liability		N-T			N											O	
+21704	EQUIPMENT FINANCE		"-$101,000.01"	Other Liability		FRE			N											O	
+22000	Long-Term Liabilities	H	"$3,125,000.00"	Liability					N												Y
+22300	Other Long Term Liabilities		$0.00	Other Liability		N-T			N											O	
+22310	Westpac 416440		"$300,000.00"	Long Term Liability		N-T			N										33134		
+416440																					
+"Loan on the House $421,000"	F																				
+22320	Westpac 416483		"$950,000.00"	Long Term Liability		N-T			N										33134		
+416483																					
+Loans on Commercial Properties Part1																					
+"$950,000"	F																				
+22330	Westpac 444572		"$771,000.00"	Long Term Liability		N-T			N										33134		
+??????																					
+Loans on All Properties Part 2																					
+"$770,000"	F																				
+22400	Westpac Equipment Finance		"$1,104,000.00"	Long Term Liability		N-T			N										Ref: 102348062		
+Equip[ment Finance 																					
+"$1,104,000"																					
+"Monthly $37,317.11"																					
+"Balloon: $700,000"	F																				
+30000	Equity	H	"-$3,037,968.15"	Equity					N												Y
+31000	Capital	H	$0.00	Equity					N												Y
+31100	Capital Investment		$0.00	Equity		N-T			N											F	
+31200	Capital Drawings		$0.00	Equity		N-T			N											F	
+37000	Refundable R & D Tax Offset		"$445,173.75"	Equity		N-T			N											F	
+38000	Retained Earnings		"$5,030,078.55"	Equity		N-T			N											F	
+39000	Current Year Earnings		"$988,424.57"	Equity		N-T			N												
+39999	Historical Balancing		"-$9,501,645.02"	Equity		N-T			N											F	
+40000	Income	H	"$5,259,618.70"	Income					N												Y
+41000	Sales - Products	H	"$4,904,275.24"	Income					N												N
+41096	PLAIN PALLETS SOLD		"$1,620.00"	Income		GST			N												
+41097	Spoons Income		$0.00	Income		GST			N												
+41098	8oz Chip Cups		"$2,850.00"	Income		GST			N												
+41099	SECONDS VARIOUS		$0.00	Income		GST			N												
+41100	12oz Chip Cup		"$15,389.75"	Income		GST			N												
+41101	Sales 2 oz S/W Cups		"$264,939.31"	Income		GST			N												
+41102	Sales 4 oz S/W Cup		"$69,742.80"	Income		GST			N												
+41103	Sales 4 oz D/W Cups		"$28,803.00"	Income		GST			N												
+41105	Sales 6.5 oz S/W Cups		"$22,462.78"	Income		GST			N												
+41106	Sales 8 oz S/W Cold Cups		"$3,597.50"	Income		GST			N												
+41107	Sales 8 oz S/W Cups		"$97,661.50"	Income		GST			N												
+41108	Sales 8 oz D/W Cups		"$431,386.27"	Income		GST			N												
+41109	Sales 12 oz S/W Cups		"$241,206.95"	Income		GST			N												
+41110	Sales  12 oz D/W Cups		"$886,941.87"	Income		GST			N												
+41111	Sales 16 oz S/W Cups		"$87,059.04"	Income		GST			N												
+41112	Sale 16 oz D/W Cups		"$347,950.98"	Income		GST			N												
+41113	Sale 12 oz S/W Cold Cups		"$1,100.00"	Income		GST			N												
+41114	Sales 16 oz S/W Cold Cups		"$19,302.20"	Income		GST			N												
+41115	Sales 24 oz S/W Cold Cups		"$23,386.95"	Income		GST			N												
+41116	Sales 8 oz T S/W Cups		"$115,515.96"	Income		GST			N												
+41117	Sales 8 oz T S/W Cold Drink		$0.00	Income		GST			N												
+41118	Sales 8 ozT D/W Cups		"$316,885.82"	Income		GST			N												
+41119	Sales 3 oz Ice Cream		"$242,207.76"	Income		GST			N												
+41120	Sales 8 oz Ice Cream		"$36,858.80"	Income		GST			N												
+41121	Sales 5 oz Ice Cream		"$147,343.89"	Income		GST			N												
+41122	Sales Food Container 1		"$87,740.12"	Income		GST			N												
+41123	Sales Food Container 2		"$142,236.76"	Income		GST			N												
+41124	Sales Food Container 3		"$54,947.90"	Income		GST			N												
+41125	Sales Food Container 4		"$20,393.65"	Income		GST			N												
+41126	Sales Food Container 5		"$2,970.00"	Income		GST			N												
+41127	Uniforms		$0.00	Income		GST			N												
+41128	Sales Paper Plates		$0.00	Income		GST			N												
+41129	Sales - Lids		"$936,593.92"	Income		GST			N												
+41130	Sales - Printing Plate		"$176,256.00"	Income		GST			N												
+41131	Dispensers		$0.00	Income		GST			N										EZ-FIT Dispensers		
+41150	Sales 22 oz S/W Cold Cups		"$28,259.26"	Income		GST			N												
+41400	Sales - Spoons		"$13,607.50"	Income		GST			N												
+41401	SPOON LIDS		$0.00	Income		N-T			N												
+41402	PLAIN PALLETS		$0.00	Income		N-T			N												
+41405	PP Cups Sold		"$23,220.00"	Income		GST			N												
+41406	Sales - Paper Sleeves		"$9,936.00"	Income		GST			N												
+41410	Sales - Straws		$0.00	Income		GST			N												
+41420	Sales - Napkins		"$2,396.00"	Income		GST			N												
+41425	Paper Bags		$0.00	Income		N-T			N												
+41500	Sales - Paper Trays		"$1,505.00"	Income		GST			N												
+44000	Freight Income		"$123,889.33"	Income		GST			N												
+44100	Recycling Income		"$13,236.00"	Income		GST			N												
+45000	Late Fees Collected		$929.51	Income		GST			N												
+45015	Uniforms		$0.00	Income		GST			N												
+45016	WAGE SUBSIDIES		$0.00	Income		GST			N												
+45020	Graphics Income		$0.00	Income		GST			N												
+45026	STIRRERS		$0.00	Income		N-T			N												
+46000	Miscellaneous Income		"$17,162.51"	Income		GST			N												
+46001	Legal & Admin - Debt Recovery		"$3,349.20"	Income		N-T			N												
+46030	Print Cup Sold		"$196,776.91"	Income		GST			N												
+50000	Cost of Sales	H	"$2,294,248.95"	Cost of Sales					N												Y
+50001	Cost 4 oz D/W Cups		"$7,204.15"	Cost of Sales		GST			N												
+50002	Cost 4 oz S/W Paper Cup		"$19,284.63"	Cost of Sales		GST			N												
+50003	Cost 8 oz S/W Cups		"$34,512.17"	Cost of Sales		GST			N												
+50004	Cost 8 oz D/W Cups		"$198,573.56"	Cost of Sales		GST			N												
+50005	Cost 8 oz S/W Cold Cups		"$2,404.71"	Cost of Sales		GST			N												
+50006	Cost 6.5 S/W Cups		"$8,408.02"	Cost of Sales		GST			N												
+50007	Cost 8 oz T S/W Cups		"$73,645.75"	Cost of Sales		GST			N												
+50008	Cost 8 oz T S/W Cold Drink		$0.00	Cost of Sales		GST			N												
+50009	Cost 8 ozT D/W Cups		"$125,421.90"	Cost of Sales		GST			N												
+50010	Cost 2 oz S/W Cups		"$70,517.76"	Cost of Sales		GST			N												
+50011	Cost 12 oz S/W Cups		"$111,539.05"	Cost of Sales		GST			N												
+50012	Cost 12 oz D/W Cups		"$408,315.45"	Cost of Sales		GST			N												
+50013	Cost 16 oz S/W Cups		"$39,580.15"	Cost of Sales		GST			N												
+50014	Cost 16 oz D/W Cups		"$140,685.73"	Cost of Sales		GST			N												
+50015	Cost 22 oz S/W Cold Cups		"$11,761.14"	Cost of Sales		GST			N												
+50016	Cost 24 oz S/W Cold Cups		"$11,716.60"	Cost of Sales		GST			N												
+50017	Cost 3 oz Ice Cream		"$69,138.81"	Cost of Sales		GST			N												
+50018	Cost 5oz Ice Cream		"$44,790.63"	Cost of Sales		GST			N												
+50019	Cost 8 oz Ice Cream		"$10,006.02"	Cost of Sales		GST			N												
+50020	Cost Food C 1		"$31,668.30"	Cost of Sales		GST			N												
+50021	Cost Food C 2		"$54,461.83"	Cost of Sales		GST			N												
+50022	Cost Food C 3		"$21,941.70"	Cost of Sales		GST			N												
+50023	Cost Food C 4		"$7,630.70"	Cost of Sales		GST			N												
+50024	Cost Food C 5		$760.44	Cost of Sales		GST			N												
+50025	12 oz S/W Cold Cups		$615.34	Cost of Sales		GST			N												
+50026	12oz Chip Cups		"$6,744.41"	Cost of Sales		GST			N												
+50027	8oz Chip Cups		"$1,411.82"	Cost of Sales		GST			N												
+50028	PAPER PLATES		$0.00	Cost of Sales		GST			N												
+50029	Spoons		$0.00	Cost of Sales		GST			N												
+50030	SPOON LIDS		$0.00	Cost of Sales		N-T			N												
+50035	PLAIN PALLETS		$0.00	Cost of Sales		GST			N												
+51100	SECONDS VARIOUS		$0.00	Cost of Sales		GST			N												
+51110	Cost  - 22 oz Cold Cups		$0.00	Cost of Sales		GST			N												
+51111	Cost - Paper Cup - Generic		$0.00	Cost of Sales		GST			N												
+51113	Cost - Milk Shake Generic		$0.00	Cost of Sales		GST			N												
+51114	Cost -16 oz S/W Cold Cups		"$8,680.92"	Cost of Sales		GST			N												
+51120	Cost -  Cups Bought		$0.00	Cost of Sales		GST			N												
+51121	PAPER SLEEVES		"$8,784.00"	Cost of Sales		GST			N												
+51125	PP Cups Bought		"$14,631.84"	Cost of Sales		GST			N												
+51130	Cost  - Lids		"$584,377.36"	Cost of Sales		GST			N												
+51131	PLAIN PALLETS		"$1,539.00"	Cost of Sales		GST			N												
+51500	Cost - paper Trays		"$5,565.00"	Cost of Sales		GST			N												
+52000	Cost - Printing Plate		"$64,635.00"	Cost of Sales		GST			N												
+54000	Cost - Spoons		"$10,467.79"	Cost of Sales		GST			N												
+54010	Cost - Straws		$0.00	Cost of Sales		GST			N												
+54020	Cost - Napkins		"$1,350.00"	Cost of Sales		GST			N												
+54025	Paper Bags		$0.00	Cost of Sales		FRE			N												
+54026	STIRRERS		$0.00	Cost of Sales		N-T			N												
+54030	DISPENSERS		$0.00	Cost of Sales		N-T			N												
+55000	Materials & Supplies		"$33,386.79"	Cost of Sales		GST			N												
+55010	MOUNTING TAPE		"$1,306.00"	Cost of Sales		N-T			N												
+56000	Freight Paid		"$14,369.38"	Cost of Sales		GST			N												
+56100	Import Duty @ Clearance Fees		"$14,830.64"	Cost of Sales		N-T			N												
+57000	Cost of Sales - Other	H	"$17,584.46"	Cost of Sales					N												N
+57400	Miscellaneous Cost		$490.00	Cost of Sales		GST			N												
+57410	Unifoms		$0.00	Cost of Sales		GST			N												
+57440	Opening Stock		$0.00	Cost of Sales		N-T			N												
+57450	Closing Stock		$0.00	Cost of Sales		N-T			N												
+57451	CUPS MOLD		$0.00	Cost of Sales		GST			N												
+57452	Print Cups		"$17,094.46"	Cost of Sales		GST			N												
+57453	SLITTING AND REWINDING PAPER		$0.00	Cost of Sales		GST			N												
+60000	Expenses	H	"$1,829,742.97"	Expense					N												Y
+61000	General Expenses	H	"$267,071.38"	Expense					N												N
+61001	Sponsorship		"$84,355.00"	Expense		GST			N												
+61002	Packaging		"$5,241.05"	Expense		GST			N												
+61003	Memberships & Registrations		$551.88	Expense		N-T			N												
+61004	Advertising		$0.00	Expense		GST			N												
+61005	Accounting & Legal Services		"$91,930.91"	Expense		GST			N												
+61006	Sundry Expenses		"-$10,960.55"	Expense		GST			N												
+61007	Council Rates		"$5,323.29"	Expense		FRE			N												
+61008	Company Fees - ASIC		$495.00	Expense		FRE			N												
+61009	Postage		$79.13	Expense		GST			N												
+61010	Debt Collections - Fees		$0.00	Expense		GST			N												
+61011	Bad Debts		"$2,807.18"	Expense		GST			N												
+61012	Catering		$0.00	Expense		GST			N												
+61015	Late Fees Paid		$0.00	Expense		GST			N												
+61016	Equipment & Purchases < $20K		"$15,211.84"	Expense		N-T			N												
+61017	Equipment & Purchase < $300		$510.17	Expense		CAP			N												
+61018	Commission Paid		$0.00	Expense		GST			N												
+61019	Donation		"$12,500.00"	Expense		FRE			N												
+61020	Owners Corporation Fees		"$1,485.72"	Expense		FRE			N												
+61021	Compliance & Hazard Services		"$3,638.00"	Expense		GST			N												
+61022	Consulting Services		"$53,902.76"	Expense		FRE			N												
+61500	Freight Paid Other		"$92,050.76"	Expense		GST			N												
+61510	Depreciation Expense		$0.00	Expense		N-T			N												
+61600	Discounts	H	$0.00	Expense					N												N
+61610	Discounts Given		$0.00	Expense		GST			N												
+61620	Discounts Taken		$0.00	Expense		GST			N												
+61700	Rent Paid	H	"$60,359.12"	Expense					N												N
+61701	Factory - B- Adina Court		$0.00	Expense		N-T			N												
+61702	Factory - D- Adina Court		"$27,067.55"	Expense		GST			N												
+61703	Factory - E- Adina Court		"$21,314.00"	Expense		FRE			N												
+61704	Factory - F - Adina Court		"$11,977.57"	Expense		GST			N												
+61800	Insurance	H	"$83,675.50"	Expense					N												N
+61810	Work Safe Injury Insurance		"$32,430.62"	Expense		GST			N												
+61811	Business Insurance		"$48,462.37"	Expense		GST			N												
+61812	Director - Life Insurance		"$2,782.51"	Expense		FRE			N												
+61813	Home Insurance		$0.00	Expense		N-T			N												
+62000	Late Fees Paid		$0.00	Expense		GST			N												
+62021	Bank Charges		"$15,443.72"	Expense		FRE			N												
+62022	Merchant Fees		"$5,854.46"	Expense		GST			N												
+62023	Card payment fee		"$1,872.08"	Expense		FRE			N												
+62200	Legal & Professional Services		"$20,855.18"	Expense		GST			N												
+62210	RENTAL		"$118,179.20"	Expense		GST			N												
+62300	Office Expenses	H	"$22,846.88"	Expense					N												N
+62310	Stationary & Office Supplies		"$2,698.48"	Expense		GST			N												
+62320	Security		$0.00	Expense		GST			N												
+62330	Computer Services		"$15,339.29"	Expense		GST			N												
+62340	Office & Factory Cleaning		"$2,018.66"	Expense		GST			N												
+62350	Leasing - Phone Equipment		"$2,790.45"	Expense		GST			N												
+62400	Employment Expenses	H	"$905,157.60"	Expense					N												Y
+62410	Staff Amenities		"$3,220.29"	Expense		GST			N												
+62411	Staff Incentives & Rewards		"$1,432.34"	Expense		GST			N												
+62420	Superannuation		"$72,319.30"	Expense		FRE			N												
+62425	Staff Training		"$8,765.18"	Expense		N-T			N												
+62430	Wages Salaries		"$812,529.56"	Expense		N-T			N												
+62431	Wages  Subsidies		$0.00	Expense		FRE			N												
+62432	Subcontractor		$0.00	Expense		N-T			N												
+62433	HR Consulting Services		"$5,048.35"	Expense		GST			N												
+62435	STAFF - MEDICAL & WELLFARE		$275.14	Expense		N-T			N												
+62440	Workers' Compensation		$0.00	Expense		N-T			N												
+62450	Uniforms		$97.82	Expense		FRE			N												
+62460	Other Employer Expenses		"$1,469.62"	Expense		N-T			N												
+62500	Plant & Machinery Expenses	H	"$73,797.24"	Expense					N												N
+62520	Repairs & Maintenance		"$46,548.98"	Expense		GST			N												
+62521	R&D		"$25,651.91"	Expense		GST			N												
+62522	Gas Refill		"$1,596.35"	Expense		GST			N												
+62525	Waste Bin Collection		"$3,418.59"	Expense		GST			N												
+62550	Shrinkage/Spoilage		$0.00	Expense		N-T			N												
+62600	Motor Vehicle Expenses	H	"$6,926.42"	Expense					N												N
+62601	Vehicle - Fuel		"$2,148.52"	Expense		GST			N												
+62602	Vehicle - Registration		"$1,492.71"	Expense		FRE			N												
+62603	Vehicle - Maintenance		"$2,776.33"	Expense		GST			N												
+62604	Car Insurance		$508.86	Expense		GST			N												
+62800	Telephone & Internet		"$5,836.66"	Expense		GST			N												
+62900	Services -Utilities	H	"$84,318.49"	Expense					N												N
+62910	Gas		$0.00	Expense		GST			N												
+62920	Electricity		"$82,656.60"	Expense		GST			N												
+62930	Water		"$1,661.89"	Expense		FRE			N												
+63000	"Travel, Meals & Entertainment"	H	"$62,079.69"	Expense					N												N
+63109	City Link		"$2,164.46"	Expense		GST			N												
+63110	Travel - Air Fares		"$34,342.86"	Expense		GST			N												
+63111	Travel - Accommodation		"$16,512.02"	Expense		GST			N												
+63112	Parking		$153.18	Expense		GST			N												
+63113	Expenses Food Etc O/S		"$4,517.30"	Expense		FRE			N												
+63114	Travel expenses - Local		$88.96	Expense		GST			N												
+63120	Meals & Entertainment (NFBT)		"$4,300.91"	Expense		GST			N												
+80000	Other Income	H	"-$68,924.04"	Other Income					N												Y
+81000	Interest Income		"$2,349.33"	Other Income		FRE			N												
+81100	Exchange Rate		"-$71,273.37"	Other Income		FRE			N												
+90000	Other Expenses	H	"$78,278.17"	Other Expense					N												Y
+91000	Interest Expense		"$31,648.01"	Other Expense		FRE			N												
+91100	EXCHANGE RATE		"$5,222.13"	Other Expense		FRE			N												
+92000	SRO - Payroll Tax		"$41,408.03"	Other Expense		N-T			N												
