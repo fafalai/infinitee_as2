@@ -1938,6 +1938,10 @@ function doGridStartEdit(gridname, index, callback)
       if (!_.isUndefined(callback) && !_.isNull(callback))
         callback(row, index);
     }
+    else
+    {
+      doShowWarning('Please select a row first');
+    }
   }
 
   return index;

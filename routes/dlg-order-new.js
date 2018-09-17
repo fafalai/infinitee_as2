@@ -694,7 +694,7 @@ function doDlgOrderNew(orderid)
     {
       selectedClientPriceLevel = 0;
     }
-    console.log("price level: " + selectedClientPriceLevel);
+    //console.log("price level: " + selectedClientPriceLevel);
     switch (args.pdata.type)
     {
       case 'refresh':

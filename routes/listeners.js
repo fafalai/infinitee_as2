@@ -35,6 +35,7 @@ function doWidgetListeners()
   doTemplatesTabWidgets();
   doEmailsTabWidgets();
   doMaintenanceTabWidgets();
+  doDiscountCodeTabWidgets();
 
   /*
   $('#as1tabs').tabs

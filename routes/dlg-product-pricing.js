@@ -242,8 +242,9 @@ function doDlgProductPricing(product)
   function doLoad(ev, args)
   {
     var data = [];
-    // console.log(args.data.rs);
-    // console.log(args.pdata);
+    console.log(args);
+    //console.log(args.data.rs);
+    //console.log(args.pdata);
 
     args.data.rs.forEach
     (
