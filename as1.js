@@ -5888,7 +5888,7 @@ function main()
         {
           try
           {
-            makeWorld(spark, 'searchrootbuildtemplates_bycodeandname', data, '*inputValue').then
+            makeWorld(spark, 'searchrootbuildtemplates_bycodeandname', data, '*inputValue', '*pageSize', '*offset').then
             (
               function(world)
               {

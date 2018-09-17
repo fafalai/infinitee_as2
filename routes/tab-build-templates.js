@@ -1,10 +1,12 @@
 var buildtemplatesTabWidgetsLoaded = false;
+let pageSize = 50;
+let inputValue = '';
 
 function doBuildTemplatesTabSearch(value, name)
 {
   doShowGridLoading('divBuildTemplatesTG');
-
-  if(doNiceString(value) == "")
+  inputValue = value;
+  if(doNiceString(inputValue) == "")
   {
     doServerDataMessage('listbuildtemplates_pagination', {pageSize: pageSize, offset: 0}, {type: 'refresh'});
 
@@ -23,8 +25,9 @@ function doBuildTemplatesTabSearch(value, name)
   }
   else
   {
-    doServerDataMessage('searchbuilttemplates_bycodeandname', {inputValue: value, pageSize : pageSize, offset : 0}, {type: 'refresh'});
-    
+    // doServerDataMessage('searchbuilttemplates_bycodeandname', {inputValue: value, pageSize : pageSize, offset : 0}, {type: 'refresh'});
+    doServerDataMessage('searchrootbuildtemplates_bycodeandname', {inputValue:inputValue, pageSize: pageSize, offset: 0}, {type: 'refresh'});
+
     $('#divBuildTemplatesTG').treegrid('getPager').pagination({
       pageSize: pageSize,
       showPageList : false,
@@ -34,7 +37,8 @@ function doBuildTemplatesTabSearch(value, name)
       onSelectPage:function(pageNumber, pageSize){
         doShowGridLoading('divBuildTemplatesTG');
         let offset = (parseInt(pageNumber)-1) * parseInt(pageSize);
-        doServerDataMessage('searchbuilttemplates_bycodeandname', {inputValue: value, pageSize : pageSize, offset : offset}, {type: 'refresh'});
+        // doServerDataMessage('searchbuilttemplates_bycodeandname', {inputValue: value, pageSize : pageSize, offset : offset}, {type: 'refresh'});
+        doServerDataMessage('searchrootbuildtemplates_bycodeandname', {inputValue:value, pageSize: pageSize, offset: offset}, {type: 'refresh'});
       }
     });
 
@@ -261,8 +265,14 @@ function doBuildTemplatesTabWidgets()
     }
 
     let offset = (parseInt(pageNumber)-1) * parseInt(pageSize);
-    doServerDataMessage('listbuildtemplates_pagination',{pageSize: pageSize, offset: offset}, {type:'refresh'});
 
+    if (inputValue === "") {
+      doServerDataMessage('listbuildtemplates_pagination',{pageSize: pageSize, offset: offset}, {type:'refresh'});  
+    } else {
+      doServerDataMessage('searchrootbuildtemplates_bycodeandname', {inputValue:inputValue, pageSize: pageSize, offset: offset}, {type: 'refresh'});
+    }
+
+    inputValue = '';
     // doServerDataMessage('listbuildtemplate_ByparentID', {buildtemplateid : args.data.buildtemplateid}, {type: 'refresh'});
     // doServerMessage('listbuildtemplateroots', {type: 'refresh', buildtemplateid: args.data.buildtemplateid});
   }
@@ -354,6 +364,13 @@ function doBuildTemplatesTabWidgets()
 
   });
 
+  $('#divEvents').on('searchrootbuildtemplates_bycodeandname', (ev, args) => {
+    let totalCount = parseInt(args.data.totalCount);
+    $('#divBuildTemplatesTG').treegrid('loadData', {total: totalCount, rows: cache_buildtemplates});
+    doFooter();
+
+    doShowGridLoaded('divBuildTemplatesTG');
+  });
 
   $('#divEvents').on('listbuildtemplates_pagination', (ev, args) => {
 
