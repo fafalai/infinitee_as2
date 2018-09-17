@@ -2329,6 +2329,59 @@ function doPrimus()
     // Build template requests
     primus.on
     (
+      'searchrootbuildtemplates_bycodeandname',
+      function(data)
+      {
+        if (!_.isUndefined(data.rs) && !_.isNull(data.rs))
+        {
+          cache_buildtemplates = [];
+          data.rs.forEach
+          (
+            function(p)
+            {
+              var name = doNiceString(p.name);
+              var node =
+              {
+                id: doNiceId(p.id),
+                parentid: doNiceId(p.parentid),
+                parentname: doNiceString(p.parentname),
+                producttemplateheaderid: doNiceId(p.producttemplateheaderid),
+                numproducts: (p.numproducts == 0) ? '' : p.numproducts,
+                totalprice: _.formatnumber(p.totalprice, 4),
+                totalgst: _.formatnumber(p.totalgst, 4),
+                clientid: doNiceId(p.clientid),
+                taxcodeid: doNiceId(p.taxcodeid),
+                code: doNiceString(p.code),
+                name: name,
+                // Text property used in combotree.... arghhh inconsistent property names...
+                text: name,
+                price: _.formatnumber(p.price, 4),
+                gst: _.formatnumber(p.gst, 4),
+                qty: _.formatnumber(p.qty, 4),
+                date: doNiceDateModifiedOrCreated(p.datemodified, p.datecreated),
+                by: doNiceModifiedBy(p.datemodified, p.usermodified, p.usercreated),
+                children: []
+              };
+
+              if (_.isNull(p.parentid))
+                cache_buildtemplates.push(node);
+              else
+              {
+                var parent = doFindParentNode(cache_buildtemplates, p.parentid);
+                // Find parent...
+                if (!_.isNull(parent))
+                  parent.children.push(node);
+              }
+            }
+          );
+
+          $('#divEvents').trigger('searchrootbuildtemplates_bycodeandname', {data: data, pdata: $.extend(data.pdata, {})});
+        }
+      }
+    );
+    
+    primus.on
+    (
       // 'listbuildtemplates',
       'listbuildtemplates_search',
       function(data)

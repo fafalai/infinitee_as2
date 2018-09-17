@@ -8073,7 +8073,8 @@ function SearchRootBuildTemplates_ByCodeAndName(world) {
     function (err, client, done) {
       if (!err) {
         client.query(
-          'select ' +
+          'select DISTINCT ON (p1.id)' +
+          // 'COUNT(p1.id), ' +
           'p1.id,' +
           'p1.code,' +
           'p1.name,' +
@@ -8083,37 +8084,35 @@ function SearchRootBuildTemplates_ByCodeAndName(world) {
           'p1.taxcodes_id taxcodeid,' +
           'p1.producttemplateheaders_id producttemplateheaderid,' +
           't1.name taxcode,' +
-          'p2.id parentid,' +
+          'p1.buildtemplateheaders_id parentid,' +
           'c1.id clientid,' +
           'p1.datecreated,' +
           'p1.datemodified,' +
           'u1.name usercreated,' +
           'u2.name usermodified,' +
           'getnumproductsinbuildtemplate($1,p1.id) numproducts,' +
-          'gettotalcostpricefrombuildtemplate($2,p1.id) totalprice,' +
+          'gettotalcostpricefrombuildtemplate($1,p1.id) totalprice,' +
           'p1.totalgst ' +
           'from ' +
-          'buildtemplateheaders p1 left join buildtemplateheaders p2 on (p1.buildtemplateheaders_id=p2.id) ' +
+          'getbuildtemplatesrootbynodeandname($1, $2) p0 left join buildtemplateheaders p1 on (p1.id=p0.id) ' +
           '                        left join taxcodes t1 on (p1.taxcodes_id=t1.id) ' +
           '                        left join clients c1 on (p1.clients_id=c1.id) ' +
           '                        left join users u1 on (p1.userscreated_id=u1.id) ' +
           '                        left join users u2 on (p1.usersmodified_id=u2.id) ' +
-          'where ' +
-          'p1.customers_id=$3 ' +
-          'and ' +
-          'p1.dateexpired is null ' +
-          'and (upper(p1.code) ~ upper($4) ' +
-          'or upper(p1.name) ~ upper($4)) ' +
-          'and p1.buildtemplateheaders_id is null ' +
-          'order by ' +
+          // 'where ' +
+          // 'p1.customers_id=$1 ' +
+          // 'and ' +
+          // 'p1.dateexpired is null ' +
+          'ORDER BY ' +
+          'p1.id DESC,' +
           'p1.path,' +
-          'p2.id desc,' +
-          'p1.code', 
+          'p1.code ' +
+          'LIMIT $3 OFFSET $4',
           [
             world.cn.custid,
-            world.cn.custid,
-            world.cn.custid,
-            __.sanitiseAsString(world.inputValue, 50)
+            __.sanitiseAsString(world.inputValue, 50),
+            world.pageSize,
+            world.offset
           ],
           function (err, result) {
             if (!err) {
@@ -8124,17 +8123,39 @@ function SearchRootBuildTemplates_ByCodeAndName(world) {
                 p.datecreated = global.moment(p.datecreated).format('YYYY-MM-DD HH:mm:ss');
               });
 
-              world.spark.emit('listbuildtemplates_search', {
-                rc: global.errcode_none,
-                msg: global.text_success,
-                fguid: world.fguid,
-                // rs: resultRows,
-                rs: result.rows,
-                pdata: world.pdata
-              });
-            }
-            else
-            {
+              client.query(
+                'SELECT COUNT(DISTINCT p1.id) FROM getbuildtemplatesrootbynodeandname($1, $2) p1',
+                [
+                  world.cn.custid,
+                  __.sanitiseAsString(world.inputValue, 50),
+                ],
+                (err, result2) => {
+                  if (!err) {
+                    done();
+                    world.spark.emit(world.eventname, {
+                      rc: global.errcode_none,
+                      msg: global.text_success,
+                      fguid: world.fguid,
+                      rs: result.rows,
+                      totalCount: result2.rows[0].count,
+                      pdata: world.pdata
+                    });
+                  } else {
+                    done();
+                    msg += global.text_generalexception + ' ' + err.message;
+                    global.log.error({
+                      searchrootbuildtemplates_bycodeandname: true
+                    }, msg);
+                    world.spark.emit(global.eventerror, {
+                      rc: global.errcode_fatal,
+                      msg: msg,
+                      pdata: world.pdata
+                    });
+                  }
+                }
+              );
+            } else {
+              done();
               msg += global.text_generalexception + ' ' + err.message;
               global.log.error({
                 searchrootbuildtemplates_bycodeandname: true
@@ -8145,10 +8166,10 @@ function SearchRootBuildTemplates_ByCodeAndName(world) {
                 pdata: world.pdata
               });
             }
-            done();
           }
         );
       } else {
+        done();
         global.log.error({
           searchrootbuildtemplates_bycodeandname: true
         }, global.text_nodbconnection);
