@@ -2326,6 +2326,16 @@ function doPrimus()
       }
     );
 
+    primus.on
+    (
+      'listdiscountcode',
+      function(data)
+      {
+        //console.log(data);
+        $('#divEvents').trigger('listdiscountcode',{data: data, pdata: $.extend(data.pdata, {})});
+      }
+    )
+
     // Build template requests
     primus.on
     (

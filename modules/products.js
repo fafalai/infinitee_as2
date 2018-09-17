@@ -159,7 +159,19 @@ function selectPrice(world, prices)
   }
   else
   {
-    global.ConsoleLog("product have discount code, need to use the price level match client's, ignore the speicifc enteries")
+    global.ConsoleLog("product have discount code, need to use the price level match client's, ignore the speicifc enteries");
+    // global.ConsoleLog(prices[0]);
+    var selectedprice = prices[0];
+    global.ConsoleLog(selectedprice);
+    var uselevel = 'price' + world.pricelevel;
+    global.ConsoleLog(uselevel);
+    var useprice = selectedprice[uselevel];
+    global.ConsoleLog(useprice);
+    // selectedprice = selectedprice.slice(0,23);
+    // global.ConsoleLog(selectedprice);
+
+    // result.price = useprice;
+    result = selectedprice;
 
   }
     // if(__.isNull(p.clientid) && !__.isNull(clientid));
@@ -9244,6 +9256,70 @@ function ExpireProductCode(world)
   );
 }
 
+function ListDiscountCode(world)
+{
+  var msg = '[' + world.eventname + '] ';
+ 
+  global.pg.connect
+  (
+    global.cs,
+    function(err, client, done)
+    {
+      if (!err)
+      {
+        client.query
+        (
+          'SELECT ' + 
+          'd.id, ' + 
+          'd.full_name, '+
+          'd.short_name, '+
+          'd.level_1, d.level_2, d.level_3, d.level_4, d.level_5, d.level_6, d.level_7, '+
+          'd.level_8, d.level_9, d.level_10, d.level_11, d.level_12, d.level_13, d.level_14, d.level_15, '+
+          'd.usersmodified_id, d.datecreated, d.datemodified, ' + 
+          'u1.name usercreated, '+
+          'u2.name usermodified ' +
+          'from discountcode d left join users u1 on (d.userscreated_id=u1.id) '+
+                              'left join users u2 on (d.usersmodified_id=u2.id) '+
+          'where d.dateexpired is null',
+          function(err, result)
+          {
+            done();
+
+            if (!err)
+            {
+              // JS returns date with TZ info/format, need in ISO format...
+              result.rows.forEach
+              (
+                function(p)
+                {
+                  //global.ConsoleLog(p);
+                  if (!__.isUndefined(p.datemodified) && !__.isNull(p.datemodified))
+                    p.datemodified = global.moment(p.datemodified).format('YYYY-MM-DD HH:mm:ss');
+
+                  p.datecreated = global.moment(p.datecreated).format('YYYY-MM-DD HH:mm:ss');
+                }
+              );
+
+              world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, fguid: world.fguid, rs: result.rows, pdata: world.pdata});
+            }
+            else
+            {
+              msg += global.text_generalexception + ' ' + err.message;
+              global.log.error({listdiscountcode: true}, msg);
+              world.spark.emit(global.eventerror, {rc: global.errcode_fatal, msg: msg, pdata: world.pdata});
+            }
+          }
+        );
+      }
+      else
+      {
+        global.log.error({listdiscountcode: true}, global.text_nodbconnection);
+        world.spark.emit(global.eventerror, {rc: global.errcode_dbunavail, msg: global.text_nodbconnection, pdata: world.pdata});
+      }
+    }
+  );
+}
+
 // *******************************************************************************************************************************************************************************************
 // Internal functions
 module.exports.selectPrice = selectPrice;
@@ -9326,4 +9402,6 @@ module.exports.ExpireProductTemplateDetail = ExpireProductTemplateDetail;
 module.exports.GetProductPrices = GetProductPrices;
 module.exports.GetPrice = GetPrice;
 
+
+module.exports.ListDiscountCode = ListDiscountCode;
 

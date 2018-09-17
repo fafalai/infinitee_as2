@@ -5880,6 +5880,36 @@ function main()
         }
       );
 
+      spark.on
+      (
+        'listdiscountcode',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark,'listdiscountcode',data).then
+            (
+              function(world)
+              {
+                global.modproducts.ListDiscountCode(world);
+              }
+            ).then
+            (
+              null,
+              function(err)
+              {
+
+              }
+            );
+          }
+
+          catch(err)
+          {
+            global.log.error({as1: true}, '[listdiscountcode] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      )
+
       // Build template requests
       spark.on
       (
