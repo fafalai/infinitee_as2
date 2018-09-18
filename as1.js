@@ -5908,7 +5908,94 @@ function main()
             global.log.error({as1: true}, '[listdiscountcode] ' + global.text_generalexception + ' ' + err.message);
           }
         }
-      )
+      );
+
+      spark.on
+      (
+        'newdiscountcode',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'newdiscountcode', data).then
+            (
+              function(world)
+              {
+                global.modproducts.NewDiscountCode(world);
+              }
+            ).then
+            (
+              null,
+              function(err)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[newdiscountcode] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
+      spark.on
+      (
+        'savediscountcode',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'savediscountcode', data, '*discountcodeid', 'fullname', 'shortname', 'level1', 'level2', 'level3', 'level4', 'level5', 'level6', 'level7', 'level8','level9','level10','level11','level12','level13','level14','level15').then
+            (
+              function(world)
+              {
+                global.modproducts.SaveDiscountCode(world);
+              }
+            ).then
+            (
+              null,
+              function(err)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[savediscountcode] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
+      spark.on
+      (
+        'expirediscountcode',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'expirediscountcode', data, '*discountcodeid').then
+            (
+              function(world)
+              {
+                global.modproducts.ExpireDiscountCode(world);
+              }
+            ).then
+            (
+              null,
+              function(err)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[expirediscountcode] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
 
       // Build template requests
       spark.on

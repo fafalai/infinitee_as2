@@ -352,6 +352,7 @@ var cache_users = [];
 var cache_statusalerts = [];
 var cache_exchangerates = [];
 var cache_timesheets = [];
+var cache_discountcode = [];
 // Cached lists for dialogs...
 var cache_productsbycategory = [];
 var cache_suppliernotes = [];
@@ -1918,9 +1919,9 @@ function doGridGetSelectedRowData(gridname, callback)
 
 function doGridStartEdit(gridname, index, callback)
 {
-  console.log("doGridStartEdit");
-  console.log(gridname);
-  console.log(index);
+  // console.log("doGridStartEdit");
+  // console.log(gridname);
+  // console.log(index);
   var grid = '#' + gridname;
   console.log(grid);
 
@@ -1985,6 +1986,7 @@ function doGridCancelEdit(gridname, index, callback)
 
 function doGridEndEditGetRow(gridname, index, callback)
 {
+  
   if (!_.isNull(index))
   {
     var grid = '#' + gridname;
@@ -2002,7 +2004,6 @@ function doGridEndEditGetRow(gridname, index, callback)
 
     return true;
   }
-
   return false;
 }
 

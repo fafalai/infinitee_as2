@@ -2332,7 +2332,78 @@ function doPrimus()
       function(data)
       {
         //console.log(data);
-        $('#divEvents').trigger('listdiscountcode',{data: data, pdata: $.extend(data.pdata, {})});
+        doUpdateInitTasksProgress();
+
+        if (!_.isUndefined(data.rs) && !_.isNull(data.rs))
+        {
+          cache_discountcode = [];
+
+          data.rs.forEach
+          (
+            function(p)
+           {
+               //console.log(p);
+               cache_discountcode.push
+               (
+                   {
+                   id: doNiceId(p.id),
+                   full_name:p.full_name,
+                   short_name:p.short_name,
+                   level_1: p.level_1,
+                   level_2: p.level_2,
+                   level_3: p.level_3,
+                   level_4: p.level_4,
+                   level_5: p.level_5,
+                   level_6: p.level_6,
+                   level_7: p.level_7,
+                   level_8: p.level_8,
+                   level_9: p.level_9,
+                   level_10: p.level_10,
+                   level_11: p.level_11,
+                   level_12: p.level_12,
+                   level_13: p.level_13,
+                   level_14: p.level_14,
+                   level_15: p.level_15,
+                   date: doNiceDateModifiedOrCreated(p.datemodified, p.datecreated),
+                   by: doNiceModifiedBy(p.datemodified,p.usermodified, p.usercreated)
+                   }
+               );
+           }
+          );
+
+          // console.log("primus.on, listdiscountcode, cache_discountcode");
+          // console.log(cache_discountcode);
+
+          $('#divEvents').trigger('listdiscountcode', {data: data, pdata: $.extend(data.pdata, {})});
+        }
+        // $('#divEvents').trigger('listdiscountcode',{data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+
+    primus.on
+    (
+      'newdiscountcode',
+      function(data)
+      {
+        $('#divEvents').trigger('discountcodeupdated', {data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+
+    primus.on
+    (
+      'savediscountcode',
+      function(data)
+      {
+        $('#divEvents').trigger('discountcodeupdated', {data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+
+    primus.on
+    (
+      'expirediscountcode',
+      function(data)
+      {
+        $('#divEvents').trigger('discountcodeupdated', {data: data, pdata: $.extend(data.pdata, {})});
       }
     )
 
