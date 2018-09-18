@@ -1,43 +1,3 @@
-var discountcodelist = [
-  {
-    id:1,
-    short_name: 'UMD',
-    level_1:0.0000,
-    level_2:0.0500,
-    level_3:0.1000,
-    level_4:0.1500,
-    level_5:0.2000,
-    level_6:0.2500,
-    level_7:0.3000,
-    level_8:0.3500,
-    level_9:0.4000,
-    level_10:0.4500,
-    level_11:0.5000,
-    level_12:0.5500,
-    level_13:0.6000,
-    level_14:0.6500,
-    level_15:0.7500,
-  },
-  {
-    id:2,
-    short_name: 'PS',
-    level_1:0.0000,
-    level_2:0.0300,
-    level_3:0.0700,
-    level_4:0.1300,
-    level_5:0.2000,
-    level_6:0.2900,
-    level_7:0.3300,
-    level_8:0.3700,
-    level_9:0.4500,
-    level_10:0.4900,
-    level_11:0.5300,
-    level_12:0.5800,
-    level_13:0.6200,
-    level_14:0.6400,
-    level_15:0.7900,
-  }
-];
 var listpricecodes = [
   {
     id:1,
@@ -698,15 +658,17 @@ function doDlgProductNew(productcategoryid, productid)
           {
             valueField:'id',
             textField:'short_name',
-            data:discountcodelist,
+            data:cache_discountcode,
             icons:[{
               iconCls:'icon-cancel',
               handler:function(e){
                 $(e.data.target).combobox('clear');
                 var price1 = $('#fldNewProductPrice1').numberbox('getValue');
-                if(!_.isUndefined(price1) && !_.isBlank(price1) && price1 != 0.0000)
+                var listcode = $('#cbNewProductListPriceCode').combobox('getValue');
+               
+                if(!_.isUndefined(listcode) && !_.isBlank(listcode) && !_.isNull(listcode))
                 {
-                  $('#fldNewProductPrice1').numberbox('setValue',0.0000);
+                  console.log("has list price code, doesn't need to clear the price 1 number box");
                   $('#fldNewProductPrice2').numberbox('setValue',0.0000);
                   $('#fldNewProductPrice3').numberbox('setValue',0.0000);
                   $('#fldNewProductPrice4').numberbox('setValue',0.0000);
@@ -722,10 +684,15 @@ function doDlgProductNew(productcategoryid, productid)
                   $('#fldNewProductPrice14').numberbox('setValue',0.0000);
                   $('#fldNewProductPrice15').numberbox('setValue',0.0000);
                 }
+                else
+                {
+                  console.log("don't have list price code, clear all the price boxes");
+                  $('#fldNewProductPrice1').numberbox('setValue',0.0000);
+                }
               }
             }],
             onSelect(record){
-              //console.log(record);
+              console.log(record);
               selectedDiscountCodeIndex = record.id;
               
               var price1 = $('#fldNewProductPrice1').numberbox('getValue');
@@ -774,25 +741,7 @@ function doDlgProductNew(productcategoryid, productid)
               iconCls:'icon-cancel',
               handler:function(e){
                 $(e.data.target).combobox('clear');
-                var price1 = $('#fldNewProductPrice1').numberbox('getValue');
-                if(!_.isUndefined(price1) && !_.isBlank(price1) && price1 != 0.0000)
-                {
-                  $('#fldNewProductPrice1').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice2').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice3').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice4').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice5').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice6').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice7').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice8').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice9').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice10').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice11').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice12').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice13').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice14').numberbox('setValue',0.0000);
-                  $('#fldNewProductPrice15').numberbox('setValue',0.0000);
-                }
+                $('#fldNewProductPrice1').numberbox('setValue',0.0000);
               }
             }],
             onSelect(record){
@@ -913,8 +862,8 @@ function doDlgProductNew(productcategoryid, productid)
                 console.log("old value: " + oldValue);
                 // var productid = $('#cbProductSelectProducts').combobox('getValue');
                 var discountid = $('#cbNewProductDiscountCode').combobox('getValue');
-                var discount = discountcodelist.find(doGetDiscountCode);
-                console.log(discount);
+                var discount = cache_discountcode.find(doGetDiscountCode);
+                // console.log(discount);
 
                 if(typeof newValue === 'undefined')
                 {

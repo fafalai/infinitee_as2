@@ -3555,6 +3555,168 @@ function doExpireProductCode(tx, world)
   return promise;
 }
 
+function doNewDiscountCode(tx, world)
+{
+  var promise = new global.rsvp.Promise
+  (
+    function(resolve, reject)
+    {
+      tx.query
+      (
+        'insert into discountcode (userscreated_id) values ($1) returning id',
+        [
+          world.cn.userid
+        ],
+        function(err, result)
+        {
+          if (!err)
+          {
+            var discountcode_id = result.rows[0].id;
+
+            tx.query
+            (
+              'select d1.datecreated,u1.name usercreated from discountcode d1 left join users u1 on (d1.userscreated_id=u1.id) where d1.id=$1',
+              [
+                __.sanitiseAsBigInt(discountcode_id)
+              ],
+              function(err, result)
+              {
+                if (!err)
+                {
+                  var p = result.rows[0];
+                  global.ConsoleLog("doNewDiscountCode" + p);
+
+                  resolve
+                  (
+                    {
+                      discountcodeid: discountcode_id,
+                      datecreated: global.moment(p.datecreated).format('YYYY-MM-DD HH:mm:ss'),
+                      usercreated: p.usercreated
+                    }
+                  );
+                }
+                else
+                  reject({message: global.text_unablenewproductprice});
+              }
+            );
+          }
+          else
+            reject(err);
+        }
+      );
+    }
+  );
+  return promise;
+}
+
+function doSaveDiscountCode(tx, world)
+{
+  var promise = new global.rsvp.Promise
+  (
+    function(resolve, reject)
+    {
+      // global.ConsoleLog("world.datefrom");
+      // global.ConsoleLog(world.datefrom);
+      // global.ConsoleLog(typeof world.datefrom);
+      // global.ConsoleLog(__.sanitiseAsDate(world.datefrom));
+      // global.ConsoleLog(typeof __.sanitiseAsDate(world.datefrom));
+      tx.query
+      (
+        "update discountcode set full_name=$16, short_name=$17, level_1=$1, level_2=$2, level_3=$3, level_4=$4, level_5=$5, level_6=$6, level_7=$7, level_8=$8, level_9=$9, level_10=$10, level_11=$11, level_12=$12, level_13=$13, level_14=$14, level_15=$15, usersmodified_id=$18,  datemodified=now() where id = $19 and dateexpired is null",
+        [
+          world.level1,
+          world.level2,
+          world.level3,
+          world.level4,
+          world.level5,
+          world.level6,
+          world.level7,
+          world.level8,
+          world.level9,
+          world.level10,
+          world.level11,
+          world.level12,
+          world.level13,
+          world.level14,
+          world.level15,
+          world.fullname,
+          world.shortname,
+          world.cn.userid,
+          __.sanitiseAsBigInt(world.discountcodeid)
+        ],
+        function(err, result)
+        {
+          if (!err)
+          {
+            tx.query
+            (
+              'select d1.id ,d1.datemodified,u1.name from discountcode d1 left join users u1 on (d1.usersmodified_id=u1.id) where d1.id=$1',
+              [
+                __.sanitiseAsBigInt(world.discountcodeid)
+              ],
+              function(err, result)
+              {
+                if (!err)
+                  resolve({discountcodeid: result.rows[0].id, datemodified: global.moment(result.rows[0].datemodified).format('YYYY-MM-DD HH:mm:ss'), usermodified: result.rows[0].name});
+                else
+                  reject(err);
+              }
+            );
+          }
+          else
+          {
+            global.ConsoleLog(err);
+            reject(err);
+          }
+            
+        }
+      );
+    }
+  );
+  return promise;
+}
+
+function doExpireDiscountCode(tx, world)
+{
+  var promise = new global.rsvp.Promise
+  (
+    function(resolve, reject)
+    {
+      tx.query
+      (
+        'update discountcode set dateexpired=now(),usersexpired_id=$1 where id=$2 and dateexpired is null',
+        [
+          world.cn.userid,
+          __.sanitiseAsBigInt(world.discountcodeid)
+        ],
+        function(err, result)
+        {
+          if (!err)
+          {
+            tx.query
+            (
+              'select d1.id ,d1.dateexpired,u1.name from discountcode d1 left join users u1 on (d1.usersexpired_id=u1.id) where d1.id=$1',
+              [
+                __.sanitiseAsBigInt(world.discountcodeid)
+              ],
+              function(err, result)
+              {
+                if (!err)
+                  resolve({discountcodeid: result.rows[0].id, dateexpired: global.moment(result.rows[0].dateexpired).format('YYYY-MM-DD HH:mm:ss'), userexpired: result.rows[0].name});
+                else
+                  reject(err);
+              }
+            );
+          }
+          else
+            reject(err);
+        }
+      );
+    }
+  );
+  return promise;
+}
+
 
 // *******************************************************************************************************************************************************************************************
 // Public functions
@@ -9280,7 +9442,9 @@ function ListDiscountCode(world)
           'u2.name usermodified ' +
           'from discountcode d left join users u1 on (d.userscreated_id=u1.id) '+
                               'left join users u2 on (d.usersmodified_id=u2.id) '+
-          'where d.dateexpired is null',
+          'where d.dateexpired is null ' + 
+          'order by '+
+          'd.id',
           function(err, result)
           {
             done();
@@ -9314,6 +9478,287 @@ function ListDiscountCode(world)
       else
       {
         global.log.error({listdiscountcode: true}, global.text_nodbconnection);
+        world.spark.emit(global.eventerror, {rc: global.errcode_dbunavail, msg: global.text_nodbconnection, pdata: world.pdata});
+      }
+    }
+  );
+}
+
+function NewDiscountCode(world)
+{
+  var msg = '[' + world.eventname + '] ';
+  //
+  global.pg.connect
+  (
+    global.cs,
+    function(err, client, done)
+    {
+      if (!err)
+      {
+        var tx = new global.pgtx(client);
+        tx.begin
+        (
+          function(err)
+          {
+            if (!err)
+            {
+              doNewDiscountCode(tx, world).then
+              (
+                function(result)
+                {
+                  tx.commit
+                  (
+                    function(err)
+                    {
+                      if (!err)
+                      {
+                        done();
+                        world.spark.emit
+                        (
+                          world.eventname,
+                          {
+                            rc: global.errcode_none,
+                            msg: global.text_success,
+                            discountcodeid: result.discountcodeid,
+                            // productid: world.productid,
+                            datecreated: result.datecreated,
+                            usercreated: result.usercreated,
+                            pdata: world.pdata
+                          }
+                        );
+                        global.pr.sendToRoomExcept
+                        (
+                          global.custchannelprefix + world.cn.custid,
+                          'newdiscountcode',
+                          {
+                            discountcodeid: result.discountcodeid,
+                            // productid: world.productid,
+                            datecreated: result.datecreated,
+                            usercreated: result.usercreated
+                          },
+                          world.spark.id
+                        );
+                      }
+                      else
+                      {
+                        tx.rollback
+                        (
+                          function(ignore)
+                          {
+                            done();
+                            msg += global.text_tx + ' ' + err.message;
+                            global.log.error({newdiscountcode: true}, msg);
+                            world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+                          }
+                        );
+                      }
+                    }
+                  );
+                }
+              ).then
+              (
+                null,
+                function(err)
+                {
+                  tx.rollback
+                  (
+                    function(ignore)
+                    {
+                      done();
+
+                      msg += global.text_generalexception + ' ' + err.message;
+                      global.log.error({newdiscountcode: true}, msg);
+                      world.spark.emit(global.eventerror, {rc: global.errcode_fatal, msg: msg, pdata: world.pdata});
+                    }
+                  );
+                }
+              );
+            }
+            else
+            {
+              done();
+              msg += global.text_notxstart + ' ' + err.message;
+              global.log.error({newdiscountcode: true}, msg);
+              world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+            }
+          }
+        );
+      }
+      else
+      {
+        global.log.error({newdiscountcode: true}, global.text_nodbconnection);
+        world.spark.emit(global.eventerror, {rc: global.errcode_dbunavail, msg: global.text_nodbconnection, pdata: world.pdata});
+      }
+    }
+  );
+}
+
+function SaveDiscountCode(world)
+{
+  var msg = '[' + world.eventname + '] ';
+  //
+  global.pg.connect
+  (
+    global.cs,
+    function(err, client, done)
+    {
+      if (!err)
+      {
+        var tx = new global.pgtx(client);
+        tx.begin
+        (
+          function(err)
+          {
+            if (!err)
+            {
+              doSaveDiscountCode(tx, world).then
+              (
+                function(result)
+                {
+                  tx.commit
+                  (
+                    function(err)
+                    {
+                      if (!err)
+                      {
+                        done();
+                        world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, discountcodeid: result.discountcodeid, datemodified: result.datemodified, usermodified: result.usermodified, pdata: world.pdata});
+                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'discountcodesaved', {priceid: world.priceid, productid: result.productid, datecreated: result.datecreated, usercreated: result.usercreated}, world.spark.id);
+                      }
+                      else
+                      {
+                        tx.rollback
+                        (
+                          function(ignore)
+                          {
+                            done();
+                            msg += global.text_tx + ' ' + err.message;
+                            global.log.error({savediscountcode: true}, msg);
+                            world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+                          }
+                        );
+                      }
+                    }
+                  );
+                }
+              ).then
+              (
+                null,
+                function(err)
+                {
+                  tx.rollback
+                  (
+                    function(ignore)
+                    {
+                      done();
+
+                      msg += global.text_generalexception + ' ' + err.message;
+                      global.log.error({savediscountcode: true}, msg);
+                      world.spark.emit(global.eventerror, {rc: global.errcode_fatal, msg: msg, pdata: world.pdata});
+                    }
+                  );
+                }
+              );
+            }
+            else
+            {
+              done();
+              msg += global.text_notxstart + ' ' + err.message;
+              global.log.error({savediscountcode: true}, msg);
+              world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+            }
+          }
+        );
+      }
+      else
+      {
+        global.log.error({savediscountcode: true}, global.text_nodbconnection);
+        world.spark.emit(global.eventerror, {rc: global.errcode_dbunavail, msg: global.text_nodbconnection, pdata: world.pdata});
+      }
+    }
+  );
+}
+
+function ExpireDiscountCode(world)
+{
+  var msg = '[' + world.eventname + '] ';
+  //
+  global.pg.connect
+  (
+    global.cs,
+    function(err, client, done)
+    {
+      if (!err)
+      {
+        var tx = new global.pgtx(client);
+        tx.begin
+        (
+          function(err)
+          {
+            if (!err)
+            {
+              doExpireDiscountCode(tx, world).then
+              (
+                function(result)
+                {
+                  tx.commit
+                  (
+                    function(err)
+                    {
+                      if (!err)
+                      {
+                        done();
+                        world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, pdata: world.pdata});
+                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'discountcodeexpired', {discountcodeid: world.discountcodeid}, world.spark.id);
+                      }
+                      else
+                      {
+                        tx.rollback
+                        (
+                          function(ignore)
+                          {
+                            done();
+                            msg += global.text_tx + ' ' + err.message;
+                            global.log.error({expirediscountcode: true}, msg);
+                            world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+                          }
+                        );
+                      }
+                    }
+                  );
+                }
+              ).then
+              (
+                null,
+                function(err)
+                {
+                  tx.rollback
+                  (
+                    function(ignore)
+                    {
+                      done();
+
+                      msg += global.text_generalexception + ' ' + err.message;
+                      global.log.error({expirediscountcode: true}, msg);
+                      world.spark.emit(global.eventerror, {rc: global.errcode_fatal, msg: msg, pdata: world.pdata});
+                    }
+                  );
+                }
+              );
+            }
+            else
+            {
+              done();
+              msg += global.text_notxstart + ' ' + err.message;
+              global.log.error({expirediscountcode: true}, msg);
+              world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+            }
+          }
+        );
+      }
+      else
+      {
+        global.log.error({expirediscountcode: true}, global.text_nodbconnection);
         world.spark.emit(global.eventerror, {rc: global.errcode_dbunavail, msg: global.text_nodbconnection, pdata: world.pdata});
       }
     }
@@ -9404,4 +9849,6 @@ module.exports.GetPrice = GetPrice;
 
 
 module.exports.ListDiscountCode = ListDiscountCode;
-
+module.exports.NewDiscountCode = NewDiscountCode;
+module.exports.SaveDiscountCode = SaveDiscountCode;
+module.exports.ExpireDiscountCode = ExpireDiscountCode;

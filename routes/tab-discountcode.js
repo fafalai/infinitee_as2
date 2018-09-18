@@ -8,7 +8,7 @@ function doDiscountCodeTabWidgets()
       {
         text: 'New',
         iconCls: 'icon-add',
-        //handler: doNew
+        handler: doNew
       },
       {
         text: 'Clear',
@@ -28,18 +28,18 @@ function doDiscountCodeTabWidgets()
       {
         text: 'Save',
         iconCls: 'icon-save',
-        //handler: doSave
+        handler: doSave
       },
       {
         text: 'Remove',
         iconCls: 'icon-remove',
-        //handler: doRemove
+        handler: doRemove
       }
     ];
 
     function doNew()
     {
-      doServerDataMessage('newproductpricing', {productid: product.id}, {type: 'refresh'});
+      doServerDataMessage('newdiscountcode', {type: 'refresh'});
     }
   
     function doClear()
@@ -77,88 +77,54 @@ function doDiscountCodeTabWidgets()
   
     function doSave()
     {
-      doGridEndEditGetRow
-      (
-        'divProductPricesG',
-        editingIndex,
-        function(row)
+      if(!doGridEndEditGetRow
+        (
+          'divDiscountCode',
+          editingIndex,
+          function(row)
+          {
+            //console.log(row);
+           
+            doServerDataMessage('savediscountcode', {discountcodeid: row.id, fullname: row.full_name, shortname: row.short_name, 
+              level1: (row.level_1 * 0.01), level2: (row.level_2 * 0.01), level3: (row.level_3 * 0.01), level4: (row.level_4 * 0.01), level5: (row.level_5 * 0.01), 
+              level6: (row.level_6 * 0.01), level7: (row.level_7 * 0.01),level8: (row.level_8 * 0.01), level9: (row.level_9 * 0.01), level10: (row.level_10 * 0.01), 
+              level11: (row.level_11 * 0.01),level12: (row.level_12 * 0.01), level13: (row.level_13 * 0.01), level14: (row.level_14 * 0.01),level15: (row.level_15 * 0.01)},
+              {type: 'refresh'});
+              editingIndex = null;
+          }
+        ))
         {
-          var datefrom,dateto;
-         //console.log("dateto: " + row.dateto);
-         //console.log(moment(row.datefrom).isValid());
-         
-          if (moment(row.datefrom).isValid()) 
-          {
-            datefrom = moment(row.datefrom,"YYYY-MM-DD HH:MM:SS" ).format('YYYY-MM-DD 00:00:00');
-            //console.log(datefrom);
-          }
-          else
-          {
-            //console.log("no date from");
-            datefrom = null;
-            //console.log(datefrom);
-          }
-          
-          if(moment(row.dateto).isValid())
-          {
-            dateto = moment(row.dateto,"YYYY-MM-DD HH:MM:SS" ).format('YYYY-MM-DD 23:59:59');
-            //console.log(dateto);
-          }
-          else
-          {
-            //console.log("no date to");
-            dateto = null;
-            //console.log(dateto);
-          }
-          
-          // console.log(moment(row.dateto).isValid());
-  
-          // console.log(dateto);
-          doServerDataMessage('saveproductpricing', {priceid: row.id, productid: product.id, clientid: row.clientid, minqty: row.minqty, maxqty: row.maxqty, price: row.price, price1: row.price1, price2: row.price2, price3: row.price3, price4: row.price4, price5: row.price5,datefrom:datefrom,dateto:dateto}, {type: 'refresh'});
+          doShowWarning('Please select a row to Update');
         }
-      );
-  
-      // editingIndex = null;
-      // doGridEndEditGetRow
-      // (
-      //   'divProductPricesG',
-      //   editingIndex,
-      //   function(row)
-      //   {
-      //     doServerDataMessage('saveproductpricing', {priceid: row.id, productid: product.id, clientid: row.clientid, minqty: row.minqty, maxqty: row.maxqty, price: row.price, price1: row.price1, price2: row.price2, price3: row.price3, price4: row.price4, price5: row.price5}, {type: 'refresh'});
-      //   }
-      // );
-  
-      editingIndex = null;
     }
   
     function doRemove()
     {
       if (!doGridGetSelectedRowData
         (
-          'divProductPricesG',
+          'divDiscountCode',
           function(row)
           {
             doPromptOkCancel
             (
-              'Remove selected price?',
+              'Remove selected discount code?',
               function(result)
               {
                 if (result)
-                  doServerDataMessage('expireproductpricing', {priceid: row.id}, {type: 'refresh'});
+                  doServerDataMessage('expirediscountcode', {discountcodeid: row.id}, {type: 'refresh'});
               }
             );
           }
         ))
       {
-        doShowError('Please select a price to remove');
+        doShowWarning('Please select a row to remove');
       }
     }
   
   
     function doSaved(ev, args)
     {
-      doServerDataMessage('listproductpricing', {productid: product.id}, {type: 'refresh', productid: product.id, priceid: args.data.priceid});
+      doServerDataMessage('listdiscountcode', {type: 'refresh'}); 
     }
   
     function doLoad(ev, args)
@@ -225,20 +191,21 @@ function doDiscountCodeTabWidgets()
                     full_name:p.full_name,
                     short_name:p.short_name,
                     level_1: (parseFloat(p.level_1)*100).toFixed(2),
-                    level_2: (parseFloat(p.level_2)*100).toFixed(2),
-                    level_3: (parseFloat(p.level_3)*100).toFixed(2),
-                    level_4: (parseFloat(p.level_4)*100).toFixed(2),
-                    level_5: (parseFloat(p.level_5)*100).toFixed(2),
-                    level_6: (parseFloat(p.level_6)*100).toFixed(2),
-                    level_7: (parseFloat(p.level_7)*100).toFixed(2),
-                    level_8: (parseFloat(p.level_8)*100).toFixed(2),
-                    level_9: (parseFloat(p.level_9)*100).toFixed(2),
-                    level_10: (parseFloat(p.level_10)*100).toFixed(2),
-                    level_11: (parseFloat(p.level_11)*100).toFixed(2),
-                    level_12: (parseFloat(p.level_12)*100).toFixed(2),
-                    level_13: (parseFloat(p.level_13)*100).toFixed(2),
-                    level_14: (parseFloat(p.level_14)*100).toFixed(2),
-                    level_15: (parseFloat(p.level_15)*100).toFixed(2),
+                    level_2:!_.isNull(p.level_2) ? (parseFloat(p.level_2)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    //level_2: (parseFloat(p.level_2)*100).toFixed(2),
+                    level_3: !_.isNull(p.level_3) ? (parseFloat(p.level_3)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_4: !_.isNull(p.level_4) ? (parseFloat(p.level_4)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_5: !_.isNull(p.level_5) ? (parseFloat(p.level_5)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_6: !_.isNull(p.level_6) ? (parseFloat(p.level_6)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_7: !_.isNull(p.level_7) ? (parseFloat(p.level_7)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_8: !_.isNull(p.level_8) ? (parseFloat(p.level_8)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_9: !_.isNull(p.level_9) ? (parseFloat(p.level_9)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_10: !_.isNull(p.level_10) ? (parseFloat(p.level_10)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_11: !_.isNull(p.level_11) ? (parseFloat(p.level_11)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_12: !_.isNull(p.level_12) ? (parseFloat(p.level_12)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_13: !_.isNull(p.level_13) ? (parseFloat(p.level_13)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_14: !_.isNull(p.level_14) ? (parseFloat(p.level_14)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
+                    level_15:!_.isNull(p.level_15) ? (parseFloat(p.level_15)*100).toFixed(2) :(parseFloat(0)*100).toFixed(2),
                     date: doNiceDateModifiedOrCreated(p.datemodified, p.datecreated),
                     by: doNiceModifiedBy(p.datemodified,p.usermodified, p.usercreated)
                     }
@@ -247,9 +214,12 @@ function doDiscountCodeTabWidgets()
         );
         console.log(data);
         $('#divDiscountCode').datagrid('loadData', data);
+        //$('#divDiscountCode').datagrid('reload');
     
     }
    );
+
+   $('#divEvents').on('discountcodeupdated', doSaved);
 
    function formatLevel(value,row,index)
    {
@@ -265,6 +235,9 @@ function doDiscountCodeTabWidgets()
         rownumbers: true,
         striped: true,
         toolbar: tb,
+        sortName:'id',
+        sortOrder:'asc',
+        //data:cache_discountcode,
         columns:
         [
             [
