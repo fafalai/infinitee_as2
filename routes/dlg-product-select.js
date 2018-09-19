@@ -1,7 +1,7 @@
 function doDlgProductSelect(clientid,pricelevel, enableprice, usecostprice, callback)
 {
   console.log(clientid);
-  console.log(usecostprice);
+  //console.log(usecostprice);
   console.log(pricelevel);
   // console.log($('#divEvents'));
   // Filtered products (by client)
@@ -47,6 +47,7 @@ function doDlgProductSelect(clientid,pricelevel, enableprice, usecostprice, call
     //n++;
     if (usecostprice)
     {
+      console.log("find cost price");
       if(Object.keys(args.data.price).length == 3)
       {
         console.log("couldn't find any match price results,no records at all");
@@ -60,54 +61,59 @@ function doDlgProductSelect(clientid,pricelevel, enableprice, usecostprice, call
       
       return;
     }
-
-    if(Object.keys(args.data.price).length == 3)
-    {
-      console.log("couldn't find any match price results,no records at all");
-      $('#fldProductSelectPrice').numberbox('initValue', args.data.price.price);
-      doShowWarning('Could not find a matching price for this product');
-    }
     else
     {
-     
-      if(!_.isNull(args.data.price.discountcode_id))
+      console.log("find sales price");
+      if(Object.keys(args.data.price).length == 3)
       {
-        console.log("product have discount code, need to use the price level match client's");
-        if(pricelevel == 0)
-        {
-          pricelevel = 1;
-        }
-        var uselevel = 'price' + pricelevel;
-        console.log(uselevel);
-        var useprice = args.data.price[uselevel];
-        console.log(useprice);
-        $('#fldProductSelectPrice').numberbox('setValue', useprice);  
+        console.log("couldn't find any match price results,no records at all");
+        $('#fldProductSelectPrice').numberbox('initValue', args.data.price.price);
+        doShowWarning('Could not find a matching price for this product');
       }
       else
       {
-        $('#fldProductSelectPrice').numberbox('setValue', args.data.price.unitprice);  
-        var qty = $('#fldProductSelectQty').numberbox('getValue');
-  
-          // Check if this has a min qty...
-          if (!_.isNull(args.data.price.minqty))
+       
+        if(!_.isNull(args.data.price.discountcode_id))
+        {
+          console.log("product have discount code, need to use the price level match client's");
+          if(pricelevel == 0)
           {
-            var m = _.toBigNum(args.data.price.minqty);
-
-            // If user has no qty, set it to min...
-            // If user has a qty, check it's at least the min...
-            if (_.isBlank(qty) || m.greaterThan(qty))
-            {
-              console.log("entered qty is empty, or entered qty is less than the recored required min qty");
-              doShowWarning('the minimum quantity for this product is ' + args.data.price.minqty);
-              // $('#fldProductSelectQty').numberbox('setValue', args.data.price.minqty);
-              $('#fldProductSelectQty').numberbox('initValue', args.data.price.minqty);
-            }
+            pricelevel = 1;
           }
+          var uselevel = 'price' + pricelevel;
+          console.log(uselevel);
+          var useprice = args.data.price[uselevel];
+          console.log(useprice);
+          $('#fldProductSelectPrice').numberbox('setValue', useprice);  
+        }
+        else
+        {
+          console.log("product doesn't have discount code, use the traditional price matching");
+          $('#fldProductSelectPrice').numberbox('setValue', args.data.price.price);  
+          var qty = $('#fldProductSelectQty').numberbox('getValue');
+    
+            // Check if this has a min qty...
+            if (!_.isNull(args.data.price.minqty))
+            {
+              var m = _.toBigNum(args.data.price.minqty);
+  
+              // If user has no qty, set it to min...
+              // If user has a qty, check it's at least the min...
+              if (_.isBlank(qty) || m.greaterThan(qty))
+              {
+                console.log("entered qty is empty, or entered qty is less than the recored required min qty");
+                doShowWarning('the minimum quantity for this product is ' + args.data.price.minqty);
+                // $('#fldProductSelectQty').numberbox('setValue', args.data.price.minqty);
+                $('#fldProductSelectQty').numberbox('initValue', args.data.price.minqty);
+              }
+            }
+        }
+  
+       
+  
       }
-
-     
-
     }
+    
 
     
 

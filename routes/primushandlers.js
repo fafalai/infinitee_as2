@@ -2065,6 +2065,8 @@ function doPrimus()
                   assetaccountid: doNiceId(p.assetaccountid),
                   uom: doNiceString(p.uom).toUpperCase(),
                   uomsize: _.formatnumber(p.uomsize, 4),
+                  saleuom: doNiceString(p.sale_uom).toUpperCase(),
+                  saleuomsize: _.formatnumber(p.sale_uomsize, 4),
                   buildtemplateid: doNiceId(p.buildtemplateid),
                   minstock: _.formatnumber(p.minstockqty, 4),
                   stockwarn: _.formatnumber(p.stockqtywarnthreshold, 4),
@@ -2088,9 +2090,10 @@ function doPrimus()
             }
           );
           console.log("list products");
-          console.log(cache_products.length);
+          console.log("products original number " + cache_products.length);
           cache_products = removeDuplicates(cache_products,'id');
-          console.log(cache_products.length);
+          console.log("after number " + cache_products.length);
+          console.log(cache_products[2]);
 
           $('#divEvents').trigger('listproducts', {data: data, pdata: $.extend(data.pdata, {})});
         }
@@ -2131,6 +2134,8 @@ function doPrimus()
                   assetaccountid: doNiceId(p.assetaccountid),
                   uom: doNiceString(p.uom).toUpperCase(),
                   uomsize: _.formatnumber(p.uomsize, 4),
+                  saleuom: doNiceString(p.sale_uom).toUpperCase(),
+                  saleuomsize: _.formatnumber(p.sale_uomsize, 4),
                   buildtemplateid: doNiceId(p.buildtemplateid),
                   minstock: _.formatnumber(p.minstockqty, 4),
                   stockwarn: _.formatnumber(p.stockqtywarnthreshold, 4),
@@ -2153,9 +2158,10 @@ function doPrimus()
               );
             }
           );
-          console.log(cache_productsbycategory.length);
+          console.log("the original productsbycateogyory " + cache_productsbycategory.length);
           cache_productsbycategory = removeDuplicates(cache_productsbycategory,'id');
-          console.log(cache_productsbycategory.length);
+          console.log("after remove the number: " + cache_productsbycategory.length);
+          console.log(cache_productsbycategory[3]);
           $('#divEvents').trigger('listproductsbycategory', {data: data, pdata: $.extend(data.pdata, {})});
         }
       }

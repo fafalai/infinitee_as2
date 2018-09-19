@@ -1,6 +1,6 @@
 // *******************************************************************************************************************************************************************************************
 // Internal functions
-function selectPrice(world, prices)
+function doSelectPrice(world, prices)
 {
   global.ConsoleLog("selectPrice");
   //global.ConsoleLog(prices);
@@ -378,7 +378,7 @@ function doNewProduct(tx, world)
 
       tx.query
       (
-        'insert into products (customers_id,productcategories_id,code,name,altcode,barcode,costprice,costgst,uom,uomsize,clients_id,isactive,buytaxcodes_id,selltaxcodes_id,costofgoodsaccounts_id,incomeaccounts_id,assetaccounts_id,buildtemplateheaders_id,minstockqty,stockqtywarnthreshold,width,length,height,weight,price1,price2,price3,price4,price5,price6,price7,price8,price9,price10,price11,price12,attrib1,attrib2,attrib3,attrib4,attrib5,productsalias_id,locations1_id,locations2_id,userscreated_id) values ($1,$2,$3,$4,$5,$6,$7,calctaxcomponent($8,$9,$10),$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39,$40,$41,$42,$43,$44,$45,$46,$47) returning id',
+        'insert into products (customers_id,productcategories_id,code,name,altcode,barcode,costprice,costgst,uom,uomsize,clients_id,isactive,buytaxcodes_id,selltaxcodes_id,costofgoodsaccounts_id,incomeaccounts_id,assetaccounts_id,buildtemplateheaders_id,minstockqty,stockqtywarnthreshold,width,length,height,weight,price1,price2,price3,price4,price5,price6,price7,price8,price9,price10,price11,price12,attrib1,attrib2,attrib3,attrib4,attrib5,productsalias_id,locations1_id,locations2_id,userscreated_id,discountcode_id, listcode_id, sale_uom, sale_uomsize, price13, price14, price15) values ($1,$2,$3,$4,$5,$6,$7,calctaxcomponent($8,$9,$10),$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39,$40,$41,$42,$43,$44,$45,$46,$47,$48,$49,$50,$51,$52,$53,$54) returning id',
         [
           world.cn.custid,
           __.sanitiseAsBigInt(world.productcategoryid),
@@ -432,9 +432,18 @@ function doNewProduct(tx, world)
           //
           __.sanitiseAsBigInt(world.productaliasid),
           __.sanitiseAsBigInt(world.location1id),
-          __.sanitiseAsBigInt(world.location2id),
+          __.sanitiseAsBigInt(world.location2id), 
           //
-          world.cn.userid
+          world.cn.userid, //47
+
+          //new added columns 
+          __.sanitiseAsBigInt(world.discountcodeid), //48
+          __.sanitiseAsBigInt(world.listpricecodeid), //49
+          __.sanitiseAsString(world.saleuom, 50), //50
+          __.formatuomsize(world.saleuomsize), //51
+          __.sanitiseAsPrice(world.price13, 4), //52
+          __.sanitiseAsPrice(world.price14, 4), //53
+          __.sanitiseAsPrice(world.price15, 4), //54
         ],
         function(err, result)
         {
@@ -497,6 +506,8 @@ function doSaveProduct(tx, world)
         'costgst=calctaxcomponent($5,$6,$7),' +
         'uom=$8,' +
         'uomsize=$9,' +
+        'sale_uom=$53,' +
+        'sale_uomsize=$54,' +
         'clients_id=$10,' +
         'isactive=$11,' +
         'buytaxcodes_id=$12,' +
@@ -607,7 +618,10 @@ function doSaveProduct(tx, world)
           //
           world.cn.userid, //50
           world.cn.custid, //51
-          world.productid //52
+          world.productid, //52
+
+          __.sanitiseAsString(world.saleuom, 50), //53
+          __.formatuomsize(world.saleuomsize), //54
         ],
         function(err, result)
         {
@@ -661,6 +675,8 @@ function doDuplicateProduct(tx, world)
         'weight,' +
         'uom,' +
         'uomsize,' +
+        'sale_uom,' +
+        'sale_uomsize,' +
         'attrib1,' +
         'attrib2,' +
         'attrib3,' +
@@ -691,10 +707,15 @@ function doDuplicateProduct(tx, world)
         'price10,' +
         'price11,' +
         'price12,' +
+        'price13,' +
+        'price14,' +
+        'price15,' +
         'productsalias_id,' +
         'locations1_id,' +
         'locations2_id,' +
-        'userscreated_id' +
+        'userscreated_id,' +
+        'discountcode_id,' +
+        'listcode_id ' +
         ') ' +
         'select ' +
         'customers_id,' +
@@ -709,6 +730,8 @@ function doDuplicateProduct(tx, world)
         'weight,' +
         'uom,' +
         'uomsize,' +
+        'sale_uom,' +
+        'sale_uomsize,' +
         'attrib1,' +
         'attrib2,' +
         'attrib3,' +
@@ -739,10 +762,15 @@ function doDuplicateProduct(tx, world)
         'price10,' +
         'price11,' +
         'price12,' +
+        'price13,' +
+        'price14,' +
+        'price15,' +
         'productsalias_id,' +
         'locations1_id,' +
         'locations2_id,' +
-        '$1 ' +
+        '$1, ' +
+        'discountcode_id,' +
+        'listcode_id ' +
         'from ' +
         'products ' +
         'where ' +
@@ -4503,6 +4531,8 @@ function ListProducts(world)
           'p1.costgst,' +
           'p1.uom,' +
           'p1.uomsize,' +
+          'p1.sale_uom,' +
+          'p1.sale_uomsize,' +
           'p1.buildtemplateheaders_id buildtemplateid,' +
           'p1.minstockqty,' +
           'p1.stockqtywarnthreshold,' +
@@ -4631,6 +4661,8 @@ function ListProductsByCategory(world)
           'p1.costgst,' +
           'p1.uom,' +
           'p1.uomsize,' +
+          'p1.sale_uom,' +
+          'p1.sale_uomsize,' +
           'p1.buildtemplateheaders_id buildtemplateid,' +
           'p1.minstockqty minqty,' +
           'p1.stockqtywarnthreshold warnqty,' +
@@ -4771,6 +4803,8 @@ function LoadProduct(world)
           'p1.costgst,' +
           'p1.uom,' +
           'p1.uomsize,' +
+          'p1.sale_uom,' +
+          'p1.sale_uomsize,' +
           'p1.buildtemplateheaders_id buildtemplateid,' +
           'p1.minstockqty minqty,' +
           'p1.stockqtywarnthreshold warnqty,' +
@@ -8207,7 +8241,7 @@ function GetPrice(world)
             {
               global.ConsoleLog(world.discountcode);
               global.ConsoleLog(world.pricelevel);
-              var price = selectPrice(world, result.rows);
+              var price = doSelectPrice(world, result.rows);
               global.ConsoleLog(price);
               global.ConsoleLog("the event name is " + world.eventname);
               // console.log(price);
@@ -10261,7 +10295,7 @@ function ExpireListPriceCode(world)
 
 // *******************************************************************************************************************************************************************************************
 // Internal functions
-module.exports.selectPrice = selectPrice;
+module.exports.doSelectPrice = doSelectPrice;
 module.exports.doNewBuildTemplateStep1 = doNewBuildTemplateStep1;
 module.exports.doNewBuildTemplateStep2 = doNewBuildTemplateStep2;
 

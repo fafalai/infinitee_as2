@@ -5481,7 +5481,7 @@ function main()
         {
           try
           {
-            makeWorld(spark, 'newproduct', data, '*name', '*productcategoryid', '*code', '*name', 'altcode', 'barcode', 'costprice', 'uom', 'uomsize', 'clientid', 'isactive', 'buytaxcodeid', 'selltaxcodeid', 'costofgoodsaccountid', 'incomeaccountid', 'assetaccountid', 'buildtemplateid', 'minqty', 'warnqty', 'width', 'length', 'height', 'weight', 'price1', 'price2', 'price3', 'price4', 'price5', 'price6', 'price7', 'price8', 'price9', 'price10', 'price11', 'price12', 'atttrib1', 'attrib2', 'attrib3', 'attrib4', 'attrib5', 'productaliasid', 'location1id', 'location2id').then
+            makeWorld(spark, 'newproduct', data, '*name', '*productcategoryid', '*code', '*name', 'altcode', 'barcode', 'costprice', 'uom', 'uomsize', 'clientid', 'isactive', 'buytaxcodeid', 'selltaxcodeid', 'costofgoodsaccountid', 'incomeaccountid', 'assetaccountid', 'buildtemplateid', 'minqty', 'warnqty', 'width', 'length', 'height', 'weight', 'price1', 'price2', 'price3', 'price4', 'price5', 'price6', 'price7', 'price8', 'price9', 'price10', 'price11', 'price12', 'atttrib1', 'attrib2', 'attrib3', 'attrib4', 'attrib5', 'productaliasid', 'location1id', 'location2id','discountcodeid','listpricecodeid','saleuom','saleuomsize','price13','price14','price15').then
             (
               function(world)
               {
@@ -5510,7 +5510,7 @@ function main()
         {
           try
           {
-            makeWorld(spark, 'saveproduct', data, '*name', '*productid', '*code', '*name', 'altcode', 'barcode', 'costprice', 'uom', 'uomsize', 'clientid', 'isactive', 'buytaxcodeid', 'selltaxcodeid', 'costofgoodsaccountid', 'incomeaccountid', 'assetaccountid', 'buildtemplateid', 'minqty', 'warnqty', 'width', 'length', 'height', 'weight', 'price1', 'price2', 'price3', 'price4', 'price5', 'price6', 'price7', 'price8', 'price9', 'price10', 'price11', 'price12', 'price13', 'price14','price15', 'atttrib1', 'attrib2', 'attrib3', 'attrib4', 'attrib5', 'productaliasid', 'location1id', 'location2id','discountcodeid','listcodeid').then
+            makeWorld(spark, 'saveproduct', data, '*name', '*productid', '*code', '*name', 'altcode', 'barcode', 'costprice', 'uom', 'uomsize', 'clientid', 'isactive', 'buytaxcodeid', 'selltaxcodeid', 'costofgoodsaccountid', 'incomeaccountid', 'assetaccountid', 'buildtemplateid', 'minqty', 'warnqty', 'width', 'length', 'height', 'weight', 'price1', 'price2', 'price3', 'price4', 'price5', 'price6', 'price7', 'price8', 'price9', 'price10', 'price11', 'price12', 'price13', 'price14','price15', 'atttrib1', 'attrib2', 'attrib3', 'attrib4', 'attrib5', 'productaliasid', 'location1id', 'location2id','discountcodeid','listcodeid','saleuom','saleuomsize').then
             (
               function(world)
               {
