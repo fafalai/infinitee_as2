@@ -395,11 +395,15 @@ var dateboxParserObj =
   {
     console.log(d);
     if (_.isUndefined(d) || _.isBlank(d))
+    {
       return new Date();
-
-    var dt = moment(d).format('YYYY-MM-DD HH:mm:ss');
-
-    return dt.isValid() ? dt.toDate() : new Date();
+    }
+    else
+    {
+      var dt = moment(d).format('YYYY-MM-DD HH:mm:ss');
+      return moment(dt).isValid() ? moment(dt).toDate() : new Date();
+    }
+    //return dt.isValid() ? dt.toDate() : new Date();
   }
 };
 
