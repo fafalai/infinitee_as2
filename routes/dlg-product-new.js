@@ -18,6 +18,8 @@ function doDlgProductNew(productcategoryid, productid)
       $('#fldNewProductCostPrice').numberbox('clear');
       $('#fldNewProductUOM').textbox('clear');
       $('#fldNewProductUOMSize').numberbox('clear');
+      $('#fldNewProductSalesUOM').textbox('clear');
+      $('#fldNewProductSaleUOMSize').numberbox('clear');
       $('#cbNewProductClients').combotree('clear');
       $('#cbNewProductActive').switchbutton('check');
 
@@ -68,6 +70,7 @@ function doDlgProductNew(productcategoryid, productid)
     {
       if (!_.isEmpty(product))
       {
+        //console.log(product);
         $('#fldNewProductCode').textbox('setValue', product.code);
         $('#fldNewProductName').textbox('setValue', product.name);
         $('#fldNewProductBarcode').textbox('setValue', product.barcode);
@@ -75,6 +78,8 @@ function doDlgProductNew(productcategoryid, productid)
         $('#fldNewProductCostPrice').numberbox('setValue', product.costprice);
         $('#fldNewProductUOM').textbox('setValue', product.uom);
         $('#fldNewProductUOMSize').numberbox('setValue', product.uomsize);
+        $('#fldNewProductSalesUOM').textbox('setValue', product.sale_uom);
+        $('#fldNewProductSaleUOMSize').numberbox('setValue', product.sale_uomsize);
         $('#cbNewProductClients').combotree('setValue', product.clientid);
         $('#cbNewProductActive').switchbutton('check', product.isactive);
 
@@ -430,6 +435,18 @@ function doDlgProductNew(productcategoryid, productid)
     return listprice.id == selectedListPriceCodeIndex
   }
 
+  $('#check_SametoPurchased').change(()=>{
+    if($("#check_SametoPurchased").prop('checked')){
+      $('#fldNewProductSalesUOM').textbox('setText',$('#fldNewProductUOM').textbox('getText'));
+      $('#fldNewProductSaleUOMSize').numberbox('setValue',$('#fldNewProductUOMSize').numberbox('getValue'));
+    }
+    else
+    {
+      $('#fldNewProductSalesUOM').textbox('clear');
+      $('#fldNewProductSaleUOMSize').numberbox('clear');
+    }
+  });
+
   $('#divEvents').on('checkproductcode', doCheckCode);
   $('#divEvents').on('newproduct', doSaved);
   $('#divEvents').on('updateproduct', doSaved);
@@ -474,6 +491,7 @@ function doDlgProductNew(productcategoryid, productid)
         $('#divEvents').off('productpricingupdated', doUpdatePrice);
 
         $('#svgNewProductBarcode').empty();
+        $('#check_SametoPurchased').prop('checked',false);
       },
       onOpen: function()
       {
@@ -1079,6 +1097,10 @@ function doDlgProductNew(productcategoryid, productid)
               var costprice = $('#fldNewProductCostPrice').numberbox('getValue');
               var uom = $('#fldNewProductUOM').textbox('getValue');
               var uomsize = $('#fldNewProductUOMSize').numberbox('getValue');
+              var saleuom = $('#fldNewProductSalesUOM').textbox('getValue');
+              // console.log("saleuom " + saleuom);
+              var saleuomsize = $('#fldNewProductSaleUOMSize').numberbox('getValue');
+              // console.log("saleuomsize " + saleuomsize);
               var clientid = doGetComboTreeSelectedId('cbNewProductClients');
               var isactive = doSwitchButtonChecked('cbNewProductActive');
 
@@ -1123,9 +1145,9 @@ function doDlgProductNew(productcategoryid, productid)
               var attrib5 = $('#fldNewProductAttrib5').textbox('getValue');
 
               var discountcode = $('#cbNewProductDiscountCode').combobox('getValue');
-              console.log(discountcode);
+              // console.log("discountcode " + discountcode);
               var listpricecode = $('#cbNewProductListPriceCode').combobox('getValue');
-              console.log(listpricecode);
+              // console.log("listpricecode " + listpricecode);
 
               if (isnew)
               {
@@ -1141,6 +1163,8 @@ function doDlgProductNew(productcategoryid, productid)
                     costprice: costprice,
                     uom: uom,
                     uomsize: uomsize,
+                    saleuom:saleuom,
+                    saleuomsize:saleuomsize,
                     clientid: clientid,
                     isactive: isactive,
                     buytaxcodeid: buytaxcodeid,
@@ -1179,7 +1203,7 @@ function doDlgProductNew(productcategoryid, productid)
                     attrib4: attrib4,
                     attrib5: attrib5,
                     discountcodeid:discountcode,
-                    listcodeid:listpricecode
+                    listpricecodeid:listpricecode
                   },
                   {type: 'refresh'}
                 );
@@ -1199,6 +1223,8 @@ function doDlgProductNew(productcategoryid, productid)
                     costprice: costprice,
                     uom: uom,
                     uomsize: uomsize,
+                    saleuom:saleuom,
+                    saleuomsize:saleuomsize,
                     clientid: clientid,
                     isactive: isactive,
                     buytaxcodeid: buytaxcodeid,
