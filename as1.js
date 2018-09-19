@@ -140,6 +140,8 @@ global.text_unablenewbuildttemplate = "Unable to add new build template...";
 global.text_unablenewbuildtemplatedetail = "Unable to add new product to build template...";
 global.text_unablenewbuildheader = "Unable to build inventory...";
 global.text_unableneworder = "Unable to add new order...";
+global.text_unablenewlistpricecode = "Unable to add new list price code...";
+global.text_unablenewdiscountcode = "Unable to add new discount code...";
 global.text_unablesavenotes = "Unable to save notes...";
 global.text_unablegetuserauthdetails = "Unable to get user auth details...";
 global.text_unablegetuseruuid = "Unable to get user\' uuid...";
@@ -5993,6 +5995,123 @@ function main()
           catch (err)
           {
             global.log.error({as1: true}, '[expirediscountcode] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
+      spark.on
+      (
+        'listlistpricecode',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark,'listlistpricecode',data).then
+            (
+              function(world)
+              {
+                global.modproducts.ListListPriceCode(world);
+              }
+            ).then
+            (
+              null,
+              function(err)
+              {
+
+              }
+            );
+          }
+
+          catch(err)
+          {
+            global.log.error({as1: true}, '[listdiscountcode] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
+      spark.on
+      (
+        'newlistpricecode',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'newlistpricecode', data).then
+            (
+              function(world)
+              {
+                global.modproducts.NewListPriceCode(world);
+              }
+            ).then
+            (
+              null,
+              function(err)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[newlistpricecode] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
+      spark.on
+      (
+        'savelistpricecode',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'savelistpricecode', data, '*listpricecodeid', 'fullname', 'shortname', 'parameter').then
+            (
+              function(world)
+              {
+                global.modproducts.SaveListPriceCode(world);
+              }
+            ).then
+            (
+              null,
+              function(err)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[savelistpricecode] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
+      spark.on
+      (
+        'expirelistpricecode',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'expirelistpricecode', data, '*listpricecodeid').then
+            (
+              function(world)
+              {
+                global.modproducts.ExpireListPriceCode(world);
+              }
+            ).then
+            (
+              null,
+              function(err)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[expirelistpricecode] ' + global.text_generalexception + ' ' + err.message);
           }
         }
       );

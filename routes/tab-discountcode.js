@@ -212,7 +212,7 @@ function doDiscountCodeTabWidgets()
                 );
             }
         );
-        console.log(data);
+        //console.log(data);
         $('#divDiscountCode').datagrid('loadData', data);
         //$('#divDiscountCode').datagrid('reload');
     

@@ -1,21 +1,3 @@
-var listpricecodes = [
-  {
-    id:1,
-    short_name: 'A',
-    parameter:'2.0000',
-  },
-  {
-    id:2,
-    short_name: 'B',
-    parameter:'2.2000',
-  },
-  {
-    id:3,
-    short_name: 'C',
-    parameter:'2.8000',
-  }
-]
-
 var selectedRowIndex;
 var selectedDiscountCodeIndex;
 var selectedListPriceCodeIndex;
@@ -736,7 +718,7 @@ function doDlgProductNew(productcategoryid, productid)
           {
             valueField:'id',
             textField:'short_name',
-            data:listpricecodes,
+            data:cache_listpricecode,
             icons:[{
               iconCls:'icon-cancel',
               handler:function(e){
@@ -927,7 +909,7 @@ function doDlgProductNew(productcategoryid, productid)
                 if(!_.isBlank(listpricecodeid))
                 {
                   // console.log(listpricecodeid);
-                  var listpricecode = listpricecodes.find(doGetListCode);
+                  var listpricecode = cache_listpricecode.find(doGetListCode);
                   console.log(listpricecode);
                   $('#fldNewProductPrice1').numberbox('setValue',newValue * listpricecode.parameter);
 

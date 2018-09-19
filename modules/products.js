@@ -3596,7 +3596,7 @@ function doNewDiscountCode(tx, world)
                   );
                 }
                 else
-                  reject({message: global.text_unablenewproductprice});
+                  reject({message: global.text_unablenewdiscountcode});
               }
             );
           }
@@ -3703,6 +3703,154 @@ function doExpireDiscountCode(tx, world)
               {
                 if (!err)
                   resolve({discountcodeid: result.rows[0].id, dateexpired: global.moment(result.rows[0].dateexpired).format('YYYY-MM-DD HH:mm:ss'), userexpired: result.rows[0].name});
+                else
+                  reject(err);
+              }
+            );
+          }
+          else
+            reject(err);
+        }
+      );
+    }
+  );
+  return promise;
+}
+
+function doNewListPriceCode(tx, world)
+{
+  var promise = new global.rsvp.Promise
+  (
+    function(resolve, reject)
+    {
+      tx.query
+      (
+        'insert into listpricecode (userscreated_id) values ($1) returning id',
+        [
+          world.cn.userid
+        ],
+        function(err, result)
+        {
+          if (!err)
+          {
+            var listpricecodeid = result.rows[0].id;
+
+            tx.query
+            (
+              'select l1.datecreated,u1.name usercreated from listpricecode l1 left join users u1 on (l1.userscreated_id=u1.id) where l1.id=$1',
+              [
+                __.sanitiseAsBigInt(listpricecodeid)
+              ],
+              function(err, result)
+              {
+                if (!err)
+                {
+                  var p = result.rows[0];
+                  //global.ConsoleLog("doNewDiscountCode" + p);
+
+                  resolve
+                  (
+                    {
+                      listpricecodeid: listpricecodeid,
+                      datecreated: global.moment(p.datecreated).format('YYYY-MM-DD HH:mm:ss'),
+                      usercreated: p.usercreated
+                    }
+                  );
+                }
+                else
+                  reject({message: global.text_unablenewlistpricecode});
+              }
+            );
+          }
+          else
+            reject(err);
+        }
+      );
+    }
+  );
+  return promise;
+}
+
+function doSaveListPriceCode(tx, world)
+{
+  var promise = new global.rsvp.Promise
+  (
+    function(resolve, reject)
+    {
+      // global.ConsoleLog("world.datefrom");
+      // global.ConsoleLog(world.datefrom);
+      // global.ConsoleLog(typeof world.datefrom);
+      // global.ConsoleLog(__.sanitiseAsDate(world.datefrom));
+      // global.ConsoleLog(typeof __.sanitiseAsDate(world.datefrom));
+      tx.query
+      (
+        "update listpricecode set full_name=$1, short_name=$2, parameter=$3, usersmodified_id=$4,  datemodified=now() where id = $5 and dateexpired is null",
+        [
+          world.fullname,
+          world.shortname,
+          world.parameter,
+          world.cn.userid,
+          __.sanitiseAsBigInt(world.listpricecodeid)
+        ],
+        function(err, result)
+        {
+          if (!err)
+          {
+            tx.query
+            (
+              'select l1.id ,l1.datemodified,u1.name from listpricecode l1 left join users u1 on (l1.usersmodified_id=u1.id) where l1.id=$1',
+              [
+                __.sanitiseAsBigInt(world.listpricecodeid)
+              ],
+              function(err, result)
+              {
+                if (!err)
+                  resolve({listpricecodeid: result.rows[0].id, datemodified: global.moment(result.rows[0].datemodified).format('YYYY-MM-DD HH:mm:ss'), usermodified: result.rows[0].name});
+                else
+                  reject(err);
+              }
+            );
+          }
+          else
+          {
+            global.ConsoleLog(err);
+            reject(err);
+          }
+            
+        }
+      );
+    }
+  );
+  return promise;
+}
+
+function doExpireListPriceCode(tx, world)
+{
+  var promise = new global.rsvp.Promise
+  (
+    function(resolve, reject)
+    {
+      tx.query
+      (
+        'update listpricecode set dateexpired=now(),usersexpired_id=$1 where id=$2 and dateexpired is null',
+        [
+          world.cn.userid,
+          __.sanitiseAsBigInt(world.listpricecodeid)
+        ],
+        function(err, result)
+        {
+          if (!err)
+          {
+            tx.query
+            (
+              'select l1.id ,l1.dateexpired,u1.name from listpricecode l1 left join users u1 on (l1.usersexpired_id=u1.id) where l1.id=$1',
+              [
+                __.sanitiseAsBigInt(world.listpricecodeid)
+              ],
+              function(err, result)
+              {
+                if (!err)
+                  resolve({listpricecodeid: result.rows[0].id, dateexpired: global.moment(result.rows[0].dateexpired).format('YYYY-MM-DD HH:mm:ss'), userexpired: result.rows[0].name});
                 else
                   reject(err);
               }
@@ -9765,6 +9913,352 @@ function ExpireDiscountCode(world)
   );
 }
 
+function ListListPriceCode(world)
+{
+  var msg = '[' + world.eventname + '] ';
+ 
+  global.pg.connect
+  (
+    global.cs,
+    function(err, client, done)
+    {
+      if (!err)
+      {
+        client.query
+        (
+          'SELECT ' + 
+          'l.id, ' + 
+          'l.full_name, '+
+          'l.short_name, '+
+          'l.parameter,'+
+          'l.usersmodified_id, l.datecreated, l.datemodified, ' + 
+          'u1.name usercreated, '+
+          'u2.name usermodified ' +
+          'from listpricecode l left join users u1 on (l.userscreated_id=u1.id) '+
+                              'left join users u2 on (l.usersmodified_id=u2.id) '+
+          'where l.dateexpired is null ' + 
+          'order by '+
+          'l.id',
+          function(err, result)
+          {
+            done();
+
+            if (!err)
+            {
+              // JS returns date with TZ info/format, need in ISO format...
+              result.rows.forEach
+              (
+                function(p)
+                {
+                  //global.ConsoleLog(p);
+                  if (!__.isUndefined(p.datemodified) && !__.isNull(p.datemodified))
+                    p.datemodified = global.moment(p.datemodified).format('YYYY-MM-DD HH:mm:ss');
+
+                  p.datecreated = global.moment(p.datecreated).format('YYYY-MM-DD HH:mm:ss');
+                }
+              );
+
+              world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, fguid: world.fguid, rs: result.rows, pdata: world.pdata});
+            }
+            else
+            {
+              msg += global.text_generalexception + ' ' + err.message;
+              global.log.error({listlistpricecode: true}, msg);
+              world.spark.emit(global.eventerror, {rc: global.errcode_fatal, msg: msg, pdata: world.pdata});
+            }
+          }
+        );
+      }
+      else
+      {
+        global.log.error({listlistpricecode: true}, global.text_nodbconnection);
+        world.spark.emit(global.eventerror, {rc: global.errcode_dbunavail, msg: global.text_nodbconnection, pdata: world.pdata});
+      }
+    }
+  );
+}
+
+function NewListPriceCode(world)
+{
+  var msg = '[' + world.eventname + '] ';
+  //
+  global.pg.connect
+  (
+    global.cs,
+    function(err, client, done)
+    {
+      if (!err)
+      {
+        var tx = new global.pgtx(client);
+        tx.begin
+        (
+          function(err)
+          {
+            if (!err)
+            {
+              doNewListPriceCode(tx, world).then
+              (
+                function(result)
+                {
+                  tx.commit
+                  (
+                    function(err)
+                    {
+                      if (!err)
+                      {
+                        done();
+                        world.spark.emit
+                        (
+                          world.eventname,
+                          {
+                            rc: global.errcode_none,
+                            msg: global.text_success,
+                            listpricecodeid: result.listpricecodeid,
+                            // productid: world.productid,
+                            datecreated: result.datecreated,
+                            usercreated: result.usercreated,
+                            pdata: world.pdata
+                          }
+                        );
+                        global.pr.sendToRoomExcept
+                        (
+                          global.custchannelprefix + world.cn.custid,
+                          'newlistpricecode',
+                          {
+                            listpricecodeid: result.listpricecodeid,
+                            // productid: world.productid,
+                            datecreated: result.datecreated,
+                            usercreated: result.usercreated
+                          },
+                          world.spark.id
+                        );
+                      }
+                      else
+                      {
+                        tx.rollback
+                        (
+                          function(ignore)
+                          {
+                            done();
+                            msg += global.text_tx + ' ' + err.message;
+                            global.log.error({newlistpricecode: true}, msg);
+                            world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+                          }
+                        );
+                      }
+                    }
+                  );
+                }
+              ).then
+              (
+                null,
+                function(err)
+                {
+                  tx.rollback
+                  (
+                    function(ignore)
+                    {
+                      done();
+
+                      msg += global.text_generalexception + ' ' + err.message;
+                      global.log.error({newlistpricecode: true}, msg);
+                      world.spark.emit(global.eventerror, {rc: global.errcode_fatal, msg: msg, pdata: world.pdata});
+                    }
+                  );
+                }
+              );
+            }
+            else
+            {
+              done();
+              msg += global.text_notxstart + ' ' + err.message;
+              global.log.error({newlistpricecode: true}, msg);
+              world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+            }
+          }
+        );
+      }
+      else
+      {
+        global.log.error({newlistpricecode: true}, global.text_nodbconnection);
+        world.spark.emit(global.eventerror, {rc: global.errcode_dbunavail, msg: global.text_nodbconnection, pdata: world.pdata});
+      }
+    }
+  );
+}
+
+function SaveListPriceCode(world)
+{
+  var msg = '[' + world.eventname + '] ';
+  //
+  global.pg.connect
+  (
+    global.cs,
+    function(err, client, done)
+    {
+      if (!err)
+      {
+        var tx = new global.pgtx(client);
+        tx.begin
+        (
+          function(err)
+          {
+            if (!err)
+            {
+              doSaveListPriceCode(tx, world).then
+              (
+                function(result)
+                {
+                  tx.commit
+                  (
+                    function(err)
+                    {
+                      if (!err)
+                      {
+                        done();
+                        world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, listpricecodeid: result.listpricecodeid, datemodified: result.datemodified, usermodified: result.usermodified, pdata: world.pdata});
+                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'listpricecodesaved', {listpricecodeid: result.listpricecodeid, datecreated: result.datecreated, usercreated: result.usercreated}, world.spark.id);
+                      }
+                      else
+                      {
+                        tx.rollback
+                        (
+                          function(ignore)
+                          {
+                            done();
+                            msg += global.text_tx + ' ' + err.message;
+                            global.log.error({savelistpricecode: true}, msg);
+                            world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+                          }
+                        );
+                      }
+                    }
+                  );
+                }
+              ).then
+              (
+                null,
+                function(err)
+                {
+                  tx.rollback
+                  (
+                    function(ignore)
+                    {
+                      done();
+
+                      msg += global.text_generalexception + ' ' + err.message;
+                      global.log.error({savelistpricecode: true}, msg);
+                      world.spark.emit(global.eventerror, {rc: global.errcode_fatal, msg: msg, pdata: world.pdata});
+                    }
+                  );
+                }
+              );
+            }
+            else
+            {
+              done();
+              msg += global.text_notxstart + ' ' + err.message;
+              global.log.error({savelistpricecode: true}, msg);
+              world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+            }
+          }
+        );
+      }
+      else
+      {
+        global.log.error({savelistpricecode: true}, global.text_nodbconnection);
+        world.spark.emit(global.eventerror, {rc: global.errcode_dbunavail, msg: global.text_nodbconnection, pdata: world.pdata});
+      }
+    }
+  );
+}
+
+function ExpireListPriceCode(world)
+{
+  var msg = '[' + world.eventname + '] ';
+  //
+  global.pg.connect
+  (
+    global.cs,
+    function(err, client, done)
+    {
+      if (!err)
+      {
+        var tx = new global.pgtx(client);
+        tx.begin
+        (
+          function(err)
+          {
+            if (!err)
+            {
+              doExpireListPriceCode(tx, world).then
+              (
+                function(result)
+                {
+                  tx.commit
+                  (
+                    function(err)
+                    {
+                      if (!err)
+                      {
+                        done();
+                        world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, pdata: world.pdata});
+                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'listpricecodeexpired', {listpricecodeid: world.listpricecodeid}, world.spark.id);
+                      }
+                      else
+                      {
+                        tx.rollback
+                        (
+                          function(ignore)
+                          {
+                            done();
+                            msg += global.text_tx + ' ' + err.message;
+                            global.log.error({expirelistpricecode: true}, msg);
+                            world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+                          }
+                        );
+                      }
+                    }
+                  );
+                }
+              ).then
+              (
+                null,
+                function(err)
+                {
+                  tx.rollback
+                  (
+                    function(ignore)
+                    {
+                      done();
+
+                      msg += global.text_generalexception + ' ' + err.message;
+                      global.log.error({expirelistpricecode: true}, msg);
+                      world.spark.emit(global.eventerror, {rc: global.errcode_fatal, msg: msg, pdata: world.pdata});
+                    }
+                  );
+                }
+              );
+            }
+            else
+            {
+              done();
+              msg += global.text_notxstart + ' ' + err.message;
+              global.log.error({expirelistpricecode: true}, msg);
+              world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+            }
+          }
+        );
+      }
+      else
+      {
+        global.log.error({expirelistpricecode: true}, global.text_nodbconnection);
+        world.spark.emit(global.eventerror, {rc: global.errcode_dbunavail, msg: global.text_nodbconnection, pdata: world.pdata});
+      }
+    }
+  );
+}
+
 // *******************************************************************************************************************************************************************************************
 // Internal functions
 module.exports.selectPrice = selectPrice;
@@ -9852,3 +10346,8 @@ module.exports.ListDiscountCode = ListDiscountCode;
 module.exports.NewDiscountCode = NewDiscountCode;
 module.exports.SaveDiscountCode = SaveDiscountCode;
 module.exports.ExpireDiscountCode = ExpireDiscountCode;
+
+module.exports.ListListPriceCode = ListListPriceCode;
+module.exports.NewListPriceCode = NewListPriceCode;
+module.exports.SaveListPriceCode = SaveListPriceCode;
+module.exports.ExpireListPriceCode = ExpireListPriceCode;
