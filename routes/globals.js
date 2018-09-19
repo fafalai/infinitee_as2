@@ -353,6 +353,7 @@ var cache_statusalerts = [];
 var cache_exchangerates = [];
 var cache_timesheets = [];
 var cache_discountcode = [];
+var cache_listpricecode = [];
 // Cached lists for dialogs...
 var cache_productsbycategory = [];
 var cache_suppliernotes = [];
@@ -1921,7 +1922,7 @@ function doGridStartEdit(gridname, index, callback)
 {
   // console.log("doGridStartEdit");
   // console.log(gridname);
-  // console.log(index);
+  console.log(index);
   var grid = '#' + gridname;
   console.log(grid);
 
@@ -1939,10 +1940,10 @@ function doGridStartEdit(gridname, index, callback)
       if (!_.isUndefined(callback) && !_.isNull(callback))
         callback(row, index);
     }
-    else
-    {
-      doShowWarning('Please select a row first');
-    }
+    // else
+    // {
+    //   doShowWarning('Please select a row first');
+    // }
   }
 
   return index;

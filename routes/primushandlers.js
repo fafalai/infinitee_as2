@@ -2407,6 +2407,71 @@ function doPrimus()
       }
     )
 
+    primus.on
+    (
+      'listlistpricecode',
+      function(data)
+      {
+        //console.log(data);
+        doUpdateInitTasksProgress();
+
+        if (!_.isUndefined(data.rs) && !_.isNull(data.rs))
+        {
+          cache_listpricecode = [];
+
+          data.rs.forEach
+          (
+            function(p)
+           {
+               //console.log(p);
+               cache_listpricecode.push
+               (
+                   {
+                   id: doNiceId(p.id),
+                   full_name:p.full_name,
+                   short_name:p.short_name,
+                   parameter: p.parameter,
+                   date: doNiceDateModifiedOrCreated(p.datemodified, p.datecreated),
+                   by: doNiceModifiedBy(p.datemodified,p.usermodified, p.usercreated)
+                   }
+               );
+           }
+          );
+          console.log("primus.on, listlistpricecode, cache_listpricecode");
+          console.log(cache_listpricecode);
+          $('#divEvents').trigger('listlistpricecode', {data: data, pdata: $.extend(data.pdata, {})});
+        }
+        // $('#divEvents').trigger('listdiscountcode',{data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+
+    primus.on
+    (
+      'newlistpricecode',
+      function(data)
+      {
+        $('#divEvents').trigger('listpricecodeupdated', {data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+
+    primus.on
+    (
+      'savelistpricecode',
+      function(data)
+      {
+        $('#divEvents').trigger('listpricecodeupdated', {data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+
+    primus.on
+    (
+      'expirelistpricecode',
+      function(data)
+      {
+        $('#divEvents').trigger('listpricecodeupdated', {data: data, pdata: $.extend(data.pdata, {})});
+      }
+    )
+
     // Build template requests
     primus.on
     (
