@@ -3698,7 +3698,7 @@ function main()
             (
               function(world)
               {
-                global.modclients.NewClientNote(world);
+                //global.modclients.NewClientNote(world);
                 if(world.clientid == null)
                 {
                   global.modclients.NewClientNote_noclientid(world);
@@ -6119,36 +6119,6 @@ function main()
       // Build template requests
       spark.on
       (
-        'searchrootbuildtemplates_bycodeandname',
-        function(data)
-        {
-          try
-          {
-            makeWorld(spark, 'searchrootbuildtemplates_bycodeandname', data, '*inputValue', '*pageSize', '*offset').then
-            (
-              function(world)
-              {
-                global.modproducts.SearchRootBuildTemplates_ByCodeAndName(world);
-              }
-            ).then
-            (
-              null,
-              function(err)
-              {
-              }
-            );
-          }
-
-          catch (err)
-          {
-            global.log.error({as1: true}, '[searchrootbuildtemplates_bycodeandname] ' + global.text_generalexception + ' ' + err.message);
-          }
-        }
-      );
-
-
-      spark.on
-      (
         'searchbuilttemplates_bycodeandname',
         function(data)
         {
@@ -6172,38 +6142,6 @@ function main()
           catch (err)
           {
             global.log.error({as1: true}, '[searchbuilttemplates_bycodeandname] ' + global.text_generalexception + ' ' + err.message);
-          }
-        }
-      );
-
-
-
-
-      spark.on
-      (
-        'listbuildtemplate_ByparentID',
-        function(data)
-        {
-          try
-          {
-            makeWorld(spark, 'listbuildtemplate_ByparentID', data, '*buildtemplateid').then
-            (
-              function(world)
-              {
-                global.modproducts.ListBuildTemplates_ByParentID(world);
-              }
-            ).then
-            (
-              null,
-              function(err)
-              {
-              }
-            );
-          }
-
-          catch (err)
-          {
-            global.log.error({as1: true}, '[listbuildtemplate_ByparentID] ' + global.text_generalexception + ' ' + err.message);
           }
         }
       );
@@ -6237,7 +6175,63 @@ function main()
         }
       );
 
+      spark.on
+      (
+        'searchrootbuildtemplates_bycodeandname',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'searchrootbuildtemplates_bycodeandname', data, '*inputValue', '*pageSize', '*offset').then
+            (
+              function(world)
+              {
+                global.modproducts.SearchRootBuildTemplates_ByCodeAndName(world);
+              }
+            ).then
+            (
+              null,
+              function(err)
+              {
+              }
+            );
+          }
 
+          catch (err)
+          {
+            global.log.error({as1: true}, '[searchrootbuildtemplates_bycodeandname] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
+      spark.on
+      (
+        'listbuildtemplate_ByparentID',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'listbuildtemplate_ByparentID', data, '*buildtemplateid').then
+            (
+              function(world)
+              {
+                global.modproducts.ListBuildTemplates_ByParentID(world);
+              }
+            ).then
+            (
+              null,
+              function(err)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[listbuildtemplate_ByparentID] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
 
       spark.on
       (
