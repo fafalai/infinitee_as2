@@ -1,2 +1,5 @@
 logs/
 node_modules/
+.DS_Store
+routes/uploads/clientattachments/
+.vscode/settings.json
