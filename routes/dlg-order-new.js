@@ -984,18 +984,18 @@ function doDlgOrderNew(orderid)
 
   $('#check_SametoShip').change(()=>{
       if($("#check_SametoShip").prop('checked')){
-        $('#fldNewOrderAddress1').textbox('setText',$('#fldNewOrderShiptoAddress1').textbox('getText'));
-        $('#fldNewOrderAddress2').textbox('setText',$('#fldNewOrderShiptoAddress2').textbox('getText'));
-        $('#fldNewOrderAddress3').textbox('setText',$('#fldNewOrderShiptoAddress3').textbox('getText'));
-        $('#fldNewOrderAddress4').textbox('setText',$('#fldNewOrderShiptoAddress4').textbox('getText'));
+        $('#fldNewOrderAddress1').textbox('setValue',$('#fldNewOrderShiptoAddress1').textbox('getText'));
+        $('#fldNewOrderAddress2').textbox('setValue',$('#fldNewOrderShiptoAddress2').textbox('getText'));
+        $('#fldNewOrderAddress3').textbox('setValue',$('#fldNewOrderShiptoAddress3').textbox('getText'));
+        $('#fldNewOrderAddress4').textbox('setValue',$('#fldNewOrderShiptoAddress4').textbox('getText'));
       }
     });
   $('#check_SametoInvoice').change(()=>{
     if($("#check_SametoInvoice").prop('checked')){
-      $('#fldNewOrderShiptoAddress1').textbox('setText',$('#fldNewOrderAddress1').textbox('getText'));
-      $('#fldNewOrderShiptoAddress2').textbox('setText',$('#fldNewOrderAddress2').textbox('getText'));
-      $('#fldNewOrderShiptoAddress3').textbox('setText',$('#fldNewOrderAddress3').textbox('getText'));
-      $('#fldNewOrderShiptoAddress4').textbox('setText',$('#fldNewOrderAddress4').textbox('getText'));
+      $('#fldNewOrderShiptoAddress1').textbox('setValue',$('#fldNewOrderAddress1').textbox('getText'));
+      $('#fldNewOrderShiptoAddress2').textbox('setValue',$('#fldNewOrderAddress2').textbox('getText'));
+      $('#fldNewOrderShiptoAddress3').textbox('setValue',$('#fldNewOrderAddress3').textbox('getText'));
+      $('#fldNewOrderShiptoAddress4').textbox('setValue',$('#fldNewOrderAddress4').textbox('getText'));
     }
   });
  

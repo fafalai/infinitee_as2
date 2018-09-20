@@ -38,7 +38,7 @@ function doBuildTemplatesTabSearch(value, name)
         doShowGridLoading('divBuildTemplatesTG');
         let offset = (parseInt(pageNumber)-1) * parseInt(pageSize);
         // doServerDataMessage('searchbuilttemplates_bycodeandname', {inputValue: value, pageSize : pageSize, offset : offset}, {type: 'refresh'});
-        doServerDataMessage('searchrootbuildtemplates_bycodeandname', {inputValue:value, pageSize: pageSize, offset: offset}, {type: 'refresh'});
+        doServerDataMessage('searchrootbuildtemplates_bycodeandname', {inputValue:inputValue, pageSize: pageSize, offset: offset}, {type: 'refresh'});
       }
     });
 
@@ -272,7 +272,7 @@ function doBuildTemplatesTabWidgets()
       doServerDataMessage('searchrootbuildtemplates_bycodeandname', {inputValue:inputValue, pageSize: pageSize, offset: offset}, {type: 'refresh'});
     }
 
-    inputValue = '';
+    // inputValue = '';
     // doServerDataMessage('listbuildtemplate_ByparentID', {buildtemplateid : args.data.buildtemplateid}, {type: 'refresh'});
     // doServerMessage('listbuildtemplateroots', {type: 'refresh', buildtemplateid: args.data.buildtemplateid});
   }
