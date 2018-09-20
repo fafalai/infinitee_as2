@@ -583,7 +583,7 @@
 
   <div id="divClientAttachmentsMenuPopup" class="easyui-menu" style="width: 120px; display: none;">
     <div onclick="doContextMenu('clientattachmentspopup', 'newFolder')" data-options="iconCls: 'icon-add'">New Folder</div>
-    <div onclick="doContextMenu('clientattachmentspopup', 'uploadFile')" data-options="iconCls: 'icon-attachment'">Upload File</div>
+    <div class="tbClientAttachments_uploadFile" onclick="doContextMenu('clientattachmentspopup', 'uploadFile')" data-options="iconCls: 'icon-attachment'">Upload File</div>
     <div onclick="doContextMenu('clientattachmentspopup', 'edit')" data-options="iconCls: 'icon-edit'">Edit</div>
     <div onclick="doContextMenu('clientattachmentspopup', 'remove')" data-options="iconCls: 'icon-remove'">Remove</div>
     <!-- <div onclick="doContextMenu('clientattachmentspopup', 'download')" data-options="iconCls: 'icon-download'">Download</div> -->
@@ -1624,18 +1624,21 @@
           <table id="divNewClientNotesG" style="width: 100%; height: 85%;"></table>
         </div>
 
-        <div title="Attachments" data-options="iconCls: 'icon-attachment'">
-          <table id="divClientAttachmentsG" style="width: 100%; height: 85%;">
+        <div id="div_Attachments" class="dropzone" title="Attachments" data-options="iconCls: 'icon-attachment'">
+          <!-- <div id="divNewClientAttachmentFile" style="width: 100%;display: none;"> -->
+          <table id="divClientAttachmentsG" style="width: 100%; height: 95%;">
             <!-- <tr>
               <td>Description:</td>
               <td><div id="fldNewClientAttachmentDescription" class="easyui-textbox" data-options="iconCls: 'icon-comments', iconAlign: 'right'" style="width: 250px;"></div></td>
-            </tr>
-            <tr>
-              <td>Dropzone:</td>
-              <td><div class="dropzone" id="divNewClientAttachmentFile"></div></td>
-            </tr> -->
+            </tr>-->
+            <!-- <tr> -->
+              <!-- <td>Dropzone:</td> -->
+              <!-- <td><div class="dropzone" id="divNewClientAttachmentFile"></div></td> -->
+            <!-- </tr> -->
           </table>
-        </div>
+          <!-- </div> -->
+          <!-- <div class="dropzone" id="divNewClientAttachmentFile" style="width: 100%;"></div> -->
+      </div>
       </div>
     </div>
   </div>
@@ -3518,11 +3521,12 @@
   <div id="tbClientAttachments" style="height: auto; display: none">
     <div style="margin-bottom: 5px">
       <a href="javascript:void(0)" onClick="doContextMenu('clientattachmentspopup', 'newFolder')" class="easyui-linkbutton" iconCls="icon-add">New Folder</a>
-      <a href="javascript:void(0)" onClick="doContextMenu('clientattachmentspopup', 'uploadFile')" class="easyui-linkbutton" iconCls="icon-attachment">Upload File</a>
-      <!-- <a href="javascript:void(0)" onClick="doContextMenu('clientattachmentspopup', 'clear')" class="easyui-linkbutton" iconCls="icon-clear">Clear</a> -->
+      <a href="javascript:void(0)" onClick="doContextMenu('clientattachmentspopup', 'uploadFile')" class="easyui-linkbutton tbClientAttachments_uploadFile" iconCls="icon-attachment">Upload File</a>
+      <a href="javascript:void(0)" onClick="doContextMenu('clientattachmentspopup', 'clear')" class="easyui-linkbutton" iconCls="icon-undo">Clear</a>
       <a href="javascript:void(0)" onClick="doContextMenu('clientattachmentspopup', 'edit')" class="easyui-linkbutton" iconCls="icon-edit">Edit</a>
       <a href="javascript:void(0)" onClick="doContextMenu('clientattachmentspopup', 'cancel')" class="easyui-linkbutton" iconCls="icon-cancel">Cancel</a>
       <a href="javascript:void(0)" onClick="doContextMenu('clientattachmentspopup', 'save')" class="easyui-linkbutton" iconCls="icon-save">Save</a>
+      <a href="javascript:void(0)" onClick="doContextMenu('clientattachmentspopup', 'remove')" class="easyui-linkbutton" iconCls="icon-remove">Remove</a>
       <!-- <a href="javascript:void(0)" onClick="doContextMenu('clientattachmentspopup', 'search')" class="easyui-linkbutton" iconCls="icon-search">Search</a> -->
     </div>
   </div>
