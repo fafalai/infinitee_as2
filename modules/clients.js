@@ -451,7 +451,7 @@ function doSaveClient(tx, world)
           world.cn.userid,
           world.cn.custid,
           __.sanitiseAsBigInt(world.clientid),
-          world.pricelevel
+          __.sanitiseAsBigInt(world.pricelevel)
         ],
         function(err, result)
         {
