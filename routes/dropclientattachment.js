@@ -16,9 +16,10 @@ exports.dropClientAttachmentPost = function(req, res)
             filename: req.files.file.originalFilename,
             clientid: req.body.clientid,
             uuid: req.body.uuid,
-            description: req.body.description,
+            // description: req.body.description,
             mimetype: req.files.file.type,
-            size: req.files.file.size
+            size: req.files.file.size,
+            parentid: req.body.parentid
           },
           function(err, id)
           {

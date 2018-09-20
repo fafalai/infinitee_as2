@@ -1,4 +1,5 @@
-var selectedClientIdAttachmentId = null;
+let selectedClientIdAttachmentId = null;
+let attachment_parentid = null;
 
 function doDlgClientNew(parentid, clientid)
 {
@@ -148,16 +149,26 @@ function doDlgClientNew(parentid, clientid)
 
   // Attachments methods
   function doNewFolder(){
-    // doServerMessage('newfolderclientattachment', {type: 'refresh'});
-    console.log(attachmentIndex);
-    doServerDataMessage('newfolderclientattachment',{clientid: clientid, parentid: parentid}, {type: 'refresh'});
+    let row = $('#divClientAttachmentsG').treegrid('getSelected');
+    attachment_parentid = !row || row.mimetype!=='Folder' ? null : row.id;
+    
+    doServerDataMessage('newfolderclientattachment',{clientid: clientid, parentid: attachment_parentid}, {type: 'refresh'});
+    doAttachmentClear();
   }
   
-  function doUploadFile(){}
+  function doUploadFile(){
+    $('#tbClientAttachments_uploadFile').click();
+    
+    let row = $('#divClientAttachmentsG').treegrid('getSelected');
+    
+    attachment_parentid = !row || row.mimetype!=='Folder' ? null : row.id;
+
+    doAttachmentClear();
+  }
 
   function doAttachmentClear()
   {
-    $('#divNewClientAttachmentsG').datagrid('clearSelections');
+    $('#divClientAttachmentsG').treegrid('clearSelections');
   }
 
   function doAttachmentEdit()
@@ -179,6 +190,7 @@ function doDlgClientNew(parentid, clientid)
             );
         }
       );
+      doAttachmentClear();
     // doGridStartEdit
     // (
     //   'divNewClientAttachmentsG',
@@ -204,44 +216,65 @@ function doDlgClientNew(parentid, clientid)
   {
     // attachmentIndex = doGridCancelEdit('divNewClientAttachmentsG', editingIndex);
     attachmentIndex = doTreeGridCancelEdit('divClientAttachmentsG', attachmentIndex);
+    doAttachmentClear();
   }
 
   function doAttachmentSave()
   {
-    doGridEndEditGetRow
-    (
+    doTreeGridEndEditGetRow(
       'divClientAttachmentsG',
       attachmentIndex,
-      function(row)
-      {
+      (row) => {
         doServerDataMessage('saveclientattachment', {clientattachmentid: row.id, description: row.description, name: row.name}, {type: 'refresh'});
-      }
-    );
+      });
+    // doGridEndEditGetRow
+    // (
+    //   'divClientAttachmentsG',
+    //   attachmentIndex,
+    //   function(row)
+    //   {
+    //     doServerDataMessage('saveclientattachment', {clientattachmentid: row.id, description: row.description, name: row.name}, {type: 'refresh'});
+    //   }
+    // );
 
     attachmentIndex = null;
+    doAttachmentClear();
   }
 
   function doAttachmentRemove()
   {
-    if (!doGridGetSelectedRowData
-      (
-        'divNewClientAttachmentsG',
-        function(row)
-        {
-          doPromptOkCancel
-          (
+    if (!doTreeGridGetSelectedRowData('divClientAttachmentsG',
+        (row) => {
+          doPromptOkCancel(
             'Remove attachment ' + row.description + '?',
-            function(result)
-            {
+            (result) => {
               if (result)
-                doServerDataMessage('expireclientattachment', {clientlientattachmentid: row.id}, {type: 'refresh'});
+                doServerDataMessage('expireclientattachment', {clientattachmentid: row.id}, {type: 'refresh'});
             }
           );
-        }
-      ))
-    {
+        })) {
       doShowError('Please select an attachment to remove');
     }
+    doAttachmentClear();
+    // if (!doGridGetSelectedRowData
+    //   (
+    //     'divClientAttachmentsG',
+    //     function(row)
+    //     {
+    //       doPromptOkCancel
+    //       (
+    //         'Remove attachment ' + row.description + '?',
+    //         function(result)
+    //         {
+    //           if (result)
+    //             doServerDataMessage('expireclientattachment', {clientlientattachmentid: row.id}, {type: 'refresh'});
+    //         }
+    //       );
+    //     }
+    //   ))
+    // {
+    //   doShowError('Please select an attachment to remove');
+    // }
   }
 
   function doAttachmentDownload()
@@ -524,6 +557,7 @@ function doDlgClientNew(parentid, clientid)
   $('#divEvents').on('listclientattachments', doAttachmentList);
   // $('#divEvents').on('saveclientattachment', doClientAttachmentSaved);
   $('#divEvents').on('clientattachmentsaved', doClientAttachmentSaved);
+  $('#divEvents').on('expireclientattachment',doClientAttachmentSaved);
 
   $('#dlgClientNew').dialog
   (
@@ -560,6 +594,7 @@ function doDlgClientNew(parentid, clientid)
         $('#divEvents').off('listclientattachments', doAttachmentList);
         // $('#divEvents').off('saveclientattachment', doClientAttachmentSaved);
         $('#divEvents').off('clientattachmentsaved', doClientAttachmentSaved);
+        $('#divEvents').off('expireclientattachment',doClientAttachmentSaved);
 
         // Reset to first TAB and remove notes...
         // Do this here instead of doReset() otherwise get screen "flash" as redraw occurs...
@@ -568,6 +603,7 @@ function doDlgClientNew(parentid, clientid)
       },
       onOpen: function()
       {
+        selectedClientIdAttachmentId = clientid;
         $('#cbNewClientParent').combotree
         (
           {
@@ -799,7 +835,7 @@ function doDlgClientNew(parentid, clientid)
                 {title: 'Type',        field: 'mimetype',    width: 100, align: 'center', resizable: true},
                 {title: 'Size',        field: 'size',        width: 100, align: 'right',  resizable: true, formatter: function(value, row) {return filesize(value, {base: 10});}},
                 {title: 'Modified',    field: 'date',        width: 150, align: 'right',  resizable: true},
-                {title: 'By',          field: 'by',          width: 150, align: 'left',   resizable: true}
+                {title: 'By',          field: 'by',          width: 100, align: 'left',   resizable: true}
               ]
             ],
             onLoadSuccess: function (row) 
@@ -819,8 +855,11 @@ function doDlgClientNew(parentid, clientid)
             },
             onBeforeDrop: function (targetRow, sourceRow, point)
             {
-              doServerDataMessage('changeclientattachmentparent', {clientattachmentid: sourceRow.id, parentid: targetRow.id}, {type: 'refresh'});
-              return true;
+              if (!targetRow || targetRow.mimetype !== 'Folder')
+                return false;
+            },
+            onDrop: function (targetRow, sourceRow, point){
+              doServerDataMessage('changeclientattachmentparent', {clientattachmentid: sourceRow.id, parentid: point=='append' ? targetRow.id : null}, {type: 'refresh'});
             },
             onDblClickCell: function(field, row)
             {

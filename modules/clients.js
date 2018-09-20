@@ -108,15 +108,16 @@ function newClientAttachment(args, callback)
                         {
                           tx.query
                           (
-                            'insert into clientattachments (customers_id,clients_id,name,description,mimetype,size,userscreated_id) values ($1,$2,$3,$4,$5,$6,$7) returning id',
+                            'insert into clientattachments (customers_id,clients_id,name,mimetype,size,userscreated_id,parent_id) values ($1,$2,$3,$4,$5,$6,$7) returning id',
                             [
-                              uo.custid,
-                              args.clientid,
+                              __.sanitiseAsBigInt(uo.custid),
+                              __.sanitiseAsBigInt(args.clientid),
                               args.filename,
-                              args.description,
+                              // args.description,
                               args.mimetype,
-                              args.size,
-                              uo.userid
+                              __.sanitiseAsBigInt(args.size),
+                              __.sanitiseAsBigInt(uo.userid),
+                              __.sanitiseAsBigInt(args.parentid)
                             ],
                             function(err, result)
                             {
@@ -777,31 +778,51 @@ function doExpireClientAttachment(tx, world)
     {
       tx.query
       (
-        'update clientattachments set dateexpired=now(),usersexpired_id=$1 where customers_id=$2 and id=$3 and dateexpired is null',
+        'update clientattachments set dateexpired=now(), usersexpired_id=$1 where customers_id=$2 and dateexpired is null ' +
+        'and path LIKE (select ca2.path || ca2.id || $3 from clientattachments ca2 where ca2.customers_id=$4 and ca2.id=$5)',
         [
-          world.cn.userid,
-          world.cn.custid,
+          __.sanitiseAsBigInt(world.cn.userid),
+          __.sanitiseAsBigInt(world.cn.custid),
+          '/%',
+          __.sanitiseAsBigInt(world.cn.custid),
           __.sanitiseAsBigInt(world.clientattachmentid)
         ],
         function(err, result)
         {
           if (!err)
           {
-            tx.query
-            (
-              'select a1.clients_id clientid,a1.dateexpired,u1.name from clientattachments a1 left join users u1 on (a1.usersexpired_id=u1.id) where a1.customers_id=$1 and a1.id=$2',
+            tx.query(
+              'update clientattachments set dateexpired=now(),usersexpired_id=$1 where customers_id=$2 and dateexpired is null ' +
+              'and id = $3',
               [
-                world.cn.custid,
+                __.sanitiseAsBigInt(world.cn.userid),
+                __.sanitiseAsBigInt(world.cn.custid),
                 __.sanitiseAsBigInt(world.clientattachmentid)
               ],
-              function(err, result)
-              {
-                if (!err)
-                  resolve({clientid: result.rows[0].clientid, dateexpired: global.moment(result.rows[0].dateexpired).format('YYYY-MM-DD HH:mm:ss'), userexpired: result.rows[0].name});
-                else
+              (err, result) => {
+                if (!err) {
+                  tx.query(
+                    'select a1.clients_id clientid,a1.dateexpired,u1.name from clientattachments a1 left join users u1 on (a1.usersexpired_id=u1.id) where a1.customers_id=$1 and a1.id=$2',
+                    [
+                      world.cn.custid,
+                      __.sanitiseAsBigInt(world.clientattachmentid)
+                    ],
+                    function (err, result) {
+                      if (!err)
+                        resolve({
+                          clientid: result.rows[0].clientid,
+                          dateexpired: global.moment(result.rows[0].dateexpired).format('YYYY-MM-DD HH:mm:ss'),
+                          userexpired: result.rows[0].name
+                        });
+                      else
+                        reject(err);
+                    }
+                  );
+                } else {
                   reject(err);
-              }
-            );
+                }
+              });
+            
           }
           else
             reject(err);
@@ -816,14 +837,15 @@ function doNewFolderClientAttachment(tx, world) {
   return new global.rsvp.Promise(
     (resolve, reject) => {
       tx.query(
-        'INSERT INTO clientattachments (customers_id, name, clients_id, datecreated, userscreated_id, parent_id, mimetype) VALUES ($1, $2, $3, now(), $4, $5, $6) returning id',
+        'INSERT INTO clientattachments (customers_id, name, clients_id, datecreated, userscreated_id, parent_id, mimetype, size) VALUES ($1, $2, $3, now(), $4, $5, $6, $7) returning id',
         [
           world.cn.custid,
           'New Folder',
           __.sanitiseAsBigInt(world.clientid),
           world.cn.userid,
           __.sanitiseAsBigInt(world.parentid),
-          'Folder'
+          'Folder',
+          0
         ],
         (err, result) => {
           if (!err) {
@@ -832,7 +854,7 @@ function doNewFolderClientAttachment(tx, world) {
               'select a1.clients_id clientid,a1.dateexpired,u1.name, a1.datemodified, u1.name from clientattachments a1 left join users u1 on (a1.usersmodified_id=u1.id) where a1.customers_id=$1 and a1.id=$2',
               [
                 world.cn.custid,
-                __.sanitiseAsBigInt(result.id)
+                __.sanitiseAsBigInt(result.rows[0].id)
               ],
               function(err, result)
               {
