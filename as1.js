@@ -2264,13 +2264,19 @@ function main()
   primus.prototype.sendToRoom = function(room, eventname, data)
   {
     // primus-emit doesn't extend to primus-redis-rooms, so we mimic it's internals (the emit) data format...
+    // console.log("send to room");
+    // console.log("eventname " + eventname);
+    // console.log(data);
     this.room(room).write({emit: [eventname, data]});
   };
 
   primus.prototype.sendToRoomExcept = function(room, eventname, data, sparkid)
   {
+    //console.log("send to room except");
     var r = this.room(room);
-
+    //console.log(r);
+    // console.log("eventname " + eventname);
+    // console.log(data);
     r.sparks.forEach
     (
       function(s)
