@@ -9805,7 +9805,7 @@ function SaveDiscountCode(world)
                       {
                         done();
                         world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, discountcodeid: result.discountcodeid, datemodified: result.datemodified, usermodified: result.usermodified, pdata: world.pdata});
-                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'discountcodesaved', {priceid: world.priceid, productid: result.productid, datecreated: result.datecreated, usercreated: result.usercreated}, world.spark.id);
+                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'savediscountcode', {discountcodeid: result.discountcodeid, datemodified: result.datemodified, usermodified: result.usermodified}, world.spark.id);
                       }
                       else
                       {
@@ -9891,7 +9891,7 @@ function ExpireDiscountCode(world)
                       {
                         done();
                         world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, pdata: world.pdata});
-                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'discountcodeexpired', {discountcodeid: world.discountcodeid}, world.spark.id);
+                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'expirediscountcode', {discountcodeid: world.discountcodeid}, world.spark.id);
                       }
                       else
                       {
@@ -10151,7 +10151,7 @@ function SaveListPriceCode(world)
                       {
                         done();
                         world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, listpricecodeid: result.listpricecodeid, datemodified: result.datemodified, usermodified: result.usermodified, pdata: world.pdata});
-                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'listpricecodesaved', {listpricecodeid: result.listpricecodeid, datecreated: result.datecreated, usercreated: result.usercreated}, world.spark.id);
+                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'savelistpricecode', {listpricecodeid: result.listpricecodeid, datemodified: result.datemodified, usermodified: result.usermodified}, world.spark.id);
                       }
                       else
                       {
@@ -10237,7 +10237,7 @@ function ExpireListPriceCode(world)
                       {
                         done();
                         world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, pdata: world.pdata});
-                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'listpricecodeexpired', {listpricecodeid: world.listpricecodeid}, world.spark.id);
+                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'expirelistpricecode', {listpricecodeid: world.listpricecodeid}, world.spark.id);
                       }
                       else
                       {
