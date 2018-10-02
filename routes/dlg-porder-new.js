@@ -150,6 +150,7 @@ function doDlgPOrderNew(porderid)
     doDlgProductSelect
     (
       supplierid,
+      '',
       true,
       true,
       function(productid, productname, qty, price)
@@ -158,7 +159,7 @@ function doDlgPOrderNew(porderid)
         (
           'appendRow',
           {
-            id: productid,
+            // id: productid,
             productid: productid,
             qty: qty,
             price: price
