@@ -2259,6 +2259,7 @@ function SavePermissionTemplates(world) {
                       {
                         done();
                         world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, pdata: world.pdata});
+                        global.pr.sendToRoom(global.custchannelprefix + world.cn.custid, 'usersaved', {}, world.spark.id);
                         global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'permissiontemplatessaved', {}, world.spark.id);
                       }
                       else

@@ -257,6 +257,7 @@ function doPrimus()
 
             $('#maintenancetabs').tabs('close', 'Status Alerts');
             $('#maintenancetabs').tabs('close', 'Product Templates');
+            $('#maintenancetabs').tabs('close', 'Permission Templates');
             $('#maintenancetabs').tabs('close', 'Print Templates');
             $('#maintenancetabs').tabs('close', 'Emails');
 
@@ -359,6 +360,7 @@ function doPrimus()
               {
                 $('#maintenancetabs').tabs('close', 'Product Templates');
                 $('#maintenancetabs').tabs('close', 'Print Templates');
+                $('#maintenancetabs').tabs('close', 'Permission Templates');
               }
 
               // Command centre permissions...
@@ -402,6 +404,7 @@ function doPrimus()
                 $('#maintenancetabs').tabs('close', 'Status Alerts');
                 $('#maintenancetabs').tabs('close', 'Product Templates');
                 $('#maintenancetabs').tabs('close', 'Print Templates');
+                $('#maintenancetabs').tabs('close', 'Permission Templates');
 
                 $('#maintenancetabs').tabs('close', 'Emails');
                 $('#maintenancetabs').tabs('close', 'Settings');

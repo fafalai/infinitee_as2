@@ -492,19 +492,16 @@ function doOrdersTabWidgets()
     }
   );
 
-  var page = $('#divOrdersG').datagrid('getPager');
-  //console.log(page.onSelectPage);
-  page.pagination({
-    showPageList: false,
-    onSelectPage:function(pageNumber,pageSize){
-      console.log(pageNumber);
-      console.log(pageSize);
-    }
-  });
+  // var page = $('#divOrdersG').datagrid('getPager');
+  // if(page)
+  // page.pagination({
+  //   showPageList: false,
+  //   onSelectPage:function(pageNumber,pageSize){
+  //     console.log(pageNumber);
+  //     console.log(pageSize);
+  //   }
+  // });
   
-  // console.log(page.onSelectPage);
-
-
   if (posonly)
   {
     $('#divOrdersG').datagrid('hideColumn', 'pono');

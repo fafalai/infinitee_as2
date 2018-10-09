@@ -1864,7 +1864,11 @@ function doGetGridSelectedRowIndex(gridname)
 function doGetGridFindId(gridname, id, callback)
 {
   var grid = '#' + gridname;
-  var index = $(grid).datagrid('getRowIndex', id);
+  var index=0;
+  if($(grid).length){
+    index = $(grid).datagrid('getRowIndex', id);
+  }
+  
 
   if (!_.isUndefined(callback) && !_.isNull(callback))
   {

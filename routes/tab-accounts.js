@@ -189,13 +189,13 @@ function doAccountsTabWidgets()
 
 
 
-  var page = $('#divAccountsTG').treegrid('getPager');
-  //console.log(page.onSelectPage);
-  page.pagination({
-    showPageList: false,
-    onSelectPage:function(pageNumber,pageSize){
-      console.log(pageNumber);
-      console.log(pageSize);
-    }
-  });
+  // var page = $('#divAccountsTG').treegrid('getPager');
+  // //console.log(page.onSelectPage);
+  // page.pagination({
+  //   showPageList: false,
+  //   onSelectPage:function(pageNumber,pageSize){
+  //     console.log(pageNumber);
+  //     console.log(pageSize);
+  //   }
+  // });
 }
