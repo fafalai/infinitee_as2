@@ -155,6 +155,11 @@ function doDlgUserNew(useruuid)
       },
       onOpen: function()
       {
+        if (!isadmin) {
+          $('#cbNewUserIsAdmin').switchbutton('disable');
+          $('#cbNewUserPermissionTemplate').combobox('disable');
+        }
+        
         $('#fldNewUserUid').textbox
         (
           {
