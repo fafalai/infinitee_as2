@@ -9,6 +9,8 @@ function doDlgUserNew(useruuid)
     {
       $('#cbNewUserClient').combotree('clear');
       $('#cbNewUserAvatar').combobox('clear');
+      $('#newpermissiontemplates').combobox('clear');
+      $('#cbNewUserPermissionTemplate').combobox('clear');
 
       $('#fldNewUserName').textbox('clear');
       $('#fldNewUserUid').textbox('clear');
@@ -30,6 +32,8 @@ function doDlgUserNew(useruuid)
       {
         $('#cbNewUserClient').combotree('setValue', user.clientid);
         $('#cbNewUserAvatar').combobox('setValue', user.avatar);
+        $('#newpermissiontemplates').combobox('setValue', user.permissiontemplates);
+        $('#cbNewUserPermissionTemplate').combobox('setValue', user.permissiontemplate_id);
 
         $('#fldNewUserName').textbox('setValue', user.name);
         $('#fldNewUserUid').textbox('setValue', user.uid);
@@ -210,6 +214,14 @@ function doDlgUserNew(useruuid)
           }
         );
 
+        $('#cbNewUserPermissionTemplate').combobox
+        (
+          {
+            valueField: 'id',
+            textField: 'name',
+            data: cache_permissiontemplates
+          }
+        )
         if (isnew)
           $('#btnUserNewAdd').linkbutton({text: 'Add'});
         else
@@ -232,6 +244,7 @@ function doDlgUserNew(useruuid)
           handler: function()
           {
             var clientid = doGetComboTreeSelectedId('cbNewUserClient');
+            var permissiontemplate_id = $('#cbNewUserPermissionTemplate').combobox('getValue');
             var name = $('#fldNewUserName').textbox('getValue');
             var uid = $('#fldNewUserUid').textbox('getValue');
             var pwd1= $('#fldNewUserPwd1').passwordbox('getValue');
@@ -249,12 +262,12 @@ function doDlgUserNew(useruuid)
                 if (isnew)
                 {
                   if (!_.isBlank(pwd1 == pwd2))
-                    doServerDataMessage('newuser', {clientid: clientid, name: name, uid: uid, pwd: pwd1, email: email, mobile: mobile, avatar: avatar, isadmin: isadmin, isclient: isclient}, {type: 'refresh'});
+                    doServerDataMessage('newuser', {permissiontemplate_id: permissiontemplate_id, clientid: clientid, name: name, uid: uid, pwd: pwd1, email: email, mobile: mobile, avatar: avatar, isadmin: isadmin, isclient: isclient}, {type: 'refresh'});
                   else
                     doMandatoryTextbox('Passwords do not match', 'fldNewUserPwd1');
                 }
                 else
-                  doServerDataMessage('saveuser', {useruuid: useruuid, clientid: clientid, name: name, uid: uid, email: email, mobile: mobile, avatar: avatar, isadmin: isadmin, isclient: isclient}, {type: 'refresh'});
+                  doServerDataMessage('saveuser', {permissiontemplate_id: permissiontemplate_id,useruuid: useruuid, clientid: clientid, name: name, uid: uid, email: email, mobile: mobile, avatar: avatar, isadmin: isadmin, isclient: isclient}, {type: 'refresh'});
               }
               else
                 doMandatoryTextbox('Please enter a unique login name', 'fldNewUserUid');

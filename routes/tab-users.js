@@ -268,6 +268,7 @@ function doUsersTabWidgets()
           {title: 'User Name',     rowspan: 2, field: 'username', width: 300, align: 'left',   resizable: true, sortable: true},
           {title: 'Email',         rowspan: 2, field: 'email',    width: 300, align: 'left',   resizable: true},
           {title: 'Phone',         rowspan: 2, field: 'phone',    width: 150, align: 'left',   resizable: true},
+          {title: 'Permision template',rowspan: 2, field: 'permissiontemplate',width: 150, align: 'left',resizable: true},
           {title: 'Admin?',        rowspan: 2, field: 'isadmin',  width: 80,  align: 'center', resizable: true, formatter: function(value, row) {return mapBoolToImage(value);}},
           {title: 'Client?',       rowspan: 2, field: 'isclient', width: 80,  align: 'center', resizable: true, formatter: function(value, row) {return mapBoolToImage(value);}},
           {title: 'Client',        rowspan: 2, field: 'clientid', width: 300, align: 'left',   resizable: true, formatter: function(value, row) {return doGetNameFromTreeArray(cache_clients, value);}, styler: function(value, row, index) {if (row.isclient) return 'color: ' + colour_blueviolet;}, sortable: true},

@@ -1510,7 +1510,8 @@ function doPrimus()
                   clientid: u.clientid,
                   date: doNiceDateModifiedOrCreated(u.datemodified, u.datecreated),
                   by: doNiceModifiedBy(u.datemodified, u.usermodified, u.usercreated),
-                  status: imgstatus
+                  status: imgstatus,
+                  permissiontemplate: u.permissiontemplate
                 }
               );
             }
@@ -1536,6 +1537,87 @@ function doPrimus()
       function(data)
       {
         $('#divEvents').trigger('saveuserpermissions', {data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+
+    //Permission Templates request
+    primus.on
+    (
+      'newpermissiontemplates',
+      function(data)
+      {
+        $('#divEvents').trigger('newpermissiontemplates', {data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+    
+    primus.on
+    (
+      'savepermissiontemplates',
+      function(data)
+      {
+        $('#divEvents').trigger('savepermissiontemplates', {data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+
+    primus.on
+    (
+      'listpermissiontemplates',
+      function(data)
+      {
+        doUpdateInitTasksProgress();
+        cache_permissiontemplates = [];
+        if (!_.isUndefined(data.rs) && !_.isNull(data.rs)) {
+          data.rs.forEach(u => {
+            cache_permissiontemplates.push
+              (
+                {
+                  id: u.id,
+                  name: doNiceString(u.name),
+                  canvieworders: u.canvieworders,
+                  cancreateorders: u.cancreateorders,
+                  canviewinvoices: u.canviewinvoices,
+                  cancreateinvoices: u.cancreateinvoices,
+                  canviewinventory: u.canviewinventory,
+                  cancreateinventory: u.cancreateinventory,
+                  canviewpayroll: u.canviewpayroll,
+                  cancreatepayroll: u.cancreatepayroll,
+                  canviewproducts: u.canviewproducts,
+                  cancreateproducts: u.cancreateproducts,
+                  canviewclients: u.canviewclients,
+                  cancreateclients: u.cancreateclients,
+                  canviewcodes: u.canviewcodes,
+                  cancreatecodes: u.cancreatecodes,
+                  canviewusers: u.canviewusers,
+                  cancreateusers: u.cancreateusers,
+                  canviewbuilds: u.canviewbuilds,
+                  cancreatebuilds: u.cancreatebuilds,
+                  canviewtemplates: u.canviewtemplates,
+                  cancreatetemplates: u.cancreatetemplates,
+                  canviewbanking: u.canviewbanking,
+                  cancreatebanking: u.cancreatebanking,
+                  canviewpurchasing: u.canviewpurchasing,
+                  cancreatepurchasing: u.cancreatepurchasing,
+                  canviewalerts: u.canviewalerts,
+                  cancreatealerts: u.cancreatealerts,
+                  canviewdashboard: u.canviewdashboard,
+                  cancreatedashboard: u.cancreatedashboard,
+                  date: doNiceDateModifiedOrCreated(u.datemodified, u.datecreated),
+                  by: doNiceModifiedBy(u.datemodified, u.usermodified, u.usercreated),
+                }
+              );
+          });
+        }
+
+        $('#divEvents').trigger('listpermissiontemplates', {data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+
+    primus.on
+    (
+      'permissiontemplatessaved',
+      function(data)
+      {
+        $('#divEvents').trigger('permissiontemplatessaved', {data: data, pdata: $.extend(data.pdata, {})});
       }
     );
 

@@ -4584,7 +4584,7 @@ function main()
         {
           try
           {
-            makeWorld(spark, 'newuser', data, '*name', '*uid', '*pwd', '*clientid', '*email', '*mobile', '*avatar', '*isadmin', 'isclient').then
+            makeWorld(spark, 'newuser', data, '*name', '*uid', '*pwd', '*clientid', '*email', '*mobile', '*avatar', '*isadmin', 'isclient','permissiontemplate_id').then
             (
               function(world)
               {
@@ -4613,7 +4613,7 @@ function main()
         {
           try
           {
-            makeWorld(spark, 'saveuser', data, '*useruuid', '*name', '*uid', '*clientid', '*email', '*mobile', '*isadmin', '*avatar', '*isclient', '*clientid').then
+            makeWorld(spark, 'saveuser', data, '*useruuid', '*name', '*uid', '*clientid', '*email', '*mobile', '*isadmin', '*avatar', '*isclient', '*clientid', 'permissiontemplate_id').then
             (
               function(world)
               {
@@ -10110,6 +10110,94 @@ function main()
           catch (err)
           {
             global.log.error({as1: true}, '[emailhistory] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
+      //Permission Templates request
+      spark.on
+      (
+        'newpermissiontemplates',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'newpermissiontemplates', data, '*name', '*permissions').then
+            (
+              function(world)
+              {
+                global.modauth.NewPermissionTemplates(world);
+              }
+            ).then
+            (
+              null,
+              function(ignore)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[newpermissiontemplates] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
+      spark.on
+      (
+        'savepermissiontemplates',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'savepermissiontemplates', data, '*permissiontemplate_id','*name', '*permissions').then
+            (
+              function(world)
+              {
+                global.modauth.SavePermissionTemplates(world);
+              }
+            ).then
+            (
+              null,
+              function(ignore)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[savepermissiontemplates] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
+      spark.on
+      (
+        'listpermissiontemplates',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'listpermissiontemplates', data).then
+            (
+              function(world)
+              {
+                global.modauth.ListPermissionTemplates(world);
+              }
+            ).then
+            (
+              null,
+              function(ignore)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[listpermissiontemplates] ' + global.text_generalexception + ' ' + err.message);
           }
         }
       );
