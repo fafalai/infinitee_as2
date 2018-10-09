@@ -6276,7 +6276,7 @@ function main()
         {
           try
           {
-            console.log(data);
+            // console.log(data);
             makeWorld(spark, 'newbuildtemplate', data, '*code', '*templates', 'clientid').then
             (
               function(world)
@@ -10115,6 +10115,35 @@ function main()
       );
 
       //Permission Templates request
+      spark.on
+      (
+        'removepermissiontemplatebyid',
+        function(data)
+        {
+          try
+          {
+            makeWorld(spark, 'removepermissiontemplatebyid', data, '*permissiontemplate_id').then
+            (
+              function(world)
+              {
+                global.modauth.RemovePermissionTemplateByID(world);
+              }
+            ).then
+            (
+              null,
+              function(ignore)
+              {
+              }
+            );
+          }
+
+          catch (err)
+          {
+            global.log.error({as1: true}, '[removepermissiontemplatebyid] ' + global.text_generalexception + ' ' + err.message);
+          }
+        }
+      );
+
       spark.on
       (
         'newpermissiontemplates',

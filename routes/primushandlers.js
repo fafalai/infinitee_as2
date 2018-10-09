@@ -1543,6 +1543,15 @@ function doPrimus()
     //Permission Templates request
     primus.on
     (
+      'removepermissiontemplatebyid',
+      function(data)
+      {
+        $('#divEvents').trigger('removepermissiontemplatebyid', {data: data, pdata: $.extend(data.pdata, {})});
+      }
+    );
+
+    primus.on
+    (
       'newpermissiontemplates',
       function(data)
       {
@@ -2170,11 +2179,11 @@ function doPrimus()
               );
             }
           );
-          console.log("list products");
-          console.log("products original number " + cache_products.length);
+          // console.log("list products");
+          // console.log("products original number " + cache_products.length);
           cache_products = removeDuplicates(cache_products,'id');
-          console.log("after number " + cache_products.length);
-          console.log(cache_products[2]);
+          // console.log("after number " + cache_products.length);
+          // console.log(cache_products[2]);
 
           $('#divEvents').trigger('listproducts', {data: data, pdata: $.extend(data.pdata, {})});
         }
@@ -2524,8 +2533,8 @@ function doPrimus()
                );
            }
           );
-          console.log("primus.on, listlistpricecode, cache_listpricecode");
-          console.log(cache_listpricecode);
+          // console.log("primus.on, listlistpricecode, cache_listpricecode");
+          // console.log(cache_listpricecode);
           $('#divEvents').trigger('listlistpricecode', {data: data, pdata: $.extend(data.pdata, {})});
         }
         // $('#divEvents').trigger('listdiscountcode',{data: data, pdata: $.extend(data.pdata, {})});

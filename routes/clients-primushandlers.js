@@ -1251,7 +1251,7 @@ function doPrimus()
       'liststatusalerts',
       function(data)
       {
-        console.log(data);
+        // console.log(data);
         var pdata = data.pdata || '';
 
         doUpdateInitTasksProgress();
@@ -1288,7 +1288,7 @@ function doPrimus()
       'newstatusalert',
       function(data)
       {
-        console.log(data);
+        // console.log(data);
 
         var pdata = data.pdata || '';
 

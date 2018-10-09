@@ -79,7 +79,7 @@ function doDlgPermissionTemplates(row) {
             $('#divPermissionsPG').propertygrid({
                 showGroup: true,
                 scrollbarSize: 0,
-                // toolbar: tb,
+                toolbar: '',
                 loader: function (param, success, error) {
                     cache_permissions = [];
 

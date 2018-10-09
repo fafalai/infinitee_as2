@@ -1574,7 +1574,8 @@ function doRefreshAll()
   primus.emit('listexchangerates', {fguid: fguid, uuid: uuid, session: session, pdata: {type: 'refresh'}});
   primus.emit('listprinttemplates', {fguid: fguid, uuid: uuid, session: session, pdata: {type: 'refresh'}});
   primus.emit('loadconfig', {fguid: fguid, uuid: uuid, session: session, pdata: {type: 'refresh'}});
-
+  primus.emit('listpermissiontemplates', {fguid: fguid, uuid: uuid, session: session, pdata: {type: 'refresh'}});
+  
   // Don't include these as tasks for progressbar...
   primus.emit('latestrates', {fguid: fguid, uuid: uuid, session: session, pdata: {type: 'refresh'}});
 }

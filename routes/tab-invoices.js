@@ -135,7 +135,7 @@ function doInvoicesTabWidgets()
     'listinvoices',
     function(ev, args)
     {
-      console.log("list invoices");
+      // console.log("list invoices");
       var totalprice = _.toBigNum(0.0);
       var data = [];
 
@@ -181,7 +181,7 @@ function doInvoicesTabWidgets()
           );
         }
       );
-      console.log(data);
+      // console.log(data);
 
       $('#divInvoicesG').datagrid('loadData', data);
       $('#divInvoicesG').datagrid('reloadFooter', [{name: '<span class="totals_footer">' + data.length + ' invoice(s)</span>', totalprice: '<span class="totals_footer">' + _.niceformatnumber(totalprice) + '</span>'}]);

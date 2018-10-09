@@ -726,6 +726,28 @@ function doSavePermissionTemplates(tx, world) {
   );
 }
 
+function doRemovePermissionTemplate(tx, world) {
+  return new global.rsvp.Promise(
+    (resolve, reject) => {
+      tx.query(
+        'UPDATE permissiontemplates SET dateexpired=now(), usersexpired_id=$1' + 
+        'WHERE customers_id=$2 AND dateexpired IS NULL AND id=$3',
+        [
+          world.cn.userid,
+          world.cn.custid,
+          __.sanitiseAsBigInt(world.permissiontemplate_id)
+        ],
+        (err, result) => {
+          if(!err) {
+            resolve(result);
+          } else {
+            reject(err);
+          }
+        }
+      );
+    }
+  );
+}
 // *******************************************************************************************************************************************************************************************
 // Public functions
 function LoginUser(spark, eventname, fguid, uid, pwd, pdata)
@@ -2292,6 +2314,81 @@ function SavePermissionTemplates(world) {
   );
 }
 
+function RemovePermissionTemplateByID(world) {
+  var msg = '[' + world.eventname + '] ';
+
+  global.pg.connect(
+    global.cs,
+    (err, client, done) => {
+      if(!err){
+        let tx = new global.pgtx(client);
+        tx.begin(
+          (err) => {
+            if(!err){
+              doRemovePermissionTemplate(tx, world).then
+              (
+                function(result)
+                {
+                  tx.commit
+                  (
+                    function(err)
+                    {
+                      if (!err)
+                      {
+                        done();
+                        world.spark.emit(world.eventname, {rc: global.errcode_none, msg: global.text_success, pdata: world.pdata});
+                        global.pr.sendToRoomExcept(global.custchannelprefix + world.cn.custid, 'permissiontemplatessaved', {}, world.spark.id);
+                      }
+                      else
+                      {
+                        tx.rollback
+                        (
+                          function(ignore)
+                          {
+                            done();
+                            msg += global.text_tx + ' ' + err.message;
+                            global.log.error({removepermissiontemplatebyid: true}, msg);
+                            world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+                          }
+                        );
+                      }
+                    }
+                  );
+                }
+              ).then
+              (
+                null,
+                function(err)
+                {
+                  tx.rollback
+                  (
+                    function(ignore)
+                    {
+                      done();
+                      msg += global.text_generalexception + ' ' + err.message;
+                      global.log.error({removepermissiontemplatebyid: true}, msg);
+                      world.spark.emit(global.eventerror, {rc: global.errcode_fatal, msg: msg, pdata: world.pdata});
+                    }
+                  );
+                }
+              );
+            } else {
+              done();
+              msg += global.text_notxstart + ' ' + err.message;
+              global.log.error({removepermissiontemplatebyid: true}, msg);
+              world.spark.emit(global.eventerror, {rc: global.errcode_dberr, msg: msg, pdata: world.pdata});
+            }
+          }
+        )
+      } else {
+        done();
+        global.log.error({removepermissiontemplatebyid: true}, global.text_nodbconnection);
+        world.spark.emit(global.eventerror, {rc: global.errcode_dbunavail, msg: global.text_nodbconnection, pdata: world.pdata});
+      }
+    }
+  )
+}
+
 // *******************************************************************************************************************************************************************************************
 // Internal functions
 module.exports.IDFromUUID = IDFromUUID;
@@ -2316,3 +2413,4 @@ module.exports.InitConnectionCache = InitConnectionCache;
 module.exports.NewPermissionTemplates = NewPermissionTemplates;
 module.exports.ListPermissionTemplates = ListPermissionTemplates;
 module.exports.SavePermissionTemplates = SavePermissionTemplates;
+module.exports.RemovePermissionTemplateByID = RemovePermissionTemplateByID;

@@ -130,7 +130,7 @@ function doListPriceCodeTabWidgets()
     
    function doRefresh()
    {
-     console.log("tab-listpricecode, refresh");
+    //  console.log("tab-listpricecode, refresh");
       doServerDataMessage('listlistpricecode', {type: 'refresh'}); 
    }
 

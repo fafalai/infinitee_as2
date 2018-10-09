@@ -269,7 +269,7 @@ function doOrdersTabWidgets()
     function(ev, args)
     {
       var data = [];
-      console.log(data);
+      // console.log(data);
 
       args.data.rs.forEach
       (
@@ -502,7 +502,7 @@ function doOrdersTabWidgets()
     }
   });
   
-  console.log(page.onSelectPage);
+  // console.log(page.onSelectPage);
 
 
   if (posonly)

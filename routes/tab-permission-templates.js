@@ -6,7 +6,7 @@ function doPermissionTemplatesTabWidgets() {
 
     permissiontemplatesTabWidgetsLoaded = true;
 
-    doServerMessage('listpermissiontemplates', {type: 'refresh'});
+    // doServerMessage('listpermissiontemplates', {type: 'refresh'});
 
     $('#divEvents').on('listpermissiontemplates', (ev, args) => {
         $('#divPermissionTemplates').datagrid('reload', cache_permissiontemplates);
@@ -15,6 +15,8 @@ function doPermissionTemplatesTabWidgets() {
     $('#divEvents').on('newpermissiontemplates', doSaved);
     $('#divEvents').on('permissiontemplatessaved', doSaved);
     $('#divEvents').on('savepermissiontemplates', doSaved);
+    $('#divEvents').on('removepermissiontemplatebyid', doSaved);
+    
 
     $('#divEvents').on('permissiontemplatespopup',
         function (ev, args) {
@@ -85,11 +87,24 @@ function doPermissionTemplatesTabWidgets() {
 
     function doSave() {}
 
-    function doRemove() {}
+    function doRemove() {
+        if (!doGridGetSelectedRowData(
+                'divPermissionTemplates',
+                function (row) {
+                    doPromptOkCancel(
+                            'Remove ' + row.name + '?',
+                            function (result) {
+                                if (result)
+                                    doServerDataMessage('removepermissiontemplatebyid', {permissiontemplate_id: row.id}, {type: 'refresh'});
+                            });
+                }
+            )) {
+            doShowError('Please select a template to delete');
+        }
+    }
 
     function doSaved(ev, args)
     {
-    //   $('#dlgUserPermissions').dialog('close');
       doServerMessage('listpermissiontemplates', {type: 'refresh'});
     }
 
@@ -111,7 +126,6 @@ function doPermissionTemplatesTabWidgets() {
             success({
                 total: cache_permissiontemplates.length,
                 rows: cache_permissiontemplates,
-                // $('#divBuildTemplateSelectG').datagrid('reloadFooter', [{name: '<span class="totals_footer">' + data.length + ' found</span>'}]);
                 footer: [{name: '<span class="totals_footer">' + cache_permissiontemplates.length + ' Templates</span>'}]
             });
         },
@@ -178,20 +192,6 @@ function doPermissionTemplatesTabWidgets() {
         onDblClickRow: function (index,row) {
             doDlgPermissionTemplates(row);
         }
-        // onDblClickCell: function (index,field, row) {
-        //     console.log(row);
-        //     if (!doGridGetSelectedRowData
-        //         (
-        //           'divPermissionTemplates',
-        //           function(row)
-        //           {
-        //             doDlgPermissionTemplates(row);
-        //           }
-        //         ))
-        //       {
-        //         doShowError('Please select a user to view/edit permissions');
-        //       }
-        // }
     })
 
 }
