@@ -442,6 +442,16 @@
         {
           onOpen: function()
           {
+            $('#fldUid').textbox('textbox').bind
+            (
+              'keydown',
+              function(ev)
+              {
+                if (ev.keyCode == 13)
+                  doLogin();
+              }
+            );
+
             $('#fldPwd').passwordbox('textbox').bind
             (
               'keydown',
